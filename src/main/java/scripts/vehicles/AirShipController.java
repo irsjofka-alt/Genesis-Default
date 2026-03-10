@@ -432,7 +432,7 @@ public abstract class AirShipController extends Quest
 		super(-1);
 	}
 	
-	void main()
+	public static void main(String[] args)
 	{
 	}
 }

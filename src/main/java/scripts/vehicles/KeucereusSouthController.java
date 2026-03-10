@@ -86,7 +86,7 @@ public class KeucereusSouthController extends AirShipController
 		validityCheck();
 	}
 
-	void main()
+	public static void main(String[] args)
 	{
 		new KeucereusSouthController();
 	}

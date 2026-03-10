@@ -476,7 +476,7 @@ public class ErosionHallAttack extends AbstractReflection
 		}
 	}
 
-	void main()
+	public static void main(String[] args)
 	{
 		new ErosionHallAttack();
 	}

@@ -149,7 +149,7 @@ public class EchoCrystals extends Quest
 		return null;
 	}
 	
-	void main()
+	public static void main(String[] args)
 	{
 		new EchoCrystals();
 	}

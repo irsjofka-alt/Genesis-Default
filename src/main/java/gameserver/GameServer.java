@@ -594,7 +594,7 @@ public class GameServer
 		server_started = new Date();
 	}
 
-	void main() throws Exception
+	public static void main(String[] args) throws Exception
 	{
 		final File logFolder = new File(Config.DATAPACK_ROOT, "log");
 		logFolder.mkdir();

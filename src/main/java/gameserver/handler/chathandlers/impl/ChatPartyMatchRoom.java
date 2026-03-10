@@ -66,7 +66,7 @@ public class ChatPartyMatchRoom implements IChatHandler
 		return COMMAND_IDS;
 	}
 
-	void main()
+	public static void main(String[] args)
 	{
 		new ChatPartyMatchRoom();
 	}

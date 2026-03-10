@@ -167,7 +167,7 @@ public class LoginServer
 		return _loginServer;
 	}
 
-	void main() throws Exception
+	public static void main(String[] args) throws Exception
 	{
 		_loginServer = new LoginServer();
 	}

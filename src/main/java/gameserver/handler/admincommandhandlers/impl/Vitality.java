@@ -126,7 +126,7 @@ public class Vitality implements IAdminCommandHandler
 		return ADMIN_COMMANDS;
 	}
 	
-	void main()
+	public static void main(String[] args)
 	{
 		new Vitality();
 	}

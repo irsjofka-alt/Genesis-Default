@@ -325,7 +325,7 @@ public class ServerInfoNPC extends Quest
 		}
 	}
 
-	void main()
+	public static void main(String[] args)
 	{
 		new ServerInfoNPC();
 	}

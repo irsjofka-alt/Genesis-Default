@@ -201,7 +201,7 @@ public abstract class AbstractNpcAI extends Quest
 		return array[getRandom(array.length)];
 	}
 	
-	void main()
+	public static void main(String[] args)
 	{
 	}
 }

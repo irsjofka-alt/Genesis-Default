@@ -103,7 +103,7 @@ public class TowerofInfinitum10Floor extends AbstractReflection
 		return super.onKill(npc, killer, isSummon);
 	}
 	
-	void main()
+	public static void main(String[] args)
 	{
 		new TowerofInfinitum10Floor();
 	}

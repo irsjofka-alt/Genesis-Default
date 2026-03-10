@@ -368,7 +368,7 @@ public class ColorNameNPC extends Quest
 		}
 	}
 	
-	void main()
+	public static void main(String[] args)
 	{
 		new ColorNameNPC();
 	}

@@ -160,7 +160,7 @@ public class LibraryOfSages extends AbstractReflection
 		return htmltext;
 	}
 
-	void main()
+	public static void main(String[] args)
 	{
 		new LibraryOfSages();
 	}

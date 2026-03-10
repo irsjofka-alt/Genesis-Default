@@ -163,7 +163,7 @@ public class PailakaInjuredDragon extends AbstractReflection
 		return super.onEnterZone(character, zone);
 	}
 	
-	void main()
+	public static void main(String[] args)
 	{
 		new PailakaInjuredDragon();
 	}

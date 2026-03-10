@@ -64,7 +64,7 @@ public class Alliance extends Quest
 		return event;
 	}
 	
-	void main()
+	public static void main(String[] args)
 	{
 		new Alliance();
 	}

@@ -86,7 +86,7 @@ public class EkimusMouth extends Quest
 		return "";
 	}
 
-	void main()
+	public static void main(String[] args)
 	{
 		new EkimusMouth();
 	}

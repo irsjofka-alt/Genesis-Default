@@ -345,7 +345,7 @@ public class HellboundTown extends AbstractReflection
 		}
 	}
 
-	void main()
+	public static void main(String[] args)
 	{
 		new HellboundTown();
 	}

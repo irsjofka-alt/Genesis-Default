@@ -193,7 +193,7 @@ public class DragonVortex extends Quest
 		return false;
 	}
 
-	void main()
+	public static void main(String[] args)
 	{
 		new DragonVortex();
 	}

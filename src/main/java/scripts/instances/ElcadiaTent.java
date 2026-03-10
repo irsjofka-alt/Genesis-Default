@@ -125,7 +125,7 @@ public class ElcadiaTent extends AbstractReflection
 		return htmltext;
 	}
 
-	void main()
+	public static void main(String[] args)
 	{
 		new ElcadiaTent();
 	}

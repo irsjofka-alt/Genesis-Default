@@ -647,7 +647,7 @@ public class HeartInfinityAttack extends AbstractReflection
 		}
 	}
 
-	void main()
+	public static void main(String[] args)
 	{
 		new HeartInfinityAttack();
 	}

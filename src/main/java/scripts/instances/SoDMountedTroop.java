@@ -183,7 +183,7 @@ public class SoDMountedTroop extends AbstractReflection
 		return true;
 	}
 	
-	void main()
+	public static void main(String[] args)
 	{
 		new SoDMountedTroop();
 	}

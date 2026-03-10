@@ -63,7 +63,7 @@ public class Kamaloka55_65 extends KamalokaSolo
 		});
 	}
 
-	void main()
+	public static void main(String[] args)
 	{
 		new Kamaloka55_65();
 	}

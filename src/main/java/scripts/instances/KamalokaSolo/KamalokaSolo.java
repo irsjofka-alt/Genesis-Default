@@ -340,7 +340,7 @@ public class KamalokaSolo extends AbstractReflection
 		return null;
 	}
 	
-	void main()
+	public static void main(String[] args)
 	{
 		new KamalokaSolo();
 	}

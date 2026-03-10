@@ -169,7 +169,7 @@ public class HealerTrainer extends AbstractNpcAI
 		return (player.getInventory().getInventoryItemCount(itemId, -1) > 0);
 	}
 	
-	void main()
+	public static void main(String[] args)
 	{
 		new HealerTrainer();
 	}

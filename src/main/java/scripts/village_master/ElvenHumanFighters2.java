@@ -213,7 +213,7 @@ public class ElvenHumanFighters2 extends Quest
 		return htmltext;
 	}
 
-	void main()
+	public static void main(String[] args)
 	{
 		new ElvenHumanFighters2();
 	}

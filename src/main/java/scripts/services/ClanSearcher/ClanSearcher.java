@@ -554,7 +554,7 @@ public class ClanSearcher extends Quest
 		}
 	}
 
-	void main()
+	public static void main(String[] args)
 	{
 		new ClanSearcher();
 	}

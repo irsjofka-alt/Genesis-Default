@@ -1180,7 +1180,7 @@ public class FinalEmperialTomb extends AbstractReflection
 		return "";
 	}
 
-	void main()
+	public static void main(String[] args)
 	{
 		new FinalEmperialTomb();
 	}

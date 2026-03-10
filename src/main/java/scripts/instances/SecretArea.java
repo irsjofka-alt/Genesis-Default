@@ -86,7 +86,7 @@ public class SecretArea extends AbstractReflection
 		return super.onAdvEvent(event, npc, player);
 	}
 	
-	void main()
+	public static void main(String[] args)
 	{
 		new SecretArea();
 	}
