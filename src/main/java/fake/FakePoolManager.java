@@ -14,7 +14,10 @@
  */
 package fake;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -27,20 +30,28 @@ public class FakePoolManager
 {
 	private static final long MAX_DELAY = TimeUnit.NANOSECONDS.toMillis(Long.MAX_VALUE - System.nanoTime()) / 2;
 
-	private final ScheduledThreadPoolExecutor _scheduledExecutor;
-	private final ThreadPoolExecutor _executor;
+	private final ScheduledExecutorService _scheduledExecutor;
+	private final ExecutorService _executor;
 	
 	private boolean _shutdown;
 
 	private FakePoolManager()
 	{
-		_scheduledExecutor = new ScheduledThreadPoolExecutor(Config.SCHEDULED_THREAD_POOL_SIZE, new PriorityThreadFactory("ScheduledThreadPool", Thread.NORM_PRIORITY), new ThreadPoolExecutor.CallerRunsPolicy());
-		_executor = new ThreadPoolExecutor(Config.EXECUTOR_THREAD_POOL_SIZE, Integer.MAX_VALUE, 5L, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(), new PriorityThreadFactory("ThreadPoolExecutor", Thread.NORM_PRIORITY), new ThreadPoolExecutor.CallerRunsPolicy());
+		// Use Project Loom virtual threads for Java 25
+		_scheduledExecutor = Executors.newScheduledThreadPool(
+			Config.SCHEDULED_THREAD_POOL_SIZE, 
+			Thread.ofVirtual().factory()
+		);
+		
+		// Create virtual thread executor for fake players
+		_executor = Executors.newThreadPerTaskExecutor(Thread.ofVirtual().factory());
 		
 		scheduleAtFixedRate(() ->
 		{
-			_scheduledExecutor.purge();
-			_executor.purge();
+			if (_scheduledExecutor instanceof ScheduledThreadPoolExecutor stpe)
+			{
+				stpe.purge();
+			}
 		}, 300000L, 300000L);
 	}
 
@@ -85,12 +96,18 @@ public class FakePoolManager
 		try
 		{
 			_scheduledExecutor.shutdown();
-			_scheduledExecutor.awaitTermination(10, TimeUnit.SECONDS);
+			if (_scheduledExecutor instanceof ScheduledThreadPoolExecutor stpe)
+			{
+				stpe.awaitTermination(10, TimeUnit.SECONDS);
+			}
 		}
 		finally
 		{
 			_executor.shutdown();
-			_executor.awaitTermination(1, TimeUnit.MINUTES);
+			if (_executor instanceof ThreadPoolExecutor tpe)
+			{
+				tpe.awaitTermination(1, TimeUnit.MINUTES);
+			}
 		}
 	}
 	
