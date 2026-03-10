@@ -1,0 +1,66 @@
+/*
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see <http://l2jeternity.com/>.
+ */
+package gameserver.handler.effecthandlers.impl;
+
+import gameserver.instancemanager.PunishmentManager;
+import gameserver.model.punishment.PunishmentAffect;
+import gameserver.model.punishment.PunishmentSort;
+import gameserver.model.punishment.PunishmentTemplate;
+import gameserver.model.punishment.PunishmentType;
+import gameserver.model.skills.effects.Effect;
+import gameserver.model.skills.effects.EffectTemplate;
+import gameserver.model.skills.effects.EffectType;
+import gameserver.model.stats.Env;
+
+public final class BlockParty extends Effect
+{
+	private PunishmentTemplate _template;
+	
+	public BlockParty(Env env, EffectTemplate template)
+	{
+		super(env, template);
+	}
+
+	@Override
+	public EffectType getEffectType()
+	{
+		return EffectType.NONE;
+	}
+
+	@Override
+	public boolean onStart()
+	{
+		if ((getEffected() == null) || !getEffected().isPlayer())
+		{
+			return false;
+		}
+		_template = new PunishmentTemplate(0, String.valueOf(getEffected().getObjectId()), getEffected().getName(null), PunishmentSort.CHARACTER, PunishmentAffect.CHARACTER, PunishmentType.PARTY_BAN, 0, "Party banned by bot report", "system", true);
+		if (!PunishmentManager.getInstance().addPunishment(getEffected().getActingPlayer(), null, _template, false))
+		{
+			_template = null;
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public void onExit()
+	{
+		if (_template != null)
+		{
+			PunishmentManager.getInstance().stopPunishment(getEffected().getActingPlayer().getClient(), _template);
+		}
+	}
+}

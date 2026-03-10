@@ -1,0 +1,105 @@
+    15 TradeStartOk - trigger
+    34 WithdrawalPledge - system message Id 1120
+    35 OustPledgeMember - trigger
+    36 SetOustPledgeMember - trigger
+    37 DismissPledge - system message Id 194
+    38 SetDismissPledge - trigger
+    3B WithdrawalParty - trigger
+    3C OustPartyMember - trigger
+    3E DismissParty - trigger?
+    40 UserAck - trigger?
+    43 WareHouseDone - trigger?
+    46 ShortCutDelete - trigger?
+    56 FriendAdd - trigger?	
+    57 FriendRemove - trigger?
+    59 FriendStatus - trigger?
+    5E MagicList - trigger?	
+    64 ReplyStartPledgeWar - trigger?
+    66 ReplyStopPledgeWar - trigger?
+    68 ReplySurrenderPledgeWar - trigger?
+    69 SetPledgeCrest - trigger?
+    7D Dummy_7D - trigger?
+    8A PledgeExtendedInfo - trigger?
+    8B SurrenderPersonally - trigger?
+    8D GiveNickNameDone - trigger?
+    8F ClientAction - trigger?
+    98 GMViewMagicInfo - trigger?
+    A4 ReviveRequest - trigger?
+    A5 AbnormalVisualEffect - trigger?	
+    AA ShowRadar - just need support for packet
+    AB WithdrawAlliance - system message Id 520
+    AC OustAllianceMemberPledge - system message Id 522
+    AD DismissAlliance - system message Id 524
+    AE SetAllianceCrest - trigger?
+    B0 ServerCloseSocket - trigger?
+    B8 DeleteRadar - trigger?
+    BC JoinAlliance - system message Id 518
+    C1 RequestTimeCheck - trigger?
+    C2 StartAllianceWar + need support
+    C3 ReplyStartAllianceWar -
+    C4 StopAllianceWar + need support
+    C5 ReplyStopAllianceWar - trigger?
+    C6 SurrenderAllianceWar - trigger?	
+    D8 SkillRemainSec - trigger?
+    FE:02 ExEventMatchUserInfo - trigger?
+    FE:04 ExEventMatchSpelledInfo + trigger?
+    FE:05 ExEventMatchFirecracker - need support
+    FE:06 ExEventMatchTeamUnlocked - need support
+    FE:07 ExEventMatchGMTest - need support
+    FE:0B ExEventMatchLockResult - need support
+    FE:0D ExEventMatchList - need support
+    FE:0E ExEventMatchObserver - need support
+    FE:10 ExEventMatchScore - need support
+    FE:11 ExServerPrimitive - need support
+    FE:1C ExEventMatchTeamInfo -? need support
+    FE:1D ExEventMatchCreate - need support
+    FE:30 ExEventMatchManage - need support
+    FE:37 ExSetMpccRouting - trigger?
+    FE:43 FlySelfDestination - trigger?
+    FE:49 ExRequestHackShield - trigger?
+    FE:59 ExDuelEnemyRelation - trigger?
+    FE:5A ExPlayAnimation - trigger?
+    FE:5C ExPlayScene -? trigger?
+    FE:6B ExTutorialList - trigger?
+    FE:71 ExMoveToTargetInAirShip + trigger?
+    FE:72 ExAttackInAirShip - trigger?
+    FE:73 ExMagicSkillUseInAirShip - trigger?
+    FE:77 ExResponseFreeServer - trigger?
+    FE:7F ExPVPMatchUserDie + need support
+    FE:87 ExPeriodicItemList - need support
+    FE:88 ExJumpToLocation - trigger?
+    FE:8B ExPVPMatchCCRetire + need support
+    FE:8C ExShowTerritory - client crit! may be need use on gracia?
+    FE:8F ExNotifyBirthDay + trigger?
+    FE:91 ExReplyRegisterDominion + trigger?
+    FE:96 ExDominionChannelSet + trigger?
+    FE:A4 ExDominionWarEnd + need support
+    FE:A5 ExShowLines - client error
+    FE:A6 ExPartyMemberRenamed + trigger?
+    FE:A8 ExRefundList - trigger?
+    FE:AE ExResponseShowStepOne + need support
+    FE:AF ExResponseShowStepTwo + need support
+    FE:B0 ExResponseShowContents + need support
+    FE:B1 ExShowPetitionHtml - need support
+    FE:B5 ExInitializeSeed - trigger?
+    FE:B6 ExRaidReserveResult - lags in client
+    FE:B8 ExCloseRaidSocket - lags in client
+    FE:B9 ExPrivateMarketList - need support (crit null)
+    FE:BA ExRaidCharacterSelected - relog and crit
+    FE:BC ExBrBroadcastEventState + no info
+    FE:BD ExBrLoadEventTopRankers - no info
+    FE:C3 ExMembershipInfo - trigger?
+    FE:C8 ExRestartResponse - start relog!!!
+    FE:CA ExShuttleInfo - trigger?
+    FE:CB ExSuttleGetOn - trigger?
+    FE:CC ExSuttleGetOff - trigger?
+    FE:CD ExSuttleMove - trigger?
+    FE:CE ExMoveToLocationInSuttle - trigger?
+    FE:CF ExStopMoveInShuttle - trigger?
+    FE:D0 ExValidateLocationInShuttle - trigger?
+    FE:D1 ExAgitAuctionCmd - trigger?
+    FE:DB ExBrBuffEventState - trigger?
+    FE:E2 ExGoodsInventoryChangedNotify + need support
+    FE:E3 ExGoodsInventoryInfo - need support
+    FE:E4 ExGoodsInventoryResult + need support
+    FE:E8 ExSay2Fail - trigger?

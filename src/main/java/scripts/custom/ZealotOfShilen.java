@@ -1,0 +1,121 @@
+/*
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see <http://l2jeternity.com/>.
+ */
+package scripts.custom;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import gameserver.ai.model.CtrlIntention;
+import gameserver.data.parser.SpawnParser;
+import gameserver.model.World;
+import gameserver.model.actor.Attackable;
+import gameserver.model.actor.Npc;
+import gameserver.model.actor.Player;
+import gameserver.model.spawn.Spawner;
+import scripts.ai.AbstractNpcAI;
+
+public class ZealotOfShilen extends AbstractNpcAI
+{
+	private static final int ZEALOT = 18782;
+	private static final int GUARD1 = 32628;
+	private static final int GUARD2 = 32629;
+
+	private final List<Npc> _zealot = new ArrayList<>();
+	private final List<Npc> _guard1 = new ArrayList<>();
+	private final List<Npc> _guard2 = new ArrayList<>();
+
+	private ZealotOfShilen()
+	{
+		addSpawnId(ZEALOT);
+
+		addFirstTalkId(GUARD1, GUARD2);
+
+		findNpcs();
+	}
+
+	private void findNpcs()
+	{
+		for (final Spawner spawn : SpawnParser.getInstance().getSpawnData())
+		{
+			if (spawn != null)
+			{
+				if (spawn.getId() == ZEALOT)
+				{
+					_zealot.add(spawn.getLastSpawn());
+					for (final Npc zealot : _zealot)
+					{
+						zealot.setIsNoRndWalk(true);
+					}
+				}
+				else if (spawn.getId() == GUARD1)
+				{
+					_guard1.add(spawn.getLastSpawn());
+					for (final Npc guard : _guard1)
+					{
+						guard.setIsInvul(true);
+						((Attackable) guard).setCanReturnToSpawnPoint(false);
+						startQuestTimer("WATCHING", 10000, guard, null, true);
+					}
+				}
+				else if (spawn.getId() == GUARD2)
+				{
+					_guard2.add(spawn.getLastSpawn());
+					for (final Npc guards : _guard2)
+					{
+						guards.setIsInvul(true);
+						((Attackable) guards).setCanReturnToSpawnPoint(false);
+						startQuestTimer("WATCHING", 10000, guards, null, true);
+					}
+				}
+			}
+		}
+	}
+
+	@Override
+	public String onAdvEvent(String event, Npc npc, Player player)
+	{
+		if (event.equalsIgnoreCase("WATCHING") && !npc.isAttackingNow())
+		{
+			for (final Npc character : World.getAroundNpc(npc))
+			{
+				if (character.isMonster() && !character.isDead())
+				{
+					npc.setRunning();
+					((Attackable) npc).addDamageHate(character, 0, 999);
+					npc.getAI().setIntention(CtrlIntention.ATTACK, character);
+				}
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public String onFirstTalk(Npc npc, Player player)
+	{
+		return (npc.isAttackingNow()) ? "32628-01.htm" : npc.getId() + ".htm";
+	}
+
+	@Override
+	public String onSpawn(Npc npc)
+	{
+		npc.setIsNoRndWalk(true);
+		return super.onSpawn(npc);
+	}
+
+	public static void main(String[] args)
+	{
+		new ZealotOfShilen();
+	}
+}

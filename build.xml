@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="gameserver" default="jar" basedir=".">
+	<property name="src" location="java" />
+	<property name="lib" location="lib" />
+	<property name="build" location="build" />
+	<property name="build.classes" location="${build}/classes" />
+	<path id="classpath">
+		<fileset dir="${lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	<pathconvert property="manifest.libs" pathsep=" ">
+		<path refid="classpath" />
+		<mapper>
+			<chainedmapper>
+				<flattenmapper />
+				<globmapper from="*.jar" to="../libs/*.jar" />
+			</chainedmapper>
+		</mapper>
+	</pathconvert>
+	<property name="build.classpath" refid="classpath" />
+	<tstamp>
+		<format property="build.tstamp" pattern="yyyy.MM.dd HH:mm" />
+	</tstamp>
+	<target name="init" depends="clean" description="Create the output directories.">
+		<mkdir dir="${build}" />
+		<mkdir dir="${build.classes}" />
+	</target>
+	<target name="compile" depends="init" description="Compile the source.">
+		<javac srcdir="${src}" classpathref="classpath" destdir="${build.classes}" optimize="on" debug="true" source="25" target="25" includeantruntime="false" nowarn="off" debuglevel="lines,vars,source" classpath="${build.classpath}">
+		      <compilerarg value="-Xlint:-serial,-unchecked,-deprecation,-static,-removal" />
+		</javac>
+	</target>
+	<target name="jar" depends="compile" description="Create the jar files">
+		<jar destfile="${build}/l2e-loginserver.jar">
+			<fileset dir="${build.classes}">
+				<exclude name="**/gameserver/**" />
+			</fileset>
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Built-Date" value="${build.tstamp}" />
+				<attribute name="Class-Path" value="${manifest.libs}" />
+				<attribute name="Implementation-URL" value="http://www.l2jeternity.com/" />
+				<attribute name="Main-Class" value="l2e.loginserver.LoginServer" />
+			</manifest>
+		</jar>
+		<jar destfile="${build}/gameserver.jar">
+			<fileset dir="${build.classes}">
+				<exclude name="**/loginserver/**" />
+			</fileset>
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Built-Date" value="${build.tstamp}" />
+				<attribute name="Class-Path" value="${manifest.libs}" />
+				<attribute name="Implementation-URL" value="http://www.l2jeternity.com/" />
+				<attribute name="Main-Class" value="gameserver.GameServer" />
+			</manifest>
+		</jar>
+	</target>
+	<target name="clean" description="Remove the output directories">
+		<delete dir="${build}" />
+	</target>
+	<target name="checkRequirements" description="Check Requirements">
+		<fail message="Ant 1.8.4 is required. But your version is ${ant.version}">
+			<condition>
+				<not>
+					<antversion atleast="1.8.4" />
+				</not>
+			</condition>
+		</fail>
+	</target>
+</project>

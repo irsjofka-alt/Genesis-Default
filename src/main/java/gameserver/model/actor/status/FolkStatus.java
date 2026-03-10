@@ -1,0 +1,52 @@
+/*
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see <http://l2jeternity.com/>.
+ */
+package gameserver.model.actor.status;
+
+import gameserver.model.actor.Creature;
+import gameserver.model.actor.Npc;
+import gameserver.model.actor.instance.ClanHallManagerInstance;
+import gameserver.model.actor.instance.NpcInstance;
+
+public class FolkStatus extends NpcStatus
+{
+	public FolkStatus(Npc activeChar)
+	{
+		super(activeChar);
+	}
+
+	@Override
+	public final void reduceHp(double value, Creature attacker)
+	{
+		reduceHp(value, attacker, true, false, false, true);
+	}
+
+	@Override
+	public final void reduceHp(double value, Creature attacker, boolean awake, boolean isDOT, boolean isHpConsumption, boolean broadcastPacket)
+	{
+		super.reduceHp(value, attacker, awake, isDOT, isHpConsumption, broadcastPacket);
+	}
+	
+	@Override
+	public final void reduceMp(double value)
+	{
+		super.reduceMp((getActiveChar() instanceof ClanHallManagerInstance) ? (value * 0.05) : value);
+	}
+
+	@Override
+	public NpcInstance getActiveChar()
+	{
+		return (NpcInstance) super.getActiveChar();
+	}
+}
