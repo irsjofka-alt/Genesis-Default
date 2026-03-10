@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Built-By: user
-Built-Date: Wed Mar 11 02:35:09 GMT+07:00 2026
-Implementation-URL: https://github.com/irsjofka-alt/Genesis-Default
-
