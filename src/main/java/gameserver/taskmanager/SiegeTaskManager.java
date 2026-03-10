@@ -82,7 +82,7 @@ public class SiegeTaskManager extends LoggerObject
 				return;
 			}
 			
-			final var sorted = _siegeTasks.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+			final var sorted = _siegeTasks.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, _) -> e1, LinkedHashMap::new));
 			if (!sorted.isEmpty())
 			{
 				long nextTime = sorted.entrySet().iterator().next().getValue() - System.currentTimeMillis();

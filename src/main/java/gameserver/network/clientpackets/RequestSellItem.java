@@ -127,9 +127,9 @@ public final class RequestSellItem extends GameClientPacket
 
 		if (merchant != null)
 		{
-			if (merchant instanceof MerchantInstance)
+			if (merchant instanceof MerchantInstance instance)
 			{
-				if (!buyList.isNpcAllowed(((MerchantInstance) merchant).getId()))
+				if (!buyList.isNpcAllowed(instance.getId()))
 				{
 					sendActionFailed();
 					return;

@@ -48,9 +48,8 @@ public class Delete implements IAdminCommandHandler
 	private void handleDelete(Player activeChar)
 	{
 		final GameObject obj = activeChar.getTarget();
-		if (obj instanceof Npc)
+		if (obj instanceof Npc target)
 		{
-			final Npc target = (Npc) obj;
 			final Spawner spawn = target.getSpawn();
 			if (spawn != null)
 			{

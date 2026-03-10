@@ -115,9 +115,8 @@ public class RewardData implements Cloneable
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof RewardData)
+		if (o instanceof RewardData drop)
 		{
-			final RewardData drop = (RewardData) o;
 			return drop.getId() == getId();
 		}
 		return false;
@@ -257,7 +256,7 @@ public class RewardData implements Cloneable
 			return null;
 		}
 		
-		if ((Config.ALLOW_ONLY_THESE_DROP_ITEMS_ID.size() >= 1) && (Config.ALLOW_ONLY_THESE_DROP_ITEMS_ID.get(0) != 0) && (!Config.ALLOW_ONLY_THESE_DROP_ITEMS_ID.contains(itemId)))
+		if ((Config.ALLOW_ONLY_THESE_DROP_ITEMS_ID.size() >= 1) && (Config.ALLOW_ONLY_THESE_DROP_ITEMS_ID.getFirst() != 0) && (!Config.ALLOW_ONLY_THESE_DROP_ITEMS_ID.contains(itemId)))
 		{
 			return null;
 		}

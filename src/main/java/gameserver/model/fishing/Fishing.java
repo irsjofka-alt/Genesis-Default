@@ -384,7 +384,7 @@ public class Fishing implements Runnable
 				spawn.doSpawn();
 				spawn.getLastSpawn().setTarget(_fisher);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 	}

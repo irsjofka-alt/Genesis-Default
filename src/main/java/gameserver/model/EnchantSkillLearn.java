@@ -109,7 +109,7 @@ public final class EnchantSkillLearn
 
 		if (index < 0)
 		{
-			return group.getEnchantGroupDetails().get(0);
+			return group.getEnchantGroupDetails().getFirst();
 		}
 		else if (index >= group.getEnchantGroupDetails().size())
 		{

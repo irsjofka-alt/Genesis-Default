@@ -56,7 +56,7 @@ public class Targets implements IAdminCommandHandler
 				activeChar.sendMessage("Player " + targetName + " not found");
 			}
 		}
-		catch (final IndexOutOfBoundsException e)
+		catch (final IndexOutOfBoundsException _)
 		{
 			activeChar.sendMessage("Please specify correct name.");
 		}

@@ -585,7 +585,7 @@ public class Quest extends ManagedLoader implements IIdentifiable
 		}
 		catch (final Exception e)
 		{
-			System.out.println(e);
+			IO.println(e);
 			return false;
 		}
 		return true;
@@ -903,7 +903,7 @@ public class Quest extends ManagedLoader implements IIdentifiable
 	
 	public String onDeath(Creature killer, Creature victim, QuestState qs)
 	{
-		return onAdvEvent("", ((killer instanceof Npc) ? ((Npc) killer) : null), qs.getPlayer());
+		return onAdvEvent("", ((killer instanceof Npc n) ? n : null), qs.getPlayer());
 	}
 	
 	public String onAdvEvent(String event, Npc npc, Player player)
@@ -2475,7 +2475,7 @@ public class Quest extends ManagedLoader implements IIdentifiable
 				count *= Config.RATE_QUEST_REWARD;
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			count = Long.MAX_VALUE;
 		}
@@ -2825,7 +2825,7 @@ public class Quest extends ManagedLoader implements IIdentifiable
 			Integer.parseInt(digit);
 			return true;
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			return false;
 		}
@@ -2882,7 +2882,7 @@ public class Quest extends ManagedLoader implements IIdentifiable
 			final Npc npc = npcSpawn.spawnOne(false);
 			return npc;
 		}
-		catch (final Exception ignored)
+		catch (final Exception _)
 		{}
 		return null;
 	}

@@ -51,7 +51,7 @@ public class AutoRestart extends LoggerObject
 			{
 				cronTime = new SchedulingPattern(Config.AUTO_RESTART_PATTERN);
 			}
-			catch (final InvalidPatternException e)
+			catch (final InvalidPatternException _)
 			{
 				return;
 			}
@@ -65,7 +65,7 @@ public class AutoRestart extends LoggerObject
 				ThreadPoolManager.getInstance().schedule(new RestartTask(), (nextRestart - System.currentTimeMillis()));
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			warn("Has problem with the config file, please, check and correct it.!");
 		}

@@ -155,7 +155,7 @@ public final class EnchantScroll extends EnchantItem
 			return EnchantResultType.ERROR;
 		}
 		
-		final double bonusRate = getBonusRate() + player.getStat().calcStat(Stats.ENCHANT_BONUS, 0, null, null);;
+		final double bonusRate = getBonusRate() + player.getStat().calcStat(Stats.ENCHANT_BONUS, 0, null, null);
 		final double supportBonusRate = ((supportItem != null) && !_isBlessed) ? supportItem.getBonusRate() : 0;
 
 		if (Config.CUSTOM_ENCHANT_ITEMS_ENABLED)

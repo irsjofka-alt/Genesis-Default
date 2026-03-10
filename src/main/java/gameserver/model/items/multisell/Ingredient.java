@@ -88,9 +88,9 @@ public class Ingredient
 				return null;
 			}
 			
-			if (template instanceof Weapon)
+			if (template instanceof Weapon weapon)
 			{
-				switch (((Weapon) template).getItemType())
+				switch (weapon.getItemType())
 				{
 					case NONE :
 					case FISHINGROD :

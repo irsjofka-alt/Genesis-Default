@@ -341,7 +341,7 @@ public class RecipeController
 					{
 						Thread.sleep(_delay);
 					}
-					catch (final InterruptedException e)
+					catch (final InterruptedException _)
 					{}
 					finally
 					{
@@ -464,7 +464,7 @@ public class RecipeController
 			int grabItems = _itemGrab;
 			while ((grabItems > 0) && !_items.isEmpty())
 			{
-				final TempItem item = _items.get(0);
+				final TempItem item = _items.getFirst();
 
 				int count = item.getQuantity();
 				if (count >= grabItems)
@@ -475,7 +475,7 @@ public class RecipeController
 				item.setQuantity(item.getQuantity() - count);
 				if (item.getQuantity() <= 0)
 				{
-					_items.remove(0);
+					_items.removeFirst();
 				}
 				else
 				{

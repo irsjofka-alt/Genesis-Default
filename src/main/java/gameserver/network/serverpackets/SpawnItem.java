@@ -32,9 +32,8 @@ public final class SpawnItem extends GameServerPacket
 		_y = obj.getY();
 		_z = obj.getZ();
 
-		if (obj instanceof ItemInstance)
+		if (obj instanceof ItemInstance item)
 		{
-			final ItemInstance item = (ItemInstance) obj;
 			_itemId = item.getDisplayId();
 			_stackable = item.isStackable() ? 0x01 : 0x00;
 			_count = item.getCount();

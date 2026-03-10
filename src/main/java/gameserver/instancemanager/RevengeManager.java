@@ -66,7 +66,7 @@ public class RevengeManager extends LoggerObject
 		{
 			revSettings.load(is);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 		
 		TELEPORT_PRICE = revSettings.getIntProperty("TeleportPrice", "4037,10", ",", false);
@@ -169,7 +169,7 @@ public class RevengeManager extends LoggerObject
 		{
 			charId = st.nextToken();
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 		
 		switch (action)

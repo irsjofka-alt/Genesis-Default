@@ -159,22 +159,15 @@ public class PetLevelTemplate
 	
 	public double getSpeedOnRide(MoveType mt)
 	{
-		switch (mt)
+		return switch (mt)
 		{
-			case WALK :
-				return _walkSpeedOnRide;
-			case RUN :
-				return _runSpeedOnRide;
-			case SLOW_SWIM :
-				return _slowSwimSpeedOnRide;
-			case FAST_SWIM :
-				return _fastSwimSpeedOnRide;
-			case SLOW_FLY :
-				return _slowFlySpeedOnRide;
-			case FAST_FLY :
-				return _fastFlySpeedOnRide;
-		}
-		return 0;
+			case WALK  -> _walkSpeedOnRide;
+			case RUN  -> _runSpeedOnRide;
+			case SLOW_SWIM  -> _slowSwimSpeedOnRide;
+			case FAST_SWIM  -> _fastSwimSpeedOnRide;
+			case SLOW_FLY  -> _slowFlySpeedOnRide;
+			case FAST_FLY  -> _fastFlySpeedOnRide;
+		};
 	}
 	
 	public double getPvePhysDamage()

@@ -110,7 +110,7 @@ public class RequestDynamicPacket extends GameClientPacket
 			case 3 :
 			{
 				final var target = player.getTarget();
-				if (target != null && target instanceof Creature && !((Creature) target).isDead())
+				if (target != null && target instanceof Creature creature && !creature.isDead())
 				{
 					if (GeoEngine.getInstance().canSeeTarget(player, target))
 					{

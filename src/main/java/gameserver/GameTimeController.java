@@ -143,7 +143,7 @@ public final class GameTimeController extends Thread
 				{
 					Thread.sleep(sleepTime);
 				}
-				catch (final InterruptedException e)
+				catch (final InterruptedException _)
 				{
 					
 				}

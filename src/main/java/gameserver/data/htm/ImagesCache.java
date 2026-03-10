@@ -93,7 +93,7 @@ public class ImagesCache extends LoggerObject
 						final var name = FilenameUtils.getBaseName(newFile.getName());
 						id = Integer.parseInt(name);
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 						id = IdFactory.getInstance().getNextId();
 					}

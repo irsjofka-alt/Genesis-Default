@@ -16,5 +16,5 @@ package gameserver.model.base;
 
 public enum Race
 {
-	HUMAN, ELF, DARKELF, ORC, DWARF, KAMAEL;
+	HUMAN, ELF, DARKELF, ORC, DWARF, KAMAEL
 }

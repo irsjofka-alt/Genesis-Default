@@ -51,7 +51,7 @@ public class TimeSkills implements IVoicedCommandHandler
 			{
 				curPage = params[1];
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			

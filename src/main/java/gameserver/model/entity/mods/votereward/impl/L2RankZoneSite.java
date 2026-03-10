@@ -57,11 +57,11 @@ public class L2RankZoneSite extends VoteRewardSite
 		String serverResponse = null;
 		if (_identifierType.equalsIgnoreCase("ip"))
 		{
-			serverResponse = getApiResponse(String.format("https://l2rankzone.com/api/vote-reward?apiKey=%s&ip=%s", _apiKey, player.getIPAddress()), false);
+			serverResponse = getApiResponse("https://l2rankzone.com/api/vote-reward?apiKey=%s&ip=%s".formatted(_apiKey, player.getIPAddress()), false);
 		}
 		else
 		{
-			serverResponse = getApiResponse(String.format("https://l2rankzone.com/api/vote-reward?apiKey=%s&username=%s", _apiKey, player.getName(null)), false);
+			serverResponse = getApiResponse("https://l2rankzone.com/api/vote-reward?apiKey=%s&username=%s".formatted(_apiKey, player.getName(null)), false);
 		}
 		
 		if (serverResponse == null)

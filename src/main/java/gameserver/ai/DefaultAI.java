@@ -262,7 +262,7 @@ public class DefaultAI extends CharacterAI implements Runnable
 				return false;
 			}
 
-			if ((target instanceof Player) && (((Player) target).getKarma() > 0))
+			if ((target instanceof Player player1) && (player1.getKarma() > 0))
 			{
 				return GeoEngine.getInstance().canSeeTarget(me, target);
 			}
@@ -1501,7 +1501,7 @@ public class DefaultAI extends CharacterAI implements Runnable
 							dist2 = dist2 - 70;
 						}
 					}
-					catch (final NullPointerException e)
+					catch (final NullPointerException _)
 					{
 						continue;
 					}
@@ -1536,7 +1536,7 @@ public class DefaultAI extends CharacterAI implements Runnable
 								dist2 = dist2 - 70;
 							}
 						}
-						catch (final NullPointerException e)
+						catch (final NullPointerException _)
 						{
 							continue;
 						}
@@ -1603,7 +1603,7 @@ public class DefaultAI extends CharacterAI implements Runnable
 								dist2 = dist2 - 70;
 							}
 						}
-						catch (final NullPointerException e)
+						catch (final NullPointerException _)
 						{
 							continue;
 						}
@@ -1656,7 +1656,7 @@ public class DefaultAI extends CharacterAI implements Runnable
 							dist2 = dist2 - 70;
 						}
 					}
-					catch (final NullPointerException e)
+					catch (final NullPointerException _)
 					{
 						continue;
 					}
@@ -1714,7 +1714,7 @@ public class DefaultAI extends CharacterAI implements Runnable
 					dist2 = dist - actor.getColRadius();
 					range = (int) (sk.getCastRange() + actor.getColRadius() + tgt.getColRadius());
 				}
-				catch (final NullPointerException e)
+				catch (final NullPointerException _)
 				{
 					continue;
 				}
@@ -1741,7 +1741,7 @@ public class DefaultAI extends CharacterAI implements Runnable
 						dist2 = dist;
 						range = (int) (sk.getCastRange() + actor.getColRadius() + tgt.getColRadius());
 					}
-					catch (final NullPointerException e)
+					catch (final NullPointerException _)
 					{
 						continue;
 					}
@@ -1788,7 +1788,7 @@ public class DefaultAI extends CharacterAI implements Runnable
 						dist2 = dist2 - 70;
 					}
 				}
-				catch (final NullPointerException e)
+				catch (final NullPointerException _)
 				{
 					continue;
 				}
@@ -1837,9 +1837,9 @@ public class DefaultAI extends CharacterAI implements Runnable
 						break;
 						
 					}
-					else if (obj instanceof Attackable)
+					else if (obj instanceof Attackable attackable)
 					{
-						if ((!((Attackable) obj).getFaction().isNone()) && ((Attackable) obj).isInFaction(actor))
+						if ((!attackable.getFaction().isNone()) && attackable.isInFaction(actor))
 						{
 							continue;
 						}

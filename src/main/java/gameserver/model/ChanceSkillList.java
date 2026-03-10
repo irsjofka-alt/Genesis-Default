@@ -14,6 +14,7 @@
  */
 package gameserver.model;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -38,6 +39,7 @@ import gameserver.network.serverpackets.MagicSkillUse;
 public class ChanceSkillList extends ConcurrentHashMap<IChanceSkillTrigger, ChanceCondition>
 {
 	protected static final Logger _log = LogManager.getLogger(ChanceSkillList.class);
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	private final Creature _owner;
@@ -139,9 +141,9 @@ public class ChanceSkillList extends ConcurrentHashMap<IChanceSkillTrigger, Chan
 			
 			if (cond != null && cond.trigger(event, damage, element, playable, skill))
 			{
-				if (trigger instanceof Skill)
+				if (trigger instanceof Skill skill1)
 				{
-					_owner.makeTriggerCast((Skill) trigger, target);
+					_owner.makeTriggerCast(skill1, target);
 				}
 				else
 				{

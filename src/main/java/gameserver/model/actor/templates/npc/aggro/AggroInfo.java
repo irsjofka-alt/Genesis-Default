@@ -75,9 +75,9 @@ public final class AggroInfo
 			return true;
 		}
 		
-		if (obj instanceof AggroInfo)
+		if (obj instanceof AggroInfo info)
 		{
-			return (((AggroInfo) obj).getAttackerId() == _attackerId);
+			return (info.getAttackerId() == _attackerId);
 		}
 		return false;
 	}

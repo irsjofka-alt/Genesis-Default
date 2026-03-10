@@ -244,7 +244,7 @@ public class OptionsParser extends DocumentParser
 					
 					if (option.hasActivationSkills() || haveChanceSkill)
 					{
-						final var sk = haveChanceSkill ? skill.getSkill() : option.getActivationsSkills().get(0).getSkill();
+						final var sk = haveChanceSkill ? skill.getSkill() : option.getActivationsSkills().getFirst().getSkill();
 						for (final int id : Config.SERVICES_AUGMENTATION_DISABLED_LIST)
 						{
 							if (id == option.getId())
@@ -259,7 +259,7 @@ public class OptionsParser extends DocumentParser
 							opt = options.get(sk.getId());
 							final var oldSk = opt.getPassiveSkill();
 							final var haveChance = oldSk != null && oldSk.getSkill() != null && oldSk.getSkill().getTriggeredId() > 0;
-							final var curSkill = haveChance ? oldSk.getSkill() : opt.getActivationsSkills().get(0).getSkill();
+							final var curSkill = haveChance ? oldSk.getSkill() : opt.getActivationsSkills().getFirst().getSkill();
 							if (curSkill.getLevel() < sk.getLevel())
 							{
 								options.put(sk.getId(), option);
@@ -387,7 +387,7 @@ public class OptionsParser extends DocumentParser
 					
 					if (option.hasActivationSkills() || haveChanceSkill)
 					{
-						final var sk = haveChanceSkill ? skill.getSkill() : option.getActivationsSkills().get(0).getSkill();
+						final var sk = haveChanceSkill ? skill.getSkill() : option.getActivationsSkills().getFirst().getSkill();
 						
 						Options opt = null;
 						if (options.containsKey(sk.getId()))
@@ -395,7 +395,7 @@ public class OptionsParser extends DocumentParser
 							opt = options.get(sk.getId());
 							final var oldSk = opt.getPassiveSkill();
 							final var haveChance = oldSk != null && oldSk.getSkill() != null && oldSk.getSkill().getTriggeredId() > 0;
-							final var curSkill = haveChance ? oldSk.getSkill() : opt.getActivationsSkills().get(0).getSkill();
+							final var curSkill = haveChance ? oldSk.getSkill() : opt.getActivationsSkills().getFirst().getSkill();
 							if (curSkill.getLevel() < sk.getLevel())
 							{
 								for (final int id : Config.SERVICES_AUGMENTATION_AVAILABLE_LIST)

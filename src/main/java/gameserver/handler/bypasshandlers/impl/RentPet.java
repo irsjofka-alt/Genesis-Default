@@ -69,7 +69,7 @@ public class RentPet implements IBypassHandler
 
 			return true;
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			_log.info("Exception in " + getClass().getSimpleName());
 		}

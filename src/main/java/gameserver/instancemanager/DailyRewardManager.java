@@ -407,18 +407,13 @@ public class DailyRewardManager extends LoggerObject
 	
 	public String getCharInfo(Player player)
 	{
-		switch (getType())
+		return switch (getType())
 		{
-			case CHAR :
-				return String.valueOf(player.getObjectId());
-			case ACCOUNT :
-				return player.getAccountName();
-			case IP :
-				return player.getIPAddress();
-			case HWID :
-				return player.getHWID();
-		}
-		return null;
+			case CHAR  -> String.valueOf(player.getObjectId());
+			case ACCOUNT  -> player.getAccountName();
+			case IP  -> player.getIPAddress();
+			case HWID  -> player.getHWID();
+		};
 	}
 	
 	public DailyType getType()

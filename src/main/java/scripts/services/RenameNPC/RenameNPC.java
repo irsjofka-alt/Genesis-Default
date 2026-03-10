@@ -135,7 +135,7 @@ public class RenameNPC extends Quest
 						player.getClan().broadcastClanStatus();
 					}
 				}
-				catch (final StringIndexOutOfBoundsException e)
+				catch (final StringIndexOutOfBoundsException _)
 				{
 					htmltext = "" + ServerStorage.getInstance().getString(lang, "RenameNPC.SERVICE_DISABLE") + "";
 				}
@@ -261,7 +261,7 @@ public class RenameNPC extends Quest
 
 								_spawnList.add(new SpawnsHolder(NPC, new Location(xPos, yPos, zPos, heading)));
 							}
-							catch (final NumberFormatException nfe)
+							catch (final NumberFormatException _)
 							{
 								_log.warn("Wrong number format in config.xml spawnlist block for " + getScriptName() + " script.");
 							}
@@ -276,7 +276,7 @@ public class RenameNPC extends Quest
 		}
 	}
 
-	public static void main(String[] args)
+	void main()
 	{
 		new RenameNPC();
 	}

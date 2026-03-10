@@ -45,7 +45,7 @@ public class WarehouseItemTypeComparator implements Comparator<WarehouseItem>
 			final Integer i2 = o2.getItem().getMaterialType();
 			return (_order == 1 ? i1.compareTo(i2) : i2.compareTo(i1));
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			return 0;
 		}

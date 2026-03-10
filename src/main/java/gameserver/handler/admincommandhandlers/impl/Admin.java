@@ -173,7 +173,7 @@ public class Admin implements IAdminCommandHandler
 					activeChar.sendMessage("Diet mode off");
 				}
 			}
-			catch (final Exception ex)
+			catch (final Exception _)
 			{
 				if (activeChar.getDietMode())
 				{
@@ -209,7 +209,7 @@ public class Admin implements IAdminCommandHandler
 					activeChar.sendMessage("Trade refusal disabled");
 				}
 			}
-			catch (final Exception ex)
+			catch (final Exception _)
 			{
 				if (activeChar.getTradeRefusal())
 				{
@@ -556,7 +556,7 @@ public class Admin implements IAdminCommandHandler
 		{
 			mode = Integer.parseInt(command.substring(11));
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 		switch (mode)
 		{

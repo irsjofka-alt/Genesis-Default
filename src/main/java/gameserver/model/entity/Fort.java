@@ -226,7 +226,7 @@ public class Fort implements IIdentifiable
 						removeFunction(getType());
 					}
 				}
-				catch (final Throwable t)
+				catch (final Throwable _)
 				{}
 			}
 		}

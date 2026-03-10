@@ -234,7 +234,7 @@ public class ZakenNight extends AbstractReflection
 		return (GameTimeController.getInstance().getGameTime() / 60) % 24;
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 		new ZakenNight();
 	}

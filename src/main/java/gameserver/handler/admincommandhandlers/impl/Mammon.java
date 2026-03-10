@@ -47,7 +47,7 @@ public class Mammon implements IAdminCommandHandler
 					teleportIndex = Integer.parseInt(command.substring(18));
 				}
 			}
-			catch (final Exception NumberFormatException)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //mammon_find [teleportIndex] (where 1 = Blacksmith, 2 = Merchant)");
 				return false;

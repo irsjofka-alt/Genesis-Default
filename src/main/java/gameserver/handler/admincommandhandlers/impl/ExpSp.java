@@ -44,7 +44,7 @@ public class ExpSp implements IAdminCommandHandler
 					activeChar.sendMessage("Usage: //add_exp_sp exp sp");
 				}
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				activeChar.sendMessage("Usage: //add_exp_sp exp sp");
 			}
@@ -59,7 +59,7 @@ public class ExpSp implements IAdminCommandHandler
 					activeChar.sendMessage("Usage: //remove_exp_sp exp sp");
 				}
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				activeChar.sendMessage("Usage: //remove_exp_sp exp sp");
 			}
@@ -78,9 +78,9 @@ public class ExpSp implements IAdminCommandHandler
 	{
 		final GameObject target = activeChar.getTarget();
 		Player player = null;
-		if (target instanceof Player)
+		if (target instanceof Player player1)
 		{
-			player = (Player) target;
+			player = player1;
 		}
 		else
 		{
@@ -101,9 +101,9 @@ public class ExpSp implements IAdminCommandHandler
 	{
 		final GameObject target = activeChar.getTarget();
 		Player player = null;
-		if (target instanceof Player)
+		if (target instanceof Player player1)
 		{
-			player = (Player) target;
+			player = player1;
 		}
 		else
 		{
@@ -125,7 +125,7 @@ public class ExpSp implements IAdminCommandHandler
 			expval = Long.parseLong(exp);
 			spval = Integer.parseInt(sp);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			return false;
 		}
@@ -146,9 +146,9 @@ public class ExpSp implements IAdminCommandHandler
 	{
 		final GameObject target = activeChar.getTarget();
 		Player player = null;
-		if (target instanceof Player)
+		if (target instanceof Player player1)
 		{
-			player = (Player) target;
+			player = player1;
 		}
 		else
 		{
@@ -170,7 +170,7 @@ public class ExpSp implements IAdminCommandHandler
 			expval = Long.parseLong(exp);
 			spval = Integer.parseInt(sp);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			return false;
 		}

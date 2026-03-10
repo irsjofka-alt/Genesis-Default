@@ -97,7 +97,7 @@ public class Heal implements IAdminCommandHandler
 					activeChar.sendMessage("Healed within " + radius + " unit radius.");
 					return;
 				}
-				catch (final NumberFormatException nbe)
+				catch (final NumberFormatException _)
 				{}
 			}
 		}
@@ -105,9 +105,8 @@ public class Heal implements IAdminCommandHandler
 		{
 			obj = activeChar;
 		}
-		if (obj instanceof Creature)
+		if (obj instanceof Creature target)
 		{
-			final Creature target = (Creature) obj;
 			target.setCurrentHpMp(target.getMaxHp(), target.getMaxMp());
 			if (target instanceof Player)
 			{

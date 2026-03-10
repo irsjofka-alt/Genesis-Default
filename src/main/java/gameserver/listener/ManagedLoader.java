@@ -35,7 +35,7 @@ public abstract class ManagedLoader
 			ScriptListenerLoader.getInstance().executeScript(getScriptFile());
 			return true;
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			return false;
 		}

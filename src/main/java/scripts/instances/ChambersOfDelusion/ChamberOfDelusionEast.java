@@ -36,7 +36,7 @@ public final class ChamberOfDelusionEast extends Chamber
 		_coords = _enterCoords;
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 		new ChamberOfDelusionEast();
 	}

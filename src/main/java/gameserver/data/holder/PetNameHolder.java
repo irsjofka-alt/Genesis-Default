@@ -88,7 +88,7 @@ public class PetNameHolder extends LoggerObject
 		{
 			pattern = Pattern.compile(Config.PET_NAME_TEMPLATE);
 		}
-		catch (final PatternSyntaxException e)
+		catch (final PatternSyntaxException _)
 		{
 			warn("Pet name pattern of config is wrong!");
 			pattern = Pattern.compile(".*");

@@ -1530,28 +1530,14 @@ public class SevenSignsFestival extends LoggerObject
 	
 	public static final String getFestivalName(int festivalID)
 	{
-		String festivalName;
-		
-		switch (festivalID)
+		return switch (festivalID)
 		{
-			case FESTIVAL_LEVEL_MAX_31 :
-				festivalName = "Level 31 or lower";
-				break;
-			case FESTIVAL_LEVEL_MAX_42 :
-				festivalName = "Level 42 or lower";
-				break;
-			case FESTIVAL_LEVEL_MAX_53 :
-				festivalName = "Level 53 or lower";
-				break;
-			case FESTIVAL_LEVEL_MAX_64 :
-				festivalName = "Level 64 or lower";
-				break;
-			default :
-				festivalName = "No Level Limit";
-				break;
-		}
-		
-		return festivalName;
+			case FESTIVAL_LEVEL_MAX_31  -> "Level 31 or lower";
+			case FESTIVAL_LEVEL_MAX_42  -> "Level 42 or lower";
+			case FESTIVAL_LEVEL_MAX_53  -> "Level 53 or lower";
+			case FESTIVAL_LEVEL_MAX_64  -> "Level 64 or lower";
+			default  -> "No Level Limit";
+		};
 	}
 	
 	public static final int getMaxLevelForFestival(int festivalId)
@@ -2182,7 +2168,7 @@ public class SevenSignsFestival extends LoggerObject
 		{
 			currData = _festivalData.get(_signsCycle).get(offsetId);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			currData = new StatsSet();
 			currData.set("score", 0);
@@ -2304,20 +2290,13 @@ public class SevenSignsFestival extends LoggerObject
 	
 	public void addAccumulatedBonus(int festivalId, int stoneType, int stoneAmount)
 	{
-		var eachStoneBonus = 0;
-		
-		switch (stoneType)
+		var eachStoneBonus = switch (stoneType)
 		{
-			case SevenSigns.SEAL_STONE_BLUE_ID :
-				eachStoneBonus = SevenSigns.SEAL_STONE_BLUE_VALUE;
-				break;
-			case SevenSigns.SEAL_STONE_GREEN_ID :
-				eachStoneBonus = SevenSigns.SEAL_STONE_GREEN_VALUE;
-				break;
-			case SevenSigns.SEAL_STONE_RED_ID :
-				eachStoneBonus = SevenSigns.SEAL_STONE_RED_VALUE;
-				break;
-		}
+			case SevenSigns.SEAL_STONE_BLUE_ID  -> SevenSigns.SEAL_STONE_BLUE_VALUE;
+			case SevenSigns.SEAL_STONE_GREEN_ID  -> SevenSigns.SEAL_STONE_GREEN_VALUE;
+			case SevenSigns.SEAL_STONE_RED_ID  -> SevenSigns.SEAL_STONE_RED_VALUE;
+			default -> 0;
+		};
 		
 		final var newTotalBonus = _accumulatedBonuses.get(festivalId) + (stoneAmount * eachStoneBonus);
 		_accumulatedBonuses.set(festivalId, newTotalBonus);
@@ -2421,7 +2400,7 @@ public class SevenSignsFestival extends LoggerObject
 				{
 					wait(FESTIVAL_SIGNUP_TIME);
 				}
-				catch (final InterruptedException e)
+				catch (final InterruptedException _)
 				{}
 				_dawnPreviousParticipants.clear();
 				_duskPreviousParticipants.clear();
@@ -2450,7 +2429,7 @@ public class SevenSignsFestival extends LoggerObject
 								}
 							}
 						}
-						catch (final InterruptedException e)
+						catch (final InterruptedException _)
 						{}
 					}
 					else
@@ -2482,7 +2461,7 @@ public class SevenSignsFestival extends LoggerObject
 				{
 					wait(Config.ALT_FESTIVAL_FIRST_SPAWN);
 				}
-				catch (final InterruptedException e)
+				catch (final InterruptedException _)
 				{}
 				
 				elapsedTime = Config.ALT_FESTIVAL_FIRST_SPAWN;
@@ -2499,7 +2478,7 @@ public class SevenSignsFestival extends LoggerObject
 				{
 					wait(Config.ALT_FESTIVAL_FIRST_SWARM - Config.ALT_FESTIVAL_FIRST_SPAWN);
 				}
-				catch (final InterruptedException e)
+				catch (final InterruptedException _)
 				{}
 				
 				elapsedTime += Config.ALT_FESTIVAL_FIRST_SWARM - Config.ALT_FESTIVAL_FIRST_SPAWN;
@@ -2513,7 +2492,7 @@ public class SevenSignsFestival extends LoggerObject
 				{
 					wait(Config.ALT_FESTIVAL_SECOND_SPAWN - Config.ALT_FESTIVAL_FIRST_SWARM);
 				}
-				catch (final InterruptedException e)
+				catch (final InterruptedException _)
 				{}
 				
 				for (final var festivalInst : _festivalInstances.values())
@@ -2537,7 +2516,7 @@ public class SevenSignsFestival extends LoggerObject
 				{
 					wait(Config.ALT_FESTIVAL_SECOND_SWARM - Config.ALT_FESTIVAL_SECOND_SPAWN);
 				}
-				catch (final InterruptedException e)
+				catch (final InterruptedException _)
 				{}
 				
 				for (final var festivalInst : _festivalInstances.values())
@@ -2551,7 +2530,7 @@ public class SevenSignsFestival extends LoggerObject
 				{
 					wait(Config.ALT_FESTIVAL_CHEST_SPAWN - Config.ALT_FESTIVAL_SECOND_SWARM);
 				}
-				catch (final InterruptedException e)
+				catch (final InterruptedException _)
 				{}
 				
 				for (final var festivalInst : _festivalInstances.values())
@@ -2566,7 +2545,7 @@ public class SevenSignsFestival extends LoggerObject
 				{
 					wait(Config.ALT_FESTIVAL_LENGTH - elapsedTime);
 				}
-				catch (final InterruptedException e)
+				catch (final InterruptedException _)
 				{}
 				_festivalInProgress = false;
 				
@@ -2686,7 +2665,7 @@ public class SevenSignsFestival extends LoggerObject
 						}
 					}
 				}
-				catch (final NullPointerException e)
+				catch (final NullPointerException _)
 				{}
 			}
 			
@@ -2875,7 +2854,7 @@ public class SevenSignsFestival extends LoggerObject
 						relocatePlayer(participant, false);
 						participant.sendMessage("The festival has ended. Your party leader must now register your score before the next festival takes place.");
 					}
-					catch (final NullPointerException e)
+					catch (final NullPointerException _)
 					{}
 				}
 				
@@ -2939,14 +2918,14 @@ public class SevenSignsFestival extends LoggerObject
 				participant.teleToLocation(origPosition._x, origPosition._y, origPosition._z, true, participant.getReflection());
 				participant.sendMessage("You have been removed from the festival arena.");
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				try
 				{
 					participant.teleToLocation(TeleportWhereType.TOWN, true, participant.getReflection());
 					participant.sendMessage("You have been removed from the festival arena.");
 				}
-				catch (final NullPointerException e2)
+				catch (final NullPointerException _)
 				{}
 			}
 		}

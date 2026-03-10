@@ -36,7 +36,7 @@ public class Messages implements IAdminCommandHandler
 				activeChar.sendPacket(SystemMessage.getSystemMessage(Integer.parseInt(command.substring(10).trim())));
 				return true;
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Command format: //msg <SYSTEM_MSG_ID>");
 			}

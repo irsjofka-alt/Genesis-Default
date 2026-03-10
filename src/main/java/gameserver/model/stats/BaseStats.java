@@ -200,7 +200,7 @@ public enum BaseStats
 										val = Integer.parseInt(attrs.getNamedItem("value").getNodeValue());
 										bonus = Double.parseDouble(attrs.getNamedItem("bonus").getNodeValue());
 									}
-									catch (final Exception e)
+									catch (final Exception _)
 									{
 										_log.error("[BaseStats] Invalid stats value: " + value.getNodeValue() + ", skipping");
 										continue;

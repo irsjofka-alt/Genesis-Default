@@ -223,10 +223,10 @@ public class Maguen extends AbstractNpcAI
 			}
 		}
 
-		catch (final NullPointerException e)
+		catch (final NullPointerException _)
 		{
 		}
-		catch (final IndexOutOfBoundsException e)
+		catch (final IndexOutOfBoundsException _)
 		{
 		}
 		return null;

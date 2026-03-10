@@ -62,7 +62,7 @@ public class FileLog
 			{
 				fw.close();
 			}
-			catch(final IOException e) {}
+			catch(final IOException _) {}
 		}
 	}
 

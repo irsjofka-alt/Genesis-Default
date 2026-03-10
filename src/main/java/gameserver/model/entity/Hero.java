@@ -204,9 +204,9 @@ public class Hero
 
 	private String calcFightTime(long fightTimeValue)
 	{
-		final String format = String.format("%%0%dd", 2);
+		final String format = "%%0%dd".formatted(2);
 		final long fightTime = fightTimeValue / 1000;
-		return String.format(format, (fightTime % 3600) / 60) + ":" + String.format(format, fightTime % 60);
+		return format.formatted((fightTime % 3600) / 60) + ":" + format.formatted(fightTime % 60);
 	}
 
 	public void loadMessage(int charId)
@@ -686,7 +686,7 @@ public class Hero
 
 					player.broadcastUserInfo(true);
 				}
-				catch (final NullPointerException e)
+				catch (final NullPointerException _)
 				{}
 			}
 		}

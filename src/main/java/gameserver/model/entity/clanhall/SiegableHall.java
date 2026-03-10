@@ -153,7 +153,7 @@ public final class SiegableHall extends ClanHall
 		{
 			cronTime = new SchedulingPattern(_schedulePattern);
 		}
-		catch (final InvalidPatternException e)
+		catch (final InvalidPatternException _)
 		{
 			return;
 		}

@@ -54,7 +54,7 @@ public class PcRefund extends ItemContainer
 		{
 			if (getSize() > 12)
 			{
-				final ItemInstance removedItem = _items.remove(0);
+				final ItemInstance removedItem = _items.removeFirst();
 				if (removedItem != null)
 				{
 					ItemsParser.getInstance().destroyItem("ClearRefund", removedItem, getOwner(), null);

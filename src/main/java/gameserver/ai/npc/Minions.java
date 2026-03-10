@@ -402,7 +402,7 @@ public class Minions extends DefaultAI
 			return false;
 		}
 
-		if ((target instanceof Player) && ((Player) target).isSpawnProtected())
+		if ((target instanceof Player player) && player.isSpawnProtected())
 		{
 			return false;
 		}

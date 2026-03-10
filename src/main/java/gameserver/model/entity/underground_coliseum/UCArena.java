@@ -256,7 +256,7 @@ public class UCArena
 		{
 			Thread.sleep(30000);
 		}
-		catch (final InterruptedException e)
+		catch (final InterruptedException _)
 		{}
 		
 		broadcastToAll(new ExShowScreenMessage(NpcStringId.S1_SECONDS_REMAINING, 2, 5000, "30"));
@@ -264,7 +264,7 @@ public class UCArena
 		{
 			Thread.sleep(20000);
 		}
-		catch (final InterruptedException e)
+		catch (final InterruptedException _)
 		{}
 		
 		broadcastToAll(new ExShowScreenMessage(NpcStringId.S1_SECONDS_REMAINING, 2, 3000, "10"));
@@ -273,7 +273,7 @@ public class UCArena
 		{
 			Thread.sleep(5000);
 		}
-		catch (final InterruptedException e)
+		catch (final InterruptedException _)
 		{}
 		
 		broadcastToAll(new ExShowScreenMessage(NpcStringId.S1_SECONDS_REMAINING, 2, 1000, "5"));
@@ -282,7 +282,7 @@ public class UCArena
 		{
 			Thread.sleep(1000);
 		}
-		catch (final InterruptedException e)
+		catch (final InterruptedException _)
 		{}
 		
 		broadcastToAll(new ExShowScreenMessage(NpcStringId.S1_SECONDS_REMAINING, 2, 1000, "4"));
@@ -291,7 +291,7 @@ public class UCArena
 		{
 			Thread.sleep(1000);
 		}
-		catch (final InterruptedException e)
+		catch (final InterruptedException _)
 		{}
 		
 		broadcastToAll(new ExShowScreenMessage(NpcStringId.S1_SECONDS_REMAINING, 2, 1000, "3"));
@@ -300,7 +300,7 @@ public class UCArena
 		{
 			Thread.sleep(1000);
 		}
-		catch (final InterruptedException e)
+		catch (final InterruptedException _)
 		{}
 		
 		broadcastToAll(new ExShowScreenMessage(NpcStringId.S1_SECONDS_REMAINING, 2, 1000, "2"));
@@ -309,7 +309,7 @@ public class UCArena
 		{
 			Thread.sleep(1000);
 		}
-		catch (final InterruptedException e)
+		catch (final InterruptedException _)
 		{}
 		
 		broadcastToAll(new ExShowScreenMessage(NpcStringId.S1_SECONDS_REMAINING, 2, 1000, "1"));
@@ -318,7 +318,7 @@ public class UCArena
 		{
 			Thread.sleep(1000);
 		}
-		catch (final InterruptedException e)
+		catch (final InterruptedException _)
 		{}
 		
 		boolean isValid = true;

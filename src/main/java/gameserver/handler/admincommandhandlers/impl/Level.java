@@ -47,12 +47,12 @@ public class Level implements IAdminCommandHandler
 		{
 			try
 			{
-				if (targetChar instanceof Playable)
+				if (targetChar instanceof Playable playable)
 				{
-					((Playable) targetChar).getStat().addLevel(Byte.parseByte(val), true);
+					playable.getStat().addLevel(Byte.parseByte(val), true);
 				}
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{
 				activeChar.sendMessage("Wrong Number Format");
 			}
@@ -89,7 +89,7 @@ public class Level implements IAdminCommandHandler
 					return false;
 				}
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{
 				activeChar.sendMessage("You must specify level between 1 and " + ExperienceParser.getInstance().getMaxLevel() + ".");
 				return false;

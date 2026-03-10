@@ -88,7 +88,7 @@ public class DropInfo implements IBypassHandler
 							npc.onActionShift(activeChar);
 						}
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 						activeChar.sendMessage("Something went wrong with the info preview.");
 					}
@@ -103,7 +103,7 @@ public class DropInfo implements IBypassHandler
 						{
 							npcId = st.nextToken();
 						}
-						catch (final Exception e)
+						catch (final Exception _)
 						{
 						}
 						
@@ -129,10 +129,10 @@ public class DropInfo implements IBypassHandler
 							{
 								activeChar.sendPacket(new RadarControl(0, 1, loc.getX(), loc.getY(), loc.getZ()));
 							}
-							activeChar.getRadar().addMarker(locs.get(0).getX(), locs.get(0).getY(), locs.get(0).getZ());
+							activeChar.getRadar().addMarker(locs.getFirst().getX(), locs.getFirst().getY(), locs.getFirst().getZ());
 						}
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 					}
 					break;
@@ -149,7 +149,7 @@ public class DropInfo implements IBypassHandler
 						{
 							npcId = st.nextToken();
 						}
-						catch (final Exception e)
+						catch (final Exception _)
 						{
 						}
 						
@@ -223,7 +223,7 @@ public class DropInfo implements IBypassHandler
 						html = html.replace("%npc_name%", tpl.getName(activeChar.getLang()));
 						Util.setHtml(html, activeChar);
 						 }
-						 catch (final Exception e)
+						 catch (final Exception _)
 						 {
 						 activeChar.sendMessage("Something went wrong with the skills preview.");
 						 }
@@ -240,7 +240,7 @@ public class DropInfo implements IBypassHandler
 						{
 							npcId = st.nextToken();
 						}
-						catch (final Exception e)
+						catch (final Exception _)
 						{
 						}
 						
@@ -341,7 +341,7 @@ public class DropInfo implements IBypassHandler
 							questList.clear();
 						}
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 						activeChar.sendMessage("Something went wrong with the quest preview.");
 					}
@@ -360,7 +360,7 @@ public class DropInfo implements IBypassHandler
 						{
 							npcId = st.nextToken();
 						}
-						catch (final Exception e)
+						catch (final Exception _)
 						{}
 						
 						if (npcId != null)
@@ -454,7 +454,7 @@ public class DropInfo implements IBypassHandler
 						allItems.clear();
 						Util.setHtml(html, activeChar);
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 						activeChar.sendMessage("Something went wrong with the drop preview.");
 					}
@@ -473,7 +473,7 @@ public class DropInfo implements IBypassHandler
 						{
 							npcId = st.nextToken();
 						}
-						catch (final Exception e)
+						catch (final Exception _)
 						{}
 						
 						if (npcId != null)
@@ -557,7 +557,7 @@ public class DropInfo implements IBypassHandler
 						allItems.clear();
 						Util.setHtml(html, activeChar);
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 						activeChar.sendMessage("Something went wrong with the spoil preview.");
 					}
@@ -576,7 +576,7 @@ public class DropInfo implements IBypassHandler
 						{
 							npcId = st.nextToken();
 						}
-						catch (final Exception e)
+						catch (final Exception _)
 						{}
 						
 						if (npcId != null)
@@ -790,7 +790,7 @@ public class DropInfo implements IBypassHandler
 							Util.setHtml(html, activeChar);
 						}
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 						activeChar.sendMessage("Something went wrong with the group preview.");
 					}
@@ -808,7 +808,7 @@ public class DropInfo implements IBypassHandler
 						{
 							npcId = st.nextToken();
 						}
-						catch (final Exception e)
+						catch (final Exception _)
 						{
 						}
 						
@@ -905,7 +905,7 @@ public class DropInfo implements IBypassHandler
 							Util.setHtml(html, activeChar);
 						}
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 						activeChar.sendMessage("Something went wrong with the group preview.");
 					}
@@ -913,7 +913,7 @@ public class DropInfo implements IBypassHandler
 				}
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("You cant use this option with this target.");
 		}

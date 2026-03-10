@@ -535,7 +535,7 @@ public class NornilsGarden extends AbstractReflection
 		return super.onKill(npc, player, isSummon);
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 		new NornilsGarden();
 	}

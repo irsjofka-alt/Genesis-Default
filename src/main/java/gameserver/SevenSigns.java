@@ -567,24 +567,14 @@ public class SevenSigns extends LoggerObject
 	
 	public final String getCurrentPeriodName()
 	{
-		String periodName = null;
-		
-		switch (_activePeriod)
+		return switch (_activePeriod)
 		{
-			case PERIOD_COMP_RECRUITING :
-				periodName = "Quest Event Initialization";
-				break;
-			case PERIOD_COMPETITION :
-				periodName = "Competition (Quest Event)";
-				break;
-			case PERIOD_COMP_RESULTS :
-				periodName = "Quest Event Results";
-				break;
-			case PERIOD_SEAL_VALIDATION :
-				periodName = "Seal Validation";
-				break;
-		}
-		return periodName;
+			case PERIOD_COMP_RECRUITING  -> "Quest Event Initialization";
+			case PERIOD_COMPETITION  -> "Competition (Quest Event)";
+			case PERIOD_COMP_RESULTS  -> "Quest Event Results";
+			case PERIOD_SEAL_VALIDATION  -> "Seal Validation";
+			default -> null;
+		};
 	}
 	
 	public final boolean isCompetitionPeriod()
@@ -1132,23 +1122,14 @@ public class SevenSigns extends LoggerObject
 	
 	public void sendCurrentPeriodMsg(Player player)
 	{
-		SystemMessage sm = null;
-		
-		switch (getCurrentPeriod())
+		SystemMessage sm = switch (getCurrentPeriod())
 		{
-			case PERIOD_COMP_RECRUITING :
-				sm = SystemMessage.getSystemMessage(SystemMessageId.PREPARATIONS_PERIOD_BEGUN);
-				break;
-			case PERIOD_COMPETITION :
-				sm = SystemMessage.getSystemMessage(SystemMessageId.COMPETITION_PERIOD_BEGUN);
-				break;
-			case PERIOD_COMP_RESULTS :
-				sm = SystemMessage.getSystemMessage(SystemMessageId.RESULTS_PERIOD_BEGUN);
-				break;
-			case PERIOD_SEAL_VALIDATION :
-				sm = SystemMessage.getSystemMessage(SystemMessageId.VALIDATION_PERIOD_BEGUN);
-				break;
-		}
+			case PERIOD_COMP_RECRUITING  -> SystemMessage.getSystemMessage(SystemMessageId.PREPARATIONS_PERIOD_BEGUN);
+			case PERIOD_COMPETITION  -> SystemMessage.getSystemMessage(SystemMessageId.COMPETITION_PERIOD_BEGUN);
+			case PERIOD_COMP_RESULTS  -> SystemMessage.getSystemMessage(SystemMessageId.RESULTS_PERIOD_BEGUN);
+			case PERIOD_SEAL_VALIDATION  -> SystemMessage.getSystemMessage(SystemMessageId.VALIDATION_PERIOD_BEGUN);
+			default -> null;
+		};
 		
 		player.sendPacket(sm);
 	}

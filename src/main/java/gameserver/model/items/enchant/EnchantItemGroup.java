@@ -55,7 +55,7 @@ public final class EnchantItemGroup
 				}
 			}
 			_log.warn(getClass().getSimpleName() + ": Couldn't match proper chance for item group: " + _name, new IllegalStateException());
-			return _chances.get(_chances.size() - 1).getChance();
+			return _chances.getLast().getChance();
 		}
 		_log.warn(getClass().getSimpleName() + ": item group: " + _name + " doesn't have any chances!");
 		return -1;
@@ -72,7 +72,7 @@ public final class EnchantItemGroup
 					return holder.isEnchantAnnounce();
 				}
 			}
-			return _chances.get(_chances.size() - 1).isEnchantAnnounce();
+			return _chances.getLast().isEnchantAnnounce();
 		}
 		return false;
 	}

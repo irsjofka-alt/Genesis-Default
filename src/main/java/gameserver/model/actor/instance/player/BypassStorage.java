@@ -130,7 +130,7 @@ public class BypassStorage extends LoggerObject
 		{
 			idx = Integer.parseInt(bypass_parsed[0], 16);
 		}
-		catch (final NumberFormatException e)
+		catch (final NumberFormatException _)
 		{
 			return null;
 		}
@@ -162,7 +162,7 @@ public class BypassStorage extends LoggerObject
         {
             idx = Integer.parseInt(bypass_parsed[0], 16);
         }
-        catch(final NumberFormatException e)
+        catch(final NumberFormatException _)
         {
             return null;
         }

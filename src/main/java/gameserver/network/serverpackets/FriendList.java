@@ -76,7 +76,7 @@ public class FriendList extends GameServerPacket
 						_info.add(new FriendInfo(objId, rset.getString(1), rset.getInt(2) == 1, rset.getInt(3), rset.getInt(4)));
 					}
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				finally
 				{

@@ -72,7 +72,7 @@ public abstract class Builder
 		
 		if (builders.size() == 1)
 		{
-			return builders.get(0);
+			return builders.getFirst();
 		}
 		return new BuilderContainer(builders.toArray(new Builder[builders.size()]));
 	}

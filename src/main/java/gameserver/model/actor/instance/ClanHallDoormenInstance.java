@@ -57,25 +57,15 @@ public class ClanHallDoormenInstance extends DoormenInstance
 				}
 				
 				st.nextToken();
-				boolean ok = false;
-				switch (Integer.parseInt(st.nextToken()))
+				boolean ok = switch (Integer.parseInt(st.nextToken()))
 				{
-					case 1 :
-						ok = Evolve.doEvolve(player, this, 9882, 10307, 55);
-						break;
-					case 2 :
-						ok = Evolve.doEvolve(player, this, 4422, 10308, 55);
-						break;
-					case 3 :
-						ok = Evolve.doEvolve(player, this, 4423, 10309, 55);
-						break;
-					case 4 :
-						ok = Evolve.doEvolve(player, this, 4424, 10310, 55);
-						break;
-					case 5 :
-						ok = Evolve.doEvolve(player, this, 10426, 10611, 70);
-						break;
-				}
+					case 1  -> Evolve.doEvolve(player, this, 9882, 10307, 55);
+					case 2  -> Evolve.doEvolve(player, this, 4422, 10308, 55);
+					case 3  -> Evolve.doEvolve(player, this, 4423, 10309, 55);
+					case 4  -> Evolve.doEvolve(player, this, 4424, 10310, 55);
+					case 5  -> Evolve.doEvolve(player, this, 10426, 10611, 70);
+					default -> false;
+				};
 				final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 				if (ok)
 				{

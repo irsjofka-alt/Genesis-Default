@@ -207,7 +207,7 @@ public class Blessing extends Quest
 		return index;
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 		new Blessing();
 	}

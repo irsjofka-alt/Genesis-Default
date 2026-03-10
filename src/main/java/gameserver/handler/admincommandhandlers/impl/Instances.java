@@ -61,9 +61,8 @@ public class Instances implements IAdminCommandHandler
 					activeChar.sendMessage("Incorrect target.");
 					return false;
 				}
-				if (target instanceof Player)
+				if (target instanceof Player player)
 				{
-					final Player player = (Player) target;
 					player.sendMessage("Admin set your instance to:" + val);
 					player.teleToLocation(player.getX(), player.getY(), player.getZ(), true, ref);
 				}
@@ -74,7 +73,7 @@ public class Instances implements IAdminCommandHandler
 				activeChar.sendMessage("Moved " + target.getName(activeChar.getLang()) + " to instance " + target.getReflectionId() + ".");
 				return true;
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Use //setinstance id");
 			}
@@ -91,7 +90,7 @@ public class Instances implements IAdminCommandHandler
 					activeChar.sendMessage("Instance destroyed");
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Use //destroyinstance id");
 			}

@@ -528,7 +528,7 @@ public final class Formulas
 		}
 
 		final SiegeClan siegeClan = siege.getAttackerClan(activeChar.getClan().getId());
-		if ((siegeClan == null) || siegeClan.getFlag().isEmpty() || !Util.checkIfInRange(200, activeChar, siegeClan.getFlag().get(0), true))
+		if ((siegeClan == null) || siegeClan.getFlag().isEmpty() || !Util.checkIfInRange(200, activeChar, siegeClan.getFlag().getFirst(), true))
 		{
 			return 0;
 		}
@@ -1179,7 +1179,7 @@ public final class Formulas
 				if ((activeChar.isPlayer()) && Config.SKILL_CHANCE_SHOW && activeChar.getActingPlayer().isSkillChanceShow())
 				{
 					final Player attacker = activeChar.getActingPlayer();
-					attacker.sendMessage((new ServerMessage("Formulas.Lethal_Shot", attacker.getLang())).toString() + ": " + String.format("%1.2f", (lethal2chance / 10)) + "%");
+					attacker.sendMessage((new ServerMessage("Formulas.Lethal_Shot", attacker.getLang())).toString() + ": " + "%1.2f".formatted((lethal2chance / 10)) + "%");
 				}
 
 				if (target.isPlayer())
@@ -1205,7 +1205,7 @@ public final class Formulas
 				if ((activeChar.isPlayer()) && Config.SKILL_CHANCE_SHOW && activeChar.getActingPlayer().isSkillChanceShow())
 				{
 					final Player attacker = activeChar.getActingPlayer();
-					attacker.sendMessage((new ServerMessage("Formulas.Lethal_Shot", attacker.getLang())).toString() + ": " + String.format("%1.2f", (lethal1chance / 10)) + "%");
+					attacker.sendMessage((new ServerMessage("Formulas.Lethal_Shot", attacker.getLang())).toString() + ": " + "%1.2f".formatted((lethal1chance / 10)) + "%");
 				}
 
 				if (target.isPlayer())
@@ -1705,7 +1705,7 @@ public final class Formulas
 		if ((attacker.isDebug() || Config.DEVELOPER) && attacker.isPlayer())
 		{
 			final StringBuilder stat = new StringBuilder(100);
-			StringUtil.append(stat, skill.getName(attacker.getActingPlayer().getLang()), " type:", skill.getSkillType().toString(), " power:", String.valueOf(baseRate), " stat:", String.format("%1.2f", statMod), " res:", String.format("%1.2f", resMod), " elem:", String.format("%1.2f", elementMod), " lvl:", String.format("%1.2f", lvlBonusMod), " mAtkMod:", String.format("%1.2f", mAtkMod), " total:", String.valueOf(finalRate));
+			StringUtil.append(stat, skill.getName(attacker.getActingPlayer().getLang()), " type:", skill.getSkillType().toString(), " power:", String.valueOf(baseRate), " stat:", "%1.2f".formatted(statMod), " res:", "%1.2f".formatted(resMod), " elem:", "%1.2f".formatted(elementMod), " lvl:", "%1.2f".formatted(lvlBonusMod), " mAtkMod:", "%1.2f".formatted(mAtkMod), " total:", String.valueOf(finalRate));
 			final String result = stat.toString();
 			if (attacker.isDebug())
 			{
@@ -1721,11 +1721,11 @@ public final class Formulas
 		{
 			if (attacker.isPlayer() && attacker.getActingPlayer().isSkillChanceShow())
 			{
-				attacker.sendMessage(skill.getName(attacker.getActingPlayer().getLang()) + ": " + String.format("%1.2f", finalRate) + "%");
+				attacker.sendMessage(skill.getName(attacker.getActingPlayer().getLang()) + ": " + "%1.2f".formatted(finalRate) + "%");
 			}
 			if (target.isPlayer() && target.getActingPlayer().isSkillChanceShow())
 			{
-				target.sendMessage(attacker.getName(null) + " - " + skill.getName(target.getActingPlayer().getLang()) + ": " + String.format("%1.2f", finalRate) + "%");
+				target.sendMessage(attacker.getName(null) + " - " + skill.getName(target.getActingPlayer().getLang()) + ": " + "%1.2f".formatted(finalRate) + "%");
 			}
 		}
 		return Rnd.chance(finalRate);
@@ -1793,7 +1793,7 @@ public final class Formulas
 			if ((attacker.isDebug() || Config.DEVELOPER) && attacker.isPlayer())
 			{
 				final StringBuilder stat = new StringBuilder(100);
-				StringUtil.append(stat, skill.getName(attacker.getActingPlayer().getLang()), " lvlDiff:", String.valueOf(lvlDifference), " lvlMod:", String.format("%1.2f", lvlModifier), " res:", String.format("%1.2f", resModifier), " fail:", " tgt:", String.valueOf(targetModifier), " total:", String.valueOf(rate));
+				StringUtil.append(stat, skill.getName(attacker.getActingPlayer().getLang()), " lvlDiff:", String.valueOf(lvlDifference), " lvlMod:", "%1.2f".formatted(lvlModifier), " res:", "%1.2f".formatted(resModifier), " fail:", " tgt:", String.valueOf(targetModifier), " total:", String.valueOf(rate));
 				final String result = stat.toString();
 				if (attacker.isDebug())
 				{
@@ -2177,7 +2177,7 @@ public final class Formulas
 		
 		if (Config.SKILL_CHANCE_SHOW && activeChar.isPlayer() && activeChar.getActingPlayer().isSkillChanceShow())
 		{
-			activeChar.sendMessage(skill.getName(activeChar.getActingPlayer().getLang()) + ": " + String.format("%1.2f", finalRate) + "%");
+			activeChar.sendMessage(skill.getName(activeChar.getActingPlayer().getLang()) + ": " + "%1.2f".formatted(finalRate) + "%");
 		}
 		return result;
 	}
@@ -2214,14 +2214,14 @@ public final class Formulas
 				{
 					if (activeChar.isPlayer() && activeChar.getActingPlayer().isSkillChanceShow())
 					{
-						activeChar.sendMessage(skill.getName(activeChar.getActingPlayer().getLang()) + ": " + String.format("%1.2f", finalRate) + "%");
+						activeChar.sendMessage(skill.getName(activeChar.getActingPlayer().getLang()) + ": " + "%1.2f".formatted(finalRate) + "%");
 					}
 				}
 
 				if ((activeChar.isDebug() || Config.DEVELOPER) && activeChar.isPlayer())
 				{
 					final StringBuilder stat = new StringBuilder(100);
-					StringUtil.append(stat, skill.getName(activeChar.getActingPlayer().getLang()), " Base Rate:", String.valueOf(rate), " Magiclvl:", String.valueOf(cancelMagicLvl), " resMod:", String.format("%1.2f", resMod), " Rate:", String.format("%1.2f", finalRate));
+					StringUtil.append(stat, skill.getName(activeChar.getActingPlayer().getLang()), " Base Rate:", String.valueOf(rate), " Magiclvl:", String.valueOf(cancelMagicLvl), " resMod:", "%1.2f".formatted(resMod), " Rate:", "%1.2f".formatted(finalRate));
 					final String result = stat.toString();
 					if (activeChar.isDebug())
 					{
@@ -2494,14 +2494,14 @@ public final class Formulas
 		final double chance = ((((((skill.getMagicLevel() + baseChance) - target.getLevel()) + 30) - target.getINT()) * calcElemental(attacker, target, skill)));
 		if ((attacker.isPlayer()) && Config.SKILL_CHANCE_SHOW && printChance && attacker.getActingPlayer().isSkillChanceShow())
 		{
-			attacker.sendMessage(skill.getName(attacker.getActingPlayer().getLang()) + ": " + String.format("%1.2f", (chance)) + "%");
+			attacker.sendMessage(skill.getName(attacker.getActingPlayer().getLang()) + ": " + "%1.2f".formatted((chance)) + "%");
 		}
 		
 		if ((attacker.isDebug() || Config.DEVELOPER) && attacker.isPlayer())
 		{
 			if (attacker.isDebug())
 			{
-				attacker.sendMessage(skill.getName(attacker.getActingPlayer().getLang()) + ": " + String.format("%1.2f", (chance)) + "%");
+				attacker.sendMessage(skill.getName(attacker.getActingPlayer().getLang()) + ": " + "%1.2f".formatted((chance)) + "%");
 			}
 		}
 		return Rnd.chance(chance);

@@ -271,12 +271,12 @@ public class EnchantManager
 					}
 					if (item.getElementals()[0].getElement() == item.getElementals()[0].getHoly())
 					{
-						attr += setColor(ServerStorage.getInstance().getString(player.getLang(), "Enchant.ICON"), "dedfde");;
+						attr += setColor(ServerStorage.getInstance().getString(player.getLang(), "Enchant.ICON"), "dedfde");
 						power += item.getElementals()[0].getValue();
 					}
 					if (item.getElementals()[0].getElement() == item.getElementals()[0].getUnholy())
 					{
-						attr += setColor(ServerStorage.getInstance().getString(player.getLang(), "Enchant.ICON"), "9533b1");;
+						attr += setColor(ServerStorage.getInstance().getString(player.getLang(), "Enchant.ICON"), "9533b1");
 						power += item.getElementals()[0].getValue();
 					}
 				}
@@ -307,12 +307,12 @@ public class EnchantManager
 						}
 						if (elm.getElement() == elm.getHoly())
 						{
-							attr += setColor(ServerStorage.getInstance().getString(player.getLang(), "Enchant.ICON"), "dedfde");;
+							attr += setColor(ServerStorage.getInstance().getString(player.getLang(), "Enchant.ICON"), "dedfde");
 							power += elm.getValue();
 						}
 						if (elm.getElement() == elm.getUnholy())
 						{
-							attr += setColor(ServerStorage.getInstance().getString(player.getLang(), "Enchant.ICON"), "9533b1");;
+							attr += setColor(ServerStorage.getInstance().getString(player.getLang(), "Enchant.ICON"), "9533b1");
 							power += elm.getValue();
 						}
 					}
@@ -345,12 +345,12 @@ public class EnchantManager
 			
 			if (item.getItem().getElemental(Elementals.HOLY) != null)
 			{
-				attr += setColor(ServerStorage.getInstance().getString(player.getLang(), "Enchant.ICON"), "dedfde");;
+				attr += setColor(ServerStorage.getInstance().getString(player.getLang(), "Enchant.ICON"), "dedfde");
 				power += item.getItem().getElemental(Elementals.HOLY).getValue();
 			}
 			else if (item.getItem().getElemental(Elementals.DARK) != null)
 			{
-				attr += setColor(ServerStorage.getInstance().getString(player.getLang(), "Enchant.ICON"), "9533b1");;
+				attr += setColor(ServerStorage.getInstance().getString(player.getLang(), "Enchant.ICON"), "9533b1");
 				power += item.getItem().getElemental(Elementals.DARK).getValue();
 			}
         }

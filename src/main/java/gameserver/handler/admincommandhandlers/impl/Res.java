@@ -92,7 +92,7 @@ public class Res implements IAdminCommandHandler
 					activeChar.sendMessage("Resurrected all players within a " + radius + " unit radius.");
 					return;
 				}
-				catch (final NumberFormatException e)
+				catch (final NumberFormatException _)
 				{
 					activeChar.sendMessage("Enter a valid player name or radius.");
 					return;
@@ -147,7 +147,7 @@ public class Res implements IAdminCommandHandler
 				activeChar.sendMessage("Resurrected all non-players within a " + radius + " unit radius.");
 			}
 		}
-		catch (final NumberFormatException e)
+		catch (final NumberFormatException _)
 		{
 			activeChar.sendMessage("Enter a valid radius.");
 			return;
@@ -169,9 +169,9 @@ public class Res implements IAdminCommandHandler
 			return;
 		}
 
-		if (targetChar instanceof Player)
+		if (targetChar instanceof Player player)
 		{
-			((Player) targetChar).restoreExp(100.0);
+			player.restoreExp(100.0);
 		}
 		else
 		{

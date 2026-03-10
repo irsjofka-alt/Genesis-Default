@@ -56,15 +56,13 @@ public class PetInfo extends GameServerPacket
 		_swimWalkSpd = (int) Math.round(_summon.getSwimWalkSpeed() / _moveMultiplier);
 		_flyRunSpd = _summon.isFlying() ? _runSpd : 0;
 		_flyWalkSpd = _summon.isFlying() ? _walkSpd : 0;
-		if (_summon instanceof PetInstance)
+		if (_summon instanceof PetInstance pet)
 		{
-			final PetInstance pet = (PetInstance) _summon;
 			_curFed = pet.getCurrentFed();
 			_maxFed = pet.getMaxFed();
 		}
-		else if (_summon instanceof ServitorInstance)
+		else if (_summon instanceof ServitorInstance sum)
 		{
-			final ServitorInstance sum = (ServitorInstance) _summon;
 			_curFed = sum.getTimeRemaining();
 			_maxFed = sum.getTotalLifeTime();
 		}

@@ -97,16 +97,16 @@ public class RequestUnEquipItem extends GameClientPacket
 		if (unequipped.size() > 0)
 		{
 			SystemMessage sm = null;
-			if (unequipped.get(0).getEnchantLevel() > 0)
+			if (unequipped.getFirst().getEnchantLevel() > 0)
 			{
 				sm = SystemMessage.getSystemMessage(SystemMessageId.EQUIPMENT_S1_S2_REMOVED);
-				sm.addNumber(unequipped.get(0).getEnchantLevel());
+				sm.addNumber(unequipped.getFirst().getEnchantLevel());
 			}
 			else
 			{
 				sm = SystemMessage.getSystemMessage(SystemMessageId.S1_DISARMED);
 			}
-			sm.addItemName(unequipped.get(0));
+			sm.addItemName(unequipped.getFirst());
 			activeChar.sendPacket(sm);
 		}
 	}

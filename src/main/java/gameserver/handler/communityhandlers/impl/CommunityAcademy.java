@@ -518,22 +518,15 @@ public class CommunityAcademy extends AbstractCommunity implements ICommunityBoa
 
 	private static String getIconByRace(final Race race)
 	{
-		switch (race)
+		return switch (race)
 		{
-			case HUMAN :
-				return "icon.skill4416_human";
-			case ELF :
-				return "icon.skill4416_elf";
-			case DARKELF :
-				return "icon.skill4416_darkelf";
-			case ORC :
-				return "icon.skill4416_orc";
-			case DWARF :
-				return "icon.skill4416_dwarf";
-			case KAMAEL :
-				return "icon.skill4416_kamael";
-		}
-		return "icon.skill4416_etc";
+			case HUMAN  -> "icon.skill4416_human";
+			case ELF  -> "icon.skill4416_elf";
+			case DARKELF  -> "icon.skill4416_darkelf";
+			case ORC  -> "icon.skill4416_orc";
+			case DWARF  -> "icon.skill4416_dwarf";
+			case KAMAEL  -> "icon.skill4416_kamael";
+		};
 	}
 
 	private enum SortBy

@@ -25,7 +25,7 @@ public class MyTargetSelected extends GameServerPacket
 
 	public MyTargetSelected(Player player, Creature target)
 	{
-		_objectId = (target instanceof ControllableAirShipInstance) ? ((ControllableAirShipInstance) target).getHelmObjectId() : target.getObjectId();
+		_objectId = (target instanceof ControllableAirShipInstance casi) ? casi.getHelmObjectId() : target.getObjectId();
 		_color = target.isAutoAttackable(player, false) ? (player.getLevel() - target.getLevel()) : 0;
 	}
 	

@@ -78,9 +78,9 @@ public class DatabaseUtils
 		double double_val;
 		for (int i = 0; i < vars.length; i++)
 		{
-			if (vars[i] instanceof Number)
+			if (vars[i] instanceof Number number)
 			{
-				n = (Number) vars[i];
+				n = number;
 				long_val = n.longValue();
 				double_val = n.doubleValue();
 				if (long_val == double_val)
@@ -92,9 +92,9 @@ public class DatabaseUtils
 					statement.setDouble(i + 1, double_val);
 				}
 			}
-			else if (vars[i] instanceof String)
+			else if (vars[i] instanceof String string)
 			{
-				statement.setString(i + 1, (String) vars[i]);
+				statement.setString(i + 1, string);
 			}
 		}
 	}

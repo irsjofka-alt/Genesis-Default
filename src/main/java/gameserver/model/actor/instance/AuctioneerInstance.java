@@ -117,12 +117,12 @@ public final class AuctioneerInstance extends NpcInstance
 						html.replace("%objectId%", String.valueOf((getObjectId())));
 						player.sendPacket(html);
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 						player.sendMessage("Invalid bid!");
 					}
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					player.sendMessage("Invalid auction duration!");
 				}
@@ -136,7 +136,7 @@ public final class AuctioneerInstance extends NpcInstance
 					a.confirmAuction();
 					_pendingAuctions.remove(player.getClan().getHideoutId());
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					player.sendMessage("Invalid auction");
 				}
@@ -198,7 +198,7 @@ public final class AuctioneerInstance extends NpcInstance
 					
 					player.sendPacket(html);
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					player.sendMessage("Invalid auction!");
 				}
@@ -224,12 +224,12 @@ public final class AuctioneerInstance extends NpcInstance
 						
 						AuctionManager.getInstance().getAuction(auctionId).setBid(player, bid);
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 						player.sendMessage("Invalid bid!");
 					}
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					player.sendMessage("Invalid auction!");
 				}
@@ -273,7 +273,7 @@ public final class AuctioneerInstance extends NpcInstance
 					player.sendPacket(html);
 					return;
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					player.sendMessage("Invalid auction!");
 				}
@@ -631,7 +631,7 @@ public final class AuctioneerInstance extends NpcInstance
 					
 					player.sendPacket(html);
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					player.sendMessage("Invalid auction!");
 				}
@@ -695,35 +695,16 @@ public final class AuctioneerInstance extends NpcInstance
 	private String getPictureName(Player plyr)
 	{
 		final int nearestTownId = MapRegionManager.getInstance().getMapRegionLocId(plyr);
-		String nearestTown;
-		
-		switch (nearestTownId)
+		return switch (nearestTownId)
 		{
-			case 911 :
-				nearestTown = "GLUDIN";
-				break;
-			case 912 :
-				nearestTown = "GLUDIO";
-				break;
-			case 916 :
-				nearestTown = "DION";
-				break;
-			case 918 :
-				nearestTown = "GIRAN";
-				break;
-			case 1537 :
-				nearestTown = "RUNE";
-				break;
-			case 1538 :
-				nearestTown = "GODARD";
-				break;
-			case 1714 :
-				nearestTown = "SCHUTTGART";
-				break;
-			default :
-				nearestTown = "ADEN";
-				break;
-		}
-		return nearestTown;
+			case 911  -> "GLUDIN";
+			case 912  -> "GLUDIO";
+			case 916  -> "DION";
+			case 918  -> "GIRAN";
+			case 1537  -> "RUNE";
+			case 1538  -> "GODARD";
+			case 1714  -> "SCHUTTGART";
+			default  -> "ADEN";
+		};
 	}
 }

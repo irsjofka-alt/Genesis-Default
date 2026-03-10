@@ -638,7 +638,7 @@ public class CommunityRaidBoss extends AbstractCommunity implements ICommunityBo
 		
 		if (template.isRandomMinons())
 		{
-			final MinionData data = template.getMinionData().size() > 1 ? template.getMinionData().get(Rnd.get(template.getMinionData().size())) : template.getMinionData().get(0);
+			final MinionData data = template.getMinionData().size() > 1 ? template.getMinionData().get(Rnd.get(template.getMinionData().size())) : template.getMinionData().getFirst();
 			if (data != null)
 			{
 				for (final MinionTemplate tpl : data.getMinions())

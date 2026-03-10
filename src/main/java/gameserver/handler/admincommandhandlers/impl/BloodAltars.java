@@ -95,19 +95,13 @@ public class BloodAltars implements IAdminCommandHandler
 			if (altar instanceof BloodAltarsEngine)
 			{
 				final BloodAltarsEngine _altar = (BloodAltarsEngine) QuestManager.getInstance().getQuest(altar.getName());
-				String status = "";
-				switch (_altar.getStatus())
+				String status = switch (_altar.getStatus())
 				{
-					case 0 :
-						status = "<font color=\"LEVEL\">Inactive</font>";
-						break;
-					case 1 :
-						status = "<font color=\"00FF00\">Active</font>";
-						break;
-					case 2 :
-						status = "<font color=\"FF0000\">Fighting</font>";
-						break;
-				}
+					case 0  -> "<font color=\"LEVEL\">Inactive</font>";
+					case 1  -> "<font color=\"00FF00\">Active</font>";
+					case 2  -> "<font color=\"FF0000\">Fighting</font>";
+					default -> "";
+				};
 				StringUtil.append(cList, "<table width=280><tr><td width=120>" + altar.getName() + "</td><td width=60>" + status + "</td>", "<td width=100><button value=\"Change Status\" action=\"bypass -h admin_altar_status " + altar.getName() + "\" width=100 height=24 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>", "</tr></table><img src=\"L2UI.squaregray\" width=\"280\" height=\"1\">");
 			}
 		}

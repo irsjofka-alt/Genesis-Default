@@ -60,7 +60,7 @@ public class SpecialRateTempate
 		{
 			cronTime = new SchedulingPattern(_params.getString("startPattern"));
 		}
-		catch (final InvalidPatternException e)
+		catch (final InvalidPatternException _)
 		{
 			return startTime;
 		}
@@ -75,7 +75,7 @@ public class SpecialRateTempate
 		{
 			cronTime = new SchedulingPattern(_params.getString("stopPattern"));
 		}
-		catch (final InvalidPatternException e)
+		catch (final InvalidPatternException _)
 		{
 			return stopTime;
 		}

@@ -145,7 +145,7 @@ public abstract class ExReceiveOlympiadList extends GameServerPacket
 		{
 			writeD(0x01);
 			writeD(_tie ? 0x01 : 0x00);
-			writeS(_winnerList.get(0).getName());
+			writeS(_winnerList.getFirst().getName());
 			writeD(_winTeam);
 			writeD(_winnerList.size());
 			for (final var info : _winnerList)

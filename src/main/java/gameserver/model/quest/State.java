@@ -22,27 +22,21 @@ public class State
 	
 	public static String getStateName(byte state)
 	{
-		switch (state)
+		return switch (state)
 		{
-			case 1:
-				return "Started";
-			case 2:
-				return "Completed";
-			default:
-				return "Start";
-		}
+			case 1 -> "Started";
+			case 2 -> "Completed";
+			default -> "Start";
+		};
 	}
 	
 	public static byte getStateId(String statename)
 	{
-		switch (statename)
+		return switch (statename)
 		{
-			case "Started":
-				return 1;
-			case "Completed":
-				return 2;
-			default:
-				return 0;
-		}
+			case "Started" -> 1;
+			case "Completed" -> 2;
+			default -> 0;
+		};
 	}
 }

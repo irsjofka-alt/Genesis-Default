@@ -55,7 +55,7 @@ public class FortuneTelling extends Quest
 		return "";
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 		new FortuneTelling();
 	}

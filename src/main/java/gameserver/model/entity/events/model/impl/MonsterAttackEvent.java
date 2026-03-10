@@ -188,7 +188,7 @@ public class MonsterAttackEvent extends AbstractFightEvent
 				}
 			}
 		}
-		catch (final Exception e1)
+		catch (final Exception _)
 		{}
 	}
 	
@@ -240,7 +240,7 @@ public class MonsterAttackEvent extends AbstractFightEvent
 			{
 				Thread.sleep(5000L);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			for (int i = 0; i < _mobAmount; i++)
@@ -250,7 +250,7 @@ public class MonsterAttackEvent extends AbstractFightEvent
 				{
 					Thread.sleep(500L);
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 			}
 			

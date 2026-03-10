@@ -34,6 +34,6 @@ public class ChanceSkillsComparator implements Comparator<Options>
 		{
 			return 0;
 		}
-		return Integer.valueOf(left.getActivationsSkills().get(0).getId()).compareTo(right.getActivationsSkills().get(0).getId());
+		return Integer.valueOf(left.getActivationsSkills().getFirst().getId()).compareTo(right.getActivationsSkills().getFirst().getId());
 	}
 }

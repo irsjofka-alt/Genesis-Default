@@ -241,21 +241,15 @@ public final class ArmorSetTemplate
 	
 	public boolean containItem(int slot, int itemId)
 	{
-		switch (slot)
+		return switch (slot)
 		{
-			case Inventory.PAPERDOLL_CHEST :
-				return _chestId == itemId;
-			case Inventory.PAPERDOLL_LEGS :
-				return _legs.contains(itemId);
-			case Inventory.PAPERDOLL_HEAD :
-				return _head.contains(itemId);
-			case Inventory.PAPERDOLL_GLOVES :
-				return _gloves.contains(itemId);
-			case Inventory.PAPERDOLL_FEET :
-				return _feet.contains(itemId);
-			default :
-				return false;
-		}
+			case Inventory.PAPERDOLL_CHEST  -> _chestId == itemId;
+			case Inventory.PAPERDOLL_LEGS  -> _legs.contains(itemId);
+			case Inventory.PAPERDOLL_HEAD  -> _head.contains(itemId);
+			case Inventory.PAPERDOLL_GLOVES  -> _gloves.contains(itemId);
+			case Inventory.PAPERDOLL_FEET  -> _feet.contains(itemId);
+			default  -> false;
+		};
 	}
 	
 	public int getChestId()

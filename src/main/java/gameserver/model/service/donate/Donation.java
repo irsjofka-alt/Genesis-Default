@@ -57,7 +57,7 @@ public class Donation
 		{
 			return _params.getString(lang != null ? "name" + lang.substring(0, 1).toUpperCase() + lang.substring(1) : "name" + Config.MULTILANG_DEFAULT.substring(0, 1).toUpperCase() + Config.MULTILANG_DEFAULT.substring(1));
 		}
-		catch (final IllegalArgumentException e)
+		catch (final IllegalArgumentException _)
 		{
 			return "";
 		}

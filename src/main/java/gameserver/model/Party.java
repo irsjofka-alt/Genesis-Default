@@ -259,7 +259,7 @@ public class Party implements PlayerGroup
 					return member;
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 		return null;
@@ -743,7 +743,7 @@ public class Party implements PlayerGroup
 				while (leftOver-- > 0)
 				{
 					Collections.shuffle(keys);
-					toReward.get(keys.get(0)).incrementAndGet();
+					toReward.get(keys.getFirst()).incrementAndGet();
 				}
 			}
 			
@@ -1031,7 +1031,7 @@ public class Party implements PlayerGroup
 
 	public Player getLeader()
 	{
-		return (_members != null && !_members.isEmpty()) ? _members.get(0) : null;
+		return (_members != null && !_members.isEmpty()) ? _members.getFirst() : null;
 	}
 
 	public void requestLootChange(byte type)

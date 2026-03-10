@@ -339,7 +339,7 @@ public class VillageMasterInstance extends NpcInstance
 					}
 				}
 			}
-			catch (final Exception NumberFormatException)
+			catch (final Exception _)
 			{
 				_log.warn(VillageMasterInstance.class.getName() + ": Wrong numeric values for command " + command);
 			}
@@ -532,7 +532,7 @@ public class VillageMasterInstance extends NpcInstance
 								return;
 							}
 						}
-						catch (final NullPointerException e)
+						catch (final NullPointerException _)
 						{
 							return;
 						}
@@ -1220,7 +1220,7 @@ public class VillageMasterInstance extends NpcInstance
 		{
 			pattern = Pattern.compile(Config.CLAN_NAME_TEMPLATE);
 		}
-		catch (final PatternSyntaxException e)
+		catch (final PatternSyntaxException _)
 		{
 			_log.warn("ERROR: Wrong pattern for clan name!");
 			pattern = Pattern.compile(".*");

@@ -251,7 +251,7 @@ public class _350_EnhanceYourWeapon extends Quest
 		switch (info.getAbsorbType())
 		{
 			case LAST_HIT :
-				targets = Collections.singletonList(players.get(0));
+				targets = Collections.singletonList(players.getFirst());
 				break;
 			case PARTY_ALL :
 				targets = players;
@@ -260,7 +260,7 @@ public class _350_EnhanceYourWeapon extends Quest
 				memberSize = players.size();
 				if (memberSize == 1)
 				{
-					targets = Collections.singletonList(players.get(0));
+					targets = Collections.singletonList(players.getFirst());
 				}
 				else
 				{
@@ -278,7 +278,7 @@ public class _350_EnhanceYourWeapon extends Quest
 				memberSize = players.size();
 				if (memberSize == 1)
 				{
-					targets = Collections.singletonList(players.get(0));
+					targets = Collections.singletonList(players.getFirst());
 				}
 				else
 				{

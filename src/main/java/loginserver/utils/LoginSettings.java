@@ -19,11 +19,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
+import java.io.Serial;
 
 import l2e.commons.util.AbstractSettings;
 
 public final class LoginSettings extends AbstractSettings
 {
+	@Serial
 	private static final long serialVersionUID = 2963215032651270622L;
 	
 	public LoginSettings()

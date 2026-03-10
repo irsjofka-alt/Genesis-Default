@@ -116,7 +116,7 @@ public final class BotReportParser extends LoggerObject
 
 				lastResetTime = c.getTimeInMillis();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				
 			}

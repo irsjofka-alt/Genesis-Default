@@ -249,7 +249,7 @@ public class OlympiadManager
 					player.sendPacket(SystemMessageId.MAX_OLY_WEEKLY_MATCHES_REACHED_60_NON_CLASSED_30_CLASSED_10_TEAM);
 					return false;
 				}
-				_classBasedRegisters.computeIfAbsent(player.getBaseClass(), k -> ConcurrentHashMap.newKeySet()).add(charId);
+				_classBasedRegisters.computeIfAbsent(player.getBaseClass(), _ -> ConcurrentHashMap.newKeySet()).add(charId);
 				player.sendPacket(SystemMessageId.YOU_HAVE_BEEN_REGISTERED_IN_A_WAITING_LIST_OF_CLASSIFIED_GAMES);
 				break;
 			}

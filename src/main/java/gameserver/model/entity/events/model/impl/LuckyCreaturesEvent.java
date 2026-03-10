@@ -134,7 +134,7 @@ public class LuckyCreaturesEvent extends AbstractFightEvent
 				_monsters.add(monster);
 			}
 		}
-		catch (final Exception e1)
+		catch (final Exception _)
 		{}
 	}
 

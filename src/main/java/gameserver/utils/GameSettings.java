@@ -19,6 +19,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -33,6 +34,7 @@ import gameserver.model.holders.ItemHolder;
 
 public final class GameSettings extends AbstractSettings
 {
+	@Serial
 	private static final long serialVersionUID = -2198933618009560301L;
 	
 	public GameSettings()
@@ -325,7 +327,7 @@ public final class GameSettings extends AbstractSettings
 				{
 					result[i][0] = Integer.parseInt(valueSplit[0]);
 				}
-				catch (final NumberFormatException e)
+				catch (final NumberFormatException _)
 				{
 					_log.warn("[" + name + "]: invalid number config property -> " + valueSplit[0] + "");
 					return null;
@@ -334,7 +336,7 @@ public final class GameSettings extends AbstractSettings
 				{
 					result[i][1] = Integer.parseInt(valueSplit[1]);
 				}
-				catch (final NumberFormatException e)
+				catch (final NumberFormatException _)
 				{
 					_log.warn("[" + name + "]: invalid number config property -> " + valueSplit[1] + "");
 					return null;
@@ -429,7 +431,7 @@ public final class GameSettings extends AbstractSettings
 					{
 						val.put(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
 					}
-					catch (final NumberFormatException nfe)
+					catch (final NumberFormatException _)
 					{
 						if (!i.isEmpty())
 						{
@@ -463,7 +465,7 @@ public final class GameSettings extends AbstractSettings
 					{
 						val.put(split[0], Integer.parseInt(split[1]));
 					}
-					catch (final NumberFormatException nfe)
+					catch (final NumberFormatException _)
 					{
 						if (!i.isEmpty())
 						{
@@ -497,7 +499,7 @@ public final class GameSettings extends AbstractSettings
 					{
 						val.put(Integer.parseInt(split[0]), split[1]);
 					}
-					catch (final NumberFormatException nfe)
+					catch (final NumberFormatException _)
 					{
 						if (!i.isEmpty())
 						{
@@ -538,7 +540,7 @@ public final class GameSettings extends AbstractSettings
 				{
 					itemId = Integer.parseInt(valueSplit[0]);
 				}
-				catch (final NumberFormatException e)
+				catch (final NumberFormatException _)
 				{
 					_log.warn("parseItemsList[Config.load()]: invalid itemId -> " + valueSplit[0] + ", value must be an integer. Skipping to the next entry in the list.");
 					continue;
@@ -548,7 +550,7 @@ public final class GameSettings extends AbstractSettings
 				{
 					count = Integer.parseInt(valueSplit[1]);
 				}
-				catch (final NumberFormatException e)
+				catch (final NumberFormatException _)
 				{
 					_log.warn("parseItemsList[Config.load()]: invalid item number -> " + valueSplit[1] + ", value must be an integer. Skipping to the next entry in the list.");
 					continue;

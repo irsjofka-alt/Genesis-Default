@@ -452,7 +452,7 @@ public class GrandWedding extends AbstractWorldEvent
 		}
 		if (event.equals("guardsPart2"))
 		{
-			zz = guards.get(0).getZ();
+			zz = guards.getFirst().getZ();
 			for (int i = 0; i < guards.size(); i += 2)
 			{
 				final int xx1 = guards.get(i).getX();
@@ -553,7 +553,7 @@ public class GrandWedding extends AbstractWorldEvent
 		}
 		if (event.equals("PixiesCamera"))
 		{
-			_pixies.get(0).broadcastPacketToOthers(new SpecialCamera(_pixies.get(0).getObjectId(), 400, 180, 150, 0, 14000));
+			_pixies.getFirst().broadcastPacketToOthers(new SpecialCamera(_pixies.getFirst().getObjectId(), 400, 180, 150, 0, 14000));
 		}
 		if (event.equals("pixiesMove1"))
 		{
@@ -606,7 +606,7 @@ public class GrandWedding extends AbstractWorldEvent
 		}
 		if (event.equals("showCamera"))
 		{
-			_entertainment.get(0).broadcastPacketToOthers(new SpecialCamera(_entertainment.get(0).getObjectId(), 400, 180, 150, 0, 20000));
+			_entertainment.getFirst().broadcastPacketToOthers(new SpecialCamera(_entertainment.getFirst().getObjectId(), 400, 180, 150, 0, 20000));
 		}
 		if (event.equals("entertainmentMove"))
 		{
@@ -665,7 +665,7 @@ public class GrandWedding extends AbstractWorldEvent
 		}
 		if (event.equals("GuestCamera"))
 		{
-			_guests.get(0).broadcastPacketToOthers(new SpecialCamera(_guests.get(0).getObjectId(), 1000, 180, 150, 0, 6000));
+			_guests.getFirst().broadcastPacketToOthers(new SpecialCamera(_guests.getFirst().getObjectId(), 1000, 180, 150, 0, 6000));
 		}
 		if (event.equals("AnakimSpeak6"))
 		{
@@ -833,7 +833,7 @@ public class GrandWedding extends AbstractWorldEvent
 		}
 		if (event.equals("WeddingFinale5"))
 		{
-			_entertainment2.get(0).broadcastPacketToOthers(new CreatureSay(_entertainment2.get(0).getId(), 0, "Ceremony Staff", new ServerMessage("GrandWedding.MSG_21", _husband.getLang()).toString()));
+			_entertainment2.getFirst().broadcastPacketToOthers(new CreatureSay(_entertainment2.getFirst().getId(), 0, "Ceremony Staff", new ServerMessage("GrandWedding.MSG_21", _husband.getLang()).toString()));
 			startQuestTimer("WeddingFinale6", 4000, null, null);
 		}
 		if (event.equals("WeddingFinale6"))

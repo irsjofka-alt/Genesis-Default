@@ -43,7 +43,7 @@ public class Rift implements IBypassHandler
 				DimensionalRiftManager.getInstance().start(activeChar, b1, (Npc) target);
 				return true;
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 		}

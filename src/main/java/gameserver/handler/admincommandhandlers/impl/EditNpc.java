@@ -85,7 +85,7 @@ public class EditNpc implements IAdminCommandHandler
 						activeChar.sendMessage("NPC does not exist or not loaded. npc_id:" + npcId);
 					}
 				}
-				catch (final NumberFormatException e)
+				catch (final NumberFormatException _)
 				{
 					activeChar.sendMessage("npc_id must be a number.");
 				}
@@ -102,16 +102,16 @@ public class EditNpc implements IAdminCommandHandler
 				try
 				{
 					final GameObject target = activeChar.getTarget();
-					if (target instanceof Npc)
+					if (target instanceof Npc npc)
 					{
-						showNpcInfoList(activeChar, (Npc) target);
+						showNpcInfoList(activeChar, npc);
 					}
 					else
 					{
 						activeChar.sendMessage("NPC does not exist or not loaded.");
 					}
 				}
-				catch (final NumberFormatException e)
+				catch (final NumberFormatException _)
 				{
 					activeChar.sendMessage("npc_id must be a number.");
 				}
@@ -128,16 +128,16 @@ public class EditNpc implements IAdminCommandHandler
 				try
 				{
 					final GameObject target = activeChar.getTarget();
-					if (target instanceof Npc)
+					if (target instanceof Npc npc)
 					{
-						showNpcStatList(activeChar, ((Npc) target));
+						showNpcStatList(activeChar, npc);
 					}
 					else
 					{
 						activeChar.sendMessage("NPC does not exist or not loaded.");
 					}
 				}
-				catch (final NumberFormatException e)
+				catch (final NumberFormatException _)
 				{
 					activeChar.sendMessage("npc_id must be a number.");
 				}
@@ -163,14 +163,14 @@ public class EditNpc implements IAdminCommandHandler
 					{
 						npcId = st.nextToken();
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{}
 					
 					try
 					{
 						page = st.nextToken();
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{}
 					
 					if (npcId != null)
@@ -195,7 +195,7 @@ public class EditNpc implements IAdminCommandHandler
 						activeChar.sendMessage("NPC does not exist or not loaded. npc_id:" + npcId);
 					}
 				}
-				catch (final NumberFormatException e)
+				catch (final NumberFormatException _)
 				{
 					activeChar.sendMessage("npc_id must be a number.");
 				}
@@ -221,14 +221,14 @@ public class EditNpc implements IAdminCommandHandler
 					{
 						npcId = st.nextToken();
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{}
 					
 					try
 					{
 						page = st.nextToken();
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{}
 					
 					if (npcId != null)
@@ -253,7 +253,7 @@ public class EditNpc implements IAdminCommandHandler
 						activeChar.sendMessage("NPC does not exist or not loaded. npc_id:" + npcId);
 					}
 				}
-				catch (final NumberFormatException e)
+				catch (final NumberFormatException _)
 				{
 					activeChar.sendMessage("npc_id must be a number.");
 				}
@@ -262,9 +262,8 @@ public class EditNpc implements IAdminCommandHandler
 			case "admin_log_npc_spawn" :
 			{
 				final GameObject target = activeChar.getTarget();
-				if (target instanceof Npc)
+				if (target instanceof Npc npc)
 				{
-					final Npc npc = (Npc) target;
 					_log.info("('', 1, " + npc.getId() + ", " + npc.getX() + ", " + npc.getY() + ", " + npc.getZ() + ", 0, 0, " + npc.getHeading() + ", 60, 0, 0),");
 				}
 				break;

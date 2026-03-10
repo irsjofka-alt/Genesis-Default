@@ -848,7 +848,7 @@ public class NewbieGuideSystem extends Quest
 		}
 	}
 
-	public static void main(String[] args)
+	void main()
 	{
 		new NewbieGuideSystem();
 	}

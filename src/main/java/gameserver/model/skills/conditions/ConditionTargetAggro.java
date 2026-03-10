@@ -32,9 +32,9 @@ public class ConditionTargetAggro extends Condition
 	public boolean testImpl(Env env)
 	{
 		final Creature target = env.getTarget();
-		if (target instanceof MonsterInstance)
+		if (target instanceof MonsterInstance instance)
 		{
-			return ((MonsterInstance) target).isAggressive() == _isAggro;
+			return instance.isAggressive() == _isAggro;
 		}
 		if (target.isPlayer())
 		{

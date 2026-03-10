@@ -133,7 +133,7 @@ public class RecipeParser extends DocumentParser
 								{
 									recipeStatUseList.add(new RecipeStatTemplate(statName, value));
 								}
-								catch (final Exception e)
+								catch (final Exception _)
 								{
 									error("Error in StatUse parameter for recipe item id: " + id + ", skipping");
 									continue recipesFile;
@@ -147,7 +147,7 @@ public class RecipeParser extends DocumentParser
 								{
 									recipeAltStatChangeList.add(new RecipeStatTemplate(statName, value));
 								}
-								catch (final Exception e)
+								catch (final Exception _)
 								{
 									error("Error in AltStatChange parameter for recipe item id: " + id + ", skipping");
 									continue recipesFile;

@@ -77,7 +77,7 @@ public class CharSummonHolder extends LoggerObject
 					_servitors.put(rset.getInt("ownerId"), rset.getInt("summonSkillId"));
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				warn("Error while loading saved summons");
 			}
@@ -103,7 +103,7 @@ public class CharSummonHolder extends LoggerObject
 					_pets.put(rset.getInt("ownerId"), rset.getInt("item_obj_id"));
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				warn("Error while loading saved summons");
 			}

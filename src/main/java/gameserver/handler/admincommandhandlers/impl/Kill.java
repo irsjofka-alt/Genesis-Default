@@ -57,7 +57,7 @@ public class Kill implements IAdminCommandHandler
 					activeChar.sendMessage("Killed all characters within a " + radius + " unit radius.");
 					return true;
 				}
-				catch (final NumberFormatException e)
+				catch (final NumberFormatException _)
 				{
 					activeChar.sendMessage("Usage: //kill <radius>");
 					return false;

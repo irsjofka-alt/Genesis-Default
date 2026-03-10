@@ -159,7 +159,7 @@ public class Shutdown extends Thread
 				disconnectAllPlayers();
 				_log.info("All players disconnected and saved(" + tc.getEstimatedTimeAndRestartCounter() + "ms).");
 			}
-			catch (final Throwable t)
+			catch (final Throwable _)
 			{}
 			BloodAltarManager.getInstance().saveDb();
 			_log.info("BloodAltarManager: All destruction bosses info saved(" + tc.getEstimatedTimeAndRestartCounter() + "ms).");
@@ -183,7 +183,7 @@ public class Shutdown extends Thread
 				GameTimeController.getInstance().stopTimer();
 				_log.info("Game Time Controller: Timer stopped(" + tc.getEstimatedTimeAndRestartCounter() + "ms).");
 			}
-			catch (final Throwable t)
+			catch (final Throwable _)
 			{}
 
 			try
@@ -191,7 +191,7 @@ public class Shutdown extends Thread
 				ThreadPoolManager.getInstance().shutdown();
 				_log.info("Thread Pool Manager: Manager has been shut down(" + tc.getEstimatedTimeAndRestartCounter() + "ms).");
 			}
-			catch (final Throwable t)
+			catch (final Throwable _)
 			{}
 
 			try
@@ -212,7 +212,7 @@ public class Shutdown extends Thread
 				}
 				_log.info("Game Server: Selector thread has been shut down(" + tc.getEstimatedTimeAndRestartCounter() + "ms).");
 			}
-			catch (final Throwable t)
+			catch (final Throwable _)
 			{}
 			
 			GameObjectsStorage.clear();
@@ -228,7 +228,7 @@ public class Shutdown extends Thread
 				DatabaseFactory.getInstance().close();
 				_log.info("Database Factory: Database connection has been shut down(" + tc.getEstimatedTimeAndRestartCounter() + "ms).");
 			}
-			catch (final Throwable t)
+			catch (final Throwable _)
 			{}
 
 			if (getInstance()._shutdownMode == GM_RESTART)
@@ -411,7 +411,7 @@ public class Shutdown extends Thread
 				}
 			}
 		}
-		catch (final InterruptedException e)
+		catch (final InterruptedException _)
 		{}
 	}
 

@@ -240,7 +240,7 @@ public class Arena
 	{
 		if (!_players.containsKey(player))
 		{
-			final KrateiCubePlayer pl = _players.computeIfAbsent(player, data -> new KrateiCubePlayer(player));
+			final KrateiCubePlayer pl = _players.computeIfAbsent(player, _ -> new KrateiCubePlayer(player));
 			_players.put(player, pl);
 			pl.setIsRegister(true);
 			player.setArena(this);
@@ -464,8 +464,7 @@ public class Arena
 				return null;
 			}
 		}
-		final Map<String, Integer> sortedMap = participants.entrySet().stream().sorted(Entry.comparingByValue(Comparator.reverseOrder())).collect(Collectors.toMap(Entry::getKey, Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-		return sortedMap;
+		return participants.entrySet().stream().sorted(Entry.comparingByValue(Comparator.reverseOrder())).collect(Collectors.toMap(Entry::getKey, Entry::getValue, (e1, _) -> e1, LinkedHashMap::new));
 	}
 	
 	private void teleportAllPlayers()
@@ -818,16 +817,12 @@ public class Arena
 		{
 			if ((_players != null && !_players.isEmpty()) && (_time > 0))
 			{
-				SystemMessage msg = null;
-				switch (_type)
+				SystemMessage msg = switch (_type)
 				{
-					case 0 :
-						msg = SystemMessage.getSystemMessage(SystemMessageId.THE_GAME_WILL_START_IN_S1_SECOND_S).addInt(_time);
-						break;
-					case 1 :
-						msg = SystemMessage.getSystemMessage(SystemMessageId.GAME_ENDS_IN_S1_SECONDS).addInt(_time);
-						break;
-				}
+					case 0  -> SystemMessage.getSystemMessage(SystemMessageId.THE_GAME_WILL_START_IN_S1_SECOND_S).addInt(_time);
+					case 1  -> SystemMessage.getSystemMessage(SystemMessageId.GAME_ENDS_IN_S1_SECONDS).addInt(_time);
+					default -> null;
+				};
 				
 				for (final Player player : _players.keySet())
 				{

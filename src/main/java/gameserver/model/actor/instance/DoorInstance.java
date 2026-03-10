@@ -548,9 +548,9 @@ public class DoorInstance extends Creature
 			targets = World.getAroundNpc(this);
 			for (final var obj : targets)
 			{
-				if (obj instanceof DefenderInstance)
+				if (obj instanceof DefenderInstance instance)
 				{
-					result.add((DefenderInstance) obj);
+					result.add(instance);
 				}
 			}
 		}

@@ -544,7 +544,7 @@ public class AutoSpawnHandler extends LoggerObject
 			{
 				return _locList.remove(locIndex);
 			}
-			catch (final IndexOutOfBoundsException e)
+			catch (final IndexOutOfBoundsException _)
 			{
 				return null;
 			}

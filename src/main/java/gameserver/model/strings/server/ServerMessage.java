@@ -59,7 +59,7 @@ public class ServerMessage extends LoggerObject
 		}
 		else
 		{
-			_message = _message.replace(String.format("{%d}", _index), String.valueOf(l));
+			_message = _message.replace("{%d}".formatted(_index), String.valueOf(l));
 			_index++;
 		}
 	}
@@ -72,7 +72,7 @@ public class ServerMessage extends LoggerObject
 		}
 		else
 		{
-			_message = _message.replace(String.format("{%d}", _index), String.valueOf(l));
+			_message = _message.replace("{%d}".formatted(_index), String.valueOf(l));
 			_index++;
 		}
 	}
@@ -97,7 +97,7 @@ public class ServerMessage extends LoggerObject
 		}
 		for (final String arg : getStoredArgs(lang))
 		{
-			_message = _message.replace(String.format("{%d}", _index), arg);
+			_message = _message.replace("{%d}".formatted(_index), arg);
 			_index++;
 		}
 		_index = 0;

@@ -63,7 +63,7 @@ public class WeeklyTrader extends AbstractNpcAI
 		return "";
 	}
 	
-	public static void main(final String[] args)
+	void main()
 	{
 		new WeeklyTrader();
 	}

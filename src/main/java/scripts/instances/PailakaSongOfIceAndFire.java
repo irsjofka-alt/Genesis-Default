@@ -96,7 +96,7 @@ public class PailakaSongOfIceAndFire extends AbstractReflection
 		return super.onExitZone(character, zone);
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 		new PailakaSongOfIceAndFire();
 	}

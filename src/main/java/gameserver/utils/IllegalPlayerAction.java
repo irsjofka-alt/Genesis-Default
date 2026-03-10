@@ -50,7 +50,7 @@ public final class IllegalPlayerAction
 		}
 		
 		String actions = "";
-		final String lastActions = messages.get(messages.size() - 1);
+		final String lastActions = messages.getLast();
 		for (final String action : messages)
 		{
 			actions += action + Config.EOL;

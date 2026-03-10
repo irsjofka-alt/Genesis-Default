@@ -134,7 +134,7 @@ public class CursedWeapons implements IAdminCommandHandler
 				}
 				cw = cwm.getCursedWeapon(id);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //cw_remove|//cw_goto|//cw_add <itemid|name>");
 			}
@@ -162,9 +162,9 @@ public class CursedWeapons implements IAdminCommandHandler
 				else
 				{
 					final GameObject target = activeChar.getTarget();
-					if (target instanceof Player)
+					if (target instanceof Player player)
 					{
-						((Player) target).addItem("AdminCursedWeaponAdd", id, 1, target, true);
+						player.addItem("AdminCursedWeaponAdd", id, 1, target, true);
 					}
 					else
 					{

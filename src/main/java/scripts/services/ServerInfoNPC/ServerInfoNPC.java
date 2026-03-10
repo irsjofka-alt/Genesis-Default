@@ -310,7 +310,7 @@ public class ServerInfoNPC extends Quest
 
 								_spawnList.add(new SpawnsHolder(NPC, new Location(xPos, yPos, zPos, heading)));
 							}
-							catch (final NumberFormatException nfe)
+							catch (final NumberFormatException _)
 							{
 								_log.warn("Wrong number format in config.xml spawnlist block for " + getScriptName() + " script.");
 							}
@@ -325,7 +325,7 @@ public class ServerInfoNPC extends Quest
 		}
 	}
 
-	public static void main(String[] args)
+	void main()
 	{
 		new ServerInfoNPC();
 	}

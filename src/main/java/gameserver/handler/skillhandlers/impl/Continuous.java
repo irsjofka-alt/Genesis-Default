@@ -149,7 +149,7 @@ public class Continuous implements ISkillHandler
 				final var summon = target.getSummon();
 				if (isBuff && (summon != null) && (summon != activeChar) && summon.isServitor() && effects.size() > 0 && skill.isApplyOnSummon())
 				{
-					if (effects.get(0).canBeStolen() && !skill.isOffensive() && !skill.isTriggeredSkill() && !skill.isToggle())
+					if (effects.getFirst().canBeStolen() && !skill.isOffensive() && !skill.isTriggeredSkill() && !skill.isToggle())
 					{
 						skill.getEffects(activeChar, summon, new Env(shld, ss, sps, bss), true, true);
 					}

@@ -213,9 +213,9 @@ public final class RequestEnchantItem extends GameClientPacket
 							}
 						}
 						
-						if ((it instanceof Armor) && (item.getEnchantLevel() == 4) && activeChar.getInventory().getItemByObjectId(item.getObjectId()).isEquipped())
+						if ((it instanceof Armor armor) && (item.getEnchantLevel() == 4) && activeChar.getInventory().getItemByObjectId(item.getObjectId()).isEquipped())
 						{
-							enchant4Skill = ((Armor) it).getEnchant4Skill();
+							enchant4Skill = armor.getEnchant4Skill();
 							if (enchant4Skill != null)
 							{
 								activeChar.addSkill(enchant4Skill, false);

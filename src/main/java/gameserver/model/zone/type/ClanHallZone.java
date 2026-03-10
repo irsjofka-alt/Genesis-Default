@@ -119,7 +119,7 @@ public class ClanHallZone extends ZoneRespawn
 				{
 					onEnter(character);
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 			}
 		}
@@ -135,7 +135,7 @@ public class ClanHallZone extends ZoneRespawn
 						character.sendPacket(SystemMessageId.LEFT_COMBAT_ZONE);
 					}
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 			}
 		}

@@ -147,7 +147,7 @@ public class CubicParser extends DocumentParser
 									}
 								}
 								template.addConditions(conditions);
-								_cubics.computeIfAbsent(template.getId(), key -> new HashMap<>()).put(template.getLevel(), template);
+								_cubics.computeIfAbsent(template.getId(), _ -> new HashMap<>()).put(template.getLevel(), template);
 							}
 						}
 					}

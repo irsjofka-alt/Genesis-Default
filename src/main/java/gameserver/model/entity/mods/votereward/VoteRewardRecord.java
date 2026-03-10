@@ -16,10 +16,14 @@ package gameserver.model.entity.mods.votereward;
 
 import l2e.commons.dao.JdbcEntity;
 import l2e.commons.dao.JdbcEntityState;
+
 import gameserver.data.holder.VoteRewardHolder;
+
+import java.io.Serial;
 
 public class VoteRewardRecord implements JdbcEntity
 {
+	@Serial
 	private static final long serialVersionUID = 8665903675445841610L;
 	
 	private final String _site;

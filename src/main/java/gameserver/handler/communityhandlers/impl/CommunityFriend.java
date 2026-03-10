@@ -184,7 +184,7 @@ public class CommunityFriend extends AbstractCommunity implements ICommunityBoar
 				list += block;
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			list = ServerStorage.getInstance().getString(activeChar.getLang(), "FriendsBBS.CAN_T_SHOW");
 		}
@@ -235,7 +235,7 @@ public class CommunityFriend extends AbstractCommunity implements ICommunityBoar
 						onBypassCommand("_friendlist_0_;playerinfo;" + reciever.getName(null), activeChar);
 					}
 				}
-				catch (final StringIndexOutOfBoundsException e)
+				catch (final StringIndexOutOfBoundsException _)
 				{}
 			}
 			else

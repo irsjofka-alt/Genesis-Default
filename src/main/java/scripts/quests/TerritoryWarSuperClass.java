@@ -217,7 +217,7 @@ public class TerritoryWarSuperClass extends Quest
 				{
 					cronTime = new SchedulingPattern(siegeDate);
 				}
-				catch (final InvalidPatternException e)
+				catch (final InvalidPatternException _)
 				{
 					return null;
 				}

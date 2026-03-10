@@ -614,9 +614,9 @@ public class FeedableBeasts extends AbstractNpcAI
 				spawnNext(npc, growthLevel, caster, food);
 			}
 		}
-		else if (ArrayUtils.contains(TAMED_BEASTS, npcId) && (npc instanceof TamedBeastInstance))
+		else if (ArrayUtils.contains(TAMED_BEASTS, npcId) && (npc instanceof TamedBeastInstance instance))
 		{
-			final TamedBeastInstance beast = ((TamedBeastInstance) npc);
+			final TamedBeastInstance beast = instance;
 			if (skillId == beast.getFoodType())
 			{
 				beast.onReceiveFood();

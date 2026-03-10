@@ -49,30 +49,14 @@ public class Glakias extends Fighter
 		{
 			if (actor.isScriptValue(0))
 			{
-				NpcStringId stringId = null;
-				switch (Rnd.get(4))
+				NpcStringId stringId = switch (Rnd.get(4))
 				{
-					case 0 :
-					{
-						stringId = NpcStringId.ARCHER_GIVE_YOUR_BREATH_FOR_THE_INTRUDER;
-						break;
-					}
-					case 1 :
-					{
-						stringId = NpcStringId.MY_KNIGHTS_SHOW_YOUR_LOYALTY;
-						break;
-					}
-					case 2 :
-					{
-						stringId = NpcStringId.I_CAN_TAKE_IT_NO_LONGER;
-						break;
-					}
-					case 3 :
-					{
-						stringId = NpcStringId.ARCHER_HEED_MY_CALL;
-						break;
-					}
-				}
+					case 0  -> NpcStringId.ARCHER_GIVE_YOUR_BREATH_FOR_THE_INTRUDER;
+					case 1  -> NpcStringId.MY_KNIGHTS_SHOW_YOUR_LOYALTY;
+					case 2  -> NpcStringId.I_CAN_TAKE_IT_NO_LONGER;
+					case 3  -> NpcStringId.ARCHER_HEED_MY_CALL;
+					default -> null;
+				};
 				actor.broadcastPacketToOthers(2000, new NpcSay(actor.getObjectId(), Say2.SHOUT, actor.getId(), stringId));
 				actor.setScriptValue(1);
 			}

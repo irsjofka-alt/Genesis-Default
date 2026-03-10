@@ -105,7 +105,7 @@ public final class FusionSkill
 					_caster.abortCast();
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 	}

@@ -76,7 +76,7 @@ public class L2TopcoSite extends VoteRewardSite
 	{
 		try
 		{
-			final var url = new URL(String.format("https://l2top.co/reward/VoteCheck.php?id=%s&ip=%s", _serverId, player.getIPAddress()));
+			final var url = new URL("https://l2top.co/reward/VoteCheck.php?id=%s&ip=%s".formatted(_serverId, player.getIPAddress()));
 			final var con = (HttpURLConnection) url.openConnection();
 			con.addRequestProperty("Host", url.getHost());
 			con.addRequestProperty("Accept", "*/*");

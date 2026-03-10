@@ -42,7 +42,7 @@ public class Log
 	{
 		final Calendar cal = Calendar.getInstance();
 		final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-		System.out.println("[" + sdf.format(cal.getTime()) + "] StrixPlatform: " + msg);
+		IO.println("[" + sdf.format(cal.getTime()) + "] StrixPlatform: " + msg);
 		MAINLOG.log("INFO - " + msg);
 	}
 	
@@ -58,7 +58,7 @@ public class Log
 	{
 		final Calendar cal = Calendar.getInstance();
 		final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-		System.out.println("[" + sdf.format(cal.getTime()) + "] StrixPlatform: " + msg);
+		IO.println("[" + sdf.format(cal.getTime()) + "] StrixPlatform: " + msg);
 		MAINLOG.log("LOG - " + msg);
 	}
 	
@@ -66,7 +66,7 @@ public class Log
 	{
 		final Calendar cal = Calendar.getInstance();
 		final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-		System.out.println("[" + sdf.format(cal.getTime()) + "] StrixPlatform: " + msg);
+		IO.println("[" + sdf.format(cal.getTime()) + "] StrixPlatform: " + msg);
 		AUDITLOG.log("AUDIT - " + msg);
 	}
 	
@@ -74,7 +74,7 @@ public class Log
 	{
 		final Calendar cal = Calendar.getInstance();
 		final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-		System.out.println("[" + sdf.format(cal.getTime()) + "] StrixPlatform: " + msg);
+		IO.println("[" + sdf.format(cal.getTime()) + "] StrixPlatform: " + msg);
 		DEBUGLOG.log("DEBUG - " + msg);
 	}
 	
@@ -82,7 +82,7 @@ public class Log
 	{
 		final Calendar cal = Calendar.getInstance();
 		final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-		System.out.println("[" + sdf.format(cal.getTime()) + "] StrixPlatform: " + msg);
+		IO.println("[" + sdf.format(cal.getTime()) + "] StrixPlatform: " + msg);
 		AUTHLOG.log("AUTH - " + msg);
 	}
 }

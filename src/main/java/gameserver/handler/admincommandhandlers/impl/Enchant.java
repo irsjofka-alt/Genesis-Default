@@ -148,9 +148,9 @@ public class Enchant implements IAdminCommandHandler
 			target = activeChar;
 		}
 		Player player = null;
-		if (target instanceof Player)
+		if (target instanceof Player player1)
 		{
-			player = (Player) target;
+			player = player1;
 		}
 		else
 		{

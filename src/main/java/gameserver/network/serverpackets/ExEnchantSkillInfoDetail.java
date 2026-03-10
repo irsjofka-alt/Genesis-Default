@@ -49,7 +49,7 @@ public class ExEnchantSkillInfoDetail extends GameServerPacket
 			}
 			else
 			{
-				esd = enchantLearn.getFirstRouteGroup().getEnchantGroupDetails().get(0);
+				esd = enchantLearn.getFirstRouteGroup().getEnchantGroupDetails().getFirst();
 			}
 		}
 

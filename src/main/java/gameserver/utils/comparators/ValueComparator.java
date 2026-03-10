@@ -55,25 +55,16 @@ public class ValueComparator implements Comparator<Integer>
 		final StatsSet set2 = _base.get(b);
 		final var isAlive1 = CommunityRaidBoss.isBossAlive(set1);
 		final var isAlive2 = CommunityRaidBoss.isBossAlive(set2);
-		switch (sorting)
+		return switch (sorting)
 		{
-			case NAME_ASC :
-				return temp1.getName(lang).compareTo(temp2.getName(lang));
-			case NAME_DESC :
-				return temp2.getName(lang).compareTo(temp1.getName(lang));
-			case LEVEL_ASC :
-				return Integer.compare(temp1.getLevel(), temp2.getLevel());
-			case LEVEL_DESC :
-				return Integer.compare(temp2.getLevel(), temp1.getLevel());
-			case STATUS_ASC :
-				return Integer.compare((int) set1.getLong("respawnTime"), (int) set2.getLong("respawnTime"));
-			case STATUS_DESC :
-				return Integer.compare((int) set2.getLong("respawnTime"), (int) set1.getLong("respawnTime"));
-			case STATUS_ALIVE :
-				return Boolean.compare(isAlive1, isAlive2);
-			case STATUS_DEATH :
-				return Boolean.compare(isAlive2, isAlive1);
-		}
-		return 0;
+			case NAME_ASC  -> temp1.getName(lang).compareTo(temp2.getName(lang));
+			case NAME_DESC  -> temp2.getName(lang).compareTo(temp1.getName(lang));
+			case LEVEL_ASC  -> Integer.compare(temp1.getLevel(), temp2.getLevel());
+			case LEVEL_DESC  -> Integer.compare(temp2.getLevel(), temp1.getLevel());
+			case STATUS_ASC  -> Integer.compare((int) set1.getLong("respawnTime"), (int) set2.getLong("respawnTime"));
+			case STATUS_DESC  -> Integer.compare((int) set2.getLong("respawnTime"), (int) set1.getLong("respawnTime"));
+			case STATUS_ALIVE  -> Boolean.compare(isAlive1, isAlive2);
+			case STATUS_DEATH  -> Boolean.compare(isAlive2, isAlive1);
+		};
 	}
 }

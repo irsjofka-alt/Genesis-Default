@@ -78,7 +78,7 @@ public class RequestAuthLogin extends LoginClientPacket
 				decPass = rsaCipher.doFinal(_raw2, 0x00, _raw2.length);
 			}
 		}
-		catch(final Exception e)
+		catch(final Exception _)
 		{
 			client.closeNow(true);
 			return;

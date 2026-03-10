@@ -24,5 +24,5 @@ public enum CtrlIntention
 	MOVING,
 	FOLLOW,
 	PICK_UP,
-	INTERACT;
+	INTERACT
 }

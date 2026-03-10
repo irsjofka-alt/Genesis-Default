@@ -1093,7 +1093,7 @@ public class TullyWorkshop extends Quest
 		else if (((npcId == TEMENIR) || (npcId == KIRETCENAH)) && spawnedFollowers.contains(npc))
 		{
 			final var victim1 = spawnedFollowers.get(1);
-			final var victim2 = spawnedFollowers.get(0);
+			final var victim2 = spawnedFollowers.getFirst();
 			final var actor = spawnedFollowers.get(2);
 			
 			if ((actor != null) && !actor.isDead())
@@ -1122,7 +1122,7 @@ public class TullyWorkshop extends Quest
 		if (((npcId == TEMENIR) || (npcId == DRAXIUS)) && spawnedFollowers.contains(npc))
 		{
 			final var victim = npcId == TEMENIR ? spawnedFollowers.get(1) : spawnedFollowers.get(2);
-			final var actor = spawnedFollowers.get(0);
+			final var actor = spawnedFollowers.getFirst();
 			
 			if ((actor != null) && (victim != null) && !actor.isDead() && !victim.isDead() && (getRandom(1000) > 333))
 			{
@@ -1182,9 +1182,9 @@ public class TullyWorkshop extends Quest
 			
 			countdownTime = 600000;
 			_countdown = ThreadPoolManager.getInstance().scheduleAtFixedRate(new CountdownTask(), 60000, 10000);
-			final var ns = new NpcSay(postMortemSpawn.get(0).getObjectId(), Say2.NPC_SHOUT, postMortemSpawn.get(0).getId(), NpcStringId.DETONATOR_INITIALIZATION_TIME_S1_MINUTES_FROM_NOW);
+			final var ns = new NpcSay(postMortemSpawn.getFirst().getObjectId(), Say2.NPC_SHOUT, postMortemSpawn.getFirst().getId(), NpcStringId.DETONATOR_INITIALIZATION_TIME_S1_MINUTES_FROM_NOW);
 			ns.addStringParameter(Integer.toString((countdownTime / 60000)));
-			postMortemSpawn.get(0).broadcastPacketToOthers(2000, ns);
+			postMortemSpawn.getFirst().broadcastPacketToOthers(2000, ns);
 		}
 		else if ((npcId == TIMETWISTER_GOLEM) && (_countdown != null))
 		{
@@ -1194,9 +1194,9 @@ public class TullyWorkshop extends Quest
 				if (countdownTime > 180000)
 				{
 					countdownTime = Math.max(countdownTime - 180000, 60000);
-					if ((postMortemSpawn != null) && (postMortemSpawn.size() > 0) && (postMortemSpawn.get(0) != null) && (postMortemSpawn.get(0).getId() == INGENIOUS_CONTRAPTION))
+					if ((postMortemSpawn != null) && (postMortemSpawn.size() > 0) && (postMortemSpawn.getFirst() != null) && (postMortemSpawn.getFirst().getId() == INGENIOUS_CONTRAPTION))
 					{
-						postMortemSpawn.get(0).broadcastPacketToOthers(2000, new NpcSay(postMortemSpawn.get(0).getObjectId(), Say2.NPC_SHOUT, postMortemSpawn.get(0).getId(), NpcStringId.ZZZZ_CITY_INTERFERENCE_ERROR_FORWARD_EFFECT_CREATED));
+						postMortemSpawn.getFirst().broadcastPacketToOthers(2000, new NpcSay(postMortemSpawn.getFirst().getObjectId(), Say2.NPC_SHOUT, postMortemSpawn.getFirst().getId(), NpcStringId.ZZZZ_CITY_INTERFERENCE_ERROR_FORWARD_EFFECT_CREATED));
 					}
 				}
 			}
@@ -1206,9 +1206,9 @@ public class TullyWorkshop extends Quest
 				if ((countdownTime > 0) && (countdownTime <= 420000))
 				{
 					countdownTime += 180000;
-					if ((postMortemSpawn != null) && (postMortemSpawn.size() > 0) && (postMortemSpawn.get(0) != null) && (postMortemSpawn.get(0).getId() == INGENIOUS_CONTRAPTION))
+					if ((postMortemSpawn != null) && (postMortemSpawn.size() > 0) && (postMortemSpawn.getFirst() != null) && (postMortemSpawn.getFirst().getId() == INGENIOUS_CONTRAPTION))
 					{
-						postMortemSpawn.get(0).broadcastPacketToOthers(2000, new NpcSay(postMortemSpawn.get(0).getObjectId(), Say2.NPC_SHOUT, postMortemSpawn.get(0).getId(), NpcStringId.ZZZZ_CITY_INTERFERENCE_ERROR_RECURRENCE_EFFECT_CREATED));
+						postMortemSpawn.getFirst().broadcastPacketToOthers(2000, new NpcSay(postMortemSpawn.getFirst().getObjectId(), Say2.NPC_SHOUT, postMortemSpawn.getFirst().getId(), NpcStringId.ZZZZ_CITY_INTERFERENCE_ERROR_RECURRENCE_EFFECT_CREATED));
 					}
 				}
 			}
@@ -1514,7 +1514,7 @@ public class TullyWorkshop extends Quest
 			Npc npc = null;
 			if ((postMortemSpawn != null) && (postMortemSpawn.size() > 0))
 			{
-				npc = postMortemSpawn.get(0);
+				npc = postMortemSpawn.getFirst();
 			}
 			if (countdownTime > 60000)
 			{

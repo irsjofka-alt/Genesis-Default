@@ -920,7 +920,7 @@ public class _620_FourGoblets extends Quest
 					htmltext = "31454-17.htm";
 				}
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{
 			}
 		}

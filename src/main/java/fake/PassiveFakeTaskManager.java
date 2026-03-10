@@ -79,7 +79,7 @@ public class PassiveFakeTaskManager
 			return;
 		}
 		
-		final Map<FakePlayer, Long> sorted = _spawnPlayers.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+		final Map<FakePlayer, Long> sorted = _spawnPlayers.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, _) -> e1, LinkedHashMap::new));
 		if (!sorted.isEmpty())
 		{
 			long nextTime = sorted.entrySet().iterator().next().getValue() - System.currentTimeMillis();
@@ -108,7 +108,7 @@ public class PassiveFakeTaskManager
 			return;
 		}
 		
-		final Map<FakePlayer, Long> sorted = _despawnPlayers.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+		final Map<FakePlayer, Long> sorted = _despawnPlayers.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, _) -> e1, LinkedHashMap::new));
 		if (!sorted.isEmpty())
 		{
 			long nextTime = sorted.entrySet().iterator().next().getValue() - System.currentTimeMillis();

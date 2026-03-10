@@ -105,9 +105,9 @@ public class LafiLakfi extends DefaultAI
 		{
 			for (final GameObject object : World.getAroundObjects(actor, 20, 200))
 			{
-				if (((object instanceof ItemInstance)) && (((ItemInstance) object).getId() == 57))
+				if (((object instanceof ItemInstance instance)) && (instance.getId() == 57))
 				{
-					closestItem = (ItemInstance) object;
+					closestItem = instance;
 				}
 			}
 
@@ -169,9 +169,9 @@ public class LafiLakfi extends DefaultAI
 			ItemInstance closestItem = null;
 			for (final GameObject object : World.getAroundObjects(actor, MAX_RADIUS, 200))
 			{
-				if (((object instanceof ItemInstance)) && (((ItemInstance) object).getId() == 57))
+				if (((object instanceof ItemInstance instance)) && (instance.getId() == 57))
 				{
-					closestItem = (ItemInstance) object;
+					closestItem = instance;
 				}
 			}
 
@@ -186,25 +186,17 @@ public class LafiLakfi extends DefaultAI
 	
 	public int getChance(int stage)
 	{
-		switch(stage)
+		return switch(stage)
 		{
-			case 4:
-				return 10;
-			case 5:
-				return 20;
-			case 6:
-				return 40;
-			case 7:
-				return 60;
-			case 8:
-				return 70;
-			case 9:
-				return 80;
-			case 10:
-				return 100;
-			default:
-				return 0;
-		}
+			case 4 -> 10;
+			case 5 -> 20;
+			case 6 -> 40;
+			case 7 -> 60;
+			case 8 -> 70;
+			case 9 -> 80;
+			case 10 -> 100;
+			default -> 0;
+		};
 	}
 	
 	@Override

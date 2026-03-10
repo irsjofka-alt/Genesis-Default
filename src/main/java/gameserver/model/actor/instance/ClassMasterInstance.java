@@ -167,7 +167,7 @@ public final class ClassMasterInstance extends MerchantInstance
 			final int val = Integer.parseInt(request.substring(2));
 			checkAndChangeClass(player, val);
 		}
-		catch (final NumberFormatException e)
+		catch (final NumberFormatException _)
 		{}
 		player.sendPacket(TutorialCloseHtml.STATIC_PACKET);
 		if (Config.ENABLE_SPECIAL_TUTORIAL && player.getClassId().level() < 2 && !player.isSubClassActive())
@@ -484,17 +484,13 @@ public final class ClassMasterInstance extends MerchantInstance
 	
 	private static final int getMinLevel(int level)
 	{
-		switch (level)
+		return switch (level)
 		{
-			case 0 :
-				return 20;
-			case 1 :
-				return 40;
-			case 2 :
-				return 76;
-			default :
-				return Integer.MAX_VALUE;
-		}
+			case 0  -> 20;
+			case 1  -> 40;
+			case 2  -> 76;
+			default  -> Integer.MAX_VALUE;
+		};
 	}
 	
 	private static final boolean validateClassId(ClassId oldCID, int val)
@@ -503,7 +499,7 @@ public final class ClassMasterInstance extends MerchantInstance
 		{
 			return validateClassId(oldCID, ClassId.getClassId(val));
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 		return false;
 	}

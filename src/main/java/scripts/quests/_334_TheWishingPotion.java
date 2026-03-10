@@ -418,22 +418,15 @@ public class _334_TheWishingPotion extends Quest
 					case 2336010:
 					{
 						npc.broadcastPacketToOthers(2000, new NpcSay(npc.getObjectId(), Say2.SHOUT, npc.getId(), NpcStringId.ONE_TWO_MAY_YOUR_DREAMS_COME_TRUE));
-						int i0 = 0;
-						switch (qs.getInt("i_quest0"))
+						int i0 = switch (qs.getInt("i_quest0"))
 						{
-							case 1:
-							{
-								i0 = getRandom(2);
-								break;
-							}
+							case 1: yield getRandom(2);
 							case 2:
 							case 3:
-							case 4:
-							{
-								i0 = getRandom(3);
-								break;
-							}
-						}
+							case 4: yield getRandom(3);
+							default:
+								yield 0;
+						};
 						switch (i0)
 						{
 							case 0:

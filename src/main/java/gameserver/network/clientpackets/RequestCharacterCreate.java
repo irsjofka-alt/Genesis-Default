@@ -219,7 +219,7 @@ public final class RequestCharacterCreate extends GameClientPacket
 		{
 			pattern = Pattern.compile(Config.CNAME_TEMPLATE);
 		}
-		catch (final PatternSyntaxException e)
+		catch (final PatternSyntaxException _)
 		{
 			_log.warn("ERROR : Character name pattern of config is wrong!");
 			pattern = Pattern.compile(".*");

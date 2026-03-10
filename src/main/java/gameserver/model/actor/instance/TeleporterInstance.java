@@ -120,9 +120,9 @@ public final class TeleporterInstance extends NpcInstance
 			{
 				val = Integer.parseInt(command.substring(5));
 			}
-			catch (final IndexOutOfBoundsException ioobe)
+			catch (final IndexOutOfBoundsException _)
 			{}
-			catch (final NumberFormatException nfe)
+			catch (final NumberFormatException _)
 			{}
 			
 			if ((val == 1) && (player.getLevel() < 41 || Config.ALT_GAME_FREE_TELEPORT))

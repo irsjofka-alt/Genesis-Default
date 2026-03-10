@@ -1146,15 +1146,13 @@ public class PremiumBuffer extends Quest
 			final SummonStat petStat = target.getStat();
 			petStatus.setCurrentHp(petStat.getMaxHp());
 			petStatus.setCurrentMp(petStat.getMaxMp());
-			if (target instanceof PetInstance)
+			if (target instanceof PetInstance pet)
 			{
-				final PetInstance pet = (PetInstance) target;
 				pet.setCurrentFed(pet.getMaxFed());
 				player.sendPacket(new SetSummonRemainTime(pet.getMaxFed(), pet.getCurrentFed()));
 			}
-			else if (target instanceof ServitorInstance)
+			else if (target instanceof ServitorInstance summon)
 			{
-				final ServitorInstance summon = (ServitorInstance) target;
 				summon.decTimeRemaining(summon.getTimeRemaining() - summon.getTotalLifeTime());
 				player.sendPacket(new SetSummonRemainTime(summon.getTotalLifeTime(), summon.getTimeRemaining()));
 			}
@@ -1170,7 +1168,7 @@ public class PremiumBuffer extends Quest
 	{
 		if (DEBUG)
 		{
-			System.out.println(getScriptName() + "#onAdvEvent('" + event + "'," + (npc == null ? "NULL" : npc.getId() + npc.getName(player.getLang())) + "," + (player == null ? "NULL" : player.getName(null)) + ")");
+			IO.println(getScriptName() + "#onAdvEvent('" + event + "'," + (npc == null ? "NULL" : npc.getId() + npc.getName(player.getLang())) + "," + (player == null ? "NULL" : player.getName(null)) + ")");
 		}
 		final QuestState st = player.getQuestState(QUEST_LOADING_INFO);
 		final String[] eventSplit = event.split(" ", 4);

@@ -163,7 +163,7 @@ public final class WalkingManager extends DocumentParser
 							holder.addRoute(routeName, new Location(x, y, z));
 							_routesToAttach.put(npcId, holder);
 						}
-						catch (final Exception e)
+						catch (final Exception _)
 						{
 							warn("Error in target definition for route : " + routeName);
 						}

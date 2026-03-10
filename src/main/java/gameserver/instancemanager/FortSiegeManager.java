@@ -161,7 +161,7 @@ public final class FortSiegeManager extends LoggerObject
 
 					_commanderSpawns.add(new SpawnFortSiege(fort.getId(), x, y, z, heading, npc_id, i));
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					warn("Error while loading commander(s) for " + fort.getName() + " fort.");
 				}
@@ -187,7 +187,7 @@ public final class FortSiegeManager extends LoggerObject
 
 					_flagSpawns.add(new CombatFlag(fort.getId(), x, y, z, 0, flag_id));
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					warn("Error while loading flag(s) for " + fort.getName() + " fort.");
 				}
@@ -212,7 +212,7 @@ public final class FortSiegeManager extends LoggerObject
 					final int powerUnitId = Integer.parseInt(st.nextToken());
 					_powerUnitSpawns.add(new SpawnFortSiege(fort.getId(), x, y, z, heading, powerUnitId, i));
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					warn("Error while loading power unit(s) for " + fort.getName() + " fort.");
 				}
@@ -237,7 +237,7 @@ public final class FortSiegeManager extends LoggerObject
 					final int controlUnitId = Integer.parseInt(st.nextToken());
 					_controlUnitSpawns.add(new SpawnFortSiege(fort.getId(), x, y, z, heading, controlUnitId, i));
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					warn("Error while loading control unit(s) for " + fort.getName() + " fort.");
 				}
@@ -262,7 +262,7 @@ public final class FortSiegeManager extends LoggerObject
 					final int mainMachineId = Integer.parseInt(st.nextToken());
 					_mainMachineSpawns.add(new SpawnFortSiege(fort.getId(), x, y, z, heading, mainMachineId, i));
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					warn("Error while loading main machine for " + fort.getName() + " fort.");
 				}

@@ -76,7 +76,7 @@ public final class VoteRewardParser extends DocumentParser
 						{
 							voteRewardSiteClass = (Class<VoteRewardSite>) Class.forName("gameserver.model.entity.mods.votereward.impl." + impl + "Site");
 						}
-						catch (final ClassNotFoundException e)
+						catch (final ClassNotFoundException _)
 						{
 							try
 							{
@@ -155,7 +155,7 @@ public final class VoteRewardParser extends DocumentParser
 	{
 		if (_voteRewardSites.containsKey(site.getName()))
 		{
-			warn(String.format("Dublicate %s Vote Site registered!", site.getName()));
+			warn("Dublicate %s Vote Site registered!".formatted(site.getName()));
 		}
 		_voteRewardSites.put(site.getName(), site);
 	}

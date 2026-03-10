@@ -212,34 +212,17 @@ public class DravonValleyZone extends ZoneType
 	
 	private double getCoefficient(int count)
 	{
-		double cf;
-		switch (count)
+		return switch (count)
 		{
-			case 1 :
-				cf = 0.7;
-				break;
-			case 4 :
-				cf = 0.7;
-				break;
-			case 5 :
-				cf = 0.75;
-				break;
-			case 6 :
-				cf = 0.8;
-				break;
-			case 7 :
-				cf = 0.85;
-				break;
-			case 8 :
-				cf = 0.9;
-				break;
-			case 9 :
-				cf = 0.95;
-				break;
-			default :
-				cf = 1;
-		}
-		return cf;
+			case 1  -> 0.7;
+			case 4  -> 0.7;
+			case 5  -> 0.75;
+			case 6  -> 0.8;
+			case 7  -> 0.85;
+			case 8  -> 0.9;
+			case 9  -> 0.95;
+			default  -> 1;
+		};
 	}
 	
 	public int getChance()

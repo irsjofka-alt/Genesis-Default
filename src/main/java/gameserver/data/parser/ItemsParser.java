@@ -171,17 +171,10 @@ public class ItemsParser extends LoggerObject
 			{
 				highest = item.getId();
 			}
-			if (item instanceof EtcItem)
-			{
-				_etcItems.put(item.getId(), (EtcItem) item);
-			}
-			else if (item instanceof Armor)
-			{
-				_armors.put(item.getId(), (Armor) item);
-			}
-			else
-			{
-				_weapons.put(item.getId(), (Weapon) item);
+			switch (item) {
+				case EtcItem etcItem -> _etcItems.put(item.getId(), etcItem);
+				case Armor armor -> _armors.put(item.getId(), armor);
+				default -> _weapons.put(item.getId(), (Weapon) item);
 			}
 		}
 		buildFastLookupTable(highest);

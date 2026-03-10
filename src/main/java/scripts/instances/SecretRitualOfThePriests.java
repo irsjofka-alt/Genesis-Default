@@ -337,22 +337,14 @@ public final class SecretRitualOfThePriests extends AbstractReflection
 					npc.broadcastPacketToOthers(2000, new MagicSkillUse(npc, player, 5978, 1, 2400, 0));
 				}
 				
-				Location loc = null;
-				switch (r.getStatus())
+				Location loc = switch (r.getStatus())
 				{
-					case 0 :
-						loc = new Location(-76158, 213412, -7120);
-						break;
-					case 1 :
-						loc = new Location(-74959, 209240, -7472);
-						break;
-					case 2 :
-						loc = new Location(-77706, 208994, -7616);
-						break;
-					case 3 :
-						loc = new Location(-80176, 205855, -7893);
-						break;
-				}
+					case 0  -> new Location(-76158, 213412, -7120);
+					case 1  -> new Location(-74959, 209240, -7472);
+					case 2  -> new Location(-77706, 208994, -7616);
+					case 3  -> new Location(-80176, 205855, -7893);
+					default -> null;
+				};
 				player.getPersonalTasks().addTask(new TeleportTask(1000, loc, r));
 				r.addTimer("RETURN", ThreadPoolManager.getInstance().schedule(() -> returnTask(npc, r), 5000));
 			}

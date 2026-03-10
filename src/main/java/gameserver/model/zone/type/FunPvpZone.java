@@ -706,7 +706,7 @@ public class FunPvpZone extends ZoneType
 			{
 				result[i][0] = Integer.parseInt(valueSplit[0]);
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{
 				return null;
 			}
@@ -714,7 +714,7 @@ public class FunPvpZone extends ZoneType
 			{
 				result[i][1] = Integer.parseInt(valueSplit[1]);
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{
 				return null;
 			}
@@ -722,7 +722,7 @@ public class FunPvpZone extends ZoneType
 			{
 				result[i][2] = Integer.parseInt(valueSplit[2]);
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{
 				return null;
 			}

@@ -16,5 +16,5 @@ package gameserver.model.base;
 
 public enum ItemType
 {
-	REQUEST, REWARD;
+	REQUEST, REWARD
 }

@@ -73,17 +73,12 @@ public class GatekeeperSpirit extends Quest
 	@Override
 	public String onFirstTalk(Npc npc, Player player)
 	{
-		String htmltext = "";
-		switch (npc.getId())
+		return switch (npc.getId())
 		{
-			case 31111 :
-				htmltext = "spirit_gate001.htm";
-				break;
-			case 31112 :
-				htmltext = "spirit_gate002.htm";
-				break;
-		}
-		return htmltext;
+			case 31111  -> "spirit_gate001.htm";
+			case 31112  -> "spirit_gate002.htm";
+			default -> "";
+		};
 	}
 	
 	@Override

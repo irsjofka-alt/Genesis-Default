@@ -65,7 +65,7 @@ public class PetitionVote extends GameClientPacket
 			statement.setLong(5, System.currentTimeMillis());
 			statement.execute();
 		}
-		catch (final SQLException e)
+		catch (final SQLException _)
 		{
 			_log.warn("Error while saving petition feedback");
 		}

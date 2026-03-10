@@ -92,9 +92,9 @@ public class GuardAI extends CharacterAI implements Runnable
 			target = player;
 		}
 
-		if (target instanceof Playable)
+		if (target instanceof Playable playable)
 		{
-			if (((Playable) target).isSilentMoving() && Rnd.chance(90))
+			if (playable.isSilentMoving() && Rnd.chance(90))
 			{
 				return false;
 			}
@@ -265,7 +265,7 @@ public class GuardAI extends CharacterAI implements Runnable
 				
 				if (!(cha instanceof Npc))
 				{
-					if (_healSkills.length != 0 && (cha instanceof Player) && (npc.getCastle().getSiege().checkIsDefender(((Player) cha).getClan())))
+					if (_healSkills.length != 0 && (cha instanceof Player player) && (npc.getCastle().getSiege().checkIsDefender(player.getClan())))
 					{
 						if (!npc.isAttackingDisabled() && (cha.getCurrentHp() < (cha.getMaxHp() * 0.6)) && (npc.getCurrentHp() > (npc.getMaxHp() / 2)) && (npc.getCurrentMp() > (npc.getMaxMp() / 2)) && cha.isInCombat())
 						{
@@ -396,14 +396,14 @@ public class GuardAI extends CharacterAI implements Runnable
 				}
 			}
 		}
-		catch (final NullPointerException e)
+		catch (final NullPointerException _)
 		{
 			npc.setTarget(null);
 			setIntention(ACTIVE);
 			return;
 		}
 		
-		if ((target instanceof Player) && sGuard.getCastle().getSiege().checkIsDefender(((Player) target).getClan()))
+		if ((target instanceof Player player) && sGuard.getCastle().getSiege().checkIsDefender(player.getClan()))
 		{
 			sGuard.getAggroList().stopHating(target);
 			npc.setTarget(null);

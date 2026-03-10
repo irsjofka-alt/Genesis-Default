@@ -252,7 +252,7 @@ public final class Evolve
 			ps.setInt(1, removedItem.getObjectId());
 			ps.execute();
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 		return true;

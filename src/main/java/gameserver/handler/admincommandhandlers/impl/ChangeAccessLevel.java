@@ -64,7 +64,7 @@ public class ChangeAccessLevel implements IAdminCommandHandler
 					activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //changelvl <target_new_level> | <player_name> <new_level>");
 			}

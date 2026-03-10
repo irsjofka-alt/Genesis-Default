@@ -47,7 +47,7 @@ public class Summons implements IAdminCommandHandler
 				count = Integer.parseInt(data[2]);
 			}
 		}
-		catch (final NumberFormatException nfe)
+		catch (final NumberFormatException _)
 		{
 			activeChar.sendMessage("Incorrect format for command 'summon'");
 			return false;

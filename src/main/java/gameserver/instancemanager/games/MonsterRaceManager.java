@@ -465,7 +465,7 @@ public class MonsterRaceManager extends LoggerObject
 					break;
 				case 1115 :
 					_state = RaceState.RACE_END;
-					final HistoryInfoTemplate info = _history.get(_history.size() - 1);
+					final HistoryInfoTemplate info = _history.getLast();
 					info.setFirst(getFirstPlace());
 					info.setSecond(getSecondPlace());
 					info.setOddRate(_odds.get(getFirstPlace() - 1));

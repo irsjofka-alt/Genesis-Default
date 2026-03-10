@@ -14,6 +14,7 @@
  */
 package gameserver.model.entity.events.model.template;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -26,6 +27,7 @@ import gameserver.model.actor.Player;
  */
 public class FightEventPlayer implements Serializable
 {
+	@Serial
 	private static final long serialVersionUID = 5788010638258042361L;
 	private Player _player;
 	private FightEventTeam _team;

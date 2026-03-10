@@ -91,25 +91,15 @@ public class PetManagerInstance extends MerchantInstance
 		{
 			final String[] params = command.split(" ");
 			final int val = Integer.parseInt(params[1]);
-			boolean ok = false;
-			switch (val)
+			boolean ok = switch (val)
 			{
-				case 1 :
-					ok = Evolve.doEvolve(player, this, 2375, 9882, 55);
-					break;
-				case 2 :
-					ok = Evolve.doEvolve(player, this, 9882, 10426, 70);
-					break;
-				case 3 :
-					ok = Evolve.doEvolve(player, this, 6648, 10311, 55);
-					break;
-				case 4 :
-					ok = Evolve.doEvolve(player, this, 6650, 10313, 55);
-					break;
-				case 5 :
-					ok = Evolve.doEvolve(player, this, 6649, 10312, 55);
-					break;
-			}
+				case 1  -> Evolve.doEvolve(player, this, 2375, 9882, 55);
+				case 2  -> Evolve.doEvolve(player, this, 9882, 10426, 70);
+				case 3  -> Evolve.doEvolve(player, this, 6648, 10311, 55);
+				case 4  -> Evolve.doEvolve(player, this, 6650, 10313, 55);
+				case 5  -> Evolve.doEvolve(player, this, 6649, 10312, 55);
+				default -> false;
+			};
 			if (!ok)
 			{
 				final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
@@ -122,25 +112,15 @@ public class PetManagerInstance extends MerchantInstance
 		{
 			final String[] params = command.split(" ");
 			final int val = Integer.parseInt(params[1]);
-			boolean ok = false;
-			switch (val)
+			boolean ok = switch (val)
 			{
-				case 1 :
-					ok = Evolve.doRestore(player, this, 10307, 9882, 55);
-					break;
-				case 2 :
-					ok = Evolve.doRestore(player, this, 10611, 10426, 70);
-					break;
-				case 3 :
-					ok = Evolve.doRestore(player, this, 10308, 4422, 55);
-					break;
-				case 4 :
-					ok = Evolve.doRestore(player, this, 10309, 4423, 55);
-					break;
-				case 5 :
-					ok = Evolve.doRestore(player, this, 10310, 4424, 55);
-					break;
-			}
+				case 1  -> Evolve.doRestore(player, this, 10307, 9882, 55);
+				case 2  -> Evolve.doRestore(player, this, 10611, 10426, 70);
+				case 3  -> Evolve.doRestore(player, this, 10308, 4422, 55);
+				case 4  -> Evolve.doRestore(player, this, 10309, 4423, 55);
+				case 5  -> Evolve.doRestore(player, this, 10310, 4424, 55);
+				default -> false;
+			};
 			if (!ok)
 			{
 				final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());

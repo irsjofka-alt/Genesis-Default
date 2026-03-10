@@ -352,7 +352,7 @@ public final class ReflectionParser extends DocumentParser
 			if (!reuses.isEmpty())
 			{
 				Collections.sort(reuses);
-				time = reuses.get(reuses.size() - 1);
+				time = reuses.getLast();
 			}
 		}
 		else

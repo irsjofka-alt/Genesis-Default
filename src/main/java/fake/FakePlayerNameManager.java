@@ -75,7 +75,7 @@ public class FakePlayerNameManager
 	private void loadWordlist()
 	{
 		try (
-		    LineNumberReader lnr = new LineNumberReader(new BufferedReader(new FileReader(new File("./config/mods/fakes/fakenamewordlist.txt"))));)
+		    LineNumberReader lnr = new LineNumberReader(new BufferedReader(new FileReader(new File("./config/mods/fakes/fakenamewordlist.txt")))))
 		{
 			String line;
 			final ArrayList<String> playersList = new ArrayList<>();
@@ -88,7 +88,7 @@ public class FakePlayerNameManager
 				playersList.add(line);
 			}
 			_fakePlayerNames = playersList;
-			_log.info(String.format("Loaded %s fake player names.", _fakePlayerNames.size()));
+			_log.info("Loaded %s fake player names.".formatted(_fakePlayerNames.size()));
 		}
 		catch (final Exception e)
 		{

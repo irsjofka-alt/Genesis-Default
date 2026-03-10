@@ -140,7 +140,7 @@ public class GuardInstance extends Attackable
 
 					if ((qlst != null) && (qlst.size() == 1))
 					{
-						qlst.get(0).notifyFirstTalk(this, player);
+						qlst.getFirst().notifyFirstTalk(this, player);
 					}
 					else
 					{

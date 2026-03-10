@@ -466,7 +466,7 @@ public class CursedWeaponsManager extends LoggerObject
 		{
 			_cursedWeapons.get(itemId).giveSkill();
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 	}
 

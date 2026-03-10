@@ -479,7 +479,7 @@ public abstract class GameObject extends FightEventOwner implements IIdentifiabl
 		{
 			return _params.getString(lang != null ? "name" + lang.substring(0, 1).toUpperCase() + lang.substring(1) : "name" + Config.MULTILANG_DEFAULT.substring(0, 1).toUpperCase() + Config.MULTILANG_DEFAULT.substring(1));
 		}
-		catch (final IllegalArgumentException e)
+		catch (final IllegalArgumentException _)
 		{
 			return "";
 		}
@@ -501,7 +501,7 @@ public abstract class GameObject extends FightEventOwner implements IIdentifiabl
 			}
 			return title;
 		}
-		catch (final IllegalArgumentException e)
+		catch (final IllegalArgumentException _)
 		{
 			return "";
 		}
@@ -1152,9 +1152,8 @@ public abstract class GameObject extends FightEventOwner implements IIdentifiabl
 			return false;
 		}
 		
-		if (target instanceof Creature)
+		if (target instanceof Creature target1)
 		{
-			final var target1 = (Creature) target;
 			angleChar = Util.calculateAngleFrom(this, target1);
 			angleTarget = Util.convertHeadingToDegree(target1.getHeading());
 			angleDiff = angleChar - angleTarget;

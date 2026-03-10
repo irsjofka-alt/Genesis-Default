@@ -68,7 +68,7 @@ public final class ScriptListenerLoader extends LoggerObject
 			{
 				getGenerateBufferInfo(buffer);
 			}
-			catch (final IOException e)
+			catch (final IOException _)
 			{}
 		}
 	}
@@ -118,7 +118,7 @@ public final class ScriptListenerLoader extends LoggerObject
 				}
 				continue;
 			}
-			catch (final NoSuchMethodException e)
+			catch (final NoSuchMethodException _)
 			{}
 			catch (final InvocationTargetException e)
 			{
@@ -285,7 +285,7 @@ public final class ScriptListenerLoader extends LoggerObject
 				final var MethodHandle = LOOKUP_MAIN.findStatic(clazz, "main", MAIN_TYPE);
 				MethodHandle.invoke(MAIN_ARGS);
 			}
-			catch (final NoSuchMethodException e)
+			catch (final NoSuchMethodException _)
 			{
 			}
 			catch (final Throwable e)

@@ -89,9 +89,9 @@ public class ScrollOfResurrection implements IItemHandler
 		}
 
 		PetInstance targetPet = null;
-		if (target instanceof PetInstance)
+		if (target instanceof PetInstance instance)
 		{
-			targetPet = (PetInstance) target;
+			targetPet = instance;
 		}
 
 		if ((targetPlayer != null) || (targetPet != null))

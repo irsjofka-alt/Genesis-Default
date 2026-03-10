@@ -106,7 +106,7 @@ public class PowerControlUnitInstance extends NpcInstance
 				if (getFort().getSiege().getIsInProgress())
 				{
 					getFort().getSiege().killedPowerUnit(this);
-					final Spawner spawn = getFort().getSiege().getMainMachine().get(0);
+					final Spawner spawn = getFort().getSiege().getMainMachine().getFirst();
 					final MainMachineInstance machineInstance = (MainMachineInstance) spawn.getLastSpawn();
 					if(machineInstance != null)
 					{

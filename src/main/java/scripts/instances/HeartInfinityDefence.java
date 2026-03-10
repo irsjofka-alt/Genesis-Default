@@ -416,9 +416,8 @@ public class HeartInfinityDefence extends AbstractReflection
 	@Override
 	public final String onEnterZone(Creature character, ZoneType zone)
 	{
-		if (character instanceof Attackable)
+		if (character instanceof Attackable npc)
 		{
-			final Attackable npc = (Attackable) character;
 			final var r = npc.getReflection();
 			if (isInReflection(r))
 			{
@@ -432,7 +431,7 @@ public class HeartInfinityDefence extends AbstractReflection
 		return null;
 	}
 
-	public static void main(String[] args)
+	void main()
 	{
 		new HeartInfinityDefence();
 	}

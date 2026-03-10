@@ -296,7 +296,7 @@ public class KoreanStyleEvent extends AbstractFightEvent
 		}
 		if (alivePlayersFromTeam.size() == 1)
 		{
-			return alivePlayersFromTeam.get(0);
+			return alivePlayersFromTeam.getFirst();
 		}
 		return Rnd.get(alivePlayersFromTeam);
 	}
@@ -404,7 +404,7 @@ public class KoreanStyleEvent extends AbstractFightEvent
 				playable.updateEffectIcons();
 			}
 		}
-		catch (final IllegalStateException e)
+		catch (final IllegalStateException _)
 		{}
 	}
 

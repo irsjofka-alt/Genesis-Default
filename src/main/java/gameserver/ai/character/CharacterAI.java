@@ -321,7 +321,7 @@ public class CharacterAI extends AbstractAI
 			return;
 		}
 		
-		if ((object instanceof ItemInstance) && (((ItemInstance) object).getItemLocation() != ItemLocation.VOID))
+		if ((object instanceof ItemInstance instance) && (instance.getItemLocation() != ItemLocation.VOID))
 		{
 			return;
 		}
@@ -458,16 +458,15 @@ public class CharacterAI extends AbstractAI
 			}
 		}
 		
-		if (_actor instanceof Attackable)
+		if (_actor instanceof Attackable attackable)
 		{
-			((Attackable) _actor).setisReturningToSpawnPoint(false);
+			attackable.setisReturningToSpawnPoint(false);
 		}
 		
 		clientStoppedMoving();
 		
-		if (_actor instanceof Npc)
+		if (_actor instanceof Npc npc)
 		{
-			final var npc = (Npc) _actor;
 			WalkingManager.getInstance().onArrived(npc);
 			
 			if (npc.getTemplate().getEventQuests(QuestEventType.ON_MOVE_FINISHED) != null)
@@ -723,9 +722,9 @@ public class CharacterAI extends AbstractAI
 			{
 				if (!_actor.isInsideRadius(target, isBehind ? 5 : offset + 50, false, false))
 				{
-					if ((target instanceof Creature) && !(target instanceof DoorInstance))
+					if ((target instanceof Creature creature) && !(target instanceof DoorInstance))
 					{
-						startFollow((Creature) target, isBehind ? 5 : offset + 50);
+						startFollow(creature, isBehind ? 5 : offset + 50);
 					}
 					return true;
 				}
@@ -758,9 +757,9 @@ public class CharacterAI extends AbstractAI
 			}
 			
 			stopFollow();
-			if ((target instanceof Creature) && !(target instanceof DoorInstance))
+			if ((target instanceof Creature creature) && !(target instanceof DoorInstance))
 			{
-				startFollow((Creature) target, isBehind ? 5 : Math.max(offset, 5));
+				startFollow(creature, isBehind ? 5 : Math.max(offset, 5));
 			}
 			else if (target instanceof DoorInstance)
 			{

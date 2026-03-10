@@ -440,9 +440,9 @@ public class Spawner implements Cloneable, IPositionable, IIdentifiable
 		{
 			if (mob.getChampionTemplate() != null)
 			{
-				if (mob instanceof Attackable)
+				if (mob instanceof Attackable attackable)
 				{
-					((Attackable) mob).setIsGlobalAI(false);
+					attackable.setIsGlobalAI(false);
 				}
 				mob.setChampionTemplate(null);
 				mob.setCurrentHpMp(mob.getMaxHp(), mob.getMaxMp());
@@ -474,9 +474,9 @@ public class Spawner implements Cloneable, IPositionable, IIdentifiable
 		mob.setSpawn(this);
 		if (lifeTime > 0)
 		{
-			if (mob instanceof Attackable)
+			if (mob instanceof Attackable attackable)
 			{
-				((Attackable) mob).setIsGlobalAI(true);
+				attackable.setIsGlobalAI(true);
 			}
 			final var ai = mob.getAI();
 			if (ai != null)

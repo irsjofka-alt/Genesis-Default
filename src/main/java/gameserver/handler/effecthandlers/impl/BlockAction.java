@@ -46,7 +46,7 @@ public final class BlockAction extends Effect
 				id = Integer.parseInt(act);
 				_blockedActions.add(id);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 		_templates = new ArrayList<>();

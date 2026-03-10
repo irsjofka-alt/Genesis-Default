@@ -53,7 +53,7 @@ public class PlayL2Site extends VoteRewardSite
 	@Override
 	public boolean tryGiveRewards(Player player)
 	{
-		final String serverResponse = getApiResponse(String.format("https://playl2.net/%s/get-ind-vote/%s", _apiKey, player.getIPAddress()), false);
+		final String serverResponse = getApiResponse("https://playl2.net/%s/get-ind-vote/%s".formatted(_apiKey, player.getIPAddress()), false);
 		if (serverResponse == null)
 		{
 			return false;

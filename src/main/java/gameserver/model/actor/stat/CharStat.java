@@ -747,44 +747,30 @@ public class CharStat
 
 	public int getAttackElementValue(byte attackAttribute)
 	{
-		switch (attackAttribute)
+		return switch (attackAttribute)
 		{
-			case Elementals.FIRE :
-				return (int) calcStat(Stats.FIRE_POWER, _activeChar.getTemplate().getBaseFire());
-			case Elementals.WATER :
-				return (int) calcStat(Stats.WATER_POWER, _activeChar.getTemplate().getBaseWater());
-			case Elementals.WIND :
-				return (int) calcStat(Stats.WIND_POWER, _activeChar.getTemplate().getBaseWind());
-			case Elementals.EARTH :
-				return (int) calcStat(Stats.EARTH_POWER, _activeChar.getTemplate().getBaseEarth());
-			case Elementals.HOLY :
-				return (int) calcStat(Stats.HOLY_POWER, _activeChar.getTemplate().getBaseHoly());
-			case Elementals.DARK :
-				return (int) calcStat(Stats.DARK_POWER, _activeChar.getTemplate().getBaseDark());
-			default :
-				return 0;
-		}
+			case Elementals.FIRE  -> (int) calcStat(Stats.FIRE_POWER, _activeChar.getTemplate().getBaseFire());
+			case Elementals.WATER  -> (int) calcStat(Stats.WATER_POWER, _activeChar.getTemplate().getBaseWater());
+			case Elementals.WIND  -> (int) calcStat(Stats.WIND_POWER, _activeChar.getTemplate().getBaseWind());
+			case Elementals.EARTH  -> (int) calcStat(Stats.EARTH_POWER, _activeChar.getTemplate().getBaseEarth());
+			case Elementals.HOLY  -> (int) calcStat(Stats.HOLY_POWER, _activeChar.getTemplate().getBaseHoly());
+			case Elementals.DARK  -> (int) calcStat(Stats.DARK_POWER, _activeChar.getTemplate().getBaseDark());
+			default  -> 0;
+		};
 	}
 
 	public int getDefenseElementValue(byte defenseAttribute)
 	{
-		switch (defenseAttribute)
+		return switch (defenseAttribute)
 		{
-			case Elementals.FIRE :
-				return (int) calcStat(Stats.FIRE_RES, _activeChar.getTemplate().getBaseFireRes());
-			case Elementals.WATER :
-				return (int) calcStat(Stats.WATER_RES, _activeChar.getTemplate().getBaseWaterRes());
-			case Elementals.WIND :
-				return (int) calcStat(Stats.WIND_RES, _activeChar.getTemplate().getBaseWindRes());
-			case Elementals.EARTH :
-				return (int) calcStat(Stats.EARTH_RES, _activeChar.getTemplate().getBaseEarthRes());
-			case Elementals.HOLY :
-				return (int) calcStat(Stats.HOLY_RES, _activeChar.getTemplate().getBaseHolyRes());
-			case Elementals.DARK :
-				return (int) calcStat(Stats.DARK_RES, _activeChar.getTemplate().getBaseDarkRes());
-			default :
-				return 0;
-		}
+			case Elementals.FIRE  -> (int) calcStat(Stats.FIRE_RES, _activeChar.getTemplate().getBaseFireRes());
+			case Elementals.WATER  -> (int) calcStat(Stats.WATER_RES, _activeChar.getTemplate().getBaseWaterRes());
+			case Elementals.WIND  -> (int) calcStat(Stats.WIND_RES, _activeChar.getTemplate().getBaseWindRes());
+			case Elementals.EARTH  -> (int) calcStat(Stats.EARTH_RES, _activeChar.getTemplate().getBaseEarthRes());
+			case Elementals.HOLY  -> (int) calcStat(Stats.HOLY_RES, _activeChar.getTemplate().getBaseHolyRes());
+			case Elementals.DARK  -> (int) calcStat(Stats.DARK_RES, _activeChar.getTemplate().getBaseDarkRes());
+			default  -> 0;
+		};
 	}
 	
 	public final double getRExp()

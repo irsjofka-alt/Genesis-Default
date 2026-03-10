@@ -92,9 +92,9 @@ public class CastleMagicianInstance extends NpcInstance implements SquadTrainer
 			{
 				val = Integer.parseInt(command.substring(5));
 			}
-			catch (final IndexOutOfBoundsException ioobe)
+			catch (final IndexOutOfBoundsException _)
 			{}
-			catch (final NumberFormatException nfe)
+			catch (final NumberFormatException _)
 			{}
 			showChatWindow(player, val);
 			return;

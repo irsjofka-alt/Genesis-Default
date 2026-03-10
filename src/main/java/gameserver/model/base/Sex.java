@@ -16,5 +16,5 @@ package gameserver.model.base;
 
 public enum Sex
 {
-	MALE, FEMALE, ETC;
+	MALE, FEMALE, ETC
 }

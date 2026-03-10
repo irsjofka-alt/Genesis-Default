@@ -24,7 +24,7 @@ public class ConditionPlayerServitorNpcId extends Condition
 
 	public ConditionPlayerServitorNpcId(List<Integer> npcIds)
 	{
-		if ((npcIds.size() == 1) && (npcIds.get(0) == 0))
+		if ((npcIds.size() == 1) && (npcIds.getFirst() == 0))
 		{
 			_npcIds = null;
 		}

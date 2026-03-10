@@ -385,7 +385,7 @@ public class CharacterDAO extends LoggerObject
 				{
 					player.setBaseClass(rset.getInt("base_class"));
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					player.setBaseClass(activeClassId);
 				}

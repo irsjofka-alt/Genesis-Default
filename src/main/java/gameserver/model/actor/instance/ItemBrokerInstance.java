@@ -264,7 +264,7 @@ public class ItemBrokerInstance extends NpcInstance
 				minEnchant = Integer.valueOf(var[4]);
 				rare = Integer.valueOf(var[5]);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				player.sendMessage((new ServerMessage("ItemBroker.INCORRECT_DATA", player.getLang())).toString());
 				return;
@@ -479,7 +479,7 @@ public class ItemBrokerInstance extends NpcInstance
 					System.arraycopy(var, 8, search, 0, search.length);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				player.sendMessage((new ServerMessage("ItemBroker.INCORRECT_DATA", player.getLang())).toString());
 				return;
@@ -677,7 +677,7 @@ public class ItemBrokerInstance extends NpcInstance
 				itemId = Integer.valueOf(var[2]);
 				itemObjId = Integer.valueOf(var[3]);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				player.sendMessage((new ServerMessage("ItemBroker.INCORRECT_DATA", player.getLang())).toString());
 				return;
@@ -852,7 +852,7 @@ public class ItemBrokerInstance extends NpcInstance
 					}
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				player.sendMessage((new ServerMessage("ItemBroker.INCORRECT_DATA", player.getLang())).toString());
 				return;

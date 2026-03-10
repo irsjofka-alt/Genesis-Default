@@ -60,8 +60,8 @@ public class RaidBossSpawnManager extends LoggerObject
 	private final Map<Integer, Map<Integer, Integer>> _points = new ConcurrentHashMap<>();
 	private final Map<Integer, Integer> _clanPoints = new ConcurrentHashMap<>();
 	
-	private static final Integer KEY_RANK = new Integer(-1);
-	private static final Integer KEY_TOTAL_POINTS = new Integer(0);
+	private static final Integer KEY_RANK = Integer.valueOf(-1);
+	private static final Integer KEY_TOTAL_POINTS = Integer.valueOf(0);
 	
 	public static enum StatusEnum
 	{
@@ -111,7 +111,7 @@ public class RaidBossSpawnManager extends LoggerObject
 			}
 			info("Loaded " + _storedInfo.size() + " statuses.");
 		}
-		catch (final SQLException e)
+		catch (final SQLException _)
 		{
 			warn("Couldnt load raidboss_status table");
 		}
@@ -198,7 +198,7 @@ public class RaidBossSpawnManager extends LoggerObject
 					statement.setLong(4, info.getLong("respawnTime", 0));
 					statement.execute();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					warn("Couldnt update raidboss_status table!");
 				}
@@ -335,7 +335,7 @@ public class RaidBossSpawnManager extends LoggerObject
 				statement.executeUpdate(b.close());
 			}
 		}
-		catch (final SQLException e)
+		catch (final SQLException _)
 		{
 			warn("Couldnt update raidboss_points table!");
 		}
@@ -713,7 +713,7 @@ public class RaidBossSpawnManager extends LoggerObject
 			statement.setLong(4, info.getLong("respawnTime"));
 			statement.execute();
 		}
-		catch (final SQLException e)
+		catch (final SQLException _)
 		{
 			warn("Couldnt update raidboss_status table!");
 		}

@@ -521,9 +521,8 @@ public class SquashEvent extends AbstractWorldEvent
 	@Override
 	public String onSpawn(Npc npc)
 	{
-		if (_isActive && npc instanceof ChronoMonsterInstance)
+		if (_isActive && npc instanceof ChronoMonsterInstance mob)
 		{
-			final var mob = (ChronoMonsterInstance) npc;
 			mob.setOnKillDelay(1500);
 			final var self = create(mob);
 			
@@ -555,22 +554,17 @@ public class SquashEvent extends AbstractWorldEvent
 
 	private void randomSpawn(ChronoMonsterInstance mob)
 	{
-		int npcId = 0;
-		switch (mob.getLevelUp())
+		int npcId = switch (mob.getLevelUp())
 		{
-			case 5 :
-				npcId = mob.getId() == 12774 ? 13016 : mob.getId() == 12777 ? 13017 : 0;
-				break;
-			case 4 :
-				npcId = mob.getId() == 12774 ? 12775 : mob.getId() == 12777 ? 12778 : 0;
-				break;
+			case 5 : yield mob.getId() == 12774 ? 13016 : mob.getId() == 12777 ? 13017 : 0;
+			case 4 : yield mob.getId() == 12774 ? 12775 : mob.getId() == 12777 ? 12778 : 0;
 			case 3 :
 			case 2 :
 			case 1 :
-			case 0 :
-				npcId = mob.getId() == 12774 ? 12776 : mob.getId() == 12777 ? 12779 : 0;
-				break;
-		}
+			case 0 : yield mob.getId() == 12774 ? 12776 : mob.getId() == 12777 ? 12779 : 0;
+			default:
+				yield 0;
+		};
 		
 		if (npcId > 0)
 		{

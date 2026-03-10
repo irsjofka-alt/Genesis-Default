@@ -77,7 +77,7 @@ public class L2JBrazilSite extends VoteRewardSite
 	{
 		try
 		{
-			final var obj = new URL(String.format("https://top.l2jbrasil.com/votesystem/?type=json&ip=%s&username=%s", player.getIPAddress(), _apiKey));
+			final var obj = new URL("https://top.l2jbrasil.com/votesystem/?type=json&ip=%s&username=%s".formatted(player.getIPAddress(), _apiKey));
 			final var con = obj.openConnection();
 			con.addRequestProperty("Host", obj.getHost());
 			con.addRequestProperty("Accept", "*/*");
@@ -113,7 +113,7 @@ public class L2JBrazilSite extends VoteRewardSite
 					{
 						reader.close();
 					}
-					catch (final IOException e)
+					catch (final IOException _)
 					{
 					}
 				}
@@ -123,7 +123,7 @@ public class L2JBrazilSite extends VoteRewardSite
 					{
 						stream.close();
 					}
-					catch (final IOException e)
+					catch (final IOException _)
 					{
 					}
 				}

@@ -102,9 +102,9 @@ public class DoorControl implements IAdminCommandHandler
 			if (command.equals("admin_open"))
 			{
 				final GameObject target = activeChar.getTarget();
-				if (target instanceof DoorInstance)
+				if (target instanceof DoorInstance instance)
 				{
-					((DoorInstance) target).openMe();
+					instance.openMe();
 				}
 				else
 				{
@@ -115,9 +115,9 @@ public class DoorControl implements IAdminCommandHandler
 			if (command.equals("admin_close"))
 			{
 				final GameObject target = activeChar.getTarget();
-				if (target instanceof DoorInstance)
+				if (target instanceof DoorInstance instance)
 				{
-					((DoorInstance) target).closeMe();
+					instance.closeMe();
 				}
 				else
 				{

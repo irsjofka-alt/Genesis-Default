@@ -126,7 +126,7 @@ public class Warpgate extends Quest
 		}
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 		new Warpgate();
 	}

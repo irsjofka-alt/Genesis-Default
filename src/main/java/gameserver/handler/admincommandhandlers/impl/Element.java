@@ -84,7 +84,7 @@ public class Element implements IAdminCommandHandler
 				
 				setElement(activeChar, element, value, armorType);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //setlh/setlc/setlg/setlb/setll/setlw/setls <element>[0-5] <value>[0-450]");
 				return false;
@@ -108,9 +108,9 @@ public class Element implements IAdminCommandHandler
 			target = activeChar;
 		}
 		Player player = null;
-		if (target instanceof Player)
+		if (target instanceof Player player1)
 		{
-			player = (Player) target;
+			player = player1;
 		}
 		else
 		{

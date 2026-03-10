@@ -873,7 +873,7 @@ public class ToTheMonastery extends AbstractReflection
 		}
 	}
 
-	public static void main(String[] args)
+	void main()
 	{
 		new ToTheMonastery();
 	}

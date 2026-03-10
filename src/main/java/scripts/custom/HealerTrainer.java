@@ -159,25 +159,17 @@ public class HealerTrainer extends AbstractNpcAI
 	
 	private static boolean hasTransferSkillItems(Player player)
 	{
-		int itemId;
-		switch (player.getClassId())
+		int itemId = switch (player.getClassId())
 		{
-			case CARDINAL :
-				itemId = 15307;
-				break;
-			case EVA_SAINT :
-				itemId = 15308;
-				break;
-			case SHILLEN_SAINT :
-				itemId = 15309;
-				break;
-			default :
-				itemId = -1;
-		}
+			case CARDINAL  -> 15307;
+			case EVA_SAINT  -> 15308;
+			case SHILLEN_SAINT  -> 15309;
+			default  -> -1;
+		};
 		return (player.getInventory().getInventoryItemCount(itemId, -1) > 0);
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 		new HealerTrainer();
 	}

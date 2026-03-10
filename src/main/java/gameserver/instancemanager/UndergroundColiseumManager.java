@@ -107,7 +107,7 @@ public class UndergroundColiseumManager extends LoggerObject
 				_bestTeams.put(arenaId, new UCBestTeam(arenaId, leader, wins));
 			}
 		}
-		catch (final SQLException e)
+		catch (final SQLException _)
 		{
 			warn("Couldnt load underground_colliseum_stats table");
 		}
@@ -146,7 +146,7 @@ public class UndergroundColiseumManager extends LoggerObject
 				stmt.execute();
 				stmt.close();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				warn("could not clean status for underground_colliseum_stats areanaId: " + team.getArenaId() + " in database!");
 			}

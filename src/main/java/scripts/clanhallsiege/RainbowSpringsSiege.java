@@ -1303,7 +1303,7 @@ public final class RainbowSpringsSiege extends ClanHallSiegeEngine
 				return;
 			}
 			getAttackers().clear();
-			final var warDecrees = _warDecreesCount.entrySet().stream().sorted(Map.Entry.<Integer, Long> comparingByValue().reversed()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+			final var warDecrees = _warDecreesCount.entrySet().stream().sorted(Map.Entry.<Integer, Long> comparingByValue().reversed()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, _) -> e1, LinkedHashMap::new));
 			_acceptedClans.clear();
 			if (_hall.getOwnerId() > 0)
 			{
@@ -1389,7 +1389,7 @@ public final class RainbowSpringsSiege extends ClanHallSiegeEngine
 		
 		if (!_warDecreesCount.isEmpty())
 		{
-			final var warDecrees = _warDecreesCount.entrySet().stream().sorted(Map.Entry.<Integer, Long> comparingByValue().reversed()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+			final var warDecrees = _warDecreesCount.entrySet().stream().sorted(Map.Entry.<Integer, Long> comparingByValue().reversed()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, _) -> e1, LinkedHashMap::new));
 			_acceptedClans.clear();
 			if (_hall.getOwnerId() > 0)
 			{

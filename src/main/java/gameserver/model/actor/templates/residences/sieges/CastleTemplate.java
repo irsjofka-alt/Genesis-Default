@@ -77,7 +77,7 @@ public class CastleTemplate
 		{
 			return _params.getString(lang != null ? "name" + lang.substring(0, 1).toUpperCase() + lang.substring(1) : "name" + Config.MULTILANG_DEFAULT.substring(0, 1).toUpperCase() + Config.MULTILANG_DEFAULT.substring(1));
 		}
-		catch (final IllegalArgumentException e)
+		catch (final IllegalArgumentException _)
 		{
 			return "";
 		}
@@ -160,19 +160,14 @@ public class CastleTemplate
 	
 	public int getHpRegenFunction(int level)
 	{
-		switch (level)
+		return switch (level)
 		{
-			case 2 :
-				return _params.getInteger("hpRegenPriceLvl2");
-			case 3 :
-				return _params.getInteger("hpRegenPriceLvl3");
-			case 4 :
-				return _params.getInteger("hpRegenPriceLvl4");
-			case 5 :
-				return _params.getInteger("hpRegenPriceLvl5");
-			default :
-				return _params.getInteger("hpRegenPriceLvl1");
-		}
+			case 2  -> _params.getInteger("hpRegenPriceLvl2");
+			case 3  -> _params.getInteger("hpRegenPriceLvl3");
+			case 4  -> _params.getInteger("hpRegenPriceLvl4");
+			case 5  -> _params.getInteger("hpRegenPriceLvl5");
+			default  -> _params.getInteger("hpRegenPriceLvl1");
+		};
 	}
 	
 	public int getHpRegenFunctionTime()
@@ -182,17 +177,13 @@ public class CastleTemplate
 	
 	public int getMpRegenFunction(int level)
 	{
-		switch (level)
+		return switch (level)
 		{
-			case 2 :
-				return _params.getInteger("mpRegenPriceLvl2");
-			case 3 :
-				return _params.getInteger("mpRegenPriceLvl3");
-			case 4 :
-				return _params.getInteger("mpRegenPriceLvl4");
-			default :
-				return _params.getInteger("mpRegenPriceLvl1");
-		}
+			case 2  -> _params.getInteger("mpRegenPriceLvl2");
+			case 3  -> _params.getInteger("mpRegenPriceLvl3");
+			case 4  -> _params.getInteger("mpRegenPriceLvl4");
+			default  -> _params.getInteger("mpRegenPriceLvl1");
+		};
 	}
 	
 	public int getMpRegenFunctionTime()
@@ -202,17 +193,13 @@ public class CastleTemplate
 	
 	public int getExpRegenFunction(int level)
 	{
-		switch (level)
+		return switch (level)
 		{
-			case 2 :
-				return _params.getInteger("expRegenPriceLvl2");
-			case 3 :
-				return _params.getInteger("expRegenPriceLvl3");
-			case 4 :
-				return _params.getInteger("expRegenPriceLvl4");
-			default :
-				return _params.getInteger("expRegenPriceLvl1");
-		}
+			case 2  -> _params.getInteger("expRegenPriceLvl2");
+			case 3  -> _params.getInteger("expRegenPriceLvl3");
+			case 4  -> _params.getInteger("expRegenPriceLvl4");
+			default  -> _params.getInteger("expRegenPriceLvl1");
+		};
 	}
 	
 	public int getExpRegenFunctionTime()
@@ -222,17 +209,13 @@ public class CastleTemplate
 	
 	public int getSupportFunction(int level)
 	{
-		switch (level)
+		return switch (level)
 		{
-			case 2 :
-				return _params.getInteger("supportPriceLvl2");
-			case 3 :
-				return _params.getInteger("supportPriceLvl3");
-			case 4 :
-				return _params.getInteger("supportPriceLvl4");
-			default :
-				return _params.getInteger("supportPriceLvl1");
-		}
+			case 2  -> _params.getInteger("supportPriceLvl2");
+			case 3  -> _params.getInteger("supportPriceLvl3");
+			case 4  -> _params.getInteger("supportPriceLvl4");
+			default  -> _params.getInteger("supportPriceLvl1");
+		};
 	}
 	
 	public int getSupportFunctionTime()
@@ -242,13 +225,11 @@ public class CastleTemplate
 	
 	public int getTeleportFunction(int level)
 	{
-		switch (level)
+		return switch (level)
 		{
-			case 2 :
-				return _params.getInteger("teleportPriceLvl2");
-			default :
-				return _params.getInteger("teleportPriceLvl1");
-		}
+			case 2  -> _params.getInteger("teleportPriceLvl2");
+			default  -> _params.getInteger("teleportPriceLvl1");
+		};
 	}
 	
 	public int getTeleportFunctionTime()

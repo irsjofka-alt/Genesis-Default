@@ -55,7 +55,7 @@ public class NpcActionShift implements IActionHandler
 			html.replace("%lvl%", String.valueOf(((Npc) target).getTemplate().getLevel()));
 			html.replace("%name%", String.valueOf(((Npc) target).getTemplate().getName(activeChar.getLang())));
 			html.replace("%tmplid%", String.valueOf(((Npc) target).getTemplate().getId()));
-			html.replace("%aggro%", String.valueOf((target instanceof Attackable) ? ((Attackable) target).getAggroRange() : 0));
+			html.replace("%aggro%", String.valueOf((target instanceof Attackable a) ? a.getAggroRange() : 0));
 			html.replace("%hp%", String.valueOf((int) ((Creature) target).getCurrentHp()));
 			html.replace("%hpmax%", String.valueOf((int) ((Creature) target).getMaxHp()));
 			html.replace("%mp%", String.valueOf((int) ((Creature) target).getCurrentMp()));
@@ -169,7 +169,7 @@ public class NpcActionShift implements IActionHandler
 				html.replace("%hpGauge%", HtmlUtil.getHpGauge(250, (long) ((Creature) target).getCurrentHp(), (long) ((Creature) target).getMaxHp(), false, true));
 				html.replace("%mpGauge%", HtmlUtil.getMpGauge(250, (long) ((Creature) target).getCurrentMp(), (long) ((Creature) target).getMaxMp(), false, true));
 				html.replace("%tmplid%", String.valueOf(((Npc) target).getTemplate().getIdTemplate()));
-				html.replace("%aggro%", String.valueOf((target instanceof Attackable) ? ((Attackable) target).getAggroRange() : 0));
+				html.replace("%aggro%", String.valueOf((target instanceof Attackable a) ? a.getAggroRange() : 0));
 				html.replace("%hp%", String.valueOf((int) ((Creature) target).getCurrentHp()));
 				html.replace("%hpmax%", String.valueOf((int) ((Creature) target).getMaxHp()));
 				html.replace("%mp%", String.valueOf((int) ((Creature) target).getCurrentMp()));

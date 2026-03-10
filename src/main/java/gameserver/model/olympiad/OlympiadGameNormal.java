@@ -223,7 +223,7 @@ public abstract class OlympiadGameNormal extends AbstractOlympiadGame
 		{
 			setOlympiadGame(_playerOne, this);
 			setOlympiadGame(_playerTwo, this);
-			result &= portPlayerToArena(_playerOne, spawns.get(0), _stadiumID);
+			result &= portPlayerToArena(_playerOne, spawns.getFirst(), _stadiumID);
 			result &= portPlayerToArena(_playerTwo, spawns.get(spawns.size() / 2), _stadiumID);
 		}
 		catch (final Exception e)
@@ -420,7 +420,7 @@ public abstract class OlympiadGameNormal extends AbstractOlympiadGame
 				playerOneLost = _playerOne.getPlayer().isDead();
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			playerOneLost = true;
 		}
@@ -433,7 +433,7 @@ public abstract class OlympiadGameNormal extends AbstractOlympiadGame
 				playerTwoLost = _playerTwo.getPlayer().isDead();
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			playerTwoLost = true;
 		}

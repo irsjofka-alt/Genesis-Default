@@ -111,7 +111,7 @@ public class NpcAction implements IActionHandler
 					
 				if ((qlst != null) && qlst.size() == 1)
 				{
-					qlst.get(0).notifyFirstTalk(npc, activeChar);
+					qlst.getFirst().notifyFirstTalk(npc, activeChar);
 				}
 				else
 				{

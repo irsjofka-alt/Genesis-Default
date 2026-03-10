@@ -51,7 +51,7 @@ public class ShutdownMenu implements IAdminCommandHandler
 					sendHtmlForm(activeChar);
 				}
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				sendHtmlForm(activeChar);
 			}
@@ -71,7 +71,7 @@ public class ShutdownMenu implements IAdminCommandHandler
 					sendHtmlForm(activeChar);
 				}
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				sendHtmlForm(activeChar);
 			}
@@ -103,10 +103,10 @@ public class ShutdownMenu implements IAdminCommandHandler
 		adminReply.setFile(activeChar, activeChar.getLang(), "data/html/admin/shutdown.htm");
 		adminReply.replace("%count%", String.valueOf(GameObjectsStorage.getAllPlayersCount()));
 		adminReply.replace("%used%", String.valueOf(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()));
-		adminReply.replace("%xp%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_XP_BY_LVL[activeChar.getLevel()] * activeChar.getPremiumBonus().getRateXp()))));
-		adminReply.replace("%sp%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_SP_BY_LVL[activeChar.getLevel()] * activeChar.getPremiumBonus().getRateSp()))));
-		adminReply.replace("%adena%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_ADENA * activeChar.getPremiumBonus().getDropAdena()))));
-		adminReply.replace("%drop%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_ITEMS))));
+		adminReply.replace("%xp%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_XP_BY_LVL[activeChar.getLevel()] * activeChar.getPremiumBonus().getRateXp()))));
+		adminReply.replace("%sp%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_SP_BY_LVL[activeChar.getLevel()] * activeChar.getPremiumBonus().getRateSp()))));
+		adminReply.replace("%adena%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_ADENA * activeChar.getPremiumBonus().getDropAdena()))));
+		adminReply.replace("%drop%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_ITEMS))));
 		adminReply.replace("%time%", String.valueOf(format.format(cal.getTime())));
 		activeChar.sendPacket(adminReply);
 	}

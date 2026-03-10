@@ -14,15 +14,18 @@
  */
 package gameserver.model.stats;
 
+import java.io.Serial;
+
 import l2e.commons.collections.MultiValueSet;
 
 public class StatsSet extends MultiValueSet<String>
 {
+	@Serial
 	private static final long serialVersionUID = -2209589233655930756L;
 	
 	public static final StatsSet EMPTY = new StatsSet()
 	{
-		private static final long serialVersionUID = 1L;
+		@Serial private static final long serialVersionUID = 1L;
 		
 		@Override
 		public Object put(String a, Object a2)

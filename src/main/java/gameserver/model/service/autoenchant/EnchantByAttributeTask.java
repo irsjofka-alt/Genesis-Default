@@ -180,23 +180,14 @@ public class EnchantByAttributeTask implements Runnable
                     return;
                 }
 				
-				boolean boolka = false;
-				switch (Elementals.getItemElemental(stoneId)._type)
+				boolean boolka = switch (Elementals.getItemElemental(stoneId)._type)
 				{
 					case Stone :
-					case Roughore :
-						boolka = Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_STONE + _player.getPremiumBonus().getEnchantChance());
-						break;
-					case Crystal :
-						boolka = Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_CRYSTAL + _player.getPremiumBonus().getEnchantChance());
-						break;
-					case Jewel :
-						boolka = Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_JEWEL + _player.getPremiumBonus().getEnchantChance());
-						break;
-					case Energy :
-						boolka = Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_ENERGY + _player.getPremiumBonus().getEnchantChance());
-						break;
-				}
+					case Roughore : yield Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_STONE + _player.getPremiumBonus().getEnchantChance());
+					case Crystal : yield Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_CRYSTAL + _player.getPremiumBonus().getEnchantChance());
+					case Jewel : yield Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_JEWEL + _player.getPremiumBonus().getEnchantChance());
+					case Energy : yield Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_ENERGY + _player.getPremiumBonus().getEnchantChance());
+				};
 				
 				if (boolka)
 				{

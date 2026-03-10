@@ -229,7 +229,7 @@ public class MinionList
 	
 	public void spawnRndMinions()
 	{
-		final var data = _minionData.size() > 1 ? _minionData.get(Rnd.get(_minionData.size())) : _minionData.get(0);
+		final var data = _minionData.size() > 1 ? _minionData.get(Rnd.get(_minionData.size())) : _minionData.getFirst();
 		if (data == null)
 		{
 			return;

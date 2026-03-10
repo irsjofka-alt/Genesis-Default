@@ -294,7 +294,7 @@ public class CommunityClan extends AbstractCommunity implements ICommunityBoardH
 						return;
 					}
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					player.sendMessage(ServerStorage.getInstance().getString(player.getLang(), "CommunityClan.INCORRECT").toString());
 					onBypassCommand("_bbsclanjoin_" + clan.getId() + "_0", player);
@@ -903,8 +903,7 @@ public class CommunityClan extends AbstractCommunity implements ICommunityBoardH
 			buttons += "<tr><td>&nbsp;</td></tr>";
 		}
 		html = html.replace("%buttons%", buttons);
-		html = html.replace("%allyInfo%", getAllyInfo(player, clan));
-		return html;
+		return html.replace("%allyInfo%", getAllyInfo(player, clan));
 	}
 	
 	private String getAllyInfo(Player player, Clan clan)
@@ -963,8 +962,7 @@ public class CommunityClan extends AbstractCommunity implements ICommunityBoardH
 			list = "&nbsp;";
 		}
 		html = html.replace("%ally%", clan.getAllyId() > 0 ? "<font color=\"CDB38B\" name=\"hs11\">" + ServerStorage.getInstance().getString(player.getLang(), "ClanBBS.ALLIANCE") + "</font> <font color=\"26bfbf\">" + clan.getAllyName() + "</font>" : "&nbsp;");
-		html = html.replace("%list%", list);
-		return html;
+		return html.replace("%list%", list);
 	}
 
 	private String getClanSingleMemberPage(Player player, Player member, String html)
@@ -1019,9 +1017,7 @@ public class CommunityClan extends AbstractCommunity implements ICommunityBoardH
 		html = html.replace("%secondSub%", "");
 		html = html.replace("%thirdSub%", "");
 
-		html = html.replace("%clanId%", String.valueOf(member.getClanId()));
-
-		return html;
+		return html.replace("%clanId%", String.valueOf(member.getClanId()));
 	}
 
 	private String getClanSingleMemberPage(Player player, int playerId, String html)
@@ -1123,9 +1119,7 @@ public class CommunityClan extends AbstractCommunity implements ICommunityBoardH
 			index++;
 		}
 
-		html = html.replace("%comment%", petition.getComment());
-
-		return html;
+		return html.replace("%comment%", petition.getComment());
 	}
 
 	private String getClanSinglePetitionPage(Player leader, int playerId, String html)
@@ -1179,9 +1173,7 @@ public class CommunityClan extends AbstractCommunity implements ICommunityBoardH
 			index++;
 		}
 
-		html = html.replace("%comment%", petition.getComment());
-
-		return html;
+		return html.replace("%comment%", petition.getComment());
 	}
 
 	private String getClanRecruitmentManagePage(Player player, String html)
@@ -1229,8 +1221,7 @@ public class CommunityClan extends AbstractCommunity implements ICommunityBoardH
 			html = html.replace("%question" + (i + 1) + "%", clanQuestion != null && clanQuestion.length() > 0 ? clanQuestion : "Question " + (i + 1) + ":");
 		}
 
-		html = html.replace("%recrutation%", clan.isRecruting() ? ServerStorage.getInstance().getString(player.getLang(), "CommunityClan.STOP") : ServerStorage.getInstance().getString(player.getLang(), "CommunityClan.START"));
-		return html;
+		return html.replace("%recrutation%", clan.isRecruting() ? ServerStorage.getInstance().getString(player.getLang(), "CommunityClan.STOP") : ServerStorage.getInstance().getString(player.getLang(), "CommunityClan.START"));
 	}
 
 	private String getClanJoinPage(Player player, Clan clan, String html)
@@ -1293,8 +1284,7 @@ public class CommunityClan extends AbstractCommunity implements ICommunityBoardH
 		{
 			html = html.replace("%joinClanButton%", "");
 		}
-		html = html.replace("%allyInfo%", getAllyInfo(player, clan));
-		return html;
+		return html.replace("%allyInfo%", getAllyInfo(player, clan));
 	}
 
 	private String getPlayerInventoryPage(Player player, String html)
@@ -1319,9 +1309,7 @@ public class CommunityClan extends AbstractCommunity implements ICommunityBoardH
 		}
 		inventory += "</tr>";
 
-		html = html.replace("%inventory%", inventory);
-
-		return html;
+		return html.replace("%inventory%", inventory);
 	}
 
 	private String getPlayerInventoryPage(Player player, int playerId, String html)
@@ -1352,9 +1340,7 @@ public class CommunityClan extends AbstractCommunity implements ICommunityBoardH
 		}
 		inventory += "</tr>";
 
-		html = html.replace("%inventory%", inventory);
-
-		return html;
+		return html.replace("%inventory%", inventory);
 	}
 
 	private class OfflinePlayerInventoryData
@@ -1762,20 +1748,13 @@ public class CommunityClan extends AbstractCommunity implements ICommunityBoardH
 
 	public String getUnitName(Player player, int type)
 	{
-		String subUnitName = "";
-		switch (type)
+		return switch (type)
 		{
-			case 0 :
-				subUnitName = ServerStorage.getInstance().getString(player.getLang(), "CommunityClan.MAIN_CLAN");
-				break;
+			case 0 : yield ServerStorage.getInstance().getString(player.getLang(), "CommunityClan.MAIN_CLAN");
 			case Clan.SUBUNIT_ROYAL1 :
-			case Clan.SUBUNIT_ROYAL2 :
-				subUnitName = ServerStorage.getInstance().getString(player.getLang(), "CommunityClan.ROYAL_GUARD");
-				break;
-			default :
-				subUnitName = ServerStorage.getInstance().getString(player.getLang(), "CommunityClan.ORDER_KNIGHT");
-		}
-		return subUnitName;
+			case Clan.SUBUNIT_ROYAL2 : yield ServerStorage.getInstance().getString(player.getLang(), "CommunityClan.ROYAL_GUARD");
+			default : yield ServerStorage.getInstance().getString(player.getLang(), "CommunityClan.ORDER_KNIGHT");
+		};
 	}
 
 	private String getMainStatsTableColor(int index)

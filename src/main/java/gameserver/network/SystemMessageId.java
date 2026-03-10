@@ -18820,7 +18820,7 @@ public final class SystemMessageId
 		{
 			return (SystemMessageId) SystemMessageId.class.getField(name).get(null);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			return null;
 		}

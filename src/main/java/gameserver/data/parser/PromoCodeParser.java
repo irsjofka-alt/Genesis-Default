@@ -130,14 +130,14 @@ public final class PromoCodeParser extends DocumentParser
 								{
 									fromValue = code.getNamedItem("from") != null ? TimeUtils.parse(code.getNamedItem("from").getNodeValue()) : -1;
 								}
-								catch (final Exception e)
+								catch (final Exception _)
 								{}
 								
 								try
 								{
 									toValue = code.getNamedItem("to") != null ? TimeUtils.parse(code.getNamedItem("to").getNodeValue()) : -1;
 								}
-								catch (final Exception e)
+								catch (final Exception _)
 								{}
 							}
 							else if ("limit".equalsIgnoreCase(cd.getNodeName()))
@@ -153,7 +153,7 @@ public final class PromoCodeParser extends DocumentParser
 								{
 									aClass = (Class<AbstractCodeReward>) Class.forName("gameserver.model.actor.templates.promocode.impl." + StringUtils.capitalize(cd.getNodeName()) + "CodeReward");
 								}
-								catch (final Exception e)
+								catch (final Exception _)
 								{
 									warn("Not found class " + cd.getNodeName() + "CodeReward.java!");
 								}
@@ -163,7 +163,7 @@ public final class PromoCodeParser extends DocumentParser
 								{
 									constructor = aClass.getConstructor(new Class[] { NamedNodeMap.class });
 								}
-								catch ( IllegalArgumentException | NoSuchMethodException | SecurityException e)
+								catch ( IllegalArgumentException | NoSuchMethodException | SecurityException _)
 								{
 									warn("Unable to create code reward class " + aClass.getSimpleName() + "!");
 								}
@@ -174,7 +174,7 @@ public final class PromoCodeParser extends DocumentParser
 									reward = constructor.newInstance(code);
 								}
 								catch (
-								    IllegalAccessException | InvocationTargetException | InstantiationException | IllegalArgumentException e)
+								    IllegalAccessException | InvocationTargetException | InstantiationException | IllegalArgumentException _)
 								{
 									warn("Unable to create reward!");
 								}

@@ -65,7 +65,7 @@ public class ThreadPoolManager
 		{
 			return _scheduledExecutor.schedule(new RunnableWrapper(r), validate(delay), timeUnit);
 		}
-		catch (final RejectedExecutionException e)
+		catch (final RejectedExecutionException _)
 		{
 			return null;
 		}
@@ -82,7 +82,7 @@ public class ThreadPoolManager
 		{
 			return _scheduledExecutor.scheduleAtFixedRate(new RunnableWrapper(r), validate(initial), validate(delay), timeUnit);
 		}
-		catch (final RejectedExecutionException e)
+		catch (final RejectedExecutionException _)
 		{
 			return null;
 		}
@@ -99,7 +99,7 @@ public class ThreadPoolManager
 		{
 			_executor.execute(new RunnableWrapper(r));
 		}
-		catch (final RejectedExecutionException e)
+		catch (final RejectedExecutionException _)
 		{
 		}
 	}

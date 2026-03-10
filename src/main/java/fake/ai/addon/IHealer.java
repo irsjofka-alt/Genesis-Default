@@ -39,7 +39,7 @@ public interface IHealer
 			final List<Creature> sortedTargets = targets.stream().sorted((x1, x2) -> Double.compare(x1.getCurrentHp(), x2.getCurrentHp())).collect(Collectors.toList());
 			if (!sortedTargets.isEmpty())
 			{
-				final Creature target = sortedTargets.get(0);
+				final Creature target = sortedTargets.getFirst();
 				player.setTarget(target);
 			}
 		}

@@ -86,7 +86,7 @@ public class Clan extends Quest
 		return event;
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 		new Clan();
 	}

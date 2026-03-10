@@ -134,7 +134,7 @@ public class ServerStorage
 			{
 				scanner.close();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 	}

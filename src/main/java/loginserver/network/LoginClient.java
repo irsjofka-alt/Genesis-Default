@@ -235,13 +235,11 @@ public final class LoginClient extends MMOClient<MMOConnection<LoginClient>>
 	@Override
 	public String toString()
 	{
-		switch(_state)
+		return switch(_state)
 		{
-			case AUTHED:
-				return "[ Account : " + getLogin() + " IP: " + getIpAddress() + "]";
-			default:
-				return "[ State : " + getState() + " IP: " + getIpAddress() + "]";
-		}
+			case AUTHED -> "[ Account : " + getLogin() + " IP: " + getIpAddress() + "]";
+			default -> "[ State : " + getState() + " IP: " + getIpAddress() + "]";
+		};
 	}
 
 	public String getIpAddress()

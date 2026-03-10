@@ -281,7 +281,7 @@ public final class BanditStrongHoldSiege extends ClanHallSiegeEngine
 					{
 						id = Integer.parseInt(var[1]);
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 						_log.warn(getName() + "->select_clan_npc->Wrong mahum warrior id: " + var[1]);
 					}
@@ -437,7 +437,7 @@ public final class BanditStrongHoldSiege extends ClanHallSiegeEngine
 				final List<Integer> clanIds = new ArrayList<>(_data.keySet());
 				if (_firstPhase)
 				{
-					if (((clanIds.size() == 1) && (_hall.getOwnerId() <= 0)) || (_data.get(clanIds.get(0)).npc == 0))
+					if (((clanIds.size() == 1) && (_hall.getOwnerId() <= 0)) || (_data.get(clanIds.getFirst()).npc == 0))
 					{
 						_missionAccomplished = true;
 						cancelSiegeTask();
@@ -480,8 +480,8 @@ public final class BanditStrongHoldSiege extends ClanHallSiegeEngine
 				else
 				{
 					_missionAccomplished = true;
-					_winner = ClanHolder.getInstance().getClan(clanIds.get(0));
-					removeParticipant(clanIds.get(0), false);
+					_winner = ClanHolder.getInstance().getClan(clanIds.getFirst());
+					removeParticipant(clanIds.getFirst(), false);
 					endSiege();
 				}
 			}
@@ -541,7 +541,7 @@ public final class BanditStrongHoldSiege extends ClanHallSiegeEngine
 		if (_hall.getOwnerId() > 0)
 		{
 			final Clan owner = ClanHolder.getInstance().getClan(_hall.getOwnerId());
-			final Location loc = _hall.getZone().getSpawns().get(0);
+			final Location loc = _hall.getZone().getSpawns().getFirst();
 			for (final ClanMember pc : owner.getMembers())
 			{
 				if (pc != null)
@@ -631,7 +631,7 @@ public final class BanditStrongHoldSiege extends ClanHallSiegeEngine
 		Location loc = null;
 		if (player.getClanId() == _hall.getOwnerId())
 		{
-			loc = _hall.getZone().getSpawns().get(0);
+			loc = _hall.getZone().getSpawns().getFirst();
 		}
 		else
 		{
@@ -810,52 +810,28 @@ public final class BanditStrongHoldSiege extends ClanHallSiegeEngine
 
 	private String getFlagHtml(int flag)
 	{
-		String result = "35437-14a.htm";
-
-		switch (flag)
+		return switch (flag)
 		{
-			case 35423 :
-				result = "35437-15.htm";
-				break;
-			case 35424 :
-				result = "35437-16.htm";
-				break;
-			case 35425 :
-				result = "35437-17.htm";
-				break;
-			case 35426 :
-				result = "35437-18.htm";
-				break;
-			case 35427 :
-				result = "35437-19.htm";
-				break;
-		}
-		return result;
+			case 35423  -> "35437-15.htm";
+			case 35424  -> "35437-16.htm";
+			case 35425  -> "35437-17.htm";
+			case 35426  -> "35437-18.htm";
+			case 35427  -> "35437-19.htm";
+			default -> "35437-14a.htm";
+		};
 	}
 
 	private String getAllyHtml(int ally)
 	{
-		String result = null;
-
-		switch (ally)
+		return switch (ally)
 		{
-			case 35428 :
-				result = "35437-15a.htm";
-				break;
-			case 35429 :
-				result = "35437-16a.htm";
-				break;
-			case 35430 :
-				result = "35437-17a.htm";
-				break;
-			case 35431 :
-				result = "35437-18a.htm";
-				break;
-			case 35432 :
-				result = "35437-19a.htm";
-				break;
-		}
-		return result;
+			case 35428  -> "35437-15a.htm";
+			case 35429  -> "35437-16a.htm";
+			case 35430  -> "35437-17a.htm";
+			case 35431  -> "35437-18a.htm";
+			case 35432  -> "35437-19a.htm";
+			default -> null;
+		};
 	}
 
 	@Override

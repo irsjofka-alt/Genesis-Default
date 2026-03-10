@@ -371,9 +371,9 @@ public class _230_TestOfSummoner extends Quest
 								npc.broadcastPacketToOthers(2000, new NpcSay(npc.getObjectId(), Say2.NPC_ALL, npc.getId(), NpcStringId.WHHIISSHH));
 								takeItems(attacker, 3360, -1);
 								giveItems(attacker, 3361, 1);
-								if (npc instanceof Attackable)
+								if (npc instanceof Attackable attackable)
 								{
-									((Attackable) npc).addDamageHate(attacker.getSummon(), 0, 100000);
+									attackable.addDamageHate(attacker.getSummon(), 0, 100000);
 								}
 							}
 						}
@@ -418,9 +418,9 @@ public class _230_TestOfSummoner extends Quest
 								npc.broadcastPacketToOthers(2000, new NpcSay(npc.getObjectId(), Say2.NPC_ALL, npc.getId(), NpcStringId.START_DUEL));
 								takeItems(attacker, 3370, -1);
 								giveItems(attacker, 3371, 1);
-								if (npc instanceof Attackable)
+								if (npc instanceof Attackable attackable)
 								{
-									((Attackable) npc).addDamageHate(attacker.getSummon(), 0, 100000);
+									attackable.addDamageHate(attacker.getSummon(), 0, 100000);
 								}
 							}
 						}
@@ -464,9 +464,9 @@ public class _230_TestOfSummoner extends Quest
 								npc.broadcastPacketToOthers(2000, new NpcSay(npc.getObjectId(), Say2.NPC_ALL, npc.getId(), NpcStringId.SO_SHALL_WE_START));
 								takeItems(attacker, 3380, -1);
 								giveItems(attacker, 3381, 1);
-								if (npc instanceof Attackable)
+								if (npc instanceof Attackable attackable)
 								{
-									((Attackable) npc).addDamageHate(attacker.getSummon(), 0, 100000);
+									attackable.addDamageHate(attacker.getSummon(), 0, 100000);
 								}
 							}
 						}
@@ -510,9 +510,9 @@ public class _230_TestOfSummoner extends Quest
 								npc.broadcastPacketToOthers(2000, new NpcSay(npc.getObjectId(), Say2.NPC_ALL, npc.getId(), NpcStringId.WHISH_FIGHT));
 								takeItems(attacker, 3365, -1);
 								giveItems(attacker, 3366, 1);
-								if (npc instanceof Attackable)
+								if (npc instanceof Attackable attackable)
 								{
-									((Attackable) npc).addDamageHate(attacker.getSummon(), 0, 100000);
+									attackable.addDamageHate(attacker.getSummon(), 0, 100000);
 								}
 							}
 						}
@@ -556,9 +556,9 @@ public class _230_TestOfSummoner extends Quest
 								npc.broadcastPacketToOthers(2000, new NpcSay(npc.getObjectId(), Say2.NPC_ALL, npc.getId(), NpcStringId.START_DUEL));
 								takeItems(attacker, 3375, -1);
 								giveItems(attacker, 3376, 1);
-								if (npc instanceof Attackable)
+								if (npc instanceof Attackable attackable)
 								{
-									((Attackable) npc).addDamageHate(attacker.getSummon(), 0, 100000);
+									attackable.addDamageHate(attacker.getSummon(), 0, 100000);
 								}
 							}
 						}
@@ -602,9 +602,9 @@ public class _230_TestOfSummoner extends Quest
 								npc.broadcastPacketToOthers(2000, new NpcSay(npc.getObjectId(), Say2.NPC_ALL, npc.getId(), NpcStringId.ILL_WALK_ALL_OVER_YOU));
 								takeItems(attacker, 3385, -1);
 								giveItems(attacker, 3386, 1);
-								if (npc instanceof Attackable)
+								if (npc instanceof Attackable attackable)
 								{
-									((Attackable) npc).addDamageHate(attacker.getSummon(), 0, 100000);
+									attackable.addDamageHate(attacker.getSummon(), 0, 100000);
 								}
 							}
 						}

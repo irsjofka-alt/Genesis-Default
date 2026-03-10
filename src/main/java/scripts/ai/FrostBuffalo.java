@@ -67,7 +67,7 @@ public class FrostBuffalo extends Fighter
 						}
 					}
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 				}
 			}

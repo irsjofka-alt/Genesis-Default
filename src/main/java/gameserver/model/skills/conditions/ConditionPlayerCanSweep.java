@@ -49,9 +49,9 @@ public class ConditionPlayerCanSweep extends Condition
 						Attackable target;
 						for (final GameObject objTarget : targets)
 						{
-							if (objTarget instanceof Attackable)
+							if (objTarget instanceof Attackable attackable)
 							{
-								target = (Attackable) objTarget;
+								target = attackable;
 								if (target.isDead() && target.isSpoiled())
 								{
 									if (!target.checkSpoilOwner(sweeper, false) || target.isOldCorpse(sweeper, (Config.MAX_SWEEPER_TIME * 1000), false))
@@ -68,9 +68,9 @@ public class ConditionPlayerCanSweep extends Condition
 						Attackable target;
 						for (final GameObject objTarget : targets)
 						{
-							if (objTarget instanceof Attackable)
+							if (objTarget instanceof Attackable attackable)
 							{
-								target = (Attackable) objTarget;
+								target = attackable;
 								if (target.isDead())
 								{
 									if (target.isSpoiled())

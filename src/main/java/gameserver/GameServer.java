@@ -283,7 +283,7 @@ public class GameServer
 				{
 					Thread.sleep(1000L);
 				}
-				catch (final InterruptedException e2)
+				catch (final InterruptedException _)
 				{
 				}
 			}
@@ -594,7 +594,7 @@ public class GameServer
 		server_started = new Date();
 	}
 
-	public static void main(String[] args) throws Exception
+	void main() throws Exception
 	{
 		final File logFolder = new File(Config.DATAPACK_ROOT, "log");
 		logFolder.mkdir();
@@ -620,7 +620,7 @@ public class GameServer
 				ss = new ServerSocket(port, 50, InetAddress.getByName(hostname));
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			return false;
 		}
@@ -630,7 +630,7 @@ public class GameServer
 			{
 				ss.close();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 		return true;
@@ -660,7 +660,7 @@ public class GameServer
 				_selectorThreads.add(selectorThread);
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 	}
 	

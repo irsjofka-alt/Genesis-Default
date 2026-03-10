@@ -109,7 +109,7 @@ public class AggroList
 		{
 			Arrays.sort(hated, AggroHateComparator.getInstance());
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 		
@@ -153,7 +153,7 @@ public class AggroList
 		{
 			Arrays.sort(hated, AggroHateComparator.getInstance());
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 		
@@ -197,7 +197,7 @@ public class AggroList
 		{
 			Arrays.sort(hated, AggroAttackedComparator.getInstance());
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 		
@@ -517,7 +517,7 @@ public class AggroList
 		{
 			Arrays.sort(hated, AggroHateComparator.getInstance());
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 		
@@ -645,7 +645,7 @@ public class AggroList
 		{
 			Arrays.sort(hated, AggroDamageComparator.getInstance());
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 		
 		if (hated[0] == null || hated[0].getDamage() == 0)

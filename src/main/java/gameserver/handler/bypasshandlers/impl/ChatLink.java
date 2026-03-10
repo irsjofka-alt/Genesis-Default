@@ -43,14 +43,14 @@ public class ChatLink implements IBypassHandler
 		{
 			val = Integer.parseInt(command.substring(5));
 		}
-		catch (final Exception ioobe)
+		catch (final Exception _)
 		{}
 
 		final Npc npc = (Npc) target;
 		final List<Quest> firstTalk = npc.getTemplate().getEventQuests(QuestEventType.ON_FIRST_TALK);
 		if ((val == 0) && (firstTalk != null) && (firstTalk.size() == 1))
 		{
-			firstTalk.get(0).notifyFirstTalk(npc, activeChar);
+			firstTalk.getFirst().notifyFirstTalk(npc, activeChar);
 		}
 		else
 		{

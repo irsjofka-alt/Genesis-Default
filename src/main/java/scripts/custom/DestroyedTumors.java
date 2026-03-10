@@ -209,7 +209,7 @@ public class DestroyedTumors extends Quest
 		return "";
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 		new DestroyedTumors();
 	}

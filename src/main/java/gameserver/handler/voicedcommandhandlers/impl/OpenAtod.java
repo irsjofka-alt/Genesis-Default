@@ -41,7 +41,7 @@ public class OpenAtod implements IVoicedCommandHandler
 				{
 					num = Integer.parseInt(params);
 				}
-				catch (final NumberFormatException nfe)
+				catch (final NumberFormatException _)
 				{
 					activeChar.sendMessage("You must enter a number. Usage: .openatod [num]");
 					return false;

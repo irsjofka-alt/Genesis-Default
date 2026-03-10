@@ -206,7 +206,7 @@ public final class QuestState
 				{
 					previousVal = Integer.parseInt(old);
 				}
-				catch (final Exception ex)
+				catch (final Exception _)
 				{
 					previousVal = 0;
 				}

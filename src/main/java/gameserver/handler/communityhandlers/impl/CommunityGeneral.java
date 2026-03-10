@@ -194,7 +194,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 			{
 				lang = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -202,7 +202,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 			{
 				page = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -254,7 +254,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 			{
 				lang = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -262,7 +262,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 			{
 				cmd = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -372,7 +372,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 			{
 				id = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -432,7 +432,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 			{
 				id = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -595,7 +595,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 			{
 				page = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (activeChar.hasPremiumBonus() || Config.SERVICES_WITHOUT_PREMIUM)
@@ -652,7 +652,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 			{
 				page = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			checkFullPremiumListOnly(activeChar, page != null ? Integer.parseInt(page) : 1);
 		}
@@ -674,7 +674,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 			{
 				type = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			final var typeInfo = type != null ? Integer.parseInt(type) : 0;
@@ -695,7 +695,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 			{
 				premiumId = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -769,7 +769,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 			{
 				type = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			final var typeInfo = type != null ? Integer.parseInt(type) : 0;
@@ -825,9 +825,9 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 				html.replace("%fishing%", "+" + Util.convertRate(tpl.getBonusType(BonusType.FISHING, 1.)) + "%");
 				html.replace("%epaulette%", "+" + Util.convertRate(tpl.getBonusType(BonusType.SIEGE, 1.)) + "%");
 				html.replace("%weight%", "+" + Util.convertRate(tpl.getBonusType(BonusType.WEIGHT, 1.)) + "%");
-				html.replace("%masterwork%", "+" + Util.convertDouble(String.format("%.2f", tpl.getBonusType(BonusType.MASTER_WORK_CHANCE, 0.))) + "%");
-				html.replace("%craft%", "+" + Util.convertDouble(String.format("%.2f", tpl.getBonusType(BonusType.CRAFT_CHANCE, 0.))) + "%");
-				html.replace("%enchant%", "+" + Util.convertDouble(String.format("%.2f", tpl.getBonusType(BonusType.ENCHANT_CHANCE, 0.))) + "%");
+				html.replace("%masterwork%", "+" + Util.convertDouble("%.2f".formatted(tpl.getBonusType(BonusType.MASTER_WORK_CHANCE, 0.))) + "%");
+				html.replace("%craft%", "+" + Util.convertDouble("%.2f".formatted(tpl.getBonusType(BonusType.CRAFT_CHANCE, 0.))) + "%");
+				html.replace("%enchant%", "+" + Util.convertDouble("%.2f".formatted(tpl.getBonusType(BonusType.ENCHANT_CHANCE, 0.))) + "%");
 				html.replace("%fame%", "+" + Util.convertRate(tpl.getBonusType(BonusType.FAME, 1.)) + "%");
 				html.replace("%reflection%", "" + Util.convertRate(tpl.getBonusType(BonusType.REFLECTION_REDUCE, 1.)) + "%");
 				html.replace("%events%", "" + Util.convertRate(tpl.getBonusType(BonusType.EVENTS, 1.)) + "%");
@@ -848,19 +848,19 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 				{
 					html.replace("%isPersonal%", "&nbsp;");
 				}
-				html.replace("%xp_f%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_XP_BY_LVL[activeChar.getLevel()] * tpl.getBonusType(BonusType.EXP, 1.)))));
-				html.replace("%sp_f%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_SP_BY_LVL[activeChar.getLevel()] * tpl.getBonusType(BonusType.SP, 1.)))));
-				html.replace("%adena_f%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_ADENA * tpl.getBonusType(BonusType.DROP_ADENA, 1.)))));
-				html.replace("%items_f%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_ITEMS * tpl.getBonusType(BonusType.DROP_ITEMS, 1.)))));
-				html.replace("%raids_f%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_RAIDBOSS * tpl.getBonusType(BonusType.DROP_RAID, 1.)))));
-				html.replace("%epics_f%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_EPICBOSS * tpl.getBonusType(BonusType.DROP_EPIC, 1.)))));
-				html.replace("%elementStones_f%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_ITEMS * tpl.getBonusType(BonusType.DROP_ITEMS, 1.) * tpl.getBonusType(BonusType.ELEMENT_STONE, 1.)))));
-				html.replace("%spoil_f%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_SPOIL * tpl.getBonusType(BonusType.SPOIL, 1.)))));
-				html.replace("%questReward_f%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_QUEST_REWARD * tpl.getBonusType(BonusType.QUEST_REWARD, 1.)))));
-				html.replace("%questDrop_f%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_QUEST_DROP * tpl.getBonusType(BonusType.QUEST_DROP, 1.)))));
-				html.replace("%fishing_f%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_FISHING * tpl.getBonusType(BonusType.FISHING, 1.)))));
-				html.replace("%epaulette_f%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_SIEGE_GUARD * tpl.getBonusType(BonusType.SIEGE, 1.)))));
-				html.replace("%weight_f%", String.valueOf(Util.convertDouble(String.format("%.2f", activeChar.getMaxLoad() * tpl.getBonusType(BonusType.WEIGHT, 1.)))));
+				html.replace("%xp_f%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_XP_BY_LVL[activeChar.getLevel()] * tpl.getBonusType(BonusType.EXP, 1.)))));
+				html.replace("%sp_f%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_SP_BY_LVL[activeChar.getLevel()] * tpl.getBonusType(BonusType.SP, 1.)))));
+				html.replace("%adena_f%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_ADENA * tpl.getBonusType(BonusType.DROP_ADENA, 1.)))));
+				html.replace("%items_f%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_ITEMS * tpl.getBonusType(BonusType.DROP_ITEMS, 1.)))));
+				html.replace("%raids_f%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_RAIDBOSS * tpl.getBonusType(BonusType.DROP_RAID, 1.)))));
+				html.replace("%epics_f%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_EPICBOSS * tpl.getBonusType(BonusType.DROP_EPIC, 1.)))));
+				html.replace("%elementStones_f%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_ITEMS * tpl.getBonusType(BonusType.DROP_ITEMS, 1.) * tpl.getBonusType(BonusType.ELEMENT_STONE, 1.)))));
+				html.replace("%spoil_f%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_SPOIL * tpl.getBonusType(BonusType.SPOIL, 1.)))));
+				html.replace("%questReward_f%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_QUEST_REWARD * tpl.getBonusType(BonusType.QUEST_REWARD, 1.)))));
+				html.replace("%questDrop_f%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_QUEST_DROP * tpl.getBonusType(BonusType.QUEST_DROP, 1.)))));
+				html.replace("%fishing_f%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_FISHING * tpl.getBonusType(BonusType.FISHING, 1.)))));
+				html.replace("%epaulette_f%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_SIEGE_GUARD * tpl.getBonusType(BonusType.SIEGE, 1.)))));
+				html.replace("%weight_f%", String.valueOf(Util.convertDouble("%.2f".formatted(activeChar.getMaxLoad() * tpl.getBonusType(BonusType.WEIGHT, 1.)))));
 				
 				activeChar.sendPacket(html);
 			}
@@ -1051,7 +1051,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 			{
 				key = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 
 			if (key != null)
@@ -1196,7 +1196,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 				{
 					subId = st.nextToken();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 				}
 				
@@ -1265,28 +1265,28 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 				{
 					id = st.nextToken();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				
 				try
 				{
 					itemId = st.nextToken();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				
 				try
 				{
 					itemAmount = st.nextToken();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				
 				try
 				{
 					forPremium = st.nextToken();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				
 				if (id != null && itemId != null && itemAmount != null && forPremium != null)
@@ -1630,7 +1630,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 				{
 					lvl = st.nextToken();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				
 				if (lvl != null)
@@ -2002,7 +2002,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 					}
 					else if (augm.hasActivationSkills())
 					{
-						skill = augm.getActivationsSkills().get(0).getSkill();
+						skill = augm.getActivationsSkills().getFirst().getSkill();
 					}
 					
 					if (skill != null)
@@ -3301,7 +3301,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 				{
 					str = st.nextToken();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				
 				if (str != null)
@@ -3408,7 +3408,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 				{
 					str = st.nextToken();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				if (str != null)
 				{
@@ -3477,7 +3477,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 				{
 					race = st.nextToken();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				addNewSubPage(activeChar, race.toUpperCase());
 			}
@@ -4279,32 +4279,16 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 
 	private String elementName(Player player, int id)
 	{
-		var name = "";
-		switch (id)
+		return switch (id)
 		{
-			case 0 :
-				name = "" + ServerStorage.getInstance().getString(player.getLang(), "ServiceBBS.ATTR_FIRE") + "";
-				break;
-			case 1 :
-				name = "" + ServerStorage.getInstance().getString(player.getLang(), "ServiceBBS.ATTR_WATER") + "";
-				break;
-			case 2 :
-				name = "" + ServerStorage.getInstance().getString(player.getLang(), "ServiceBBS.ATTR_WIND") + "";
-				break;
-			case 3 :
-				name = "" + ServerStorage.getInstance().getString(player.getLang(), "ServiceBBS.ATTR_EARTH") + "";
-				break;
-			case 4 :
-				name = "" + ServerStorage.getInstance().getString(player.getLang(), "ServiceBBS.ATTR_HOLY") + "";
-				break;
-			case 5 :
-				name = "" + ServerStorage.getInstance().getString(player.getLang(), "ServiceBBS.ATTR_DARK") + "";
-				break;
-			default :
-				name = "NONE";
-				break;
-		}
-		return name;
+			case 0  -> "" + ServerStorage.getInstance().getString(player.getLang(), "ServiceBBS.ATTR_FIRE") + "";
+			case 1  -> "" + ServerStorage.getInstance().getString(player.getLang(), "ServiceBBS.ATTR_WATER") + "";
+			case 2  -> "" + ServerStorage.getInstance().getString(player.getLang(), "ServiceBBS.ATTR_WIND") + "";
+			case 3  -> "" + ServerStorage.getInstance().getString(player.getLang(), "ServiceBBS.ATTR_EARTH") + "";
+			case 4  -> "" + ServerStorage.getInstance().getString(player.getLang(), "ServiceBBS.ATTR_HOLY") + "";
+			case 5  -> "" + ServerStorage.getInstance().getString(player.getLang(), "ServiceBBS.ATTR_DARK") + "";
+			default  -> "NONE";
+		};
 	}
 	
 	private boolean isVar(Player player, String var)
@@ -4448,7 +4432,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 				}
 				else if (augm.hasActivationSkills())
 				{
-					skill = augm.getActivationsSkills().get(0).getSkill();
+					skill = augm.getActivationsSkills().getFirst().getSkill();
 				}
 				
 				block = template;
@@ -5158,8 +5142,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 		{
 			strM = "" + m;
 		}
-		final var time = strH + ":" + strM;
-		return time;
+		return strH + ":" + strM;
 	}
 
 	private String getStatus(Player player)
@@ -5546,41 +5529,40 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 		html = html.replace("%player_premium%", getStatus(activeChar));
 		html = html.replace("%premium_status%", getPremiumStatus(activeChar, true));
 		html = html.replace("%premium_time%", getPremiumStatus(activeChar, false));
-		html = html.replace("%rate_xp%", String.valueOf("" + Util.convertDouble(String.format("%.2f", Config.RATE_XP_BY_LVL[activeChar.getLevel()] * activeChar.getPremiumBonus().getRateXp())) + ""));
-		html = html.replace("%rate_sp%", String.valueOf("" + Util.convertDouble(String.format("%.2f", Config.RATE_SP_BY_LVL[activeChar.getLevel()] * activeChar.getPremiumBonus().getRateSp())) + ""));
-		html = html.replace("%rate_adena%", String.valueOf("" + Util.convertDouble(String.format("%.2f", Config.RATE_DROP_ADENA * activeChar.getPremiumBonus().getDropAdena())) + ""));
-		html = html.replace("%rate_items%", String.valueOf("" + Util.convertDouble(String.format("%.2f", Config.RATE_DROP_ITEMS * activeChar.getPremiumBonus().getDropItems())) + ""));
-		html = html.replace("%rate_spoil%", String.valueOf("" + Util.convertDouble(String.format("%.2f", Config.RATE_DROP_SPOIL * activeChar.getPremiumBonus().getDropSpoil())) + ""));
-		html = html.replace("%rate_quest%", String.valueOf("" + Util.convertDouble(String.format("%.2f", Config.RATE_QUEST_REWARD * activeChar.getPremiumBonus().getQuestRewardRate())) + ""));
-		html = html.replace("%rate_siege%", String.valueOf("" + Util.convertDouble(String.format("%.2f", Config.RATE_DROP_SIEGE_GUARD * activeChar.getPremiumBonus().getDropSiege())) + ""));
-		html = html.replace("%rate_manor%", String.valueOf("" + Util.convertDouble(String.format("%.2f", Config.RATE_DROP_MANOR)) + ""));
-		html = html.replace("%rate_hellbound%", String.valueOf("" + Util.convertDouble(String.format("%.2f", Config.RATE_HB_TRUST_INCREASE)) + ""));
-		html = html.replace("%rate_reputation%", String.valueOf("" + Util.convertDouble(String.format("%.2f", (double) Config.REPUTATION_SCORE_PER_KILL)) + ""));
-		html = html.replace("%rate_fishing%", String.valueOf("" + Util.convertDouble(String.format("%.2f", Config.RATE_DROP_FISHING * activeChar.getPremiumBonus().getFishingRate())) + ""));
-		html = html.replace("%rate_raidboss%", String.valueOf("" + Util.convertDouble(String.format("%.2f", Config.RATE_DROP_RAIDBOSS * activeChar.getPremiumBonus().getDropRaids())) + ""));
-		html = html.replace("%rate_epicboss%", String.valueOf("" + Util.convertDouble(String.format("%.2f", Config.RATE_DROP_EPICBOSS * activeChar.getPremiumBonus().getDropEpics())) + ""));
+		html = html.replace("%rate_xp%", String.valueOf("" + Util.convertDouble("%.2f".formatted(Config.RATE_XP_BY_LVL[activeChar.getLevel()] * activeChar.getPremiumBonus().getRateXp())) + ""));
+		html = html.replace("%rate_sp%", String.valueOf("" + Util.convertDouble("%.2f".formatted(Config.RATE_SP_BY_LVL[activeChar.getLevel()] * activeChar.getPremiumBonus().getRateSp())) + ""));
+		html = html.replace("%rate_adena%", String.valueOf("" + Util.convertDouble("%.2f".formatted(Config.RATE_DROP_ADENA * activeChar.getPremiumBonus().getDropAdena())) + ""));
+		html = html.replace("%rate_items%", String.valueOf("" + Util.convertDouble("%.2f".formatted(Config.RATE_DROP_ITEMS * activeChar.getPremiumBonus().getDropItems())) + ""));
+		html = html.replace("%rate_spoil%", String.valueOf("" + Util.convertDouble("%.2f".formatted(Config.RATE_DROP_SPOIL * activeChar.getPremiumBonus().getDropSpoil())) + ""));
+		html = html.replace("%rate_quest%", String.valueOf("" + Util.convertDouble("%.2f".formatted(Config.RATE_QUEST_REWARD * activeChar.getPremiumBonus().getQuestRewardRate())) + ""));
+		html = html.replace("%rate_siege%", String.valueOf("" + Util.convertDouble("%.2f".formatted(Config.RATE_DROP_SIEGE_GUARD * activeChar.getPremiumBonus().getDropSiege())) + ""));
+		html = html.replace("%rate_manor%", String.valueOf("" + Util.convertDouble("%.2f".formatted(Config.RATE_DROP_MANOR)) + ""));
+		html = html.replace("%rate_hellbound%", String.valueOf("" + Util.convertDouble("%.2f".formatted(Config.RATE_HB_TRUST_INCREASE)) + ""));
+		html = html.replace("%rate_reputation%", String.valueOf("" + Util.convertDouble("%.2f".formatted((double) Config.REPUTATION_SCORE_PER_KILL)) + ""));
+		html = html.replace("%rate_fishing%", String.valueOf("" + Util.convertDouble("%.2f".formatted(Config.RATE_DROP_FISHING * activeChar.getPremiumBonus().getFishingRate())) + ""));
+		html = html.replace("%rate_raidboss%", String.valueOf("" + Util.convertDouble("%.2f".formatted(Config.RATE_DROP_RAIDBOSS * activeChar.getPremiumBonus().getDropRaids())) + ""));
+		html = html.replace("%rate_epicboss%", String.valueOf("" + Util.convertDouble("%.2f".formatted(Config.RATE_DROP_EPICBOSS * activeChar.getPremiumBonus().getDropEpics())) + ""));
 		html = html.replace("%server_uptime%", String.valueOf(uptime()));
 		
 		html = html.replace("%time%", String.valueOf(time()));
 		html = html.replace("%online%", online(false));
-		html = html.replace("%offtrade%", online(true));
-		return html;
+		return html.replace("%offtrade%", online(true));
 	}
 	
 	protected String getServerInfo(String html, Player activeChar)
 	{
-		html = html.replace("%rate_xp%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_XP_BY_LVL[activeChar.getLevel()]))));
-		html = html.replace("%rate_sp%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_SP_BY_LVL[activeChar.getLevel()]))));
-		html = html.replace("%rate_adena%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_ADENA))));
-		html = html.replace("%rate_items%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_ITEMS))));
-		html = html.replace("%rate_spoil%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_SPOIL))));
-		html = html.replace("%rate_quest%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_QUEST_REWARD))));
-		html = html.replace("%rate_siege%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_SIEGE_GUARD))));
-		html = html.replace("%rate_manor%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_MANOR))));
-		html = html.replace("%rate_hellbound%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_HB_TRUST_INCREASE))));
-		html = html.replace("%rate_reputation%", String.valueOf(Util.convertDouble(String.format("%.2f", (double) Config.REPUTATION_SCORE_PER_KILL))));
-		html = html.replace("%rate_fishing%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_FISHING))));
-		html = html.replace("%rate_raidboss%", String.valueOf(Util.convertDouble(String.format("%.2f", Config.RATE_DROP_RAIDBOSS))));
+		html = html.replace("%rate_xp%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_XP_BY_LVL[activeChar.getLevel()]))));
+		html = html.replace("%rate_sp%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_SP_BY_LVL[activeChar.getLevel()]))));
+		html = html.replace("%rate_adena%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_ADENA))));
+		html = html.replace("%rate_items%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_ITEMS))));
+		html = html.replace("%rate_spoil%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_SPOIL))));
+		html = html.replace("%rate_quest%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_QUEST_REWARD))));
+		html = html.replace("%rate_siege%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_SIEGE_GUARD))));
+		html = html.replace("%rate_manor%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_MANOR))));
+		html = html.replace("%rate_hellbound%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_HB_TRUST_INCREASE))));
+		html = html.replace("%rate_reputation%", String.valueOf(Util.convertDouble("%.2f".formatted((double) Config.REPUTATION_SCORE_PER_KILL))));
+		html = html.replace("%rate_fishing%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_FISHING))));
+		html = html.replace("%rate_raidboss%", String.valueOf(Util.convertDouble("%.2f".formatted(Config.RATE_DROP_RAIDBOSS))));
 		
 		html = html.replace("%bonus_xp%", activeChar.getPremiumBonus().getRateXp() > 1.0 ? "<font color=\"E6D0AE\" name=\"hs11\">(+" + Util.convertRate(activeChar.getPremiumBonus().getRateXp()) + "%)</font>" : "");
 		html = html.replace("%bonus_sp%", activeChar.getPremiumBonus().getRateSp() > 1.0 ? "<font color=\"E6D0AE\" name=\"hs11\">(+" + Util.convertRate(activeChar.getPremiumBonus().getRateSp()) + "%)</font>" : "");
@@ -5596,8 +5578,7 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 		html = html.replace("%server_uptime%", String.valueOf(uptime()));
 		html = html.replace("%time%", String.valueOf(time()));
 		html = html.replace("%online%", online(false));
-		html = html.replace("%offtrade%", online(true));
-		return html;
+		return html.replace("%offtrade%", online(true));
 	}
 	
 	private String getFunc(Player player, Skill skill, int type)
@@ -5654,15 +5635,15 @@ public class CommunityGeneral extends AbstractCommunity implements ICommunityBoa
 				}
 				if (type == 1)
 				{
-					block = block.replace("%add%", String.valueOf(!idProc || isInt ? (int) next : "" + Util.convertDouble(String.format("%.2f", next)) + "%"));
+					block = block.replace("%add%", String.valueOf(!idProc || isInt ? (int) next : "" + Util.convertDouble("%.2f".formatted(next)) + "%"));
 				}
 				else if (type == 2)
 				{
-					block = block.replace("%add%", String.valueOf(!idProc || isInt ? (int) diff : "" + Util.convertDouble(String.format("%.2f", diff)) + "%"));
+					block = block.replace("%add%", String.valueOf(!idProc || isInt ? (int) diff : "" + Util.convertDouble("%.2f".formatted(diff)) + "%"));
 				}
 				else
 				{
-					block = block.replace("%add%", String.valueOf(!idProc ? (int) add : "" + Util.convertDouble(String.format("%.2f", add)) + "%"));
+					block = block.replace("%add%", String.valueOf(!idProc ? (int) add : "" + Util.convertDouble("%.2f".formatted(add)) + "%"));
 				}
 				list += block;
 			}

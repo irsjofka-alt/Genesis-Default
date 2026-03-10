@@ -579,7 +579,7 @@ public class FinalEmperialTomb extends AbstractReflection
 				case 10 :
 					if (demons.size() > 3)
 					{
-						_r.broadcastPacket(new SocialAction(demons.get(0).getObjectId(), 1));
+						_r.broadcastPacket(new SocialAction(demons.getFirst().getObjectId(), 1));
 						_r.broadcastPacket(new SocialAction(demons.get(3).getObjectId(), 1));
 					}
 					
@@ -1180,7 +1180,7 @@ public class FinalEmperialTomb extends AbstractReflection
 		return "";
 	}
 
-	public static void main(String[] args)
+	void main()
 	{
 		new FinalEmperialTomb();
 	}

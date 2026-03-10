@@ -129,20 +129,13 @@ public class _605_AllianceWithKetraOrcs extends Quest
 	
 	private int getMaxItems(QuestState st, int itemId)
 	{
-		int count = 0;
-		switch (itemId)
+		return switch (itemId)
 		{
-			case 7216 :
-				count = SOLDIER_BADGE_COUNT[st.getCond() - 1];
-				break;
-			case 7217 :
-				count = OFFICER_BADGE_COUNT[st.getCond() - 1];
-				break;
-			case 7218 :
-				count = CAPTAIN_BADGE_COUNT[st.getCond() - 1];
-				break;
-		}
-		return count;
+			case 7216  -> SOLDIER_BADGE_COUNT[st.getCond() - 1];
+			case 7217  -> OFFICER_BADGE_COUNT[st.getCond() - 1];
+			case 7218  -> CAPTAIN_BADGE_COUNT[st.getCond() - 1];
+			default -> 0;
+		};
 	}
 	
 	@Override

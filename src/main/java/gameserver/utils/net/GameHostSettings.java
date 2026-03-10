@@ -128,7 +128,7 @@ public class GameHostSettings extends DocumentParser
 			hostInfo.addSubnet("169.254.0.0", "169.254.0.0/16");
 			IPSettings.getInstance().setGameServerHost(hostInfo);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 		Config.c = false;

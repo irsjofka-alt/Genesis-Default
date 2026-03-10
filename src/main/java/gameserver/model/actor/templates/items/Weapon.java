@@ -109,7 +109,7 @@ public final class Weapon extends Item
 					id = Integer.parseInt(info[0]);
 					level = Integer.parseInt(info[1]);
 				}
-				catch (final Exception nfe)
+				catch (final Exception _)
 				{
 					_log.info(StringUtil.concat("> Couldnt parse ", skill, " in weapon enchant skills! item ", toString()));
 				}
@@ -134,7 +134,7 @@ public final class Weapon extends Item
 					id = Integer.parseInt(info[0]);
 					level = Integer.parseInt(info[1]);
 				}
-				catch (final Exception nfe)
+				catch (final Exception _)
 				{
 					_log.info(StringUtil.concat("> Couldnt parse ", skill, " in weapon onmagic skills! item ", toString()));
 				}
@@ -160,7 +160,7 @@ public final class Weapon extends Item
 					id = Integer.parseInt(info[0]);
 					level = Integer.parseInt(info[1]);
 				}
-				catch (final Exception nfe)
+				catch (final Exception _)
 				{
 					_log.info(StringUtil.concat("> Couldnt parse ", skill, " in weapon oncrit skills! item ", toString()));
 				}
@@ -185,7 +185,7 @@ public final class Weapon extends Item
 					id = Integer.parseInt(info[0]);
 					level = Integer.parseInt(info[1]);
 				}
-				catch (final Exception nfe)
+				catch (final Exception _)
 				{
 					_log.info(StringUtil.concat("> Couldnt parse ", skill, " in weapon unequip skills! item ", toString()));
 				}

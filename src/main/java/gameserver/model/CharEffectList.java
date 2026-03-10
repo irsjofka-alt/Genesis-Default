@@ -124,7 +124,7 @@ public class CharEffectList
 		{
 			Arrays.sort(effects, EffectsComparator.getInstance());
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 		return effects;
@@ -911,7 +911,7 @@ public class CharEffectList
 					
 					if (!stackQueue.isEmpty())
 					{
-						final var newStackedEffect = listsContains(stackQueue.get(0));
+						final var newStackedEffect = listsContains(stackQueue.getFirst());
 						if (newStackedEffect != null && newStackedEffect.setInUse(true))
 						{
 							_owner.addStatFuncs(newStackedEffect.getStatFuncs());
@@ -1204,7 +1204,7 @@ public class CharEffectList
 			int pos = 0;
 			if (!stackQueue.isEmpty())
 			{
-				effectToRemove = listsContains(stackQueue.get(0));
+				effectToRemove = listsContains(stackQueue.getFirst());
 				
 				final var queueIterator = stackQueue.iterator();
 				while (queueIterator.hasNext())
@@ -1235,18 +1235,18 @@ public class CharEffectList
 			}
 			else
 			{
-				stackQueue.add(0, newEffect);
+				stackQueue.addFirst(newEffect);
 			}
 		}
 		else
 		{
-			stackQueue.add(0, newEffect);
+			stackQueue.addFirst(newEffect);
 		}
 		_stackedEffects.put(newEffect.getAbnormalType(), stackQueue);
 		
 		if (!stackQueue.isEmpty())
 		{
-			effectToAdd = listsContains(stackQueue.get(0));
+			effectToAdd = listsContains(stackQueue.getFirst());
 		}
 		
 		if (effectToRemove != effectToAdd)
@@ -1636,7 +1636,7 @@ public class CharEffectList
 	{
 		if (hasAbnormalType(type))
 		{
-			return _stackedEffects.get(type).get(0);
+			return _stackedEffects.get(type).getFirst();
 		}
 		return null;
 	}

@@ -54,7 +54,7 @@ public class Repair implements IVoicedCommandHandler
 				}
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			repairChar = null;
 		}

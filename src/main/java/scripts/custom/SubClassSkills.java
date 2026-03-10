@@ -193,7 +193,7 @@ public final class SubClassSkills extends Quest
 							Util.handleIllegalPlayerAction(player, "Invalid cert variable:" + qName + "=" + qValue + " - no certified skills found");
 						}
 					}
-					catch (final NumberFormatException e)
+					catch (final NumberFormatException _)
 					{
 						Util.handleIllegalPlayerAction(player, "Invalid cert variable:" + qName + "=" + qValue + " - not a number");
 					}
@@ -241,7 +241,7 @@ public final class SubClassSkills extends Quest
 						}
 						
 					}
-					catch (final NumberFormatException e)
+					catch (final NumberFormatException _)
 					{
 						Util.handleIllegalPlayerAction(player, "Invalid cert variable:" + qName + "=" + qValue + " - not a number");
 					}

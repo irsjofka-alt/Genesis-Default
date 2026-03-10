@@ -111,7 +111,7 @@ public class EditChar implements IAdminCommandHandler
 				final var page = Integer.parseInt(param[1]);
 				listCharacters(activeChar, type, page);
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				activeChar.sendMessage("Usage: //show_characters <page_number>");
 			}
@@ -123,7 +123,7 @@ public class EditChar implements IAdminCommandHandler
 				final var val = command.substring(21);
 				findCharacter(activeChar, val);
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				activeChar.sendMessage("Usage: //find_character <character_name>");
 				listCharacters(activeChar, 0, 1);
@@ -136,7 +136,7 @@ public class EditChar implements IAdminCommandHandler
 				final var val = command.substring(14);
 				findCharactersPerIp(activeChar, val);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //find_ip <www.xxx.yyy.zzz>");
 				listCharacters(activeChar, 0, 1);
@@ -149,7 +149,7 @@ public class EditChar implements IAdminCommandHandler
 				final var val = command.substring(19);
 				findCharactersPerAccount(activeChar, val);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //find_account <player_name>");
 				listCharacters(activeChar, 0, 1);
@@ -199,9 +199,8 @@ public class EditChar implements IAdminCommandHandler
 				final var val = command.substring(12);
 				final var pk = Integer.parseInt(val);
 				final var target = activeChar.getTarget();
-				if (target instanceof Player)
+				if (target instanceof Player player)
 				{
-					final var player = (Player) target;
 					player.setPkKills(pk);
 					player.broadcastUserInfo(true);
 					player.sendMessage("A GM changed your PK count to " + pk);
@@ -228,9 +227,8 @@ public class EditChar implements IAdminCommandHandler
 				final var val = command.substring(13);
 				final var pvp = Integer.parseInt(val);
 				final var target = activeChar.getTarget();
-				if (target instanceof Player)
+				if (target instanceof Player player)
 				{
-					final var player = (Player) target;
 					player.setPvpKills(pvp);
 					player.broadcastUserInfo(true);
 					player.sendMessage("A GM changed your PVP count to " + pvp);
@@ -257,9 +255,8 @@ public class EditChar implements IAdminCommandHandler
 				final var val = command.substring(14);
 				final var fame = Integer.parseInt(val);
 				final var target = activeChar.getTarget();
-				if (target instanceof Player)
+				if (target instanceof Player player)
 				{
-					final var player = (Player) target;
 					player.setFame(fame);
 					player.broadcastUserInfo(true);
 					player.sendMessage("A GM changed your Reputation points to " + fame);
@@ -286,7 +283,7 @@ public class EditChar implements IAdminCommandHandler
 				final var val = command.substring(24);
 				adminModifyCharacter(activeChar, val);
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				activeChar.sendMessage("Error while modifying character.");
 				listCharacters(activeChar, 0, 1);
@@ -299,9 +296,8 @@ public class EditChar implements IAdminCommandHandler
 				final var val = command.substring(10);
 				final var recVal = Integer.parseInt(val);
 				final var target = activeChar.getTarget();
-				if (target instanceof Player)
+				if (target instanceof Player player)
 				{
-					final var player = (Player) target;
 					player.getRecommendation().setRecomHave(recVal);
 					player.sendVoteSystemInfo();
 					player.broadcastUserInfo(true);
@@ -313,7 +309,7 @@ public class EditChar implements IAdminCommandHandler
 					activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //rec number");
 			}
@@ -326,9 +322,9 @@ public class EditChar implements IAdminCommandHandler
 				final var classidval = Integer.parseInt(val);
 				final var target = activeChar.getTarget();
 				Player player = null;
-				if (target instanceof Player)
+				if (target instanceof Player player1)
 				{
-					player = (Player) target;
+					player = player1;
 				}
 				else
 				{
@@ -360,12 +356,12 @@ public class EditChar implements IAdminCommandHandler
 					activeChar.sendMessage("Usage: //setclass <valid_new_classid>");
 				}
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				adminhtm.setFile(activeChar, activeChar.getLang(), "data/html/admin/setclass/human_fighter.htm");
 				activeChar.sendPacket(adminhtm);
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{
 				activeChar.sendMessage("Usage: //setclass <valid_new_classid>");
 			}
@@ -377,9 +373,9 @@ public class EditChar implements IAdminCommandHandler
 				final var val = command.substring(15);
 				final var target = activeChar.getTarget();
 				Player player = null;
-				if (target instanceof Player)
+				if (target instanceof Player player1)
 				{
-					player = (Player) target;
+					player = player1;
 				}
 				else
 				{
@@ -389,7 +385,7 @@ public class EditChar implements IAdminCommandHandler
 				player.sendMessage("Your title has been changed by a GM");
 				player.broadcastTitleInfo();
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				activeChar.sendMessage("You need to specify the new title.");
 			}
@@ -401,9 +397,9 @@ public class EditChar implements IAdminCommandHandler
 				final var val = command.substring(17);
 				final var target = activeChar.getTarget();
 				Player player = null;
-				if (target instanceof Player)
+				if (target instanceof Player player1)
 				{
-					player = (Player) target;
+					player = player1;
 				}
 				else
 				{
@@ -437,7 +433,7 @@ public class EditChar implements IAdminCommandHandler
 					player.getClan().broadcastClanStatus();
 				}
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				activeChar.sendMessage("Usage: //setname new_name_for_target");
 			}
@@ -446,9 +442,9 @@ public class EditChar implements IAdminCommandHandler
 		{
 			final var target = activeChar.getTarget();
 			Player player = null;
-			if (target instanceof Player)
+			if (target instanceof Player player1)
 			{
-				player = (Player) target;
+				player = player1;
 			}
 			else
 			{
@@ -528,9 +524,8 @@ public class EditChar implements IAdminCommandHandler
 		else if (command.startsWith("admin_fullfood"))
 		{
 			final var target = activeChar.getTarget();
-			if (target instanceof PetInstance)
+			if (target instanceof PetInstance targetPet)
 			{
-				final var targetPet = (PetInstance) target;
 				targetPet.setCurrentFed(targetPet.getMaxFed());
 				targetPet.sendPacket(new SetSummonRemainTime(targetPet.getMaxFed(), targetPet.getCurrentFed()));
 			}
@@ -567,7 +562,7 @@ public class EditChar implements IAdminCommandHandler
 						statement.setString(1, playerName);
 						statement.execute();
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 					}
 					finally
@@ -607,7 +602,7 @@ public class EditChar implements IAdminCommandHandler
 					return false;
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			findDualbox(activeChar, multibox);
 		}
@@ -624,16 +619,16 @@ public class EditChar implements IAdminCommandHandler
 					return false;
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			findDualboxStrict(activeChar, multibox);
 		}
 		else if (command.startsWith("admin_summon_info"))
 		{
 			final var target = activeChar.getTarget();
-			if (target instanceof Summon)
+			if (target instanceof Summon summon)
 			{
-				gatherSummonInfo((Summon) target, activeChar);
+				gatherSummonInfo(summon, activeChar);
 			}
 			else
 			{
@@ -643,9 +638,9 @@ public class EditChar implements IAdminCommandHandler
 		else if (command.startsWith("admin_unsummon"))
 		{
 			final var target = activeChar.getTarget();
-			if (target instanceof Summon)
+			if (target instanceof Summon summon)
 			{
-				((Summon) target).unSummon(((Summon) target).getOwner());
+				summon.unSummon(summon.getOwner());
 			}
 			else
 			{
@@ -655,9 +650,8 @@ public class EditChar implements IAdminCommandHandler
 		else if (command.startsWith("admin_summon_setlvl"))
 		{
 			final var target = activeChar.getTarget();
-			if (target instanceof PetInstance)
+			if (target instanceof PetInstance pet)
 			{
-				final var pet = (PetInstance) target;
 				try
 				{
 					final var val = command.substring(20);
@@ -674,7 +668,7 @@ public class EditChar implements IAdminCommandHandler
 						pet.getStat().addExp(newexp - oldexp);
 					}
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 			}
 			else
@@ -693,15 +687,15 @@ public class EditChar implements IAdminCommandHandler
 				objId = Integer.parseInt(val);
 				target = GameObjectsStorage.getSummon(objId);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				target = activeChar.getTarget();
 			}
 			
-			if (target instanceof PetInstance)
+			if (target instanceof PetInstance instance)
 			{
-				final ItemInstance[] items = ((PetInstance) target).getInventory().getItems();
-				activeChar.sendPacket(new GMViewItemList((PetInstance) target, items, items.length));
+				final ItemInstance[] items = instance.getInventory().getItems();
+				activeChar.sendPacket(new GMViewItemList(instance, items, items.length));
 			}
 			else
 			{
@@ -722,16 +716,16 @@ public class EditChar implements IAdminCommandHandler
 					target = activeChar.getTarget();
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				target = activeChar.getTarget();
 			}
 			
-			if (target instanceof Player)
+			if (target instanceof Player player)
 			{
-				if (((Player) target).isInParty())
+				if (player.isInParty())
 				{
-					gatherPartyInfo((Player) target, activeChar);
+					gatherPartyInfo(player, activeChar);
 				}
 				else
 				{
@@ -786,9 +780,8 @@ public class EditChar implements IAdminCommandHandler
 				final var val = command.substring(18);
 				final var points = Integer.parseInt(val);
 				final var target = activeChar.getTarget();
-				if (target instanceof Player)
+				if (target instanceof Player player)
 				{
-					final var player = (Player) target;
 					player.setGamePoints((player.getGamePoints() + points));
 					player.sendMessage("GM changed your game points count to " + (player.getGamePoints() + points));
 					activeChar.sendMessage(player.getName(null) + "'s game points count changed to " + (player.getGamePoints() + points));
@@ -834,7 +827,7 @@ public class EditChar implements IAdminCommandHandler
 					activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //admin_hp_percent <percent 1-100>");
 			}
@@ -866,7 +859,7 @@ public class EditChar implements IAdminCommandHandler
 					activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //admin_mp_percent <percent 1-100>");
 			}
@@ -898,7 +891,7 @@ public class EditChar implements IAdminCommandHandler
 					activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //admin_cp_percent <percent 1-100>");
 			}
@@ -933,9 +926,8 @@ public class EditChar implements IAdminCommandHandler
 			try
 			{
 				final var target = activeChar.getTarget();
-				if (target != null && target instanceof Player)
+				if (target != null && target instanceof Player player)
 				{
-					final var player = (Player) target;
 					if (player.getFarmSystem().isAutofarming())
 					{
 						player.getFarmSystem().stopFarmTask(false, null);
@@ -1087,9 +1079,9 @@ public class EditChar implements IAdminCommandHandler
 		if (player == null)
 		{
 			final var target = activeChar.getTarget();
-			if (target instanceof Player)
+			if (target instanceof Player player1)
 			{
-				player = (Player) target;
+				player = player1;
 			}
 			else
 			{
@@ -1172,9 +1164,9 @@ public class EditChar implements IAdminCommandHandler
 	{
 		final var target = activeChar.getTarget();
 		Player player = null;
-		if (target instanceof Player)
+		if (target instanceof Player player1)
 		{
-			player = (Player) target;
+			player = player1;
 		}
 		else
 		{
@@ -1274,9 +1266,8 @@ public class EditChar implements IAdminCommandHandler
 			target = activeChar.getTarget();
 		}
 		
-		if (target instanceof Player)
+		if (target instanceof Player player)
 		{
-			final Player player = (Player) target;
 			gatherCharacterInfo(activeChar, player, "charedit.htm");
 		}
 	}
@@ -1598,10 +1589,10 @@ public class EditChar implements IAdminCommandHandler
 		{
 			html.replace("%inv%", "none");
 		}
-		if (target instanceof PetInstance)
+		if (target instanceof PetInstance instance)
 		{
-			html.replace("%food%", ((PetInstance) target).getCurrentFed() + "/" + ((PetInstance) target).getPetLevelData().getPetMaxFeed());
-			html.replace("%load%", ((PetInstance) target).getInventory().getTotalWeight() + "/" + ((PetInstance) target).getMaxLoad());
+			html.replace("%food%", instance.getCurrentFed() + "/" + instance.getPetLevelData().getPetMaxFeed());
+			html.replace("%load%", instance.getInventory().getTotalWeight() + "/" + instance.getMaxLoad());
 		}
 		else
 		{

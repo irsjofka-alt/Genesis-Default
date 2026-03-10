@@ -118,9 +118,9 @@ public class Quarry extends Quest
 	public final String onSpawn(Npc npc)
 	{
 		npc.setAutoAttackable(false);
-		if (npc instanceof QuestGuardInstance)
+		if (npc instanceof QuestGuardInstance instance)
 		{
-			((QuestGuardInstance) npc).setPassive(true);
+			instance.setPassive(true);
 		}
 		return super.onSpawn(npc);
 	}
@@ -150,9 +150,8 @@ public class Quarry extends Quest
 	@Override
 	public final String onEnterZone(Creature character, ZoneType zone)
 	{
-		if (character instanceof Attackable)
+		if (character instanceof Attackable npc)
 		{
-			final var npc = (Attackable) character;
 			if (npc.getId() == SLAVE)
 			{
 				if (!npc.isDead() && npc.isVisible() && (npc.getAI().getIntention() == CtrlIntention.FOLLOW))

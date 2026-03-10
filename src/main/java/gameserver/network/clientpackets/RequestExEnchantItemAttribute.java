@@ -285,23 +285,14 @@ public class RequestExEnchantItemAttribute extends GameClientPacket
 			return -1;
 		}
 		
-		boolean success = false;
-		switch (Elementals.getItemElemental(stoneId)._type)
+		boolean success = switch (Elementals.getItemElemental(stoneId)._type)
 		{
 			case Stone :
-			case Roughore :
-				success = Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_STONE + player.getPremiumBonus().getEnchantChance());
-				break;
-			case Crystal :
-				success = Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_CRYSTAL + player.getPremiumBonus().getEnchantChance());
-				break;
-			case Jewel :
-				success = Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_JEWEL + player.getPremiumBonus().getEnchantChance());
-				break;
-			case Energy :
-				success = Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_ENERGY + player.getPremiumBonus().getEnchantChance());
-				break;
-		}
+			case Roughore : yield Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_STONE + player.getPremiumBonus().getEnchantChance());
+			case Crystal : yield Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_CRYSTAL + player.getPremiumBonus().getEnchantChance());
+			case Jewel : yield Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_JEWEL + player.getPremiumBonus().getEnchantChance());
+			case Energy : yield Rnd.get(100) < (Config.ENCHANT_CHANCE_ELEMENT_ENERGY + player.getPremiumBonus().getEnchantChance());
+		};
 		
 		if (success)
 		{

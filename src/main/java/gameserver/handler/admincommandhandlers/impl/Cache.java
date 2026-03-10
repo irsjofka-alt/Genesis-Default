@@ -51,7 +51,7 @@ public class Cache implements IAdminCommandHandler
 				HtmCache.getInstance().reloadPath(new File(Config.DATAPACK_ROOT, path));
 				activeChar.sendMessage("Cache[HTML]: " + HtmCache.getInstance().getMemoryUsage() + " MB in " + HtmCache.getInstance().getLoadedFiles() + " file(s) loaded.");
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //cache_reload_path <path>");
 			}
@@ -70,7 +70,7 @@ public class Cache implements IAdminCommandHandler
 					activeChar.sendMessage("Cache[HTML]: file can't be loaded");
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //cache_reload_file <relative_path/file>");
 			}

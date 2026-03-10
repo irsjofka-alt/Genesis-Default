@@ -2220,7 +2220,7 @@ public class CrystalCaverns extends AbstractReflection
 		return super.onExitZone(character, zone);
 	}
 
-	public static void main(String[] args)
+	void main()
 	{
 		new CrystalCaverns();
 	}

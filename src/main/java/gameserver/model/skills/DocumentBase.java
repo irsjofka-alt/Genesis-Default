@@ -279,17 +279,11 @@ public abstract class DocumentBase
 		final int ord = Integer.decode(getValue(order, template));
 		final Condition applayCond = parseCondition(n.getFirstChild(), template);
 		final FuncTemplate ft = new FuncTemplate(attachCond, applayCond, name, stat, ord, lambda);
-		if (template instanceof Item)
-		{
-			((Item) template).attach(ft);
-		}
-		else if (template instanceof Skill)
-		{
-			((Skill) template).attach(ft);
-		}
-		else if (template instanceof EffectTemplate)
-		{
-			((EffectTemplate) template).attach(ft);
+		switch (template) {
+			case Item item -> item.attach(ft);
+			case Skill skill -> skill.attach(ft);
+			case EffectTemplate effectTemplate -> effectTemplate.attach(ft);
+			default -> {}
 		}
 	}
 	
@@ -322,9 +316,9 @@ public abstract class DocumentBase
 		final Lambda lambda = getLambda(n, template);
 		final Condition applayCond = parseCondition(n.getFirstChild(), template);
 		
-		if (template instanceof IIdentifiable)
+		if (template instanceof IIdentifiable identifiable)
 		{
-			set.set("id", ((IIdentifiable) template).getId());
+			set.set("id", identifiable.getId());
 		}
 		
 		byte abnormalLvl = 0;
@@ -340,13 +334,12 @@ public abstract class DocumentBase
 		
 		final EffectTemplate effectTemplate = new EffectTemplate(attachCond, applayCond, lambda, abnormalType, abnormalLvl, set, parameters);
 		parseTemplate(n, effectTemplate);
-		if (template instanceof Item)
+		if (template instanceof Item item)
 		{
-			((Item) template).attach(effectTemplate);
+			item.attach(effectTemplate);
 		}
-		else if (template instanceof Skill)
+		else if (template instanceof Skill sk)
 		{
-			final Skill sk = (Skill) template;
 			if (set.getInteger("self", 0) == 1)
 			{
 				sk.attachSelf(effectTemplate);
@@ -1308,9 +1301,9 @@ public abstract class DocumentBase
 			{
 				return getTableValue(value);
 			}
-			else if (template instanceof Integer)
+			else if (template instanceof Integer integer)
 			{
-				return getTableValue(value, ((Integer) template).intValue());
+				return getTableValue(value, integer.intValue());
 			}
 			else
 			{
@@ -1349,7 +1342,7 @@ public abstract class DocumentBase
 			}
 			return Double.valueOf(value);
 		}
-		catch (final NumberFormatException e)
+		catch (final NumberFormatException _)
 		{
 			return null;
 		}
@@ -1361,9 +1354,9 @@ public abstract class DocumentBase
 		{
 			return c;
 		}
-		if (cond instanceof ConditionLogicAnd)
+		if (cond instanceof ConditionLogicAnd and)
 		{
-			((ConditionLogicAnd) cond).add(c);
+			and.add(c);
 			return cond;
 		}
 		final ConditionLogicAnd and = new ConditionLogicAnd();

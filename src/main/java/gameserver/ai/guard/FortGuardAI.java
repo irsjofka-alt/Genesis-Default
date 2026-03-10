@@ -93,9 +93,9 @@ public class FortGuardAI extends CharacterAI implements Runnable
 			target = player;
 		}
 
-		if (target instanceof Playable)
+		if (target instanceof Playable playable)
 		{
-			if (((Playable) target).isSilentMoving() && Rnd.chance(90))
+			if (playable.isSilentMoving() && Rnd.chance(90))
 			{
 				return false;
 			}
@@ -200,9 +200,9 @@ public class FortGuardAI extends CharacterAI implements Runnable
 
 		}
 		
-		if (_actor instanceof DefenderInstance)
+		if (_actor instanceof DefenderInstance instance)
 		{
-			((DefenderInstance) _actor).returnHome();
+			instance.returnHome();
 		}
 		else
 		{
@@ -274,7 +274,7 @@ public class FortGuardAI extends CharacterAI implements Runnable
 				
 				if (!(cha instanceof Npc))
 				{
-					if (_healSkills.length != 0 && (cha instanceof Player) && npc.getFort().getSiege().checkIsDefender(((Player) cha).getClan()))
+					if (_healSkills.length != 0 && (cha instanceof Player player) && npc.getFort().getSiege().checkIsDefender(player.getClan()))
 					{
 						if (!npc.isAttackingDisabled() && (cha.getCurrentHp() < (cha.getMaxHp() * 0.6)) && (npc.getCurrentHp() > (npc.getMaxHp() / 2)) && (npc.getCurrentMp() > (npc.getMaxMp() / 2)) && cha.isInCombat())
 						{
@@ -394,9 +394,9 @@ public class FortGuardAI extends CharacterAI implements Runnable
 		final var npc = getActiveChar();
 		var attackTarget = getAttackTarget();
 		DefenderInstance sGuard;
-		if (npc instanceof FortCommanderInstance)
+		if (npc instanceof FortCommanderInstance instance)
 		{
-			sGuard = (FortCommanderInstance) npc;
+			sGuard = instance;
 		}
 		else
 		{
@@ -414,14 +414,14 @@ public class FortGuardAI extends CharacterAI implements Runnable
 				range += 50;
 			}
 		}
-		catch (final NullPointerException e)
+		catch (final NullPointerException _)
 		{
 			npc.setTarget(null);
 			setIntention(ACTIVE);
 			return;
 		}
 
-		if ((attackTarget instanceof Player) && sGuard.getFort().getSiege().checkIsDefender(((Player) attackTarget).getClan()))
+		if ((attackTarget instanceof Player player) && sGuard.getFort().getSiege().checkIsDefender(player.getClan()))
 		{
 			sGuard.getAggroList().stopHating(attackTarget);
 			npc.setTarget(null);
@@ -739,9 +739,9 @@ public class FortGuardAI extends CharacterAI implements Runnable
 				}
 
 				DefenderInstance sGuard;
-				if (me instanceof FortCommanderInstance)
+				if (me instanceof FortCommanderInstance instance)
 				{
-					sGuard = (FortCommanderInstance) me;
+					sGuard = instance;
 				}
 				else
 				{

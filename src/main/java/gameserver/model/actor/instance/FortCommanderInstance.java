@@ -151,9 +151,9 @@ public class FortCommanderInstance extends DefenderInstance
 							npcString = NpcStringId.ATTACKING_THE_ENEMYS_REINFORCEMENTS_IS_NECESSARY_TIME_TO_DIE;
 							break;
 						case 2 :
-							if (attacker instanceof Summon)
+							if (attacker instanceof Summon summon)
 							{
-								attacker = ((Summon) attacker).getOwner();
+								attacker = summon.getOwner();
 							}
 							npcString = NpcStringId.EVERYONE_CONCENTRATE_YOUR_ATTACKS_ON_S1_SHOW_THE_ENEMY_YOUR_RESOLVE;
 							break;

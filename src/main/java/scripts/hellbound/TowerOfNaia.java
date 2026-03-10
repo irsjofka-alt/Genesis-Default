@@ -917,21 +917,14 @@ public class TowerOfNaia extends Quest
 	
 	private int getSporeGroup(int sporeId)
 	{
-		int ret;
-		switch (sporeId)
+		return switch (sporeId)
 		{
 			case SPORE_FIRE :
-			case SPORE_WATER :
-				ret = 0;
-				break;
+			case SPORE_WATER : yield 0;
 			case SPORE_WIND :
-			case SPORE_EARTH :
-				ret = 1;
-				break;
-			default :
-				ret = -1;
-		}
-		return ret;
+			case SPORE_EARTH : yield 1;
+			default : yield -1;
+		};
 	}
 	
 	protected void initRoom(int managerId)

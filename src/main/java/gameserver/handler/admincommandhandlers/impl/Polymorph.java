@@ -40,9 +40,9 @@ public class Polymorph implements IAdminCommandHandler
 		if (command.startsWith("admin_untransform"))
 		{
 			final GameObject obj = activeChar.getTarget();
-			if (obj instanceof Creature)
+			if (obj instanceof Creature creature)
 			{
-				((Creature) obj).stopTransformation(true);
+				creature.stopTransformation(true);
 			}
 			else
 			{
@@ -125,7 +125,7 @@ public class Polymorph implements IAdminCommandHandler
 					doPolymorph(activeChar, target, p1, "npc");
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //polymorph [type] <id>");
 			}
@@ -149,9 +149,8 @@ public class Polymorph implements IAdminCommandHandler
 
 	private void doPolymorph(Player activeChar, GameObject obj, String id, String type)
 	{
-		if (obj != null && obj instanceof Player)
+		if (obj != null && obj instanceof Player Char)
 		{
-			final Player Char = (Player) obj;
 			Char.setPolyId(Integer.parseInt(id));
 			final MagicSkillUse msk = new MagicSkillUse(Char, 1008, 1, 4000, 0);
 			Char.broadcastPacket(msk);
@@ -169,9 +168,8 @@ public class Polymorph implements IAdminCommandHandler
 
 	private void doUnpoly(Player activeChar, GameObject target)
 	{
-		if (target != null && target instanceof Player)
+		if (target != null && target instanceof Player Char)
 		{
-			final Player Char = (Player) target;
 			Char.setPolyId(0);
 			Char.decayMe();
 			Char.spawnMe(target.getX(), target.getY(), target.getZ());

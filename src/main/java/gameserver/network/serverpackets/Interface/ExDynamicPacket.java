@@ -191,7 +191,7 @@ public class ExDynamicPacket extends GameServerPacket
 				for (final var ent : _list)
 				{
 					writeC(index);
-					final int mainId = ent.getProducts().get(0).getId();
+					final int mainId = ent.getProducts().getFirst().getId();
 					final var mainItem = mainId > 0 ? ItemsParser.getInstance().getTemplate(mainId) : null;
 					writeS(mainItem != null ? mainItem.getIcon() : "");
 					writeC(ent.getProducts().size());

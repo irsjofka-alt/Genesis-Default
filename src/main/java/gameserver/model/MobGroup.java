@@ -71,25 +71,19 @@ public final class MobGroup
 	{
 		try
 		{
-			final Minions mobGroupAI = (Minions) getMobs().get(0).getAI();
+			final Minions mobGroupAI = (Minions) getMobs().getFirst().getAI();
 
-			switch (mobGroupAI.getAlternateAI())
+			return switch (mobGroupAI.getAlternateAI())
 			{
-				case Minions.AI_NORMAL :
-					return "Idle";
-				case Minions.AI_FORCEATTACK :
-					return "Force Attacking";
-				case Minions.AI_FOLLOW :
-					return "Following";
-				case Minions.AI_CAST :
-					return "Casting";
-				case Minions.AI_ATTACK_GROUP :
-					return "Attacking Group";
-				default :
-					return "Idle";
-			}
+				case Minions.AI_NORMAL  -> "Idle";
+				case Minions.AI_FORCEATTACK  -> "Force Attacking";
+				case Minions.AI_FOLLOW  -> "Following";
+				case Minions.AI_CAST  -> "Casting";
+				case Minions.AI_ATTACK_GROUP  -> "Attacking Group";
+				default  -> "Idle";
+			};
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			return "Unspawned";
 		}
@@ -145,9 +139,9 @@ public final class MobGroup
 				getMobs().add((ControllableMobInstance) spawn.doGroupSpawn());
 			}
 		}
-		catch (final ClassNotFoundException e)
+		catch (final ClassNotFoundException _)
 		{}
-		catch (final NoSuchMethodException e2)
+		catch (final NoSuchMethodException _)
 		{}
 	}
 

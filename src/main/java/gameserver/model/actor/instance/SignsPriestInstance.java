@@ -72,13 +72,13 @@ public class SignsPriestInstance extends NpcInstance
 				{
 					cabal = Integer.parseInt(command.substring(14, 15).trim());
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					try
 					{
 						cabal = Integer.parseInt(command.substring(13, 14).trim());
 					}
-					catch (final Exception e2)
+					catch (final Exception _)
 					{
 						try
 						{
@@ -86,7 +86,7 @@ public class SignsPriestInstance extends NpcInstance
 							st.nextToken();
 							cabal = Integer.parseInt(st.nextToken());
 						}
-						catch (final Exception e3)
+						catch (final Exception _)
 						{
 							_log.warn("Failed to retrieve cabal from bypass command. NpcId: " + getId() + "; Command: " + command);
 						}
@@ -301,7 +301,7 @@ public class SignsPriestInstance extends NpcInstance
 					{
 						contributionCount = Long.parseLong(command.substring(19).trim());
 					}
-					catch (final Exception NumberFormatException)
+					catch (final Exception _)
 					{
 						if (this instanceof DawnPriestInstance)
 						{
@@ -573,12 +573,12 @@ public class SignsPriestInstance extends NpcInstance
 					{
 						ancientAdenaConvert = Long.parseLong(command.substring(13).trim());
 					}
-					catch (final NumberFormatException e)
+					catch (final NumberFormatException _)
 					{
 						showChatWindow(player, SevenSigns.SEVEN_SIGNS_HTML_PATH + "blkmrkt_3.htm");
 						break;
 					}
-					catch (final StringIndexOutOfBoundsException e)
+					catch (final StringIndexOutOfBoundsException _)
 					{
 						showChatWindow(player, SevenSigns.SEVEN_SIGNS_HTML_PATH + "blkmrkt_3.htm");
 						break;
@@ -790,7 +790,7 @@ public class SignsPriestInstance extends NpcInstance
 					{
 						convertCount = Long.parseLong(command.substring(19).trim());
 					}
-					catch (final Exception NumberFormatException)
+					catch (final Exception _)
 					{
 						if (this instanceof DawnPriestInstance)
 						{

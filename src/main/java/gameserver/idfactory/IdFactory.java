@@ -290,7 +290,7 @@ public abstract class IdFactory
 			}
 			_log.info("Cleaned " + cleanCount + " expired timestamps from database.");
 		}
-		catch (final SQLException e)
+		catch (final SQLException _)
 		{
 		}
 		finally
@@ -325,7 +325,7 @@ public abstract class IdFactory
 				temp.add(rs.getInt(1));
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 		finally

@@ -555,7 +555,7 @@ public class AchievementManager
 				}
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 		_log.info("AchievementManager: Loaded " + _achievementCategories.size() + " achievement categories and " + _achievementMaxLevels.size() + " achievements.");

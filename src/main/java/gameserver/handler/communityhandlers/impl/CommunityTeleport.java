@@ -95,7 +95,7 @@ public class CommunityTeleport extends AbstractCommunity implements ICommunityBo
 			{
 				id = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (id != null)
@@ -119,7 +119,7 @@ public class CommunityTeleport extends AbstractCommunity implements ICommunityBo
 			{
 				name = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			final int limit = (Config.COMMUNITY_TELEPORT_TABS + player.getVarInt("cbTeleport", 0));
@@ -155,7 +155,7 @@ public class CommunityTeleport extends AbstractCommunity implements ICommunityBo
 			{
 				id = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (Config.BLOCK_TP_AT_SIEGES_FOR_ALL && isSiegesIsAcvite())
@@ -186,28 +186,28 @@ public class CommunityTeleport extends AbstractCommunity implements ICommunityBo
 			{
 				x = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			try
 			{
 				y = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			try
 			{
 				z = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			try
 			{
 				price = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (!Config.ALLOW_COMMUNITY_COORDS_TP)
@@ -232,7 +232,7 @@ public class CommunityTeleport extends AbstractCommunity implements ICommunityBo
 			{
 				id = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (id != null)
@@ -339,7 +339,7 @@ public class CommunityTeleport extends AbstractCommunity implements ICommunityBo
 			{
 				page = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (page != null)

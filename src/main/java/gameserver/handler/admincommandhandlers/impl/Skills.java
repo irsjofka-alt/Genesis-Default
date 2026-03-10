@@ -58,7 +58,7 @@ public class Skills implements IAdminCommandHandler
 				final String val = command.substring(20);
 				removeSkillsPage(activeChar, Integer.parseInt(val));
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{}
 		}
 		else if (command.startsWith("admin_skill_list"))
@@ -74,7 +74,7 @@ public class Skills implements IAdminCommandHandler
 				adminhtm.setFile(activeChar, activeChar.getLang(), "data/html/admin/skills/" + val + ".htm");
 				activeChar.sendPacket(adminhtm);
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{}
 		}
 		else if (command.startsWith("admin_add_skill"))
@@ -84,7 +84,7 @@ public class Skills implements IAdminCommandHandler
 				final String val = command.substring(15);
 				adminAddSkill(activeChar, val);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //add_skill <skill_id> <level>");
 			}
@@ -97,7 +97,7 @@ public class Skills implements IAdminCommandHandler
 				final int idval = Integer.parseInt(id);
 				adminRemoveSkill(activeChar, idval);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //remove_skill <skill_id>");
 			}
@@ -147,7 +147,7 @@ public class Skills implements IAdminCommandHandler
 				final String[] val = command.split(" ");
 				adminAddClanSkill(activeChar, Integer.parseInt(val[1]), Integer.parseInt(val[2]));
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //add_clan_skill <skill_id> <level>");
 			}

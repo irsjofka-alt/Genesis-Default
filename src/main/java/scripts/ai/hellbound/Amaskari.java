@@ -120,9 +120,9 @@ public class Amaskari extends AbstractNpcAI
 				}
 				else
 				{
-					if (master instanceof Attackable)
+					if (master instanceof Attackable attackable)
 					{
-						((Attackable) master).clearAggroList(false);
+						attackable.clearAggroList(false);
 					}
 					master.getAI().setIntention(CtrlIntention.ACTIVE);
 					if (e == null)

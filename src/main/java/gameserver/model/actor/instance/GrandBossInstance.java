@@ -182,29 +182,26 @@ public final class GrandBossInstance extends MonsterInstance
 				groupsInfo.put(key, info);
 			}
 			
-			if (key instanceof CommandChannel)
-			{
-				for (final var p : ((CommandChannel) key))
-				{
-					if (p.isInRangeZ(this, Config.ALT_PARTY_RANGE2))
+			switch (key) {
+				case CommandChannel channel -> {
+					for (final var p : channel)
 					{
-						info.getPlayer().add(p);
+						if (p.isInRangeZ(this, Config.ALT_PARTY_RANGE2))
+						{
+							info.getPlayer().add(p);
+						}
 					}
 				}
-			}
-			else if (key instanceof Party)
-			{
-				for (final var p : ((Party) key).getMembers())
-				{
-					if (p.isInRangeZ(this, Config.ALT_PARTY_RANGE2))
+				case Party party -> {
+					for (final var p : party.getMembers())
 					{
-						info.getPlayer().add(p);
+						if (p.isInRangeZ(this, Config.ALT_PARTY_RANGE2))
+						{
+							info.getPlayer().add(p);
+						}
 					}
 				}
-			}
-			else
-			{
-				info.getPlayer().add(player);
+				default -> info.getPlayer().add(player);
 			}
 			info.addReward(charMap.get(player).getDamage());
 		}

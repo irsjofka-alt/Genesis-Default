@@ -187,7 +187,7 @@ public final class RequestBypassToServer extends GameClientPacket
 					}
 					activeChar.sendActionFailed();
 				}
-				catch (final NumberFormatException nfe)
+				catch (final NumberFormatException _)
 				{
 				}
 			}
@@ -491,9 +491,8 @@ public final class RequestBypassToServer extends GameClientPacket
 		{
 			return;
 		}
-		if (obj instanceof Npc)
+		if (obj instanceof Npc temp)
 		{
-			final Npc temp = (Npc) obj;
 			temp.setTarget(activeChar);
 			temp.getAI().setIntention(CtrlIntention.MOVING, activeChar.getLocation(), 0);
 		}

@@ -128,7 +128,7 @@ public class MobGroups implements IAdminCommandHandler
 		{
 			groupId = Integer.parseInt(command.split(" ")[1]);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Incorrect command arguments.");
 			return;
@@ -150,7 +150,7 @@ public class MobGroups implements IAdminCommandHandler
 		{
 			groupId = Integer.parseInt(command.split(" ")[1]);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Incorrect command arguments.");
 			return;
@@ -171,7 +171,7 @@ public class MobGroups implements IAdminCommandHandler
 		{
 			groupId = Integer.parseInt(command.split(" ")[1]);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Incorrect command arguments.");
 			return;
@@ -192,7 +192,7 @@ public class MobGroups implements IAdminCommandHandler
 		{
 			groupId = Integer.parseInt(command.split(" ")[1]);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Incorrect command arguments.");
 			return;
@@ -213,7 +213,7 @@ public class MobGroups implements IAdminCommandHandler
 		{
 			groupId = Integer.parseInt(command.split(" ")[1]);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Incorrect command arguments.");
 			return;
@@ -241,7 +241,7 @@ public class MobGroups implements IAdminCommandHandler
 			templateId = Integer.parseInt(cmdParams[2]);
 			mobCount = Integer.parseInt(cmdParams[3]);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Usage: //mobgroup_create <group> <npcid> <count>");
 			return;
@@ -275,7 +275,7 @@ public class MobGroups implements IAdminCommandHandler
 		{
 			groupId = Integer.parseInt(command.split(" ")[1]);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Usage: //mobgroup_remove <groupId>");
 			return;
@@ -318,10 +318,10 @@ public class MobGroups implements IAdminCommandHandler
 				posz = Integer.parseInt(cmdParams[4]);
 				topos = true;
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Usage: //mobgroup_spawn <group> [ x y z ]");
 			return;
@@ -357,7 +357,7 @@ public class MobGroups implements IAdminCommandHandler
 		{
 			groupId = Integer.parseInt(command.split(" ")[1]);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Usage: //mobgroup_unspawn <groupId>");
 			return;
@@ -385,7 +385,7 @@ public class MobGroups implements IAdminCommandHandler
 		{
 			groupId = Integer.parseInt(command.split(" ")[1]);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Usage: //mobgroup_kill <groupId>");
 			return;
@@ -411,7 +411,7 @@ public class MobGroups implements IAdminCommandHandler
 		{
 			groupId = Integer.parseInt(command.split(" ")[1]);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Usage: //mobgroup_casting <groupId>");
 			return;
@@ -438,7 +438,7 @@ public class MobGroups implements IAdminCommandHandler
 			groupId = Integer.parseInt(command.split(" ")[1]);
 			enabled = command.split(" ")[2];
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Usage: //mobgroup_nomove <groupId> <on|off>");
 			return;
@@ -482,7 +482,7 @@ public class MobGroups implements IAdminCommandHandler
 			groupId = Integer.parseInt(command.split(" ")[1]);
 			othGroupId = Integer.parseInt(command.split(" ")[2]);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Usage: //mobgroup_attackgrp <groupId> <TargetGroupId>");
 			return;
@@ -517,7 +517,7 @@ public class MobGroups implements IAdminCommandHandler
 			groupId = Integer.parseInt(command.split(" ")[1]);
 			enabled = command.split(" ")[2];
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Usage: //mobgroup_invul <groupId> <on|off>");
 			return;
@@ -566,7 +566,7 @@ public class MobGroups implements IAdminCommandHandler
 				targetPlayer = activeChar;
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("Usage: //mobgroup_teleport <groupId> [playerName]");
 			return;

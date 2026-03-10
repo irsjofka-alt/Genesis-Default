@@ -235,39 +235,23 @@ public final class Alarm extends AbstractNpcAI
 	
 	private static final boolean verifyMemoState(Player player, int questId, int memoState)
 	{
-		QuestState qs = null;
-		switch (questId)
+		QuestState qs = switch (questId)
 		{
-			case 184 :
-			{
-				qs = player.getQuestState("_184_NikolasCooperationContract");
-				break;
-			}
-			case 185 :
-			{
-				qs = player.getQuestState("_185_NikolasCooperationConsideration");
-				break;
-			}
-		}
+			case 184  -> player.getQuestState("_184_NikolasCooperationContract");
+			case 185  -> player.getQuestState("_185_NikolasCooperationConsideration");
+			default -> null;
+		};
 		return (qs != null) && ((memoState < 0) || qs.isMemoState(memoState));
 	}
 	
 	private static final void setMemoState(Player player, int questId, int memoState)
 	{
-		QuestState qs = null;
-		switch (questId)
+		QuestState qs = switch (questId)
 		{
-			case 184 :
-			{
-				qs = player.getQuestState("_184_NikolasCooperationContract");
-				break;
-			}
-			case 185 :
-			{
-				qs = player.getQuestState("_185_NikolasCooperationConsideration");
-				break;
-			}
-		}
+			case 184  -> player.getQuestState("_184_NikolasCooperationContract");
+			case 185  -> player.getQuestState("_185_NikolasCooperationConsideration");
+			default -> null;
+		};
 		if (qs != null)
 		{
 			qs.setMemoState(memoState);
@@ -276,39 +260,23 @@ public final class Alarm extends AbstractNpcAI
 	
 	private static final int getMemoStateEx(Player player, int questId, int slot)
 	{
-		QuestState qs = null;
-		switch (questId)
+		QuestState qs = switch (questId)
 		{
-			case 184 :
-			{
-				qs = player.getQuestState("_184_NikolasCooperationContract");
-				break;
-			}
-			case 185 :
-			{
-				qs = player.getQuestState("_185_NikolasCooperationConsideration");
-				break;
-			}
-		}
+			case 184  -> player.getQuestState("_184_NikolasCooperationContract");
+			case 185  -> player.getQuestState("_185_NikolasCooperationConsideration");
+			default -> null;
+		};
 		return (qs != null) ? qs.getMemoStateEx(slot) : -1;
 	}
 	
 	private static final void setMemoStateEx(Player player, int questId, int slot, int memoStateEx)
 	{
-		QuestState qs = null;
-		switch (questId)
+		QuestState qs = switch (questId)
 		{
-			case 184 :
-			{
-				qs = player.getQuestState("_184_NikolasCooperationContract");
-				break;
-			}
-			case 185 :
-			{
-				qs = player.getQuestState("_185_NikolasCooperationConsideration");
-				break;
-			}
-		}
+			case 184  -> player.getQuestState("_184_NikolasCooperationContract");
+			case 185  -> player.getQuestState("_185_NikolasCooperationConsideration");
+			default -> null;
+		};
 		if (qs != null)
 		{
 			qs.setMemoStateEx(slot, memoStateEx);

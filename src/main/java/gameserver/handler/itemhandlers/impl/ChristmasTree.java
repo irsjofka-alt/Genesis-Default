@@ -37,17 +37,12 @@ public class ChristmasTree implements IItemHandler
 		}
 
 		final Player activeChar = playable.getActingPlayer();
-		NpcTemplate template1 = null;
-		
-		switch (item.getId())
+		NpcTemplate template1 = switch (item.getId())
 		{
-			case 5560 :
-				template1 = NpcsParser.getInstance().getTemplate(13006);
-				break;
-			case 5561 :
-				template1 = NpcsParser.getInstance().getTemplate(13007);
-				break;
-		}
+			case 5560  -> NpcsParser.getInstance().getTemplate(13006);
+			case 5561  -> NpcsParser.getInstance().getTemplate(13007);
+			default -> null;
+		};
 		
 		if (template1 == null)
 		{
@@ -75,7 +70,7 @@ public class ChristmasTree implements IItemHandler
 			activeChar.sendMessage("Created " + template1.getName(activeChar.getLang()) + " at x: " + spawn.getX() + " y: " + spawn.getY() + " z: " + spawn.getZ());
 			return true;
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendPacket(SystemMessageId.TARGET_CANT_FOUND);
 			return false;

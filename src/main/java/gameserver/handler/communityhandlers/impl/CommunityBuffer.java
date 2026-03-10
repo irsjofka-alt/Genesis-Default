@@ -1215,7 +1215,7 @@ public class CommunityBuffer extends AbstractCommunity implements ICommunityBoar
 					throw new Exception();
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				sendErrorMessageToPlayer(player, new ServerMessage("CommunityBuffer.WRONG_ICON", player.getLang()).toString());
 				showCommunity(player, main(player));
@@ -1635,7 +1635,7 @@ public class CommunityBuffer extends AbstractCommunity implements ICommunityBoar
 					throw new Exception();
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				sendErrorMessageToPlayer(player, new ServerMessage("CommunityBuffer.WRONG_ICON", player.getLang()).toString());
 				showCommunity(player, getOptionList(player, schemeId));
@@ -2703,16 +2703,16 @@ public class CommunityBuffer extends AbstractCommunity implements ICommunityBoar
 
 	public int getGroupId(String presetName)
 	{
-		switch (presetName)
+		return switch (presetName)
 		{
-			case "fighter" : return 1;
-			case "mage" : return 2;
-			case "support" : return 3;
-			case "tank" : return 4;
-			case "dagger" : return 5;
-			case "archer" : return 6;
-			default : return -1;
-		}
+			case "fighter"  -> 1;
+			case "mage"  -> 2;
+			case "support"  -> 3;
+			case "tank"  -> 4;
+			case "dagger"  -> 5;
+			case "archer"  -> 6;
+			default  -> -1;
+		};
 	}
 	
 	public ArrayList<SingleBuff> getSetBuffs(int groupId)
@@ -2756,7 +2756,7 @@ public class CommunityBuffer extends AbstractCommunity implements ICommunityBoar
 			{
 				result[i][0] = Integer.parseInt(valueSplit[0]);
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{
 				_log.warn(StringUtil.concat("CommunityBuffer: parseItemsList invalid itemId -> \"", valueSplit[0], "\""));
 				return null;
@@ -2765,7 +2765,7 @@ public class CommunityBuffer extends AbstractCommunity implements ICommunityBoar
 			{
 				result[i][1] = Integer.parseInt(valueSplit[1]);
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{
 				_log.warn(StringUtil.concat("CommunityBuffer: parseItemsList invalid item number -> \"", valueSplit[1], "\""));
 				return null;

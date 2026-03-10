@@ -115,12 +115,12 @@ public class GameServerCommunication extends Thread
 					}
 				}
 			}
-			catch (final ClosedSelectorException e)
+			catch (final ClosedSelectorException _)
 			{
 				_log.warn("Selector " + _selector + " closed!");
 				return;
 			}
-			catch (final IOException e)
+			catch (final IOException _)
 			{
 				_log.warn("Gameserver disconnected...");
 				close(key);
@@ -172,7 +172,6 @@ public class GameServerCommunication extends Thread
 		
 		while (tryReadPacket(key, gs, buf))
 		{
-			;
 		}
 	}
 	

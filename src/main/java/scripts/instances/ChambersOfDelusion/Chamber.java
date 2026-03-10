@@ -451,7 +451,7 @@ public abstract class Chamber extends AbstractReflection
 			{
 				Thread.sleep(5000);
 			}
-			catch (final InterruptedException e)
+			catch (final InterruptedException _)
 			{
 			}
 			changeRoom(r);

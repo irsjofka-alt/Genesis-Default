@@ -271,7 +271,7 @@ public class PailakaDevilsLegacy extends AbstractReflection
 		return super.onEnterZone(character, zone);
 	}
 
-	public static void main(String[] args)
+	void main()
 	{
 		new PailakaDevilsLegacy();
 	}

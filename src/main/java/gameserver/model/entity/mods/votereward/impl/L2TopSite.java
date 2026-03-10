@@ -86,7 +86,7 @@ public class L2TopSite extends AbstractAutoRewardSite
 	
 	private void parseVotes(Map<String, List<IntIntPair>> votesCache, boolean sms)
 	{
-		final String serverResponse = getApiResponse(String.format("https://l2top.ru/editServ/?adminAct=lastVotes&uid=%d_%s&key=%s", serverUId, sms ? "sms" : "web", apiKey), false);
+		final String serverResponse = getApiResponse("https://l2top.ru/editServ/?adminAct=lastVotes&uid=%d_%s&key=%s".formatted(serverUId, sms ? "sms" : "web", apiKey), false);
 		if (serverResponse != null)
 		{
 			final Matcher m = sms ? smsVotesPattern.matcher(serverResponse) : webVotesPattern.matcher(serverResponse);
@@ -99,7 +99,7 @@ public class L2TopSite extends AbstractAutoRewardSite
 				}
 				catch (final Exception e)
 				{
-					error(String.format("Cannot parse voting date: %s", m.group(1)), e);
+					error("Cannot parse voting date: %s".formatted(m.group(1)), e);
 					continue;
 				}
 				
@@ -110,7 +110,7 @@ public class L2TopSite extends AbstractAutoRewardSite
 				}
 				
 				final String identifier = voterNameMatcher.group(1);
-				final List<IntIntPair> votes = votesCache.computeIfAbsent(identifier.toLowerCase(), list -> new ArrayList<>());
+				final List<IntIntPair> votes = votesCache.computeIfAbsent(identifier.toLowerCase(), _ -> new ArrayList<>());
 				votes.add(new IntIntPairImpl((int) (voteDate.getTime() / 1000), sms ? Integer.parseInt(m.group(4)) : 1));
 			}
 		}

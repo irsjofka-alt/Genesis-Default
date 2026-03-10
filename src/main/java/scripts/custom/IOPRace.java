@@ -128,7 +128,7 @@ public class IOPRace extends Quest
 		return htmltext;
 	}
 
-	public static void main(String[] args)
+	void main()
 	{
 		new IOPRace();
 	}

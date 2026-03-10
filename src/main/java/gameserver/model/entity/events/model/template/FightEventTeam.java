@@ -14,6 +14,7 @@
  */
 package gameserver.model.entity.events.model.template;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ import gameserver.model.Location;
  */
 public class FightEventTeam implements Serializable
 {
+	@Serial
 	private static final long serialVersionUID = 2265683963045484182L;
 
 	public static enum TEAM_NAMES

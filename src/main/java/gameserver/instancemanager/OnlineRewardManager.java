@@ -176,7 +176,7 @@ public class OnlineRewardManager extends LoggerObject
 				}
 			}
 		}
-		catch (final SQLException e)
+		catch (final SQLException _)
 		{
 			warn("Couldnt load online_rewards table");
 		}
@@ -331,7 +331,7 @@ public class OnlineRewardManager extends LoggerObject
 		if (tpl != null && tpl.isPrintItem() && tpl.haveRewards())
 		{
 			msg = new ServerMessage("OnlineRewards.ITEM_INFO", player.getLang());
-			msg.add(Util.getItemName(player, tpl.getRewards().get(0).getId()));
+			msg.add(Util.getItemName(player, tpl.getRewards().getFirst().getId()));
 		}
 		else
 		{

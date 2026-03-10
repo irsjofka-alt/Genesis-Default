@@ -93,16 +93,12 @@ public class TransferSkillUtils
 	
 	private static int getTransferClassIndex(Player player)
 	{
-		switch (player.getClassId().getId())
+		return switch (player.getClassId().getId())
 		{
-			case 97 :
-				return 0;
-			case 105 :
-				return 1;
-			case 112 :
-				return 2;
-			default :
-				return -1;
-		}
+			case 97  -> 0;
+			case 105  -> 1;
+			case 112  -> 2;
+			default  -> -1;
+		};
 	}
 }

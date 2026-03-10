@@ -300,17 +300,17 @@ public abstract class Summon extends Playable
 				targets = World.getAroundNpc(this);
 				for (final Npc npc : targets)
 				{
-					if (npc instanceof Attackable)
+					if (npc instanceof Attackable attackable)
 					{
 						if (npc.isDead())
 						{
 							continue;
 						}
 						
-						final AggroInfo info = ((Attackable) npc).getAggroList().get(getObjectId());
+						final AggroInfo info = attackable.getAggroList().get(getObjectId());
 						if (info != null)
 						{
-							((Attackable) npc).addDamageHate(owner, info.getDamage(), info.getHate());
+							attackable.addDamageHate(owner, info.getDamage(), info.getHate());
 						}
 					}
 				}
@@ -643,13 +643,9 @@ public abstract class Summon extends Playable
 		}
 		owner.setCurrentPetSkill(skill, forceUse, dontMove);
 		
-		GameObject target = null;
-		
-		switch (skill.getTargetType())
+		GameObject target = switch (skill.getTargetType())
 		{
-			case OWNER_PET :
-				target = owner;
-				break;
+			case OWNER_PET : yield owner;
 			case PARTY :
 			case AURA :
 			case FRONT_AURA :
@@ -662,13 +658,9 @@ public abstract class Summon extends Playable
 			case AURA_UNDEAD_ENEMY :
 			case COMMAND_CHANNEL :
 			case AURA_MOB :
-			case AURA_DEAD_MOB :
-				target = this;
-				break;
-			default :
-				target = skill.getFirstOfTargetList(this);
-				break;
-		}
+			case AURA_DEAD_MOB : yield this;
+			default : yield skill.getFirstOfTargetList(this);
+		};
 		
 		if (target == null)
 		{
@@ -899,7 +891,7 @@ public abstract class Summon extends Playable
 					sendPacket(SystemMessageId.CRITICAL_HIT_BY_PET);
 				}
 			}
-			if (getOwner().isInOlympiadMode() && (target instanceof Player) && ((Player) target).isInOlympiadMode() && (((Player) target).getOlympiadGameId() == getOwner().getOlympiadGameId()))
+			if (getOwner().isInOlympiadMode() && (target instanceof Player player) && player.isInOlympiadMode() && (player.getOlympiadGameId() == getOwner().getOlympiadGameId()))
 			{
 				OlympiadGameManager.getInstance().notifyCompetitorDamage(target.getActingPlayer(), damage);
 			}

@@ -77,7 +77,7 @@ public class L2NetworkSite extends VoteRewardSite
 	{
 		try
 		{
-			final URL obj = new URL(String.format("https://l2network.eu/index.php?a=in&u=%s&ipc=%s", _serverName, player.getIPAddress()));
+			final URL obj = new URL("https://l2network.eu/index.php?a=in&u=%s&ipc=%s".formatted(_serverName, player.getIPAddress()));
 			final var con = (HttpURLConnection) obj.openConnection();
 			con.setRequestMethod("POST");
 			con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -103,7 +103,7 @@ public class L2NetworkSite extends VoteRewardSite
 		}
 		catch (final Exception e)
 		{
-			System.out.println("Error getApiResponse L2Network API: " + e);
+			IO.println("Error getApiResponse L2Network API: " + e);
 		}
 		return false;
 	}

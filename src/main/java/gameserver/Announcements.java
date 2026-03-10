@@ -246,7 +246,7 @@ public class Announcements extends LoggerObject
 			SingletonHolder._instance.announceToAll(text, isCritical);
 		}
 
-		catch (final StringIndexOutOfBoundsException e)
+		catch (final StringIndexOutOfBoundsException _)
 		{}
 	}
 

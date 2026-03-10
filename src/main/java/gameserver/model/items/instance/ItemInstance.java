@@ -445,27 +445,27 @@ public final class ItemInstance extends GameObject
 
 	public EtcItem getEtcItem()
 	{
-		if (_item instanceof EtcItem)
+		if (_item instanceof EtcItem item)
 		{
-			return (EtcItem) _item;
+			return item;
 		}
 		return null;
 	}
 
 	public Weapon getWeaponItem()
 	{
-		if (_item instanceof Weapon)
+		if (_item instanceof Weapon weapon)
 		{
-			return (Weapon) _item;
+			return weapon;
 		}
 		return null;
 	}
 
 	public Armor getArmorItem()
 	{
-		if (_item instanceof Armor)
+		if (_item instanceof Armor armor)
 		{
-			return (Armor) _item;
+			return armor;
 		}
 		return null;
 	}
@@ -762,7 +762,7 @@ public final class ItemInstance extends GameObject
 			statement.setInt(1, getObjectId());
 			statement.executeUpdate();
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 		finally
@@ -787,7 +787,7 @@ public final class ItemInstance extends GameObject
 				statement.clearParameters();
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 		finally
@@ -922,7 +922,7 @@ public final class ItemInstance extends GameObject
 				con = DatabaseFactory.getInstance().getConnection();
 				updateItemElements(con);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			finally
@@ -940,7 +940,7 @@ public final class ItemInstance extends GameObject
 			con = DatabaseFactory.getInstance().getConnection();
 			updateItemElements(con);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 		finally

@@ -328,14 +328,14 @@ public class PositionUtils
 			return points;
 		}
 		
-		final long dx = points.get(points.size() - 1).getX() - points.get(0).getX();
-		final long dy = points.get(points.size() - 1).getY() - points.get(0).getY();
-		final long dz = points.get(points.size() - 1).getZ() - points.get(0).getZ();
+		final long dx = points.getLast().getX() - points.getFirst().getX();
+		final long dy = points.getLast().getY() - points.getFirst().getY();
+		final long dz = points.getLast().getZ() - points.getFirst().getZ();
 		
 		final double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
 		if (distance <= offset)
 		{
-			final Location point = points.get(0);
+			final Location point = points.getFirst();
 			points.clear();
 			points.add(point);
 			return points;
@@ -347,7 +347,7 @@ public class PositionUtils
 			final int num = (int) (points.size() * cut + 0.5);
 			for (int i = 1; i <= num && points.size() > 0; i++)
 			{
-				points.remove(points.size() - 1);
+				points.removeLast();
 			}
 		}
 		return points;

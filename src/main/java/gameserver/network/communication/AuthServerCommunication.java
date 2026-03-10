@@ -110,7 +110,7 @@ public class AuthServerCommunication extends Thread
 			_sendQueue.add(packet);
 			wakeUp = enableWriteInterest();
 		}
-		catch (final CancelledKeyException e)
+		catch (final CancelledKeyException _)
 		{
 			return;
 		}
@@ -198,7 +198,7 @@ public class AuthServerCommunication extends Thread
 							}
 						}
 					}
-					catch (final CancelledKeyException e)
+					catch (final CancelledKeyException _)
 					{
 						break;
 					}
@@ -234,13 +234,13 @@ public class AuthServerCommunication extends Thread
 							}
 						}
 					}
-					catch (final CancelledKeyException e)
+					catch (final CancelledKeyException _)
 					{
 						break loop;
 					}
 				}
 			}
-			catch (final IOException e)
+			catch (final IOException _)
 			{
 				_log.warn("LoginServer not avaible, trying to reconnect...");
 			}
@@ -251,7 +251,7 @@ public class AuthServerCommunication extends Thread
 			{
 				Thread.sleep(5000L);
 			}
-			catch (final InterruptedException e)
+			catch (final InterruptedException _)
 			{
 				
 			}
@@ -281,7 +281,6 @@ public class AuthServerCommunication extends Thread
 		
 		while (tryReadPacket(key, buf))
 		{
-			;
 		}
 	}
 	
@@ -433,7 +432,7 @@ public class AuthServerCommunication extends Thread
 				_key.cancel();
 			}
 		}
-		catch (final IOException e)
+		catch (final IOException _)
 		{}
 		
 		_waitingClients.clear();

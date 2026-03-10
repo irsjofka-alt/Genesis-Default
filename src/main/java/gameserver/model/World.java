@@ -795,9 +795,8 @@ public final class World extends LoggerObject
 							continue;
 						}
 						
-						if (obj instanceof Attackable)
+						if (obj instanceof Attackable npc)
 						{
-							final var npc = (Attackable) obj;
 							
 							if (!npc.hasAI() || npc.isBlockAutoFarmTarget() || (!farmAttackRaid && (npc.isRaid() || npc.isRaidMinion())) || (!farmAttackChampion && npc.getChampionTemplate() != null) || !npc.isMonster() || npc.isDead() || npc.isInvul() || !npc.isVisible() || (npc instanceof TreasureChestInstance))
 							{

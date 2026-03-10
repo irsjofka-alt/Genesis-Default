@@ -277,10 +277,10 @@ public class Leprechaun
 					msg.add(nearestTown);
 					msg.add(Config.LEPRECHAUN_SPAWN_TIME - _timer);
 					Announcements.getInstance().announceToAll(msg);
-					System.out.println("Leprechaun spawned in " + mobName + ": " + _x + "," + _y + "," + _z);
+					IO.println("Leprechaun spawned in " + mobName + ": " + _x + "," + _y + "," + _z);
 					_log.info("Leprechaun: Event Leprechaun is Starting!");
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 				}
 			}

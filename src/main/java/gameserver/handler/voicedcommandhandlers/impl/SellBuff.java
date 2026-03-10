@@ -201,7 +201,7 @@ public class SellBuff implements IVoicedCommandHandler, IBypassHandler
 						{
 							price = Integer.parseInt(st.nextToken());
 						}
-						catch (final NumberFormatException e)
+						catch (final NumberFormatException _)
 						{
 							final ServerMessage msg = new ServerMessage("SellBuff.BIG_PRICE", activeChar.getLang());
 							msg.add(Config.SELLBUFF_MAX_PRICE);
@@ -216,7 +216,7 @@ public class SellBuff implements IVoicedCommandHandler, IBypassHandler
 						{
 							currency = st.nextToken();
 						}
-						catch (final Exception e)
+						catch (final Exception _)
 						{
 							SellBuffsManager.sendBuffEditMenu(activeChar, page);
 						}
@@ -284,7 +284,7 @@ public class SellBuff implements IVoicedCommandHandler, IBypassHandler
 						{
 							skillId = Integer.parseInt(st.nextToken());
 						}
-						catch (final NumberFormatException e)
+						catch (final NumberFormatException _)
 						{
 							activeChar.sendMessage((new ServerMessage("SellBuff.WRONG_SKILL", activeChar.getLang())).toString());
 							SellBuffsManager.sendBuffEditMenu(activeChar, page);
@@ -349,7 +349,7 @@ public class SellBuff implements IVoicedCommandHandler, IBypassHandler
 						{
 							price = Integer.parseInt(st.nextToken());
 						}
-						catch (final NumberFormatException e)
+						catch (final NumberFormatException _)
 						{
 							final ServerMessage msg = new ServerMessage("SellBuff.BIG_PRICE", activeChar.getLang());
 							msg.add(Config.SELLBUFF_MAX_PRICE);
@@ -364,7 +364,7 @@ public class SellBuff implements IVoicedCommandHandler, IBypassHandler
 						{
 							currency = st.nextToken();
 						}
-						catch (final Exception e)
+						catch (final Exception _)
 						{
 							SellBuffsManager.sendBuffChoiceMenu(activeChar, page);
 						}

@@ -72,7 +72,7 @@ public class BloodAltarManager extends LoggerObject
 				_altars.put(altar_name, info);
 			}
 		}
-		catch (final SQLException e)
+		catch (final SQLException _)
 		{
 			warn("Couldnt load blood_altars table");
 		}
@@ -108,7 +108,7 @@ public class BloodAltarManager extends LoggerObject
 				_bosses.put(bossId, info);
 			}
 		}
-		catch (final SQLException e)
+		catch (final SQLException _)
 		{
 			warn("Couldnt load destruction_bosses table");
 		}
@@ -248,7 +248,7 @@ public class BloodAltarManager extends LoggerObject
 				statement.close();
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			warn("could not clean status for destruction bosses in database!");
 		}
@@ -297,7 +297,7 @@ public class BloodAltarManager extends LoggerObject
 				}
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			warn("could not update destruction bossId: " + boss.getId() + " in database!");
 		}
@@ -324,7 +324,7 @@ public class BloodAltarManager extends LoggerObject
 				statement.setString(2, altar);
 				statement.execute();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				warn("could not update: " + altar + " time in database!");
 			}
@@ -352,7 +352,7 @@ public class BloodAltarManager extends LoggerObject
 				statement.setString(2, altar);
 				statement.execute();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				warn("could not update: " + altar + " in database!");
 			}
@@ -380,7 +380,7 @@ public class BloodAltarManager extends LoggerObject
 				statement.setString(2, altar);
 				statement.execute();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				warn("could not update: " + altar + " in database!");
 			}

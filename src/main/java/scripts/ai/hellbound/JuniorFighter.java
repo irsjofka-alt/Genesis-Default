@@ -33,7 +33,7 @@ public class JuniorFighter extends Fighter
 	{
 		super(actor);
 		
-		((MonsterInstance) actor).applyCondition(creature -> HellboundManager.getInstance().getLevel() < 5);
+		((MonsterInstance) actor).applyCondition(_ -> HellboundManager.getInstance().getLevel() < 5);
 	}
 	
 	@Override

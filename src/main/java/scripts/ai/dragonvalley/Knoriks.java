@@ -244,7 +244,7 @@ public class Knoriks extends Fighter
 		{
 			loc = _points[_lastPoint];
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 		
 		if (loc == null)

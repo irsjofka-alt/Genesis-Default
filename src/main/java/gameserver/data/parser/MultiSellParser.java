@@ -102,7 +102,7 @@ public class MultiSellParser extends DocumentParser
 								throw new NumberFormatException("The value cannot be 0");
 							}
 						}
-						catch (final NumberFormatException e)
+						catch (final NumberFormatException _)
 						{
 							
 							try
@@ -212,7 +212,7 @@ public class MultiSellParser extends DocumentParser
 			}
 		}
 
-		if ((entry.getIngredients().size() == 1) && (entry.getIngredients().get(0).getId() == 57))
+		if ((entry.getIngredients().size() == 1) && (entry.getIngredients().getFirst().getId() == 57))
 		{
 			long count = 0L;
 			Item item;
@@ -226,14 +226,14 @@ public class MultiSellParser extends DocumentParser
 				item = ItemsParser.getInstance().getTemplate(product.getId());
 				if (item == null)
 				{
-					warn("MultiSell [" + id + "] Production [" + entry.getProducts().get(0).getId() + "] not found!");
+					warn("MultiSell [" + id + "] Production [" + entry.getProducts().getFirst().getId() + "] not found!");
 					return null;
 				}
-				count = SafeMath.addAndCheck(count, SafeMath.mulAndCheck(entry.getProducts().get(0).getCount(), item.getReferencePrice()));
+				count = SafeMath.addAndCheck(count, SafeMath.mulAndCheck(entry.getProducts().getFirst().getCount(), item.getReferencePrice()));
 			}
-			if ((count > entry.getIngredients().get(0).getCount()) && (Config.ALLOW_MULTISELL_DEBUG))
+			if ((count > entry.getIngredients().getFirst().getCount()) && (Config.ALLOW_MULTISELL_DEBUG))
 			{
-				warn("MultiSell [" + id + "] Production [" + entry.getEntryId() + "] [" + entry.getProducts().get(0).getId() + "] price is lower than referenced | " + count + " > " + entry.getIngredients().get(0).getCount());
+				warn("MultiSell [" + id + "] Production [" + entry.getEntryId() + "] [" + entry.getProducts().getFirst().getId() + "] price is lower than referenced | " + count + " > " + entry.getIngredients().getFirst().getCount());
 			}
 		}
 		return entry;

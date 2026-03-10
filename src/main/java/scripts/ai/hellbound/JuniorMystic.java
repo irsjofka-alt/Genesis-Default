@@ -33,7 +33,7 @@ public class JuniorMystic extends Mystic
 	{
 		super(actor);
 		
-		((MonsterInstance) actor).applyCondition(creature -> HellboundManager.getInstance().getLevel() < 5);
+		((MonsterInstance) actor).applyCondition(_ -> HellboundManager.getInstance().getLevel() < 5);
 	}
 	
 	@Override

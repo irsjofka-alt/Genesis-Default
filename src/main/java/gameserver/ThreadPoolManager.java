@@ -102,7 +102,7 @@ public class ThreadPoolManager extends LoggerObject
 		{
 			return getPool(_scheduledExecutor).schedule(new RunnableWrapper(r), validate(delay), timeUnit);
 		}
-		catch (final RejectedExecutionException e)
+		catch (final RejectedExecutionException _)
 		{
 			return null;
 		}
@@ -119,7 +119,7 @@ public class ThreadPoolManager extends LoggerObject
 		{
 			return getPool(_scheduledExecutor).scheduleAtFixedRate(new RunnableWrapper(r), validate(initial), validate(delay), timeUnit);
 		}
-		catch (final RejectedExecutionException e)
+		catch (final RejectedExecutionException _)
 		{
 			return null;
 		}
@@ -136,7 +136,7 @@ public class ThreadPoolManager extends LoggerObject
 		{
 			return getPool(_scheduledExecutor).scheduleWithFixedDelay(new RunnableWrapper(r), validate(initial), validate(delay), timeUnit);
 		}
-		catch (final RejectedExecutionException e)
+		catch (final RejectedExecutionException _)
 		{
 			return null;
 		}
@@ -153,7 +153,7 @@ public class ThreadPoolManager extends LoggerObject
 		{
 			getPool(_executor).execute(new RunnableWrapper(r));
 		}
-		catch (final RejectedExecutionException e)
+		catch (final RejectedExecutionException _)
 		{
 		}
 	}
@@ -173,7 +173,7 @@ public class ThreadPoolManager extends LoggerObject
 				threadPool.shutdownNow();
 			}
 		}
-		catch (final Throwable t)
+		catch (final Throwable _)
 		{
 		}
 	}

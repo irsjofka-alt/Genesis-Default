@@ -60,13 +60,12 @@ public class DragonGuards extends AbstractNpcAI
 	@Override
 	public String onAttack(Npc npc, Player player, int damage, boolean isSummon)
 	{
-		if (npc instanceof MonsterInstance)
+		if (npc instanceof MonsterInstance monster)
 		{
 			for (final int mobId : WALL_MONSTERS)
 			{
 				if (mobId == npc.getId())
 				{
-					final MonsterInstance monster = (MonsterInstance) npc;
 					monster.setIsImmobilized(false);
 					monster.setRunning();
 					if (!monster.getFaction().isNone())

@@ -1478,7 +1478,7 @@ public abstract class Creature extends GameObject
 					hitted |= doAttackHitSimple(attack, obj, 100, sAtk, true, false);
 				}
 			}
-			targets.clear();;
+			targets.clear();
 			return hitted;
 		}
 		return hitted;
@@ -3383,9 +3383,9 @@ public abstract class Creature extends GameObject
 				}
 			}
 			
-			if (owner instanceof Effect)
+			if (owner instanceof Effect effect)
 			{
-				if (!((Effect) owner)._preventExitUpdate)
+				if (!effect._preventExitUpdate)
 				{
 					broadcastModifiedStats(modifiedStats);
 				}
@@ -4593,7 +4593,7 @@ public abstract class Creature extends GameObject
 			final List<Creature> targetList = new ArrayList<>();
 			for (final GameObject target : targets)
 			{
-				if (target instanceof Creature)
+				if (target instanceof Creature creature)
 				{
 					if (!isInsideRadius(target.getX(), target.getY(), target.getZ(), (int) (escapeRange + getColRadius()), true, false))
 					{
@@ -4611,7 +4611,7 @@ public abstract class Creature extends GameObject
 					{
 						if (isPlayer())
 						{
-							if (((Creature) target).isInsidePeaceZone(getActingPlayer()))
+							if (creature.isInsidePeaceZone(getActingPlayer()))
 							{
 								_skippeace++;
 								continue;
@@ -4619,14 +4619,14 @@ public abstract class Creature extends GameObject
 						}
 						else
 						{
-							if (((Creature) target).isInsidePeaceZone(this, target))
+							if (creature.isInsidePeaceZone(this, target))
 							{
 								_skippeace++;
 								continue;
 							}
 						}
 					}
-					targetList.add((Creature) target);
+					targetList.add(creature);
 				}
 			}
 			if (targetList.isEmpty() && !skill.isAura())
@@ -5089,9 +5089,8 @@ public abstract class Creature extends GameObject
 					continue;
 				}
 				
-				if (trg instanceof Creature)
+				if (trg instanceof Creature t)
 				{
-					final var t = (Creature) trg;
 					final Creature target = t.getTarget() != null && t.getTarget().isCreature() ? (Creature) t.getTarget() : null;
 					if (target == null)
 					{
@@ -5152,9 +5151,8 @@ public abstract class Creature extends GameObject
 			final Player player = getActingPlayer();
 			for (final GameObject trg : targets)
 			{
-				if (trg instanceof Creature)
+				if (trg instanceof Creature target)
 				{
-					final Creature target = (Creature) trg;
 					if (!skill.isStatic())
 					{
 						if ((activeWeapon != null) && !target.isDead())
@@ -5327,9 +5325,9 @@ public abstract class Creature extends GameObject
 					default :
 						for (final GameObject target : targets)
 						{
-							if ((target instanceof Creature))
+							if ((target instanceof Creature creature))
 							{
-								final var ai = ((Creature) target).getAI();
+								final var ai = creature.getAI();
 								if (ai != null)
 								{
 									ai.notifyEvent(CtrlEvent.EVT_ATTACKED, this, 0);
@@ -5425,9 +5423,9 @@ public abstract class Creature extends GameObject
 	public boolean isInFrontOfTarget()
 	{
 		final GameObject target = getTarget();
-		if (target instanceof Creature)
+		if (target instanceof Creature creature)
 		{
-			return isInFrontOf((Creature) target);
+			return isInFrontOf(creature);
 		}
 		return false;
 	}
@@ -6459,7 +6457,7 @@ public abstract class Creature extends GameObject
 
 			return getEvent(AbstractFightEvent.class).getFightEventPlayer(this) != null;
 		}
-		catch (final NullPointerException e)
+		catch (final NullPointerException _)
 		{
 			return false;
 		}
@@ -6770,9 +6768,8 @@ public abstract class Creature extends GameObject
 		for (int i = 0; i < _zoneList.size(); i++)
 		{
 			final var zone = _zoneList.get(i);
-			if (zone instanceof WaterZone)
+			if (zone instanceof WaterZone water)
 			{
-				final var water = (WaterZone) zone;
 				if ((waterZ[0] == Integer.MIN_VALUE) || (waterZ[0] > water.getWaterMinZ()))
 				{
 					waterZ[0] = water.getWaterMinZ();
@@ -7243,7 +7240,7 @@ public abstract class Creature extends GameObject
 						}
 						_move._pathFindIndex = -1;
 					}
-					catch (final NullPointerException e)
+					catch (final NullPointerException _)
 					{
 					}
 				}

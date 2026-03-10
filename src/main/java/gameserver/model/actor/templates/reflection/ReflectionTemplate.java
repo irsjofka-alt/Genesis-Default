@@ -62,17 +62,17 @@ public class ReflectionTemplate
 	
 	public enum ReflectionQuestType
 	{
-		STARTED, COMPLETED;
+		STARTED, COMPLETED
 	}
 	
 	public enum ReflectionRemoveType
 	{
-		NONE, LEADER, ALL;
+		NONE, LEADER, ALL
 	}
 	
 	public enum ReflectionEntryType
 	{
-		SOLO, SOLO_PARTY, PARTY, EVENT, PARTY_COMMAND_CHANNEL, COMMAND_CHANNEL;
+		SOLO, SOLO_PARTY, PARTY, EVENT, PARTY_COMMAND_CHANNEL, COMMAND_CHANNEL
 	}
 	
 	public static class SpawnInfo2
@@ -274,7 +274,7 @@ public class ReflectionTemplate
 		}
 		if(_teleportCoords.size() == 1)
 		{
-			return _teleportCoords.get(0);
+			return _teleportCoords.getFirst();
 		}
 		return _teleportCoords.get(Rnd.get(_teleportCoords.size()));
 	}

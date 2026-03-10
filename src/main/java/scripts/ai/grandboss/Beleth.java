@@ -136,7 +136,7 @@ public class Beleth extends AbstractNpcAI
 				return result;
 			}
 		}
-		catch (final Exception ignored)
+		catch (final Exception _)
 		{}
 		return null;
 	}

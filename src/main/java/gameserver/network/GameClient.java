@@ -108,7 +108,7 @@ public final class GameClient extends MMOClient<MMOConnection<GameClient>>
 		{
 			_addr = con != null ? con.getSocket().getInetAddress() : InetAddress.getLocalHost();
 		}
-		catch (final UnknownHostException e)
+		catch (final UnknownHostException _)
 		{
 			throw new Error("Unable to determine localhost address.");
 		}
@@ -612,7 +612,7 @@ public final class GameClient extends MMOClient<MMOConnection<GameClient>>
 					throw new IllegalStateException("Missing state on switch");
 			}
 		}
-		catch (final NullPointerException e)
+		catch (final NullPointerException _)
 		{
 			return "[Character read failed due to disconnect]";
 		}

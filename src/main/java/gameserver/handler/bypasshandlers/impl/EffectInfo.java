@@ -53,7 +53,7 @@ public class EffectInfo implements IBypassHandler
 						{
 							pg = st.nextToken();
 						}
-						catch (final Exception e)
+						catch (final Exception _)
 						{}
 						
 						if (pg != null)
@@ -125,7 +125,7 @@ public class EffectInfo implements IBypassHandler
 							Util.setHtml(html, activeChar);
 						}
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 						activeChar.sendMessage("Something went wrong with the effects preview.");
 					}
@@ -133,7 +133,7 @@ public class EffectInfo implements IBypassHandler
 				}
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendMessage("You cant use this option with this target.");
 		}

@@ -275,11 +275,11 @@ public class SecPasswordHolder extends LoggerObject
 			final byte[] hash = md.digest(raw);
 			return Base64.encodeBytes(hash);
 		}
-		catch (final NoSuchAlgorithmException e)
+		catch (final NoSuchAlgorithmException _)
 		{
 			error("Unsupported Algorythm");
 		}
-		catch (final UnsupportedEncodingException e)
+		catch (final UnsupportedEncodingException _)
 		{
 			error("Unsupported Encoding");
 		}

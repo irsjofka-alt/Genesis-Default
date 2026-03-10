@@ -259,11 +259,11 @@ public abstract class AirShipController extends Quest
 	@Override
 	public String onEnterZone(Creature character, ZoneType zone)
 	{
-		if (character instanceof ControllableAirShipInstance)
+		if (character instanceof ControllableAirShipInstance instance)
 		{
 			if (_dockedShip == null)
 			{
-				_dockedShip = (ControllableAirShipInstance) character;
+				_dockedShip = instance;
 				_dockedShip.setInDock(_dockZone);
 				_dockedShip.setOustLoc(_oustLoc);
 				
@@ -432,7 +432,7 @@ public abstract class AirShipController extends Quest
 		super(-1);
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 	}
 }

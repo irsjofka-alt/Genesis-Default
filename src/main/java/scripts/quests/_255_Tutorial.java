@@ -663,10 +663,10 @@ public final class _255_Tutorial extends Quest
 			{
 				eventId = Integer.valueOf(event.substring(2));
 			}
-			catch (final IndexOutOfBoundsException ioobe)
+			catch (final IndexOutOfBoundsException _)
 			{
 			}
-			catch (final NumberFormatException nfe)
+			catch (final NumberFormatException _)
 			{
 			}
 			
@@ -764,10 +764,10 @@ public final class _255_Tutorial extends Quest
 			{
 				eventId = Integer.valueOf(event.substring(2));
 			}
-			catch (final IndexOutOfBoundsException ioobe)
+			catch (final IndexOutOfBoundsException _)
 			{
 			}
-			catch (final NumberFormatException nfe)
+			catch (final NumberFormatException _)
 			{
 			}
 			
@@ -1049,10 +1049,10 @@ public final class _255_Tutorial extends Quest
 			{
 				eventId = Integer.valueOf(event.substring(2));
 			}
-			catch (final IndexOutOfBoundsException ioobe)
+			catch (final IndexOutOfBoundsException _)
 			{
 			}
-			catch (final NumberFormatException nfe)
+			catch (final NumberFormatException _)
 			{
 			}
 			

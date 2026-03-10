@@ -96,7 +96,7 @@ public class HideoutoftheDawn extends AbstractReflection
 		return htmltext;
 	}
 
-	public static void main(String[] args)
+	void main()
 	{
 		new HideoutoftheDawn();
 	}

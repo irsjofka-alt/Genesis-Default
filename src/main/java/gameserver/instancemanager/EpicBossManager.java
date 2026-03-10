@@ -99,22 +99,13 @@ public class EpicBossManager extends LoggerObject
 				_bossStatus.put(bossId, status);
 				_storedInfo.put(bossId, info);
 				
-				String checkStatus;
-				switch (status)
+				String checkStatus = switch (status)
 				{
-					case 1 :
-						checkStatus = "Wait";
-						break;
-					case 2 :
-						checkStatus = "Fight";
-						break;
-					case 3 :
-						checkStatus = "Dead";
-						break;
-					default :
-						checkStatus = "Alive";
-						break;
-				}
+					case 1  -> "Wait";
+					case 2  -> "Fight";
+					case 3  -> "Dead";
+					default  -> "Alive";
+				};
 				
 				if (status > 0)
 				{
@@ -481,7 +472,7 @@ public class EpicBossManager extends LoggerObject
 		{
 			cronTime = new SchedulingPattern(time);
 		}
-		catch (final InvalidPatternException e)
+		catch (final InvalidPatternException _)
 		{
 			return 0L;
 		}

@@ -76,7 +76,7 @@ public class Nemo extends Quest
 		return "";
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 		new Nemo();
 	}

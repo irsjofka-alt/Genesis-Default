@@ -93,7 +93,7 @@ public class ReflectionZone extends ZoneType
 					{
 						_skills.put(Integer.parseInt(skillSplit[0]), Integer.parseInt(skillSplit[1]));
 					}
-					catch (final NumberFormatException nfe)
+					catch (final NumberFormatException _)
 					{
 						if (!skill.isEmpty())
 						{

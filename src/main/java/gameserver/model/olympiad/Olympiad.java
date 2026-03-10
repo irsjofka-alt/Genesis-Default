@@ -735,7 +735,7 @@ public class Olympiad
 		{
 			cronTime = new SchedulingPattern(Config.OLYMPIAD_PERIOD);
 		}
-		catch (final InvalidPatternException e)
+		catch (final InvalidPatternException _)
 		{
 			return;
 		}
@@ -751,7 +751,7 @@ public class Olympiad
 		{
 			cronTime = new SchedulingPattern(Config.OLYMPIAD_WEEKLY_PERIOD);
 		}
-		catch (final InvalidPatternException e)
+		catch (final InvalidPatternException _)
 		{
 			return 0;
 		}
@@ -1138,7 +1138,7 @@ public class Olympiad
 				case 1 :
 				{
 					hero = new StatsSet();
-					final StatsSet winner = soulHounds.get(0);
+					final StatsSet winner = soulHounds.getFirst();
 					hero.set(CLASS_ID, winner.getInteger(CLASS_ID));
 					hero.set(CHAR_ID, winner.getInteger(CHAR_ID));
 					hero.set(CHAR_NAME, winner.getString(CHAR_NAME));
@@ -1162,7 +1162,7 @@ public class Olympiad
 					{
 						hero = new StatsSet();
 						StatsSet winner;
-						final StatsSet hero1 = soulHounds.get(0);
+						final StatsSet hero1 = soulHounds.getFirst();
 						final StatsSet hero2 = soulHounds.get(1);
 						final int hero1Points = hero1.getInteger(POINTS);
 						final int hero2Points = hero2.getInteger(POINTS);
@@ -1211,7 +1211,7 @@ public class Olympiad
 				}
 			}
 		}
-		catch (final SQLException e)
+		catch (final SQLException _)
 		{
 			_log.warn("Olympiad: Couldnt load heros from DB");
 		}
@@ -1256,7 +1256,7 @@ public class Olympiad
 				rank++;
 			}
 		}
-		catch (final SQLException e)
+		catch (final SQLException _)
 		{
 			_log.warn("Olympiad: Couldn't load olympiad leaders from DB!");
 		}
@@ -1447,7 +1447,7 @@ public class Olympiad
 			statement.setInt(1, Olympiad.DEFAULT_POINTS);
 			statement.execute();
 		}
-		catch (final SQLException e)
+		catch (final SQLException _)
 		{
 			_log.warn("Olympiad: Couldn't clean up nobles from DB!");
 		}

@@ -14,7 +14,7 @@
  */
 package gameserver.handler.admincommandhandlers.impl;
 
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map.Entry;
@@ -127,7 +127,7 @@ public class Quests implements IAdminCommandHandler
 						activeChar.sendMessage("Quest Reloaded Failed");
 					}
 				}
-				catch (final NumberFormatException e)
+				catch (final NumberFormatException _)
 				{
 					if (QuestManager.getInstance().reload(parts[1]))
 					{
@@ -152,10 +152,10 @@ public class Quests implements IAdminCommandHandler
 				final String script = parts[1];
 				try
 				{
-					ScriptListenerLoader.getInstance().executeScript(Paths.get(script));
+					ScriptListenerLoader.getInstance().executeScript(Path.of(script));
 					activeChar.sendMessage("Script loaded seccessful!");
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					activeChar.sendMessage("Failed to load script " + script + "!");
 				}

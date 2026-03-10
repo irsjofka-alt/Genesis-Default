@@ -76,7 +76,7 @@ public class Events implements IAdminCommandHandler
 			{
 				id = Integer.parseInt(_event_name);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Use it like that: //fight_event_register id(Id can be found in dir: data/stats/events)");
 				return false;
@@ -108,7 +108,7 @@ public class Events implements IAdminCommandHandler
 			{
 				id = Integer.parseInt(_event_name);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Use it like that: //fight_event_start id(Id can be found in dir: data/stats/events)");
 				return false;
@@ -138,7 +138,7 @@ public class Events implements IAdminCommandHandler
 			{
 				id = Integer.parseInt(_event_name);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Use it like that: //fight_event_stop id(Id can be found in dir: data/stats/events)");
 				return false;

@@ -92,7 +92,7 @@ public class FightEventNpcManager extends LoggerObject
 								final int h = d.getAttributes().getNamedItem("heading").getNodeValue() != null ? Integer.parseInt(d.getAttributes().getNamedItem("heading").getNodeValue()) : 0;
 								_locations.add(new Location(x, y, z, h));
 							}
-							catch (final NumberFormatException nfe)
+							catch (final NumberFormatException _)
 							{
 								warn("Wrong number format in stats/events/manager/spawnlist.xml");
 							}
@@ -113,7 +113,7 @@ public class FightEventNpcManager extends LoggerObject
 								final int h = d.getAttributes().getNamedItem("heading").getNodeValue() != null ? Integer.parseInt(d.getAttributes().getNamedItem("heading").getNodeValue()) : 0;
 								_globalLocations.add(new Location(x, y, z, h));
 							}
-							catch (final NumberFormatException nfe)
+							catch (final NumberFormatException _)
 							{
 								warn("Wrong number format in stats/events/manager/spawnlist.xml");
 							}
@@ -153,7 +153,7 @@ public class FightEventNpcManager extends LoggerObject
 							_npclist.add(spawn.getLastSpawn());
 						}
 					}
-					catch (final Exception e1)
+					catch (final Exception _)
 					{}
 				}
 			}
@@ -207,7 +207,7 @@ public class FightEventNpcManager extends LoggerObject
 							_globalList.add(spawn.getLastSpawn());
 						}
 					}
-					catch (final Exception e1)
+					catch (final Exception _)
 					{}
 				}
 			}

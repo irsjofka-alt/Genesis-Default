@@ -358,7 +358,7 @@ public class ClanSearcher extends Quest
 			{
 				money = Integer.parseInt(message.split(" ")[0]);
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{
 				player.sendPacket(new NpcHtmlMessage(player, 0, "Bad amount of adenas inputed"));
 				return;
@@ -539,7 +539,7 @@ public class ClanSearcher extends Quest
 
 								_spawnList.add(new SpawnsHolder(NpcId, new Location(xPos, yPos, zPos, heading)));
 							}
-							catch (final NumberFormatException nfe)
+							catch (final NumberFormatException _)
 							{
 								_log.warn("Wrong number format in config.xml spawnlist block for " + getScriptName() + " script.");
 							}
@@ -554,7 +554,7 @@ public class ClanSearcher extends Quest
 		}
 	}
 
-	public static void main(String[] args)
+	void main()
 	{
 		new ClanSearcher();
 	}

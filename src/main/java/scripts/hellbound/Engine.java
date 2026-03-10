@@ -89,7 +89,7 @@ public class Engine extends Quest implements Runnable
 			HellboundManager.getInstance().setMaxTrust(MAX_TRUST[newLevel]);
 			HellboundManager.getInstance().setMinTrust(MAX_TRUST[newLevel - 1]);
 		}
-		catch (final ArrayIndexOutOfBoundsException e)
+		catch (final ArrayIndexOutOfBoundsException _)
 		{
 			HellboundManager.getInstance().setMaxTrust(0);
 			HellboundManager.getInstance().setMinTrust(0);

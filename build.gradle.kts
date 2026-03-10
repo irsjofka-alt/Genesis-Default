@@ -131,6 +131,7 @@ tasks.register("cleanAll") {
 
 rewrite {
     activeRecipe("org.openrewrite.java.migrate.UpgradeToJava25")
-    activeRecipe("org.openrewrite.java.migrate.Java8toJava11")
-    activeRecipe("org.openrewrite.staticanalysis.CommonStaticAnalysis")
+    // Nonaktifkan recipe yang bermasalah untuk sementara
+    // activeRecipe("org.openrewrite.java.migrate.Java8toJava11")
+    // activeRecipe("org.openrewrite.staticanalysis.CommonStaticAnalysis")
 }

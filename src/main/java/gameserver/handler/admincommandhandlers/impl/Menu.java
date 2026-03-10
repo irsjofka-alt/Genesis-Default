@@ -63,7 +63,7 @@ public class Menu implements IAdminCommandHandler
 				final Player player = GameObjectsStorage.getPlayer(targetName);
 				teleportCharacter(player, activeChar.getX(), activeChar.getY(), activeChar.getZ(), activeChar, "Admin is teleporting you.");
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{}
 		}
 		else if (command.startsWith("admin_recall_party_menu"))
@@ -90,7 +90,7 @@ public class Menu implements IAdminCommandHandler
 					teleportCharacter(pm, x, y, z, activeChar, "Your party is being teleported by an Admin.");
 				}
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				activeChar.sendMessage("Usage: //recall_party_menu <char_name>");
 			}
@@ -121,7 +121,7 @@ public class Menu implements IAdminCommandHandler
 					teleportCharacter(member, x, y, z, activeChar, "Your clan is being teleported by an Admin.");
 				}
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				activeChar.sendMessage("Usage: //recall_clan_menu <char_name>");
 			}
@@ -137,7 +137,7 @@ public class Menu implements IAdminCommandHandler
 					teleportToCharacter(activeChar, player);
 				}
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{}
 		}
 		else if (command.equals("admin_kill_menu"))
@@ -274,9 +274,9 @@ public class Menu implements IAdminCommandHandler
 	private void teleportToCharacter(Player activeChar, GameObject target)
 	{
 		Player player = null;
-		if (target instanceof Player)
+		if (target instanceof Player player1)
 		{
-			player = (Player) target;
+			player = player1;
 		}
 		else
 		{

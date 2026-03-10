@@ -222,7 +222,7 @@ public abstract class DocumentParser extends LoggerObject
 		{
 			return Enum.valueOf(clazz, node.getNodeValue());
 		}
-		catch (final IllegalArgumentException e)
+		catch (final IllegalArgumentException _)
 		{
 			return defaultValue;
 		}

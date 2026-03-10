@@ -103,7 +103,7 @@ public class AirshipGuard2 extends Fighter
 				actor.setWalking();
 				moveTo(Location.findPointToStay(actor, loc, 0, 100, true));
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 		}

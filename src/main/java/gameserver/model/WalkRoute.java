@@ -46,7 +46,7 @@ public class WalkRoute
 	
 	public NpcWalkerTemplate getLastNode()
 	{
-		return _nodeList.get(_nodeList.size() - 1);
+		return _nodeList.getLast();
 	}
 	
 	public boolean repeatWalk()

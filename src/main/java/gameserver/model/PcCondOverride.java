@@ -43,7 +43,7 @@ public enum PcCondOverride
 		{
 			return values()[ordinal];
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			return null;
 		}

@@ -132,9 +132,9 @@ public abstract class AbstractNpcAI extends Quest
 	
 	protected void attackPlayer(Npc npc, Playable target, int desire)
 	{
-		if (npc instanceof Attackable)
+		if (npc instanceof Attackable attackable)
 		{
-			((Attackable) npc).addDamageHate(target, 0, desire);
+			attackable.addDamageHate(target, 0, desire);
 		}
 		npc.setIsRunning(true);
 		npc.getAI().setIntention(CtrlIntention.ATTACK, target);
@@ -201,7 +201,7 @@ public abstract class AbstractNpcAI extends Quest
 		return array[getRandom(array.length)];
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 	}
 }

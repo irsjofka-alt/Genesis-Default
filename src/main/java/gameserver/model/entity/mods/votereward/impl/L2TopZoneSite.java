@@ -52,7 +52,7 @@ public class L2TopZoneSite extends VoteRewardSite
 	@Override
 	public boolean tryGiveRewards(Player player)
 	{
-		final String serverResponse = getApiResponse(String.format("https://api.l2topzone.com/v1/vote?token=%s&ip=%s", _apiKey, player.getIPAddress()), false);
+		final String serverResponse = getApiResponse("https://api.l2topzone.com/v1/vote?token=%s&ip=%s".formatted(_apiKey, player.getIPAddress()), false);
 		if (serverResponse == null)
 		{
 			return false;

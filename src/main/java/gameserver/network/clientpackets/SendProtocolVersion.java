@@ -41,7 +41,7 @@ public final class SendProtocolVersion extends GameClientPacket
 					_dataChecksum = readD();
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				final var client = getClient();
 				if (client != null)

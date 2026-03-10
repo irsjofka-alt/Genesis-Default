@@ -222,7 +222,7 @@ public class TradeList
 				}
 			}
 		}
-		catch (final ArithmeticException ae)
+		catch (final ArithmeticException _)
 		{
 			return null;
 		}

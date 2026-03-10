@@ -3332,9 +3332,9 @@ public class Player extends Playable implements PlayerGroup
 			sendPacket(makeStatusUpdate(StatusUpdate.CUR_LOAD));
 		}
 
-		if (target instanceof PcInventory)
+		if (target instanceof PcInventory inventory1)
 		{
-			final Player targetPlayer = ((PcInventory) target).getOwner();
+			final Player targetPlayer = inventory1.getOwner();
 
 			if (!Config.FORCE_INVENTORY_UPDATE)
 			{
@@ -3361,7 +3361,7 @@ public class Player extends Playable implements PlayerGroup
 				targetPlayer.sendPacket(targetPlayer.makeStatusUpdate(StatusUpdate.CUR_LOAD));
 			}
 		}
-		else if (target instanceof PetInventory)
+		else if (target instanceof PetInventory inventory)
 		{
 			final PetInventoryUpdate petIU = new PetInventoryUpdate();
 
@@ -3374,7 +3374,7 @@ public class Player extends Playable implements PlayerGroup
 				petIU.addNewItem(newItem);
 			}
 
-			((PetInventory) target).getOwner().sendPacket(petIU);
+			inventory.getOwner().sendPacket(petIU);
 		}
 		return newItem;
 	}
@@ -3919,7 +3919,7 @@ public class Player extends Playable implements PlayerGroup
 			}
 			_broadcastStatusUpdateTask = ThreadPoolManager.getInstance().schedule(new BroadcastStatusUpdateTask(), Config.BROADCAST_STATUS_UPDATE_INTERVAL);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 	}
 	
@@ -4139,9 +4139,8 @@ public class Player extends Playable implements PlayerGroup
 			return;
 		}
 		
-		if (target instanceof Player)
+		if (target instanceof Player temp)
 		{
-			final Player temp = (Player) target;
 			sendActionFailed();
 
 			if ((temp.getPrivateStoreType() == STORE_PRIVATE_SELL) || (temp.getPrivateStoreType() == STORE_PRIVATE_PACKAGE_SELL))
@@ -4755,9 +4754,8 @@ public class Player extends Playable implements PlayerGroup
 			oldTarget.removeStatusListener(this);
 		}
 
-		if (newTarget instanceof Creature)
+		if (newTarget instanceof Creature target)
 		{
-			final Creature target = (Creature) newTarget;
 
 			if (newTarget.getObjectId() != getObjectId())
 			{
@@ -6297,16 +6295,16 @@ public class Player extends Playable implements PlayerGroup
 		if (unequiped.size() > 0)
 		{
 			final SystemMessage sm;
-			if (unequiped.get(0).getEnchantLevel() > 0)
+			if (unequiped.getFirst().getEnchantLevel() > 0)
 			{
 				sm = SystemMessage.getSystemMessage(SystemMessageId.EQUIPMENT_S1_S2_REMOVED);
-				sm.addNumber(unequiped.get(0).getEnchantLevel());
-				sm.addItemName(unequiped.get(0));
+				sm.addNumber(unequiped.getFirst().getEnchantLevel());
+				sm.addItemName(unequiped.getFirst());
 			}
 			else
 			{
 				sm = SystemMessage.getSystemMessage(SystemMessageId.S1_DISARMED);
-				sm.addItemName(unequiped.get(0));
+				sm.addItemName(unequiped.getFirst());
 			}
 			sendPacket(sm);
 		}
@@ -6341,16 +6339,16 @@ public class Player extends Playable implements PlayerGroup
 			if (unequiped.size() > 0)
 			{
 				SystemMessage sm = null;
-				if (unequiped.get(0).getEnchantLevel() > 0)
+				if (unequiped.getFirst().getEnchantLevel() > 0)
 				{
 					sm = SystemMessage.getSystemMessage(SystemMessageId.EQUIPMENT_S1_S2_REMOVED);
-					sm.addNumber(unequiped.get(0).getEnchantLevel());
-					sm.addItemName(unequiped.get(0));
+					sm.addNumber(unequiped.getFirst().getEnchantLevel());
+					sm.addItemName(unequiped.getFirst());
 				}
 				else
 				{
 					sm = SystemMessage.getSystemMessage(SystemMessageId.S1_DISARMED);
-					sm.addItemName(unequiped.get(0));
+					sm.addItemName(unequiped.getFirst());
 				}
 				sendPacket(sm);
 			}
@@ -7184,9 +7182,9 @@ public class Player extends Playable implements PlayerGroup
 			return false;
 		}
 
-		if (attacker instanceof Player)
+		if (attacker instanceof Player player)
 		{
-			if (isCombatFlagEquipped() && (((Player) attacker).getSiegeSide() != 0) || attacker.getActingPlayer().isCursedWeaponEquipped())
+			if (isCombatFlagEquipped() && (player.getSiegeSide() != 0) || attacker.getActingPlayer().isCursedWeaponEquipped())
 			{
 				return true;
 			}
@@ -7355,8 +7353,7 @@ public class Player extends Playable implements PlayerGroup
 			return false;
 		}
 		
-		GameObject target = null;
-		switch (skill.getTargetType())
+		GameObject target = switch (skill.getTargetType())
 		{
 			case AURA :
 			case FRONT_AURA :
@@ -7370,13 +7367,9 @@ public class Player extends Playable implements PlayerGroup
 			case AURA_UNDEAD_ENEMY :
 			case COMMAND_CHANNEL :
 			case AURA_MOB :
-			case AURA_DEAD_MOB :
-				target = this;
-				break;
-			default :
-				target = skill.getFirstOfTargetList(this);
-				break;
-		}
+			case AURA_DEAD_MOB : yield this;
+			default : yield skill.getFirstOfTargetList(this);
+		};
 
 		if (target != null && target != this && target.isPlayer() && skill.isOffensive() && isPKProtected(target.getActingPlayer()))
 		{
@@ -7795,7 +7788,7 @@ public class Player extends Playable implements PlayerGroup
 				}
 			}
 
-			if ((target instanceof EventMonsterInstance) && ((EventMonsterInstance) target).eventSkillAttackBlocked())
+			if ((target instanceof EventMonsterInstance instance) && instance.eventSkillAttackBlocked())
 			{
 				sendActionFailed();
 				return false;
@@ -8381,7 +8374,7 @@ public class Player extends Playable implements PlayerGroup
 			}
 			_effectsUpdateTask = ThreadPoolManager.getInstance().schedule(new UpdateAbnormalEffectTask(), Config.USER_ABNORMAL_EFFECTS_INTERVAL);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 	}
 
@@ -10482,8 +10475,7 @@ public class Player extends Playable implements PlayerGroup
 		}
 		ivlim += (int) getStat().calcStat(Stats.INV_LIM, 0, null, null);
 		ivlim += getVarInt("expandInventory", 0);
-		ivlim = Math.min(ivlim, Config.EXPAND_INVENTORY_LIMIT);
-		return ivlim;
+		return Math.min(ivlim, Config.EXPAND_INVENTORY_LIMIT);
 	}
 	
 	public int getPrivateInventoryLimit()
@@ -10505,8 +10497,7 @@ public class Player extends Playable implements PlayerGroup
 
 		whlim += (int) getStat().calcStat(Stats.WH_LIM, 0, null, null);
 		whlim += getVarInt("expandWareHouse", 0);
-		whlim = Math.min(whlim, Config.EXPAND_WAREHOUSE_LIMIT);
-		return whlim;
+		return Math.min(whlim, Config.EXPAND_WAREHOUSE_LIMIT);
 	}
 
 	public int getPrivateSellStoreLimit()
@@ -10524,8 +10515,7 @@ public class Player extends Playable implements PlayerGroup
 
 		pslim += (int) getStat().calcStat(Stats.P_SELL_LIM, 0, null, null);
 		pslim += getVarInt("expandSellStore", 0);
-		pslim = Math.min(pslim, Config.EXPAND_SELLSTORE_LIMIT);
-		return pslim;
+		return Math.min(pslim, Config.EXPAND_SELLSTORE_LIMIT);
 	}
 
 	public int getPrivateBuyStoreLimit()
@@ -10542,8 +10532,7 @@ public class Player extends Playable implements PlayerGroup
 		}
 		pblim += (int) getStat().calcStat(Stats.P_BUY_LIM, 0, null, null);
 		pblim += getVarInt("expandBuyStore", 0);
-		pblim = Math.min(pblim, Config.EXPAND_BUYSTORE_LIMIT);
-		return pblim;
+		return Math.min(pblim, Config.EXPAND_BUYSTORE_LIMIT);
 	}
 
 	public int getDwarfRecipeLimit()
@@ -10551,8 +10540,7 @@ public class Player extends Playable implements PlayerGroup
 		int recdlim = Config.DWARF_RECIPE_SLOTS;
 		recdlim += (int) getStat().calcStat(Stats.REC_D_LIM, 0, null, null);
 		recdlim += getVarInt("expandDwarfRecipe", 0);
-		recdlim = Math.min(recdlim, Config.EXPAND_DWARFRECIPE_LIMIT);
-		return recdlim;
+		return Math.min(recdlim, Config.EXPAND_DWARFRECIPE_LIMIT);
 	}
 
 	public int getCommonRecipeLimit()
@@ -10560,8 +10548,7 @@ public class Player extends Playable implements PlayerGroup
 		int recclim = Config.COMMON_RECIPE_SLOTS;
 		recclim += (int) getStat().calcStat(Stats.REC_C_LIM, 0, null, null);
 		recclim += getVarInt("expandCommonRecipe", 0);
-		recclim = Math.min(recclim, Config.EXPAND_COMMONRECIPE_LIMIT);
-		return recclim;
+		return Math.min(recclim, Config.EXPAND_COMMONRECIPE_LIMIT);
 	}
 
 	public int getMountNpcId()
@@ -12184,11 +12171,11 @@ public class Player extends Playable implements PlayerGroup
 		{
 			throw new IllegalArgumentException("Byte value required, but not specified");
 		}
-		if (val instanceof Number)
+		if (val instanceof Number number)
 		{
 			return new byte[]
 			{
-			        ((Number) val).byteValue()
+			        number.byteValue()
 			};
 		}
 		int c = 0;
@@ -12200,7 +12187,7 @@ public class Player extends Playable implements PlayerGroup
 			{
 				result[c++] = Byte.parseByte(v);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				throw new IllegalArgumentException("Byte value required, but found: " + val);
 			}
@@ -12424,9 +12411,9 @@ public class Player extends Playable implements PlayerGroup
 			}
 
 			Player target;
-			if (cha instanceof Summon)
+			if (cha instanceof Summon summon)
 			{
-				target = ((Summon) cha).getOwner();
+				target = summon.getOwner();
 			}
 			else
 			{
@@ -13972,22 +13959,14 @@ public class Player extends Playable implements PlayerGroup
 			{
 				if (!taskTemplate.isComplete())
 				{
-					int params = 0;
-					switch (taskTemplate.getType())
+					int params = switch (taskTemplate.getType())
 					{
-						case "Farm" :
-							params = taskTemplate.getCurrentNpcCount();
-							break;
-						case "Pvp" :
-							params = taskTemplate.getCurrentPvpCount();
-							break;
-						case "Pk" :
-							params = taskTemplate.getCurrentPkCount();
-							break;
-						case "Olympiad" :
-							params = taskTemplate.getCurrentOlyMatchCount();
-							break;
-					}
+						case "Farm"  -> taskTemplate.getCurrentNpcCount();
+						case "Pvp"  -> taskTemplate.getCurrentPvpCount();
+						case "Pk"  -> taskTemplate.getCurrentPkCount();
+						case "Olympiad"  -> taskTemplate.getCurrentOlyMatchCount();
+						default -> 0;
+					};
 					DailyTasksDAO.getInstance().updateTaskParams(this, taskTemplate.getId(), params);
 				}
 			}
@@ -16105,15 +16084,15 @@ public class Player extends Playable implements PlayerGroup
 			return;
 		}
 		super.removeInfoObject(object);
-		if (object instanceof AirShipInstance)
+		if (object instanceof AirShipInstance instance)
 		{
-			if ((((AirShipInstance) object).getCaptainId() != 0) && (((AirShipInstance) object).getCaptainId() != getObjectId()))
+			if ((instance.getCaptainId() != 0) && (instance.getCaptainId() != getObjectId()))
 			{
-				sendPacket(new DeleteObject(((AirShipInstance) object).getCaptainId()));
+				sendPacket(new DeleteObject(instance.getCaptainId()));
 			}
-			if (((AirShipInstance) object).getHelmObjectId() != 0)
+			if (instance.getHelmObjectId() != 0)
 			{
-				sendPacket(new DeleteObject(((AirShipInstance) object).getHelmObjectId()));
+				sendPacket(new DeleteObject(instance.getHelmObjectId()));
 			}
 		}
 		final var npc = object.getActingNpc();
@@ -16148,9 +16127,9 @@ public class Player extends Playable implements PlayerGroup
 	private final void sendInfoFrom(GameObject object)
 	{
 		object.sendInfo(this);
-		if (object instanceof Creature)
+		if (object instanceof Creature creature)
 		{
-			final var ai = ((Creature) object).getAI();
+			final var ai = creature.getAI();
 			if (ai != null)
 			{
 				ai.describeStateToPlayer(this);
@@ -17432,7 +17411,7 @@ public class Player extends Playable implements PlayerGroup
 					break;
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			return null;
 		}

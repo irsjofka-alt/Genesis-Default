@@ -63,7 +63,7 @@ public class Premium implements IAdminCommandHandler
 					activeChar.sendMessage("Preumium account is successfully added for: " + targetPlayer.getName(null));
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Failed to give premium account...");
 			}
@@ -81,7 +81,7 @@ public class Premium implements IAdminCommandHandler
 				{
 					charName = st.nextToken();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 				}
 				
@@ -136,7 +136,7 @@ public class Premium implements IAdminCommandHandler
 					return true;
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Failed to clean premium account...");
 			}
@@ -152,7 +152,7 @@ public class Premium implements IAdminCommandHandler
 				{
 					premiumId = st.nextToken();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				
 				final GameObject targetChar = activeChar.getTarget();
@@ -196,7 +196,7 @@ public class Premium implements IAdminCommandHandler
 					return true;
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Failed to give premium account...");
 			}
@@ -215,13 +215,13 @@ public class Premium implements IAdminCommandHandler
 				{
 					charName = st.nextToken();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				try
 				{
 					premiumId = st.nextToken();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				
 				if (charName == null)
@@ -242,7 +242,7 @@ public class Premium implements IAdminCommandHandler
 				showMenu(activeChar);
 				return true;
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Failed to give premium account...");
 			}
@@ -284,7 +284,7 @@ public class Premium implements IAdminCommandHandler
 					return true;
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Failed to give premium account...");
 			}

@@ -941,24 +941,14 @@ public class Siege implements Siegable
 
 	public void teleportPlayer(TeleportWhoType teleportWho, TeleportWhereType teleportWhere)
 	{
-		List<Player> players;
-		switch (teleportWho)
+		List<Player> players = switch (teleportWho)
 		{
-			case Owner :
-				players = getOwnersInZone();
-				break;
-			case Attacker :
-				players = getAttackersInZone();
-				break;
-			case DefenderNotOwner :
-				players = getDefendersButNotOwnersInZone();
-				break;
-			case Spectator :
-				players = getSpectatorsInZone();
-				break;
-			default :
-				players = getPlayersInZone();
-		}
+			case Owner  -> getOwnersInZone();
+			case Attacker  -> getAttackersInZone();
+			case DefenderNotOwner  -> getDefendersButNotOwnersInZone();
+			case Spectator  -> getSpectatorsInZone();
+			default  -> getPlayersInZone();
+		};
 
 		for (final var player : players)
 		{
@@ -1376,7 +1366,7 @@ public class Siege implements Siegable
 			{
 				cronTime = new SchedulingPattern(siegeDate);
 			}
-			catch (final InvalidPatternException e)
+			catch (final InvalidPatternException _)
 			{
 				return;
 			}

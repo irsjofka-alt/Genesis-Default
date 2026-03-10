@@ -62,39 +62,19 @@ public class ClanTrader extends AbstractNpcAI
 	@Override
 	public String onAdvEvent(String event, Npc npc, Player player)
 	{
-		String htmltext = null;
-		switch (event)
+		return switch (event)
 		{
 			case "32024.htm":
 			case "32024-02.htm":
 			case "32025.htm":
-			case "32025-02.htm":
-			{
-				htmltext = event;
-				break;
-			}
-			case "repinfo":
-			{
-				htmltext = (player.getClan().getLevel() > 4) ? npc.getId() + "-02.htm" : npc.getId() + "-05.htm";
-				break;
-			}
-			case "exchange-ba":
-			{
-				htmltext = giveReputation(npc, player, Config.BLOODALLIANCE_POINTS, BLOOD_ALLIANCE, BLOOD_ALLIANCE_COUNT);
-				break;
-			}
-			case "exchange-bo":
-			{
-				htmltext = giveReputation(npc, player, Config.BLOODOATH_POINTS, BLOOD_OATH, BLOOD_OATH_COUNT);
-				break;
-			}
-			case "exchange-ke":
-			{
-				htmltext = giveReputation(npc, player, Config.KNIGHTSEPAULETTE_POINTS, KNIGHTS_EPAULETTE, KNIGHTS_EPAULETTE_COUNT);
-				break;
-			}
-		}
-		return htmltext;
+			case "32025-02.htm": yield event;
+			case "repinfo": yield (player.getClan().getLevel() > 4) ? npc.getId() + "-02.htm" : npc.getId() + "-05.htm";
+			case "exchange-ba": yield giveReputation(npc, player, Config.BLOODALLIANCE_POINTS, BLOOD_ALLIANCE, BLOOD_ALLIANCE_COUNT);
+			case "exchange-bo": yield giveReputation(npc, player, Config.BLOODOATH_POINTS, BLOOD_OATH, BLOOD_OATH_COUNT);
+			case "exchange-ke": yield giveReputation(npc, player, Config.KNIGHTSEPAULETTE_POINTS, KNIGHTS_EPAULETTE, KNIGHTS_EPAULETTE_COUNT);
+			default:
+				yield null;
+		};
 	}
 	
 	@Override

@@ -62,7 +62,7 @@ public class _311_ExpulsionOfEvilSpirits extends Quest
 		{
 			respawnTime = Long.valueOf(loadGlobalQuestVar("VarangkaRespawn"));
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		
 		}
@@ -283,12 +283,12 @@ public class _311_ExpulsionOfEvilSpirits extends Quest
 				final ZoneType zone = ZoneManager.getInstance().getZoneById(20201);
 				for (final Creature c : zone.getCharactersInside())
 				{
-					if (c instanceof Attackable)
+					if (c instanceof Attackable attackable)
 					{
 						if ((c.getId() >= 18808) && (c.getId() <= (18810)))
 						{
 							c.setRunning();
-							((Attackable) c).addDamageHate(player, 1, 99999);
+							attackable.addDamageHate(player, 1, 99999);
 							c.getAI().setIntention(CtrlIntention.ATTACK, player);
 						}
 					}

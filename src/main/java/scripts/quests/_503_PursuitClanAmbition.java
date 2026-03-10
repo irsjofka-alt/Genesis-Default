@@ -918,9 +918,9 @@ public class _503_PursuitClanAmbition extends Quest
 				val = rs.getInt("value");
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
-			System.out.println("Pursuit of Clan Ambition: cannot read quest states offline clan leader");
+			IO.println("Pursuit of Clan Ambition: cannot read quest states offline clan leader");
 		}
 		return val;
 	}

@@ -3133,11 +3133,11 @@ public class Clan implements IIdentifiable
 		{
 			throw new IllegalArgumentException("Byte value required, but not specified");
 		}
-		if (val instanceof Number)
+		if (val instanceof Number number)
 		{
 			return new byte[]
 			{
-			        ((Number) val).byteValue()
+			        number.byteValue()
 			};
 		}
 		int c = 0;
@@ -3149,7 +3149,7 @@ public class Clan implements IIdentifiable
 			{
 				result[c++] = Byte.parseByte(v);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				throw new IllegalArgumentException("Byte value required, but found: " + val);
 			}

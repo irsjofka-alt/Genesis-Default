@@ -281,17 +281,13 @@ public class CommunityClassMaster extends AbstractCommunity implements ICommunit
 	
 	private static final int getMinLevel(int level)
 	{
-		switch (level)
+		return switch (level)
 		{
-			case 0 :
-				return 20;
-			case 1 :
-				return 40;
-			case 2 :
-				return 76;
-			default :
-				return Integer.MAX_VALUE;
-		}
+			case 0  -> 20;
+			case 1  -> 40;
+			case 2  -> 76;
+			default  -> Integer.MAX_VALUE;
+		};
 	}
 
 	private void changeClass(Player activeChar, short val, ClassMasterTemplate tpl)
@@ -403,7 +399,7 @@ public class CommunityClassMaster extends AbstractCommunity implements ICommunit
 		{
 			return validateClassId(oldCID, ClassId.getClassId(val));
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 		return false;
 	}

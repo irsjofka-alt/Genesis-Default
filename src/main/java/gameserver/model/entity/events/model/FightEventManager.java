@@ -272,26 +272,21 @@ public class FightEventManager extends LoggerObject
 		else
 		{
 			sendToAllMsg(event, "FightEvents.OPEN_REG");
-			ServerMessage message = null;
-			switch (Config.FIGHT_EVENTS_REG_TIME)
+			ServerMessage message = switch (Config.FIGHT_EVENTS_REG_TIME)
 			{
 				case 10 :
 				case 9 :
 				case 8 :
 				case 7 :
 				case 6 :
-				case 5 :
-					message = new ServerMessage("FightEvents.LAST_5MIN", true);
-					break;
+				case 5 : yield new ServerMessage("FightEvents.LAST_5MIN", true);
 				case 4 :
 				case 3 :
-				case 2 :
-					message = new ServerMessage("FightEvents.LAST_3MIN", true);
-					break;
-				case 1 :
-					message = new ServerMessage("FightEvents.LAST_1MIN", true);
-					break;
-			}
+				case 2 : yield new ServerMessage("FightEvents.LAST_3MIN", true);
+				case 1 : yield new ServerMessage("FightEvents.LAST_1MIN", true);
+				default:
+					yield null;
+			};
 			if (message != null)
 			{
 				for (final String lang : Config.MULTILANG_ALLOWED)

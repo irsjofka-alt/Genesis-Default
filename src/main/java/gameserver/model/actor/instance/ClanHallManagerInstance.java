@@ -1353,11 +1353,11 @@ public class ClanHallManagerInstance extends MerchantInstance
 						html.replace("%mp%", String.valueOf((int) getCurrentMp()));
 						sendHtmlMessage(player, html);
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 					}
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 				}
 				return;

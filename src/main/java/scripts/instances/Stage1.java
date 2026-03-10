@@ -251,9 +251,9 @@ public class Stage1 extends AbstractReflection
 		if (isInReflection(r))
 		{
 			npc.setIsNoRndWalk(true);
-			if (npc instanceof Attackable)
+			if (npc instanceof Attackable attackable)
 			{
-				((Attackable) npc).setSeeThroughSilentMove(true);
+				attackable.setSeeThroughSilentMove(true);
 			}
 			
 			switch (npc.getId())
@@ -549,7 +549,7 @@ public class Stage1 extends AbstractReflection
 		return null;
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 		new Stage1();
 	}

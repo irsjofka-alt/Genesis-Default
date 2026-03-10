@@ -376,31 +376,17 @@ public class AutoFarmOptions extends LoggerObject
 	
 	public void saveSkills(String type)
 	{
-		List<Integer> skillList = null;
-		switch (type)
+		List<Integer> skillList = switch (type)
 		{
-			case "farmAttackSkills" :
-				skillList = getAttackSpells();
-				break;
-			case "farmChanceSkills" :
-				skillList = getChanceSpells();
-				break;
-			case "farmSelfSkills" :
-				skillList = getSelfSpells();
-				break;
-			case "farmHealSkills" :
-				skillList = getLowLifeSpells();
-				break;
-			case "farmAttackSummonSkills" :
-				skillList = getSummonAttackSpells();
-				break;
-			case "farmSelfSummonSkills" :
-				skillList = getSummonSelfSpells();
-				break;
-			case "farmHealSummonSkills" :
-				skillList = getSummonHealSpells();
-				break;
-		}
+			case "farmAttackSkills"  -> getAttackSpells();
+			case "farmChanceSkills"  -> getChanceSpells();
+			case "farmSelfSkills"  -> getSelfSpells();
+			case "farmHealSkills"  -> getLowLifeSpells();
+			case "farmAttackSummonSkills"  -> getSummonAttackSpells();
+			case "farmSelfSummonSkills"  -> getSummonSelfSpells();
+			case "farmHealSummonSkills"  -> getSummonHealSpells();
+			default -> null;
+		};
 		
 		if (skillList != null && !skillList.isEmpty())
 		{
@@ -799,7 +785,7 @@ public class AutoFarmOptions extends LoggerObject
 				_farmTask = null;
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 		_isInPause = false;
 		AutoFarmManager.getInstance().addActiveFarm(_player);
@@ -905,7 +891,7 @@ public class AutoFarmOptions extends LoggerObject
 				_farmTask = null;
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 		
 		_isInPause = true;
@@ -2562,11 +2548,11 @@ public class AutoFarmOptions extends LoggerObject
 	public Attackable getLeaderTarget(Player leader)
 	{
 		final var target = leader.getTarget();
-		if (target != null && target != leader && target instanceof Attackable)
+		if (target != null && target != leader && target instanceof Attackable attackable)
 		{
-			if (((Attackable) target).isInTargetList(leader))
+			if (attackable.isInTargetList(leader))
 			{
-				return (Attackable) target;
+				return attackable;
 			}
 		}
 		return null;

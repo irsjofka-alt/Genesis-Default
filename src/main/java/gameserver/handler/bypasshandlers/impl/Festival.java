@@ -157,7 +157,7 @@ public class Festival implements IBypassHandler
 						return true;
 					}
 
-					if (activeChar.getObjectId() != prevParticipants.get(0))
+					if (activeChar.getObjectId() != prevParticipants.getFirst())
 					{
 						npc.showChatWindow(activeChar, 3, "b", false);
 						return true;

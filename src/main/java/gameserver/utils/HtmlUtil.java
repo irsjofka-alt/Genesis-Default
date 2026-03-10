@@ -97,7 +97,7 @@ public class HtmlUtil
 		{
 			sb.append("<table cellpadding=0 cellspacing=2>");
 			sb.append("<tr><td>");
-			sb.append(String.format("%.2f%%", ((double) current / max) * 100));
+			sb.append("%.2f%%".formatted(((double) current / max) * 100));
 			sb.append("</td></tr>");
 			sb.append("</table>");
 		}
@@ -160,7 +160,7 @@ public class HtmlUtil
 		{
 			sb.append("<table cellpadding=0 cellspacing=2>");
 			sb.append("<tr><td>");
-			sb.append(String.format("%.2f%%", ((double) current / max) * 100));
+			sb.append("%.2f%%".formatted(((double) current / max) * 100));
 			sb.append("</td></tr>");
 			sb.append("</table>");
 		}
@@ -258,7 +258,7 @@ public class HtmlUtil
 	
 	public static String htmlButton(String value, String action, int width, int height)
 	{
-		return String.format("<button value=\"%s\" action=\"%s\" back=\"L2UI_CT1.Button_DF_Small_Down\" width=%d height=%d fore=\"L2UI_CT1.Button_DF_Small\">", value, action, width, height);
+		return "<button value=\"%s\" action=\"%s\" back=\"L2UI_CT1.Button_DF_Small_Down\" width=%d height=%d fore=\"L2UI_CT1.Button_DF_Small\">".formatted(value, action, width, height);
 	}
 	
 	public static String switchButtons(String html)

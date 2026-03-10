@@ -102,7 +102,7 @@ public class GmChat implements IAdminCommandHandler
 			final CreatureSay cs = new CreatureSay(0, Say2.ALLIANCE, activeChar.getName(null), text);
 			AdminParser.getInstance().broadcastToGMs(cs);
 		}
-		catch (final StringIndexOutOfBoundsException e)
+		catch (final StringIndexOutOfBoundsException _)
 		{}
 	}
 }

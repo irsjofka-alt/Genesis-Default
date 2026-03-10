@@ -144,7 +144,7 @@ public class StrixPlatform
 				ClientBanManager.getInstance();
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			Log.error("An error occurred during initialization. Disabling protection ...");
 			MainConfig.STRIX_PLATFORM_ENABLED = false;

@@ -68,7 +68,7 @@ public class AuthRequest extends ReceivablePacket
 				_hosts[i] = host;
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 	}
 	

@@ -139,17 +139,13 @@ public final class FestivalGuideInstance extends NpcInstance
 
 	public int getStoneCount(int stoneType)
 	{
-		switch (stoneType)
+		return switch (stoneType)
 		{
-			case SevenSigns.SEAL_STONE_BLUE_ID :
-				return _blueStonesNeeded;
-			case SevenSigns.SEAL_STONE_GREEN_ID :
-				return _greenStonesNeeded;
-			case SevenSigns.SEAL_STONE_RED_ID :
-				return _redStonesNeeded;
-			default :
-				return -1;
-		}
+			case SevenSigns.SEAL_STONE_BLUE_ID  -> _blueStonesNeeded;
+			case SevenSigns.SEAL_STONE_GREEN_ID  -> _greenStonesNeeded;
+			case SevenSigns.SEAL_STONE_RED_ID  -> _redStonesNeeded;
+			default  -> -1;
+		};
 	}
 
 	public final void showChatWindow(Player player, int val, String suffix, boolean isDescription)

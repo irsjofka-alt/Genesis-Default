@@ -589,7 +589,7 @@ public class AnomicFoundry extends AbstractNpcAI
 		return Util.calculateHeadingFrom(fromLoc.getX(), fromLoc.getY(), toLoc.getX(), toLoc.getY());
 	}
 
-	public static void main(String[] args)
+	void main()
 	{
 		new AnomicFoundry();
 	}

@@ -260,9 +260,9 @@ public class SiegeZone extends ZoneType
 			}
 		}
 
-		if (character instanceof SiegeSummonInstance)
+		if (character instanceof SiegeSummonInstance instance)
 		{
-			((SiegeSummonInstance) character).unSummon(((SiegeSummonInstance) character).getOwner());
+			instance.unSummon(instance.getOwner());
 		}
 	}
 	
@@ -354,9 +354,9 @@ public class SiegeZone extends ZoneType
 					}
 				}
 				
-				if (character instanceof SiegeSummonInstance)
+				if (character instanceof SiegeSummonInstance instance)
 				{
-					((SiegeSummonInstance) character).unSummon(((SiegeSummonInstance) character).getOwner());
+					instance.unSummon(instance.getOwner());
 				}
 			}
 		}

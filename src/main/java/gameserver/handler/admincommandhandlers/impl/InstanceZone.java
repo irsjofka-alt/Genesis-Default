@@ -61,7 +61,7 @@ public class InstanceZone implements IAdminCommandHandler
 				{
 					player = GameObjectsStorage.getPlayer(playername);
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				
 				if (player != null)

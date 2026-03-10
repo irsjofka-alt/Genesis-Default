@@ -235,7 +235,7 @@ public class Hitman extends AbstractWorldEvent
 				htmltext = npc.getId() + ".htm";
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			player.sendMessage((new ServerMessage("Hitman.MAKE_SURE", player.getLang())).toString());
 			return null;
@@ -450,7 +450,7 @@ public class Hitman extends AbstractWorldEvent
 				_currency.put(getCurrencyName(itemId).trim().replaceAll(" ", "_"), itemId);
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 	}

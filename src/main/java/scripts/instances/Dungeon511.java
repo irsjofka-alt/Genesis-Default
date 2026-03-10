@@ -284,24 +284,17 @@ public final class Dungeon511 extends AbstractReflection
 	{
 		if (r != null)
 		{
-			int spawnId;
-			switch (r.getStatus())
+			int spawnId = switch (r.getStatus())
 			{
-				case 0 :
-					spawnId = RAIDS1[getRandom(RAIDS1.length)];
-					break;
-				case 1 :
-					spawnId = RAIDS2[getRandom(RAIDS2.length)];
-					break;
-				default :
-					spawnId = RAIDS3[getRandom(RAIDS3.length)];
-					break;
-			}
+				case 0  -> RAIDS1[getRandom(RAIDS1.length)];
+				case 1  -> RAIDS2[getRandom(RAIDS2.length)];
+				default  -> RAIDS3[getRandom(RAIDS3.length)];
+			};
 			
 			final var raid = addSpawn(spawnId, 53319, 245814, -6576, 0, false, 0, false, r);
-			if (raid instanceof RaidBossInstance)
+			if (raid instanceof RaidBossInstance instance)
 			{
-				((RaidBossInstance) raid).setUseRaidCurse(false);
+				instance.setUseRaidCurse(false);
 			}
 		}
 	}

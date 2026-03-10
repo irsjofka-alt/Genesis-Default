@@ -268,9 +268,8 @@ public abstract class FakePlayerAI implements Runnable
 					}
 				}
 				
-				if (obj instanceof Attackable && !havePlayerTarget)
+				if (obj instanceof Attackable npc && !havePlayerTarget)
 				{
-					final Attackable npc = (Attackable) obj;
 					if (!npc.isMonster() || npc.isDead() || !npc.isVisible() || (npc instanceof TreasureChestInstance) || npc.isRaid() || npc.isRaidMinion() || !condition.apply(npc))
 					{
 						continue;

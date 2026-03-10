@@ -324,7 +324,7 @@ public abstract class Skill implements IChanceSkillTrigger, IIdentifiable
 					_hitTimings[i] = Integer.parseInt(valuesSplit[i]);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				throw new IllegalArgumentException("SkillId: " + _id + " invalid hitTimings value: " + hitTimings + ", \"percent,percent,...percent\" required");
 			}
@@ -364,7 +364,7 @@ public abstract class Skill implements IChanceSkillTrigger, IIdentifiable
 				_affectLimit[0] = Integer.parseInt(valuesSplit[0]);
 				_affectLimit[1] = Integer.parseInt(valuesSplit[1]);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				throw new IllegalArgumentException("SkillId: " + _id + " invalid affectLimit value: " + affectLimit + ", \"percent-percent\" required");
 			}
@@ -382,7 +382,7 @@ public abstract class Skill implements IChanceSkillTrigger, IIdentifiable
 				_fanRange[2] = Integer.parseInt(valuesSplit[2]);
 				_fanRange[3] = Integer.parseInt(valuesSplit[3]);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				throw new IllegalArgumentException("SkillId: " + _id + " invalid fanRange value: " + fanRange + ", \"unk;startDegree;fanAffectRange;fanAffectAngle\" required");
 			}
@@ -799,7 +799,7 @@ public abstract class Skill implements IChanceSkillTrigger, IIdentifiable
 		{
 			return _params.getString(lang != null ? "name" + lang.substring(0, 1).toUpperCase() + lang.substring(1) : "name" + Config.MULTILANG_DEFAULT.substring(0, 1).toUpperCase() + Config.MULTILANG_DEFAULT.substring(1));
 		}
-		catch (final IllegalArgumentException e)
+		catch (final IllegalArgumentException _)
 		{
 			return "";
 		}
@@ -811,7 +811,7 @@ public abstract class Skill implements IChanceSkillTrigger, IIdentifiable
 		{
 			return _params.getString(lang != null ? "descr" + lang.substring(0, 1).toUpperCase() + lang.substring(1) + "" + getLevel() + "" : "descr" + Config.MULTILANG_DEFAULT.substring(0, 1).toUpperCase() + Config.MULTILANG_DEFAULT.substring(1) + "" + getLevel() + "");
 		}
-		catch (final IllegalArgumentException e)
+		catch (final IllegalArgumentException _)
 		{
 			return "";
 		}
@@ -1044,7 +1044,7 @@ public abstract class Skill implements IChanceSkillTrigger, IIdentifiable
 			return true;
 		}
 		
-		final Creature target = (object instanceof Creature) ? (Creature) object : null;
+		final Creature target = (object instanceof Creature c) ? c : null;
 		for (final Condition cond : preCondition)
 		{
 			final Env env = new Env();
@@ -1389,9 +1389,9 @@ public abstract class Skill implements IChanceSkillTrigger, IIdentifiable
 					return Collections.<Effect> emptyList();
 				}
 				
-				if ((effector instanceof Player) && ((Player) effector).isGM())
+				if ((effector instanceof Player player) && player.isGM())
 				{
-					if (!((Player) effector).getAccessLevel().canGiveDamage())
+					if (!player.getAccessLevel().canGiveDamage())
 					{
 						return Collections.<Effect> emptyList();
 					}
@@ -1872,7 +1872,7 @@ public abstract class Skill implements IChanceSkillTrigger, IIdentifiable
 					}
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				_log.warn("Extractable skills data: Error in Skill Id: " + skillId + " Level: " + skillLvl + " -> incomplete/invalid production data or wrong seperator!");
 			}

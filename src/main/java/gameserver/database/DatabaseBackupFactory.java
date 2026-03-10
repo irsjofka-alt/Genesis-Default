@@ -73,7 +73,7 @@ public final class DatabaseBackupFactory extends LoggerObject
 		try
 		{
 			printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(filePath), "utf8"));
-			final var run = Runtime.getRuntime().exec("mysqldump --user=" + Config.DATABASE_LOGIN + " --password=" + Config.DATABASE_PASSWORD + " --default-character-set=binary -c " + database + "");
+			final var run = Runtime.getRuntime().exec(("mysqldump --user=" + Config.DATABASE_LOGIN + " --password=" + Config.DATABASE_PASSWORD + " --default-character-set=binary -c " + database + "").split(" "));
 			final var inputStreamReader = new InputStreamReader(run.getInputStream(), "utf8");
 			bufferedReader = new BufferedReader(inputStreamReader);
 			String line;

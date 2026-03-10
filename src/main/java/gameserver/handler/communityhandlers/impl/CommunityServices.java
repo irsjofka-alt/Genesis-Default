@@ -116,7 +116,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				isClan = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -124,7 +124,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				page = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -145,7 +145,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				id = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -153,7 +153,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				level = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -161,7 +161,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				time = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -169,7 +169,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				isClan = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -177,7 +177,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				genPage = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -185,7 +185,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				curPage = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -309,7 +309,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				id = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -317,7 +317,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				level = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -325,7 +325,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				time = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -333,7 +333,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				isClan = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -341,7 +341,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				curPage = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -459,7 +459,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				name = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (name != null)
@@ -478,7 +478,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				name = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (name != null)
@@ -506,14 +506,14 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				color = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			try
 			{
 				days = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (color != null && days != null)
@@ -529,14 +529,14 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				color = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			try
 			{
 				days = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (color != null && days != null)
@@ -552,7 +552,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				window = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -560,7 +560,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			{
 				time = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 			}
 			
@@ -727,16 +727,12 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 	
 	private void playerColorList(Player activeChar, int type)
 	{
-		List<String> colorList = null;
-		switch (type)
+		List<String> colorList = switch (type)
 		{
-			case 1 :
-				colorList = Config.COLOR_NAME_LIST;
-				break;
-			case 2 :
-				colorList = Config.COLOR_TITLE_LIST;
-				break;
-		}
+			case 1  -> Config.COLOR_NAME_LIST;
+			case 2  -> Config.COLOR_TITLE_LIST;
+			default -> null;
+		};
 		
 		if (colorList == null || colorList.isEmpty())
 		{
@@ -810,16 +806,12 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 	
 	private void playerSetColor(Player activeChar, String color, int days, int type)
 	{
-		List<String> colorList = null;
-		switch (type)
+		List<String> colorList = switch (type)
 		{
-			case 1 :
-				colorList = Config.COLOR_NAME_LIST;
-				break;
-			case 2 :
-				colorList = Config.COLOR_TITLE_LIST;
-				break;
-		}
+			case 1  -> Config.COLOR_NAME_LIST;
+			case 2  -> Config.COLOR_TITLE_LIST;
+			default -> null;
+		};
 		
 		if (colorList == null || colorList.isEmpty())
 		{
@@ -944,7 +936,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 			}
 			catch (final Exception e)
 			{
-				System.out.println("Error in check nick " + e);
+				IO.println("Error in check nick " + e);
 			}
 			finally
 			{
@@ -1097,7 +1089,7 @@ public class CommunityServices extends AbstractCommunity implements ICommunityBo
 		{
 			pattern = Pattern.compile(isCharName ? Config.SERVICES_NAMECHANGE_TEMPLATE : Config.CLAN_NAME_TEMPLATE);
 		}
-		catch (final PatternSyntaxException e)
+		catch (final PatternSyntaxException _)
 		{
 			_log.warn("ERROR : Character name pattern of config is wrong!");
 			pattern = Pattern.compile(".*");

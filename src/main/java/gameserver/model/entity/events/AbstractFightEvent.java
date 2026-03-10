@@ -3068,7 +3068,7 @@ public abstract class AbstractFightEvent extends LoggerObject
 		int cap;
 		if (points.size() <= 26)
 		{
-			cap = points.get(points.size() - 1).intValue();
+			cap = points.getLast().intValue();
 		}
 		else
 		{
@@ -3289,7 +3289,7 @@ public abstract class AbstractFightEvent extends LoggerObject
 			{
 				result[i][0] = Integer.parseInt(valueSplit[0]);
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{
 				warn(StringUtil.concat("parseItemsList[" + getName(null) + "]: invalid itemId -> \"", valueSplit[0], "\""));
 				return null;
@@ -3298,7 +3298,7 @@ public abstract class AbstractFightEvent extends LoggerObject
 			{
 				result[i][1] = Integer.parseInt(valueSplit[1]);
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{
 				warn(StringUtil.concat("parseItemsList[" + getName(null) + "]: invalid item number -> \"", valueSplit[1], "\""));
 				return null;
@@ -3323,7 +3323,7 @@ public abstract class AbstractFightEvent extends LoggerObject
 			{
 				cronTime = new SchedulingPattern(time);
 			}
-			catch (final InvalidPatternException e)
+			catch (final InvalidPatternException _)
 			{
 				cronTime = null;
 			}
@@ -3716,7 +3716,7 @@ public abstract class AbstractFightEvent extends LoggerObject
 	public <O extends Serializable> O getFirstObject(String name)
 	{
 		final List<O> objects = getObjects(name);
-		return objects.size() > 0 ? (O) objects.get(0) : null;
+		return objects.size() > 0 ? (O) objects.getFirst() : null;
 	}
 
 	public void addObject(String name, Serializable object)
@@ -3910,7 +3910,7 @@ public abstract class AbstractFightEvent extends LoggerObject
 		{
 			return _set.getString(lang != null ? "name" + lang.substring(0, 1).toUpperCase() + lang.substring(1) : "name" + Config.MULTILANG_DEFAULT.substring(0, 1).toUpperCase() + Config.MULTILANG_DEFAULT.substring(1));
 		}
-		catch (final IllegalArgumentException e)
+		catch (final IllegalArgumentException _)
 		{
 			return "";
 		}
@@ -3922,7 +3922,7 @@ public abstract class AbstractFightEvent extends LoggerObject
 		{
 			return _set.getString(lang != null ? "desc" + lang.substring(0, 1).toUpperCase() + lang.substring(1) : "desc" + Config.MULTILANG_DEFAULT.substring(0, 1).toUpperCase() + Config.MULTILANG_DEFAULT.substring(1));
 		}
-		catch (final IllegalArgumentException e)
+		catch (final IllegalArgumentException _)
 		{
 			return "";
 		}

@@ -82,20 +82,20 @@ public class Spawn implements IAdminCommandHandler
 		{
 			final StringTokenizer st = new StringTokenizer(command, " ");
 			final GameObject target = activeChar.getTarget();
-			if (target instanceof Npc)
+			if (target instanceof Npc npc)
 			{
 				try
 				{
 					st.nextToken();
 					final int type = Integer.parseInt(st.nextToken());
-					printSpawn((Npc) target, type);
+					printSpawn(npc, type);
 					if (command.contains("_menu"))
 					{
 						adminhtm.setFile(activeChar, activeChar.getLang(), "data/html/admin/spawns_debug.htm");
 						activeChar.sendPacket(adminhtm);
 					}
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 			}
 			else
@@ -115,11 +115,11 @@ public class Spawn implements IAdminCommandHandler
 				{
 					from = Integer.parseInt(st.nextToken());
 				}
-				catch (final NoSuchElementException nsee)
+				catch (final NoSuchElementException _)
 				{}
 				showMonsters(activeChar, level, from);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				adminhtm.setFile(activeChar, activeChar.getLang(), "data/html/admin/spawns.htm");
 				activeChar.sendPacket(adminhtm);
@@ -142,11 +142,11 @@ public class Spawn implements IAdminCommandHandler
 				{
 					from = Integer.parseInt(st.nextToken());
 				}
-				catch (final NoSuchElementException nsee)
+				catch (final NoSuchElementException _)
 				{}
 				showNpcs(activeChar, letter, from);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				adminhtm.setFile(activeChar, activeChar.getLang(), "data/html/admin/npcs.htm");
 				activeChar.sendPacket(adminhtm);
@@ -197,7 +197,7 @@ public class Spawn implements IAdminCommandHandler
 					activeChar.sendMessage("Invalid instance number.");
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage //instance_spawns <instance_number>");
 			}
@@ -246,7 +246,7 @@ public class Spawn implements IAdminCommandHandler
 				ColosseumFenceParser.getInstance().addDynamic(activeChar, activeChar.getX(), activeChar.getY(), activeChar.getZ(), activeChar.getZ() + 50, activeChar.getZ() - 50, width, height, type);
 				listFences(activeChar);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //spawn_fence <type> <width> <height>");
 			}
@@ -258,9 +258,9 @@ public class Spawn implements IAdminCommandHandler
 			try
 			{
 				final var object = GameObjectsStorage.findObject(Integer.parseInt(st.nextToken()));
-				if (object != null && object instanceof ColosseumFence)
+				if (object != null && object instanceof ColosseumFence fence)
 				{
-					ColosseumFenceParser.getInstance().removeFence((ColosseumFence) object, Integer.parseInt(st.nextToken()));
+					ColosseumFenceParser.getInstance().removeFence(fence, Integer.parseInt(st.nextToken()));
 					if (st.hasMoreTokens())
 					{
 						listFences(activeChar);
@@ -271,7 +271,7 @@ public class Spawn implements IAdminCommandHandler
 					activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //deletefence <objectId> <regionId>");
 			}
@@ -306,7 +306,7 @@ public class Spawn implements IAdminCommandHandler
 					spawnMonster(activeChar, id, respawnTime, mobCount, true, Config.SAVE_GMSPAWN_ON_CUSTOM);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				adminhtm.setFile(activeChar, activeChar.getLang(), "data/html/admin/spawns.htm");
 				activeChar.sendPacket(adminhtm);
@@ -335,7 +335,7 @@ public class Spawn implements IAdminCommandHandler
 					teleportIndex = Integer.parseInt(params[2]);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Command format is //list_spawns <npcId|npc_name> [tele_index]");
 			}
@@ -379,10 +379,10 @@ public class Spawn implements IAdminCommandHandler
 					writer.write("<spawn count=\"" + mobCount + "\" respawn=\"" + respawnTime + "\" respawn_random=\"0\" period_of_day=\"none\">\n\t" + "<point x=\"" + activeChar.getX() + "\" y=\"" + activeChar.getY() + "\" z=\"" + activeChar.getZ() + "\" h=\"" + activeChar.getHeading() + "\" />\n\t" + "<npc id=\"" + Integer.parseInt(id) + "\" /><!--" + NpcsParser.getInstance().getTemplate(Integer.parseInt(id)).getName(activeChar.getLang()) + "-->\n" + "</spawn>\n");
 					writer.close();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				adminhtm.setFile(activeChar, activeChar.getLang(), "data/html/admin/spawns.htm");
 				activeChar.sendPacket(adminhtm);
@@ -403,10 +403,10 @@ public class Spawn implements IAdminCommandHandler
 					writer.write("<point x=\"" + activeChar.getX() + "\" y=\"" + activeChar.getY() + "\" z=\"" + activeChar.getZ() + "\" h=\"" + activeChar.getHeading() + "\" />\n");
 					writer.close();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				adminhtm.setFile(activeChar, activeChar.getLang(), "data/html/admin/spawns.htm");
 				activeChar.sendPacket(adminhtm);
@@ -439,7 +439,7 @@ public class Spawn implements IAdminCommandHandler
 						writer.close();
 						activeChar.sendMessage("Add new spawn zone to ./data/spawnZones.txt");
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 					}
 				}
@@ -482,7 +482,7 @@ public class Spawn implements IAdminCommandHandler
 						writer.close();
 						activeChar.sendMessage("Add new banned zone to ./data/spawnZones.txt");
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 					}
 				}
@@ -501,7 +501,7 @@ public class Spawn implements IAdminCommandHandler
 	
 	private int getMaxZ(List<Location> list)
 	{
-		int maxValue = list.get(0).getZ();
+		int maxValue = list.getFirst().getZ();
 		for (int i = 1; i < (list.size() - 1); i++)
 		{
 			if (list.get(i).getZ() > maxValue)
@@ -514,7 +514,7 @@ public class Spawn implements IAdminCommandHandler
 	
 	private int getMinZ(List<Location> list)
 	{
-		int minValue = list.get(0).getZ();
+		int minValue = list.getFirst().getZ();
 		for (int i = 1; i < (list.size() - 1); i++)
 		{
 			if (list.get(i).getZ() < minValue)
@@ -607,7 +607,7 @@ public class Spawn implements IAdminCommandHandler
 				activeChar.sendMessage("Created " + template1.getName(activeChar.getLang()) + " on " + target.getObjectId());
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			activeChar.sendPacket(SystemMessageId.TARGET_CANT_FOUND);
 		}

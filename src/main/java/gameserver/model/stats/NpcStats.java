@@ -14,11 +14,14 @@
  */
 package gameserver.model.stats;
 
+import java.io.Serial;
+
 import gameserver.model.interfaces.IRestorable;
 import gameserver.model.interfaces.IStorable;
 
 public class NpcStats extends StatsSet implements IRestorable, IStorable
 {
+	@Serial
 	private static final long serialVersionUID = -3001662130903838717L;
 	private volatile boolean _changes = false;
 	

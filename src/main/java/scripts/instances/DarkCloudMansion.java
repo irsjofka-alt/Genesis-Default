@@ -1087,7 +1087,7 @@ public class DarkCloudMansion extends AbstractReflection
 		return "";
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 		new DarkCloudMansion();
 	}

@@ -134,18 +134,14 @@ public class Fishing implements ISkillHandler
 		HotSpringZone hszone = null;
 		for (final ZoneType zone : ZoneManager.getInstance().isInsideZone(baitX, baitY))
 		{
-			if (zone instanceof FishingZone)
-			{
-				fishZone = (FishingZone) zone;
-			}
-			else if (zone instanceof WaterZone)
-			{
-				water = (WaterZone) zone;
-			}
-			else if (zone instanceof HotSpringZone)
-			{
-				hszone = (HotSpringZone) zone;
-				isHotSpringZone = true;
+			switch (zone) {
+				case FishingZone fishingZone -> fishZone = fishingZone;
+				case WaterZone waterZone -> water = waterZone;
+				case HotSpringZone springZone -> {
+					hszone = springZone;
+					isHotSpringZone = true;
+				}
+				default -> {}
 			}
 			
 			if ((fishZone != null) && (water != null) && (hszone != null))
@@ -168,18 +164,14 @@ public class Fishing implements ISkillHandler
 				hszone = null;
 				for (final ZoneType zone : ZoneManager.getInstance().isInsideZone(baitX, baitY))
 				{
-					if (zone instanceof FishingZone)
-					{
-						fishZone = (FishingZone) zone;
-					}
-					else if (zone instanceof WaterZone)
-					{
-						water = (WaterZone) zone;
-					}
-					else if (zone instanceof HotSpringZone)
-					{
-						hszone = (HotSpringZone) zone;
-						isHotSpringZone = true;
+					switch (zone) {
+						case FishingZone fishingZone -> fishZone = fishingZone;
+						case WaterZone waterZone -> water = waterZone;
+						case HotSpringZone springZone -> {
+							hszone = springZone;
+							isHotSpringZone = true;
+						}
+						default -> {}
 					}
 					
 					if ((fishZone != null) && (water != null) && (hszone != null))

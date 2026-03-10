@@ -628,18 +628,12 @@ public class Castle implements IIdentifiable
 
 	public void setTaxPercent(Player activeChar, int taxPercent)
 	{
-		int maxTax;
-		switch (SevenSigns.getInstance().getSealOwner(SevenSigns.SEAL_STRIFE))
+		int maxTax = switch (SevenSigns.getInstance().getSealOwner(SevenSigns.SEAL_STRIFE))
 		{
-			case SevenSigns.CABAL_DAWN :
-				maxTax = 25;
-				break;
-			case SevenSigns.CABAL_DUSK :
-				maxTax = 5;
-				break;
-			default :
-				maxTax = 15;
-		}
+			case SevenSigns.CABAL_DAWN  -> 25;
+			case SevenSigns.CABAL_DUSK  -> 5;
+			default  -> 15;
+		};
 
 		if ((taxPercent < 0) || (taxPercent > maxTax))
 		{

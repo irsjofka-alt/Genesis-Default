@@ -104,7 +104,7 @@ public final class _309_ForAGoodCause extends Quest
 			{
 				exchangeID = Integer.parseInt(event);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				exchangeID = 0;
 			}

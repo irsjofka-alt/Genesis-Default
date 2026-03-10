@@ -1243,12 +1243,12 @@ public final class SpecialBypassManager extends LoggerObject
 		
 		public enum BypassQuestType
 		{
-			STARTED, COMPLETED;
+			STARTED, COMPLETED
 		}
 		
 		public enum BypassEntryType
 		{
-			SOLO, SOLO_PARTY, PARTY, EVENT, PARTY_COMMAND_CHANNEL, COMMAND_CHANNEL;
+			SOLO, SOLO_PARTY, PARTY, EVENT, PARTY_COMMAND_CHANNEL, COMMAND_CHANNEL
 		}
 		
 		public BypassTemplate(int id, boolean dispelBuffs, int minLevel, int maxLevel, int minParty, int maxParty, int minRebirth, int hwidsLimit, List<Location> tele, List<ReflectionItemTemplate> requestItems, boolean needAllItems, List<ReflectionItemTemplate> rewardItems, String requiredQuest, BypassQuestType questType, boolean isForPremium)
@@ -1333,7 +1333,7 @@ public final class SpecialBypassManager extends LoggerObject
 			}
 			if (_teleportCoords.size() == 1)
 			{
-				return _teleportCoords.get(0);
+				return _teleportCoords.getFirst();
 			}
 			return _teleportCoords.get(Rnd.get(_teleportCoords.size()));
 		}

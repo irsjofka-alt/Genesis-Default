@@ -36,19 +36,13 @@ public class DrakeBosses extends Fighter
 	@Override
 	protected void onEvtDead(Creature killer)
 	{
-		Npc corpse = null;
-		switch (getActiveChar().getId())
+		Npc corpse = switch (getActiveChar().getId())
 		{
-			case 25725:
-				corpse = NpcUtils.spawnSingleNpc(32884, getActiveChar().getLocation(), 300000);
-				break;
-			case 25726:
-				corpse = NpcUtils.spawnSingleNpc(32885, getActiveChar().getLocation(), 300000);
-				break;
-			case 25727:
-				corpse = NpcUtils.spawnSingleNpc(32886, getActiveChar().getLocation(), 300000);
-				break;
-		}
+			case 25725 -> NpcUtils.spawnSingleNpc(32884, getActiveChar().getLocation(), 300000);
+			case 25726 -> NpcUtils.spawnSingleNpc(32885, getActiveChar().getLocation(), 300000);
+			case 25727 -> NpcUtils.spawnSingleNpc(32886, getActiveChar().getLocation(), 300000);
+			default -> null;
+		};
 
 		if (killer != null && corpse != null)
 		{

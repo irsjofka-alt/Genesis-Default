@@ -69,9 +69,9 @@ public class FortSupportCaptainInstance extends MerchantInstance implements Squa
 			{
 				val = Integer.parseInt(par);
 			}
-			catch (final IndexOutOfBoundsException ioobe)
+			catch (final IndexOutOfBoundsException _)
 			{}
-			catch (final NumberFormatException nfe)
+			catch (final NumberFormatException _)
 			{}
 			showMessageWindow(player, val);
 		}

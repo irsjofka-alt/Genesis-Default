@@ -87,25 +87,15 @@ public class DimensionMovingDevice extends DefaultAI
 			if(_npcs.size() < 100)
 			{
 				_count++;
-				int id = 0;
-				switch (_count)
+				int id = switch (_count)
 				{
-					case 1 :
-						id = MOBS[0];
-						break;
-					case 2 :
-						id = MOBS[1];
-						break;
-					case 3 :
-						id = MOBS[2];
-						break;
-					case 4 :
-						id = MOBS[3];
-						break;
-					case 5 :
-						id = MOBS[4];
-						break;
-				}
+					case 1  -> MOBS[0];
+					case 2  -> MOBS[1];
+					case 3  -> MOBS[2];
+					case 4  -> MOBS[3];
+					case 5  -> MOBS[4];
+					default -> 0;
+				};
 				
 				final var mob = NpcUtils.spawnSingleNpc(id, actor.getLocation(), r, 0);
 				((Attackable) mob).setSeeThroughSilentMove(true);

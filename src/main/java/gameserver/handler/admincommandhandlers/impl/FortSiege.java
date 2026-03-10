@@ -56,9 +56,9 @@ public class FortSiege implements IAdminCommandHandler
 		{
 			final GameObject target = activeChar.getTarget();
 			Player player = null;
-			if (target instanceof Player)
+			if (target instanceof Player player1)
 			{
-				player = (Player) target;
+				player = player1;
 			}
 			
 			if (command.equalsIgnoreCase("admin_add_fortattacker"))

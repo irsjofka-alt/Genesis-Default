@@ -158,7 +158,7 @@ public class SortedWareHouseWithdrawalList extends GameServerPacket
 					break;
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 	}
 
@@ -194,7 +194,7 @@ public class SortedWareHouseWithdrawalList extends GameServerPacket
 			{
 				return Byte.parseByte(order);
 			}
-			catch (final NumberFormatException ex)
+			catch (final NumberFormatException _)
 			{
 				return A2Z;
 			}

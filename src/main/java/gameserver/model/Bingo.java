@@ -57,7 +57,7 @@ public class Bingo
 		{
 			return Select(Integer.valueOf(s));
 		}
-		catch (final Exception ignored)
+		catch (final Exception _)
 		{}
 		return null;
 	}

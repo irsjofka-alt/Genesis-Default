@@ -46,7 +46,7 @@ public abstract class GameClientPacket extends ReceivablePacket<GameClient>
 			readImpl();
 			return true;
 		}
-		catch (final BufferUnderflowException e)
+		catch (final BufferUnderflowException _)
 		{
 			getClient().onBufferUnderflow();
 		}

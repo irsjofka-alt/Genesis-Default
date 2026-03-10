@@ -1696,7 +1696,7 @@ public final class Config
 					is.close();
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 	}
@@ -1741,7 +1741,7 @@ public final class Config
 			{
 				scanner.close();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 	}
@@ -2424,7 +2424,7 @@ public final class Config
 					{
 						FISHING_REWARDS.put(Integer.parseInt(reward[0]), reward[1]);
 					}
-					catch (final NumberFormatException nfe)
+					catch (final NumberFormatException _)
 					{
 					}
 				}
@@ -2765,7 +2765,7 @@ public final class Config
 					{
 						res.put(Integer.parseInt(entrySplit[0]), Double.parseDouble(entrySplit[1]));
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 						_log.warn("[Config.load()]: " + paramName + " invalid params!");
 					}

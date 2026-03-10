@@ -289,7 +289,7 @@ public class CastleChamberlainInstance extends MerchantInstance
 						{
 							amount = Long.parseLong(st.nextToken());
 						}
-						catch (final NoSuchElementException e)
+						catch (final NoSuchElementException _)
 						{}
 						if ((amount > 0) && ((castle.getTreasury() + amount) < PcInventory.MAX_ADENA))
 						{
@@ -309,7 +309,7 @@ public class CastleChamberlainInstance extends MerchantInstance
 						{
 							amount = Long.parseLong(st.nextToken());
 						}
-						catch (final NoSuchElementException e)
+						catch (final NoSuchElementException _)
 						{}
 						if (amount > 0)
 						{
@@ -529,25 +529,14 @@ public class CastleChamberlainInstance extends MerchantInstance
 								html.setFile(player, player.getLang(), "data/html/chamberlain/functions-apply.htm");
 								html.replace("%name%", "Fireplace (HP Recovery Device)");
 								final int percent = Integer.parseInt(val);
-								int cost;
-								switch (percent)
+								int cost = switch (percent)
 								{
-									case 80 :
-										cost = template.getHpRegenFunction(1);
-										break;
-									case 120 :
-										cost = template.getHpRegenFunction(2);
-										break;
-									case 180 :
-										cost = template.getHpRegenFunction(3);
-										break;
-									case 240 :
-										cost = template.getHpRegenFunction(4);
-										break;
-									default :
-										cost = template.getHpRegenFunction(5);
-										break;
-								}
+									case 80  -> template.getHpRegenFunction(1);
+									case 120  -> template.getHpRegenFunction(2);
+									case 180  -> template.getHpRegenFunction(3);
+									case 240  -> template.getHpRegenFunction(4);
+									default  -> template.getHpRegenFunction(5);
+								};
 								
 								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(template.getHpRegenFunctionTime()) + " Day</font>)");
 								html.replace("%use%", "Provides additional HP recovery for clan members in the castle.<font color=\"00FFFF\">" + String.valueOf(percent) + "%</font>");
@@ -562,22 +551,13 @@ public class CastleChamberlainInstance extends MerchantInstance
 								html.setFile(player, player.getLang(), "data/html/chamberlain/functions-apply.htm");
 								html.replace("%name%", "Carpet (MP Recovery)");
 								final int percent = Integer.parseInt(val);
-								int cost;
-								switch (percent)
+								int cost = switch (percent)
 								{
-									case 5 :
-										cost = template.getMpRegenFunction(1);
-										break;
-									case 15 :
-										cost = template.getMpRegenFunction(2);
-										break;
-									case 30 :
-										cost = template.getMpRegenFunction(3);
-										break;
-									default :
-										cost = template.getMpRegenFunction(4);
-										break;
-								}
+									case 5  -> template.getMpRegenFunction(1);
+									case 15  -> template.getMpRegenFunction(2);
+									case 30  -> template.getMpRegenFunction(3);
+									default  -> template.getMpRegenFunction(4);
+								};
 								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(template.getMpRegenFunctionTime()) + " Day</font>)");
 								html.replace("%use%", "Provides additional MP recovery for clan members in the castle.<font color=\"00FFFF\">" + String.valueOf(percent) + "%</font>");
 								html.replace("%apply%", "recovery mp " + String.valueOf(percent));
@@ -591,22 +571,13 @@ public class CastleChamberlainInstance extends MerchantInstance
 								html.setFile(player, player.getLang(), "data/html/chamberlain/functions-apply.htm");
 								html.replace("%name%", "Chandelier (EXP Recovery Device)");
 								final int percent = Integer.parseInt(val);
-								int cost;
-								switch (percent)
+								int cost = switch (percent)
 								{
-									case 15 :
-										cost = template.getExpRegenFunction(1);
-										break;
-									case 25 :
-										cost = template.getExpRegenFunction(2);
-										break;
-									case 35 :
-										cost = template.getExpRegenFunction(3);
-										break;
-									default :
-										cost = template.getExpRegenFunction(4);
-										break;
-								}
+									case 15  -> template.getExpRegenFunction(1);
+									case 25  -> template.getExpRegenFunction(2);
+									case 35  -> template.getExpRegenFunction(3);
+									default  -> template.getExpRegenFunction(4);
+								};
 								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(template.getExpRegenFunctionTime()) + " Day</font>)");
 								html.replace("%use%", "Restores the Exp of any clan member who is resurrected in the castle.<font color=\"00FFFF\">" + String.valueOf(percent) + "%</font>");
 								html.replace("%apply%", "recovery exp " + String.valueOf(percent));
@@ -846,22 +817,13 @@ public class CastleChamberlainInstance extends MerchantInstance
 								html.setFile(player, player.getLang(), "data/html/chamberlain/functions-apply.htm");
 								html.replace("%name%", "Insignia (Supplementary Magic)");
 								final int stage = Integer.parseInt(val);
-								int cost;
-								switch (stage)
+								int cost = switch (stage)
 								{
-									case 1 :
-										cost = template.getSupportFunction(1);
-										break;
-									case 2 :
-										cost = template.getSupportFunction(2);
-										break;
-									case 3 :
-										cost = template.getSupportFunction(3);
-										break;
-									default :
-										cost = template.getSupportFunction(4);
-										break;
-								}
+									case 1  -> template.getSupportFunction(1);
+									case 2  -> template.getSupportFunction(2);
+									case 3  -> template.getSupportFunction(3);
+									default  -> template.getSupportFunction(4);
+								};
 								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(template.getSupportFunctionTime()) + " Day</font>)");
 								html.replace("%use%", "Enables the use of supplementary magic.");
 								html.replace("%apply%", "other support " + String.valueOf(stage));
@@ -875,16 +837,11 @@ public class CastleChamberlainInstance extends MerchantInstance
 								html.setFile(player, player.getLang(), "data/html/chamberlain/functions-apply.htm");
 								html.replace("%name%", "Mirror (Teleportation Device)");
 								final int stage = Integer.parseInt(val);
-								int cost;
-								switch (stage)
+								int cost = switch (stage)
 								{
-									case 1 :
-										cost = template.getTeleportFunction(1);
-										break;
-									default :
-										cost = template.getTeleportFunction(2);
-										break;
-								}
+									case 1  -> template.getTeleportFunction(1);
+									default  -> template.getTeleportFunction(2);
+								};
 								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(template.getTeleportFunctionTime()) + " Day</font>)");
 								html.replace("%use%", "Teleports clan members in a castle to the target <font color=\"00FFFF\">Stage " + String.valueOf(stage) + "</font> staging area");
 								html.replace("%apply%", "other tele " + String.valueOf(stage));
@@ -1091,12 +1048,12 @@ public class CastleChamberlainInstance extends MerchantInstance
 						html.replace("%mp%", String.valueOf((int) getCurrentMp()));
 						sendHtmlMessage(player, html);
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 						player.sendMessage("Invalid skill level, contact your admin!");
 					}
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					player.sendMessage("Invalid skill level, contact your admin!");
 				}

@@ -365,7 +365,7 @@ public class VipManager extends LoggerObject
 		{
 			cronTime = new SchedulingPattern("30 6 1 * *");
 		}
-		catch (final InvalidPatternException e)
+		catch (final InvalidPatternException _)
 		{
 			warn("Wrong calc next vip refresh pattern!");
 			return;

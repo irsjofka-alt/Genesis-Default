@@ -443,7 +443,7 @@ public final class CellPathFinding extends PathFinding
 				sb.append(" total/avg(ms):");
 				sb.append(elapsed);
 				sb.append("/");
-				sb.append(String.format("%1.2f", (double) elapsed / uses));
+				sb.append("%1.2f".formatted((double) elapsed / uses));
 			}
 
 			sb.append(" ovf:");
@@ -474,11 +474,11 @@ public final class CellPathFinding extends PathFinding
 			sb.append(" total/avg(ms):");
 			sb.append(_postFilterElapsed);
 			sb.append("/");
-			sb.append(String.format("%1.2f", (double) _postFilterElapsed / _postFilterUses));
+			sb.append("%1.2f".formatted((double) _postFilterElapsed / _postFilterUses));
 			sb.append(" passes total/avg:");
 			sb.append(_postFilterPasses);
 			sb.append("/");
-			sb.append(String.format("%1.1f", (double) _postFilterPasses / _postFilterUses));
+			sb.append("%1.1f".formatted((double) _postFilterPasses / _postFilterUses));
 			sb.append(System.lineSeparator());
 		}
 		sb.append("Pathfind success/fail:");

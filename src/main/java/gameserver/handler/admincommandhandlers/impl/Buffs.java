@@ -111,7 +111,7 @@ public class Buffs implements IAdminCommandHandler
 				activeChar.sendMessage("All effects canceled within raidus " + radius);
 				return true;
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{
 				activeChar.sendMessage("Usage: //areacancel <radius>");
 				return false;
@@ -131,7 +131,7 @@ public class Buffs implements IAdminCommandHandler
 				{
 					player = GameObjectsStorage.getPlayer(playername);
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				
 				if (player == null)
@@ -157,7 +157,7 @@ public class Buffs implements IAdminCommandHandler
 				activeChar.sendMessage("Skill reuse was removed from " + player.getName(null) + ".");
 				return true;
 			}
-			catch (final NullPointerException e)
+			catch (final NullPointerException _)
 			{
 				return false;
 			}
@@ -278,7 +278,7 @@ public class Buffs implements IAdminCommandHandler
 		{
 			target = (Creature) GameObjectsStorage.findObject(objId);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 		
 		if ((target != null) && (skillId > 0))
@@ -328,7 +328,7 @@ public class Buffs implements IAdminCommandHandler
 		{
 			target = (Creature) GameObjectsStorage.findObject(objId);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 		
 		if (target != null)

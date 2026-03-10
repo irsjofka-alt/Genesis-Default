@@ -88,7 +88,7 @@ public class FarmSettings
 		{
 			farmSettings.load(is);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 		
@@ -110,7 +110,7 @@ public class FarmSettings
 				{
 					AUTO_FARM_PRICES.put(Integer.parseInt(priceSplit[0]), priceSplit[1]);
 				}
-				catch (final NumberFormatException nfe)
+				catch (final NumberFormatException _)
 				{}
 			}
 		}
@@ -147,7 +147,7 @@ public class FarmSettings
 			FARM_EXPEND_LIMIT_PRICE[0] = Integer.parseInt(propertyPrice[0]);
 			FARM_EXPEND_LIMIT_PRICE[1] = Integer.parseInt(propertyPrice[1]);
 		}
-		catch (final NumberFormatException nfe)
+		catch (final NumberFormatException _)
 		{}
 		MAX_SKILLS = farmSettings.getProperty("FarmMaxSkills", 14, false);
 		final String[] items = farmSettings.getProperty("RessurectionItemList", "737,3936", false).split(",");
@@ -159,7 +159,7 @@ public class FarmSettings
 			{
 				itm = Integer.parseInt(item);
 			}
-			catch (final NumberFormatException nfe)
+			catch (final NumberFormatException _)
 			{}
 			
 			if (itm != 0)
@@ -180,7 +180,7 @@ public class FarmSettings
 				{
 					REGIONS_SEARCH.put(regionSplit[0], Integer.parseInt(regionSplit[1]));
 				}
-				catch (final NumberFormatException nfe)
+				catch (final NumberFormatException _)
 				{
 				}
 			}

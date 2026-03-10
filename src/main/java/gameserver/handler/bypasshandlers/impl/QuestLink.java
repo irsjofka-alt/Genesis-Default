@@ -52,7 +52,7 @@ public class QuestLink implements IBypassHandler
 		{
 			quest = command.substring(5).trim();
 		}
-		catch (final IndexOutOfBoundsException ioobe)
+		catch (final IndexOutOfBoundsException _)
 		{}
 		if (quest.length() == 0)
 		{
@@ -233,7 +233,7 @@ public class QuestLink implements IBypassHandler
 		}
 		else if (options.size() == 1)
 		{
-			showQuestWindow(player, npc, options.get(0).getName());
+			showQuestWindow(player, npc, options.getFirst().getName());
 		}
 		else
 		{

@@ -60,7 +60,7 @@ public final class Armor extends Item
 					id = Integer.parseInt(info[0]);
 					level = Integer.parseInt(info[1]);
 				}
-				catch (final Exception nfe)
+				catch (final Exception _)
 				{
 					_log.info(StringUtil.concat("> Couldnt parse ", skill, " in armor enchant skills! item ", toString()));
 				}

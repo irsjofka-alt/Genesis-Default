@@ -143,7 +143,7 @@ public class SummonEffectsHolder
 	
 	public void addPetEffect(int controlObjectId, Skill skill, int effectCount, int effectTime, int effectTotalTime)
 	{
-		_petEffects.computeIfAbsent(controlObjectId, k -> new CopyOnWriteArrayList<>()).add(new SummonEffect(skill, effectCount, effectTime, effectTotalTime));
+		_petEffects.computeIfAbsent(controlObjectId, _ -> new CopyOnWriteArrayList<>()).add(new SummonEffect(skill, effectCount, effectTime, effectTotalTime));
 	}
 	
 	public boolean containsPetId(int controlObjectId)

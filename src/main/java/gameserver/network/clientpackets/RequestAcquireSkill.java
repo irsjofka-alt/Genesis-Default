@@ -220,7 +220,7 @@ public final class RequestAcquireSkill extends GameClientPacket
 					return;
 				}
 				
-				if (trainer instanceof SquadTrainer)
+				if (trainer instanceof SquadTrainer squadTrainer)
 				{
 					if (!clan.isLearnableSubPledgeSkill(skill, _subType))
 					{
@@ -262,7 +262,7 @@ public final class RequestAcquireSkill extends GameClientPacket
 					clan.broadcastToOnlineMembers(new PledgeSkillList(clan));
 					activeChar.sendPacket(new AcquireSkillDone());
 					
-					((SquadTrainer) trainer).showSubUnitSkillList(activeChar);
+					squadTrainer.showSubUnitSkillList(activeChar);
 				}
 				break;
 			}

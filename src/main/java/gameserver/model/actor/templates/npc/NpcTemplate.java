@@ -242,13 +242,13 @@ public final class NpcTemplate extends CharTemplate implements IIdentifiable
 		{
 			classType = (Class<Npc>) Class.forName("gameserver.model.actor.instance." + type + "Instance");
 		}
-		catch (final ClassNotFoundException e)
+		catch (final ClassNotFoundException _)
 		{
 			try
 			{
 				classType = (Class<Npc>) Class.forName("l2e.scripts.types." + type + "Instance");
 			}
-			catch (final ClassNotFoundException e1)
+			catch (final ClassNotFoundException _)
 			{
 				_log.error("Not found type class for type: " + type + ". NpcId: " + _npcId);
 			}
@@ -336,19 +336,19 @@ public final class NpcTemplate extends CharTemplate implements IIdentifiable
 		{
 			classAI = (Class<CharacterAI>) Class.forName("gameserver.ai.npc." + ai);
 		}
-		catch (final ClassNotFoundException e)
+		catch (final ClassNotFoundException _)
 		{
 			try
 			{
 				classAI = (Class<CharacterAI>) Class.forName("l2e.scripts.ai." + ai);
 			}
-			catch (final ClassNotFoundException e1)
+			catch (final ClassNotFoundException _)
 			{
 				try
 				{
 					classAI = (Class<CharacterAI>) Class.forName("gameserver.ai.character." + ai);
 				}
-				catch (final ClassNotFoundException e2)
+				catch (final ClassNotFoundException _)
 				{
 					_log.error("Not found ai class for ai: " + ai + ". NpcId: " + _npcId);
 				}
@@ -600,7 +600,7 @@ public final class NpcTemplate extends CharTemplate implements IIdentifiable
 		{
 			return _params.getString(lang != null ? "name" + lang.substring(0, 1).toUpperCase() + lang.substring(1) : "name" + Config.MULTILANG_DEFAULT.substring(0, 1).toUpperCase() + Config.MULTILANG_DEFAULT.substring(1));
 		}
-		catch (final IllegalArgumentException e)
+		catch (final IllegalArgumentException _)
 		{
 			return "";
 		}
@@ -612,7 +612,7 @@ public final class NpcTemplate extends CharTemplate implements IIdentifiable
 		{
 			return _params.getString(lang != null ? "title" + lang.substring(0, 1).toUpperCase() + lang.substring(1) : "name" + Config.MULTILANG_DEFAULT.substring(0, 1).toUpperCase() + Config.MULTILANG_DEFAULT.substring(1));
 		}
-		catch (final IllegalArgumentException e)
+		catch (final IllegalArgumentException _)
 		{
 			return "";
 		}

@@ -83,7 +83,7 @@ public class GameServerConnection
 			_sendQueue.add(packet);
 			wakeUp = enableWriteInterest();
 		}
-		catch (final CancelledKeyException e)
+		catch (final CancelledKeyException _)
 		{
 			return;
 		}

@@ -65,7 +65,7 @@ public class WarehouseItemRecipeComparator implements Comparator<WarehouseItem>
 				
 				return (_order == 1 ? i1.compareTo(i2) : i2.compareTo(i1));
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				return 0;
 			}

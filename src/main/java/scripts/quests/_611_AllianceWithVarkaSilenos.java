@@ -128,20 +128,13 @@ public class _611_AllianceWithVarkaSilenos extends Quest
 	
 	private int getMaxItems(QuestState st, int itemId)
 	{
-		int count = 0;
-		switch (itemId)
+		return switch (itemId)
 		{
-			case 7226 :
-				count = SOLDIER_BADGE_COUNT[st.getCond() - 1];
-				break;
-			case 7227 :
-				count = OFFICER_BADGE_COUNT[st.getCond() - 1];
-				break;
-			case 7228 :
-				count = CAPTAIN_BADGE_COUNT[st.getCond() - 1];
-				break;
-		}
-		return count;
+			case 7226  -> SOLDIER_BADGE_COUNT[st.getCond() - 1];
+			case 7227  -> OFFICER_BADGE_COUNT[st.getCond() - 1];
+			case 7228  -> CAPTAIN_BADGE_COUNT[st.getCond() - 1];
+			default -> 0;
+		};
 	}
 	
 	@Override

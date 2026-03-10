@@ -36,7 +36,7 @@ public class ExBrMiniGameLoadScores extends GameServerPacket
 		final NavigableSet<MiniGameScoreManager.MiniGameScore> score = MiniGameScoreManager.getInstance().getScores();
 		_entries = new ArrayList<MiniGameScoreManager.MiniGameScore>(score.size() >= 100 ? 100 : score.size());
 		
-		final MiniGameScoreManager.MiniGameScore last = score.isEmpty() ? null : score.last();
+		final MiniGameScoreManager.MiniGameScore last = score.isEmpty() ? null : score.getLast();
 		if (last != null)
 		{
 			_lastScore = last.getScore();

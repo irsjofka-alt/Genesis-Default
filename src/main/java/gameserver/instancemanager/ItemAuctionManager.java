@@ -146,7 +146,7 @@ public final class ItemAuctionManager extends LoggerObject
 				statement.execute();
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 	}

@@ -779,11 +779,11 @@ public final class RequestActionUse extends GameClientPacket
 			return false;
 		}
 
-		if (!activeChar.isSitting() && (target instanceof StaticObjectInstance) && (((StaticObjectInstance) target).getType() == 1) && activeChar.isInsideRadius(target, StaticObjectInstance.INTERACTION_DISTANCE, false, false))
+		if (!activeChar.isSitting() && (target instanceof StaticObjectInstance instance) && (instance.getType() == 1) && activeChar.isInsideRadius(target, StaticObjectInstance.INTERACTION_DISTANCE, false, false))
 		{
-			final ChairSit cs = new ChairSit(activeChar, ((StaticObjectInstance) target).getId());
+			final ChairSit cs = new ChairSit(activeChar, instance.getId());
 			sendPacket(cs);
-			activeChar.setSittingObject((StaticObjectInstance) target);
+			activeChar.setSittingObject(instance);
 			activeChar.sitDown();
 			activeChar.broadcastPacket(cs);
 			return true;
@@ -818,9 +818,9 @@ public final class RequestActionUse extends GameClientPacket
 			return;
 		}
 
-		if (summon instanceof BabyPetInstance)
+		if (summon instanceof BabyPetInstance instance)
 		{
-			if (!((BabyPetInstance) summon).isInSupportMode() && skillId != SWITCH_STANCE_ID)
+			if (!instance.isInSupportMode() && skillId != SWITCH_STANCE_ID)
 			{
 				sendPacket(SystemMessageId.PET_AUXILIARY_MODE_CANNOT_USE_SKILLS);
 				return;

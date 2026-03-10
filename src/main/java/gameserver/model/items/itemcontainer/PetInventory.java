@@ -43,7 +43,7 @@ public class PetInventory extends Inventory
 		{
 			id = _owner.getOwner().getObjectId();
 		}
-		catch (final NullPointerException e)
+		catch (final NullPointerException _)
 		{
 			return 0;
 		}

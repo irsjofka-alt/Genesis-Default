@@ -330,7 +330,7 @@ public class TimeSkillsTaskManager extends LoggerObject
 			return true;
 		}
 		
-		final Map<TimeSkillTemplate, Long> sorted = _skillList.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+		final Map<TimeSkillTemplate, Long> sorted = _skillList.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, _) -> e1, LinkedHashMap::new));
 		if (!sorted.isEmpty())
 		{
 			long nextTime = sorted.entrySet().iterator().next().getValue() - System.currentTimeMillis();

@@ -49,9 +49,9 @@ public final class RewardInfo
 			return true;
 		}
 		
-		if (obj instanceof RewardInfo)
+		if (obj instanceof RewardInfo info)
 		{
-			return (((RewardInfo) obj)._attacker == _attacker);
+			return (info._attacker == _attacker);
 		}
 		return false;
 	}

@@ -171,7 +171,7 @@ public class ElvenHumanBuffers2 extends Quest
 		return htmltext;
 	}
 
-	public static void main(String[] args)
+	void main()
 	{
 		new ElvenHumanBuffers2();
 	}

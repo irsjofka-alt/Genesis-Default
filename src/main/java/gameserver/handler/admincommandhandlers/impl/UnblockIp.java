@@ -38,7 +38,7 @@ public class UnblockIp implements IAdminCommandHandler
 					activeChar.sendMessage("Removed IP " + ipAddress + " from blocklist!");
 				}
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				activeChar.sendMessage("Usage: //unblockip <ip>");
 			}

@@ -146,7 +146,7 @@ public class CommunityAuction extends AbstractCommunity implements ICommunityBoa
 								{
 									realPrice = auction.getPricePerItem() * Long.parseLong(quantity);
 								}
-								catch (final NumberFormatException e)
+								catch (final NumberFormatException _)
 								{
 									player.sendMessage((new ServerMessage("CommunityAuction.INVALID", player.getLang())).toString());
 									return;
@@ -170,7 +170,7 @@ public class CommunityAuction extends AbstractCommunity implements ICommunityBoa
 					html = fillAuctionListPage(player, html, page, priceItemId, itemTypes, grade, search, itemSort, gradeSort, quantitySort, priceSort);
 				}
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{}
 		}
 		else if (command.startsWith("_bbsNewAuction"))
@@ -314,7 +314,7 @@ public class CommunityAuction extends AbstractCommunity implements ICommunityBoa
 			{
 				auction = auctions.get(i);
 			}
-			catch (final RuntimeException e)
+			catch (final RuntimeException _)
 			{
 				break;
 			}
@@ -889,23 +889,16 @@ public class CommunityAuction extends AbstractCommunity implements ICommunityBoa
 	
 	protected String getElementColor(int attId)
 	{
-		switch (attId)
+		return switch (attId)
 		{
-			case 0 :
-				return "b36464";
-			case 1 :
-				return "528596";
-			case 2 :
-				return "768f91";
-			case 3 :
-				return "94775b";
-			case 4 :
-				return "8c8787";
-			case 5 :
-				return "4c558f";
-			default :
-				return "768f91";
-		}
+			case 0  -> "b36464";
+			case 1  -> "528596";
+			case 2  -> "768f91";
+			case 3  -> "94775b";
+			case 4  -> "8c8787";
+			case 5  -> "4c558f";
+			default  -> "768f91";
+		};
 	}
 	
 	protected String getGradeIcon(String grade)
@@ -992,7 +985,7 @@ public class CommunityAuction extends AbstractCommunity implements ICommunityBoa
 						quantity = Long.parseLong(sQuantity);
 						pricePerItem = Long.parseLong(sPricePerItem);
 					}
-					catch (final NumberFormatException e)
+					catch (final NumberFormatException _)
 					{
 						onBypassCommand("_bbsNewAuction_ " + _priceItemId + " _ c0 _ 0", _player);
 						return;

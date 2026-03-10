@@ -218,7 +218,7 @@ public class SepulcherNpcInstance extends NpcInstance
 				
 				if ((qlst != null) && (qlst.size() == 1))
 				{
-					qlst.get(0).notifyFirstTalk(this, player);
+					qlst.getFirst().notifyFirstTalk(this, player);
 				}
 				else
 				{
@@ -275,9 +275,9 @@ public class SepulcherNpcInstance extends NpcInstance
 			{
 				val = Integer.parseInt(command.substring(5));
 			}
-			catch (final IndexOutOfBoundsException ioobe)
+			catch (final IndexOutOfBoundsException _)
 			{}
-			catch (final NumberFormatException nfe)
+			catch (final NumberFormatException _)
 			{}
 			showChatWindow(player, val);
 		}

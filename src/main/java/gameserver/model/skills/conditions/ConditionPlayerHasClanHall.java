@@ -39,10 +39,10 @@ public final class ConditionPlayerHasClanHall extends Condition
 		final Clan clan = env.getPlayer().getClan();
 		if (clan == null)
 		{
-			return ((_clanHall.size() == 1) && (_clanHall.get(0) == 0));
+			return ((_clanHall.size() == 1) && (_clanHall.getFirst() == 0));
 		}
 
-		if ((_clanHall.size() == 1) && (_clanHall.get(0) == -1))
+		if ((_clanHall.size() == 1) && (_clanHall.getFirst() == -1))
 		{
 			return clan.getHideoutId() > 0;
 		}

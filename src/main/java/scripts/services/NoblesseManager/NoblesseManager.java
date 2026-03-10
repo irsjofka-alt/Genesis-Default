@@ -93,7 +93,7 @@ public class NoblesseManager extends AbstractNpcAI
 		player.sendPacket(html);
 	}
 	
-	public static void main(final String[] args)
+	void main()
 	{
 		new NoblesseManager();
 	}

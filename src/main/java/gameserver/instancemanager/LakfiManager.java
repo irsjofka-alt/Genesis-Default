@@ -148,7 +148,7 @@ public class LakfiManager extends LoggerObject
 						if (!curRewards.isEmpty())
 						{
 							Collections.sort(curRewards, LakfiRewardComparator.getInstance());
-							final LakfiRewardTemplate tpl = curRewards.get(curRewards.size() - 1);
+							final LakfiRewardTemplate tpl = curRewards.getLast();
 							if (tpl != null)
 							{
 								final long amount = tpl.getMinCount() != tpl.getMaxCount() ? Rnd.get(tpl.getMinCount(), tpl.getMaxCount()) : tpl.getMinCount();

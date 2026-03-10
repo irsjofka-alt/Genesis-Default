@@ -52,11 +52,11 @@ public class Test implements IAdminCommandHandler
 					adminTestSkill(activeChar, id, false);
 				}
 			}
-			catch (final NumberFormatException e)
+			catch (final NumberFormatException _)
 			{
 				activeChar.sendMessage("Command format is //skill_test <ID>");
 			}
-			catch (final NoSuchElementException nsee)
+			catch (final NoSuchElementException _)
 			{
 				activeChar.sendMessage("Command format is //skill_test <ID>");
 			}

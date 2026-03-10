@@ -66,7 +66,7 @@ public class CommunityLink extends AbstractCommunity implements ICommunityBoardH
 			{
 				url = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (url != null)
@@ -83,7 +83,7 @@ public class CommunityLink extends AbstractCommunity implements ICommunityBoardH
 			{
 				url = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (url != null)

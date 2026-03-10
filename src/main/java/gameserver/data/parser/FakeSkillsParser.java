@@ -127,22 +127,13 @@ public final class FakeSkillsParser extends DocumentParser
 				value = Integer.parseInt(attrs.getNamedItem("value").getNodeValue());
 				priority = Integer.parseInt(attrs.getNamedItem("priority").getNodeValue());
 				
-				SpellUsageCondition condition = null;
-				switch (cond)
+				SpellUsageCondition condition = switch (cond)
 				{
-					case "MOREHPPERCENT":
-						condition = SpellUsageCondition.MOREHPPERCENT;
-						break;
-					case "LESSHPPERCENT":
-							condition = SpellUsageCondition.LESSHPPERCENT;
-							break;
-					case "MISSINGCP":
-						condition = SpellUsageCondition.MISSINGCP;
-						break;
-					default:
-						condition = SpellUsageCondition.NONE;
-						break;
-				}
+					case "MOREHPPERCENT" -> SpellUsageCondition.MOREHPPERCENT;
+					case "LESSHPPERCENT" -> SpellUsageCondition.LESSHPPERCENT;
+					case "MISSINGCP" -> SpellUsageCondition.MISSINGCP;
+					default -> SpellUsageCondition.NONE;
+				};
 				
 				final Skill skill = SkillsParser.getInstance().getInfo(id, SkillsParser.getInstance().getMaxLevel(id));
 				if (skill == null)

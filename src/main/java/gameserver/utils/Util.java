@@ -126,9 +126,9 @@ public class Util extends Utils
 			return true;
 		}
 		int rad = 0;
-		if (obj2 instanceof Creature)
+		if (obj2 instanceof Creature creature)
 		{
-			rad += ((Creature) obj2).getTemplate().getCollisionRadius();
+			rad += creature.getTemplate().getCollisionRadius();
 		}
 		
 		final double dx = x - obj2.getX();
@@ -162,13 +162,13 @@ public class Util extends Utils
 		}
 		
 		int rad = 0;
-		if (obj1 instanceof Creature)
+		if (obj1 instanceof Creature creature)
 		{
-			rad += ((Creature) obj1).getTemplate().getCollisionRadius();
+			rad += creature.getTemplate().getCollisionRadius();
 		}
-		if (obj2 instanceof Creature)
+		if (obj2 instanceof Creature creature)
 		{
-			rad += ((Creature) obj2).getTemplate().getCollisionRadius();
+			rad += creature.getTemplate().getCollisionRadius();
 		}
 		
 		final double dx = obj1.getX() - obj2.getX();
@@ -625,17 +625,17 @@ public class Util extends Utils
 	{
 		if (number >= 1000000000)
 		{
-			final String line = forFinal(String.format("%.2f", number / 1000000000.0));
+			final String line = forFinal("%.2f".formatted(number / 1000000000.0));
 			return line + "" + ServerStorage.getInstance().getString(lang, "EpicDamageInfo.KKK");
 		}
 		if (number >= 1000000)
 		{
-			final String line = forFinal(String.format("%.2f", number / 1000000.0));
+			final String line = forFinal("%.2f".formatted(number / 1000000.0));
 			return line + "" + ServerStorage.getInstance().getString(lang, "EpicDamageInfo.KK");
 		}
 		if (number >= 1000)
 		{
-			final String line = forFinal(String.format("%.2f", number / 1000.0));
+			final String line = forFinal("%.2f".formatted(number / 1000.0));
 			return line + "" + ServerStorage.getInstance().getString(lang, "EpicDamageInfo.K");
 		}
 		return String.valueOf(number);

@@ -79,16 +79,15 @@ public class Unlock implements ISkillHandler
 					activeChar.sendPacket(SystemMessageId.FAILED_TO_UNLOCK_DOOR);
 				}
 			}
-			else if (target instanceof ChestInstance)
+			else if (target instanceof ChestInstance chest)
 			{
-				final ChestInstance chest = (ChestInstance) target;
 				if ((chest.getCurrentHp() <= 0) || (activeChar.getReflectionId() != chest.getReflectionId()))
 				{
 					activeChar.sendActionFailed();
 					return;
 				}
 
-				final ChestInstance targ = (ChestInstance) target;
+				final ChestInstance targ = chest;
 				if (!targ.isDead())
 				{
 					targ.tryOpen((Player) activeChar, skill);
@@ -104,19 +103,14 @@ public class Unlock implements ISkillHandler
 			return Rnd.get(100) < skill.getPower();
 		}
 		
-		switch (skill.getLevel())
+		return switch (skill.getLevel())
 		{
-			case 0 :
-				return false;
-			case 1 :
-				return Rnd.get(120) < 30;
-			case 2 :
-				return Rnd.get(120) < 50;
-			case 3 :
-				return Rnd.get(120) < 75;
-			default :
-				return Rnd.get(120) < 100;
-		}
+			case 0  -> false;
+			case 1  -> Rnd.get(120) < 30;
+			case 2  -> Rnd.get(120) < 50;
+			case 3  -> Rnd.get(120) < 75;
+			default  -> Rnd.get(120) < 100;
+		};
 	}
 	
 	@Override

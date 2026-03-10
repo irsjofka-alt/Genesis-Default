@@ -61,9 +61,9 @@ public abstract class ReceivablePacket extends org.nio.ReceivablePacket<GameServ
 		{
 			readImpl();
 		}
-		catch (final BufferUnderflowException e)
+		catch (final BufferUnderflowException _)
 		{}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 		return true;
@@ -76,7 +76,7 @@ public abstract class ReceivablePacket extends org.nio.ReceivablePacket<GameServ
 		{
 			runImpl();
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 		}
 	}

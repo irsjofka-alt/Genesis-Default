@@ -75,11 +75,11 @@ public final class GeoEngine
 				{
 					File geoFile;
 					boolean isL2Off = false;
-					if ((geoFile = new File(geoDir, String.format("%2d_%2d.l2j", rx, ry))).exists())
+					if ((geoFile = new File(geoDir, "%2d_%2d.l2j".formatted(rx, ry))).exists())
 					{
 						isL2Off = false;
 					}
-					else if ((geoFile = new File(geoDir, String.format("%2d_%2d_conv.dat", rx, ry))).exists())
+					else if ((geoFile = new File(geoDir, "%2d_%2d_conv.dat".formatted(rx, ry))).exists())
 					{
 						isL2Off = true;
 					}
@@ -93,7 +93,7 @@ public final class GeoEngine
 				}
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			_log.info("GeoEngine: Files missing, loading aborted.");
 		}

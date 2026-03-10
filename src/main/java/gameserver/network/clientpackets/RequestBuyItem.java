@@ -131,15 +131,15 @@ public final class RequestBuyItem extends GameClientPacket
 		
 		if (merchant != null)
 		{
-			if (merchant instanceof MerchantInstance)
+			if (merchant instanceof MerchantInstance instance)
 			{
-				if (!buyList.isNpcAllowed(((MerchantInstance) merchant).getId()))
+				if (!buyList.isNpcAllowed(instance.getId()))
 				{
 					sendActionFailed();
 					return;
 				}
-				castleTaxRate = ((MerchantInstance) merchant).getMpc().getCastleTaxRate();
-				baseTaxRate = ((MerchantInstance) merchant).getMpc().getBaseTaxRate();
+				castleTaxRate = instance.getMpc().getCastleTaxRate();
+				baseTaxRate = instance.getMpc().getBaseTaxRate();
 			}
 			else
 			{
@@ -265,9 +265,9 @@ public final class RequestBuyItem extends GameClientPacket
 			}
 		}
 		
-		if (merchant instanceof MerchantInstance)
+		if (merchant instanceof MerchantInstance instance)
 		{
-			((MerchantInstance) merchant).getCastle().addToTreasury((long) (subTotal * castleTaxRate));
+			instance.getCastle().addToTreasury((long) (subTotal * castleTaxRate));
 		}
 		
 		player.sendStatusUpdate(false, false, StatusUpdate.CUR_LOAD);

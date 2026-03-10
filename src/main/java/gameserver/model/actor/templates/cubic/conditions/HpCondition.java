@@ -36,17 +36,11 @@ public class HpCondition implements ICubicCondition
 		if (target.isCreature() || target.isDoor())
 		{
 			final double hpPer = (target.isDoor() ? (DoorInstance) target : (Creature) target).getCurrentHpPercents();
-			switch (_type)
+			return switch (_type)
 			{
-				case GREATER:
-				{
-					return hpPer > _hpPer;
-				}
-				case LESSER:
-				{
-					return hpPer < _hpPer;
-				}
-			}
+				case GREATER -> hpPer > _hpPer;
+				case LESSER -> hpPer < _hpPer;
+			};
 		}
 		return false;
 	}
@@ -54,6 +48,6 @@ public class HpCondition implements ICubicCondition
 	public enum HpConditionType
 	{
 		GREATER,
-		LESSER;
+		LESSER
 	}
 }

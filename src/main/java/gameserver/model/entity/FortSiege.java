@@ -688,22 +688,14 @@ public class FortSiege implements Siegable
 				{
 					if (spawn2.getId() == spawn.getId())
 					{
-						NpcStringId npcString = null;
-						switch (spawn2.getId())
+						NpcStringId npcString = switch (spawn2.getId())
 						{
-							case 1 :
-								npcString = NpcStringId.YOU_MAY_HAVE_BROKEN_OUR_ARROWS_BUT_YOU_WILL_NEVER_BREAK_OUR_WILL_ARCHERS_RETREAT;
-								break;
-							case 2 :
-								npcString = NpcStringId.AIIEEEE_COMMAND_CENTER_THIS_IS_GUARD_UNIT_WE_NEED_BACKUP_RIGHT_AWAY;
-								break;
-							case 3 :
-								npcString = NpcStringId.AT_LAST_THE_MAGIC_FIELD_THAT_PROTECTS_THE_FORTRESS_HAS_WEAKENED_VOLUNTEERS_STAND_BACK;
-								break;
-							case 4 :
-								npcString = NpcStringId.I_FEEL_SO_MUCH_GRIEF_THAT_I_CANT_EVEN_TAKE_CARE_OF_MYSELF_THERE_ISNT_ANY_REASON_FOR_ME_TO_STAY_HERE_ANY_LONGER;
-								break;
-						}
+							case 1  -> NpcStringId.YOU_MAY_HAVE_BROKEN_OUR_ARROWS_BUT_YOU_WILL_NEVER_BREAK_OUR_WILL_ARCHERS_RETREAT;
+							case 2  -> NpcStringId.AIIEEEE_COMMAND_CENTER_THIS_IS_GUARD_UNIT_WE_NEED_BACKUP_RIGHT_AWAY;
+							case 3  -> NpcStringId.AT_LAST_THE_MAGIC_FIELD_THAT_PROTECTS_THE_FORTRESS_HAS_WEAKENED_VOLUNTEERS_STAND_BACK;
+							case 4  -> NpcStringId.I_FEEL_SO_MUCH_GRIEF_THAT_I_CANT_EVEN_TAKE_CARE_OF_MYSELF_THERE_ISNT_ANY_REASON_FOR_ME_TO_STAY_HERE_ANY_LONGER;
+							default -> null;
+						};
 						if (npcString != null)
 						{
 							instance.broadcastPacket(new NpcSay(instance.getObjectId(), Say2.NPC_SHOUT, instance.getId(), npcString));
@@ -949,18 +941,12 @@ public class FortSiege implements Siegable
 
 	public void teleportPlayer(TeleportWhoType teleportWho, TeleportWhereType teleportWhere)
 	{
-		List<Player> players;
-		switch (teleportWho)
+		List<Player> players = switch (teleportWho)
 		{
-			case Owner :
-				players = getOwnersInZone();
-				break;
-			case Attacker :
-				players = getAttackersInZone();
-				break;
-			default :
-				players = getPlayersInZone();
-		}
+			case Owner  -> getOwnersInZone();
+			case Attacker  -> getAttackersInZone();
+			default  -> getPlayersInZone();
+		};
 
 		for (final Player player : players)
 		{

@@ -59,7 +59,7 @@ public class HtmCache extends LoggerObject
 		{
 			info("start...");
 			parseDir(f);
-			info("" + String.format("%.3f", getMemoryUsage()) + " megabytes on " + getLoadedFiles() + " files loaded...");
+			info("" + "%.3f".formatted(getMemoryUsage()) + " megabytes on " + getLoadedFiles() + " files loaded...");
 		}
 	}
 

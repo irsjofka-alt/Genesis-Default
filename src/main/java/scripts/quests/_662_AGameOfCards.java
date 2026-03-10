@@ -104,7 +104,7 @@ public class _662_AGameOfCards extends Quest
 				final int cardn = Integer.valueOf(event.replaceAll("card", ""));
 				return _games.get(player_id).next(cardn, this, st, player);
 			}
-			catch (final Exception E)
+			catch (final Exception _)
 			{
 				return null;
 			}

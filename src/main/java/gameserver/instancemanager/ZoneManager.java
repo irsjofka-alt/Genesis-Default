@@ -84,9 +84,9 @@ public class ZoneManager extends DocumentParser
 		load();
 		for (final GameObject obj : GameObjectsStorage.getObjects())
 		{
-			if (obj instanceof Creature)
+			if (obj instanceof Creature creature)
 			{
-				((Creature) obj).revalidateZone(true);
+				creature.revalidateZone(true);
 			}
 		}
 		_settings.clear();
@@ -160,7 +160,7 @@ public class ZoneManager extends DocumentParser
 							zoneConstructor = newZone.getConstructor(int.class);
 							temp = (ZoneType) zoneConstructor.newInstance(zoneId);
 						}
-						catch (final Exception e)
+						catch (final Exception _)
 						{
 							warn("No such zone type: " + zoneType + " in file: " + getCurrentFile().getName());
 							continue;
@@ -253,22 +253,22 @@ public class ZoneManager extends DocumentParser
 								
 								temp.setParameter(name, val);
 							}
-							else if ("spawn".equalsIgnoreCase(cd.getNodeName()) && (temp instanceof ZoneRespawn))
+							else if ("spawn".equalsIgnoreCase(cd.getNodeName()) && (temp instanceof ZoneRespawn respawn))
 							{
 								attrs = cd.getAttributes();
 								final int spawnX = Integer.parseInt(attrs.getNamedItem("X").getNodeValue());
 								final int spawnY = Integer.parseInt(attrs.getNamedItem("Y").getNodeValue());
 								final int spawnZ = Integer.parseInt(attrs.getNamedItem("Z").getNodeValue());
 								final Node val = attrs.getNamedItem("type");
-								((ZoneRespawn) temp).parseLoc(spawnX, spawnY, spawnZ, val == null ? null : val.getNodeValue());
+								respawn.parseLoc(spawnX, spawnY, spawnZ, val == null ? null : val.getNodeValue());
 							}
-							else if ("race".equalsIgnoreCase(cd.getNodeName()) && (temp instanceof RespawnZone))
+							else if ("race".equalsIgnoreCase(cd.getNodeName()) && (temp instanceof RespawnZone zone))
 							{
 								attrs = cd.getAttributes();
 								final String race = attrs.getNamedItem("name").getNodeValue();
 								final String point = attrs.getNamedItem("point").getNodeValue();
 								
-								((RespawnZone) temp).addRaceRespawnPoint(race, point);
+								zone.addRaceRespawnPoint(race, point);
 							}
 						}
 						if (checkId(zoneId))
@@ -321,9 +321,9 @@ public class ZoneManager extends DocumentParser
 							_timeZones.add(temp);
 						}
 						
-						if (temp instanceof BossZone)
+						if (temp instanceof BossZone zone)
 						{
-							_bossZones.add((BossZone) temp);
+							_bossZones.add(zone);
 						}
 					}
 				}
@@ -529,9 +529,9 @@ public class ZoneManager extends DocumentParser
 		{
 			for (final ZoneType temp : zones)
 			{
-				if (temp != null && temp.isEnabled() && (temp instanceof ArenaZone) && temp.isCharacterInZone(creature))
+				if (temp != null && temp.isEnabled() && (temp instanceof ArenaZone zone) && temp.isCharacterInZone(creature))
 				{
-					return ((ArenaZone) temp);
+					return zone;
 				}
 			}
 		}
@@ -550,9 +550,9 @@ public class ZoneManager extends DocumentParser
 		{
 			for (final ZoneType temp : zones)
 			{
-				if (temp != null && temp.isEnabled() && (temp instanceof OlympiadStadiumZone) && temp.isCharacterInZone(creature))
+				if (temp != null && temp.isEnabled() && (temp instanceof OlympiadStadiumZone zone) && temp.isCharacterInZone(creature))
 				{
-					return ((OlympiadStadiumZone) temp);
+					return zone;
 				}
 			}
 		}

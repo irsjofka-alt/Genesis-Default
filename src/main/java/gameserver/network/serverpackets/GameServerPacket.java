@@ -126,7 +126,7 @@ public abstract class GameServerPacket extends SendablePacket<GameClient>
 		{
 			return ServerPacketOpcodes.valueOf(getClass().getSimpleName());
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			_log.warn("Cannot find serverpacket opcode: " + getClass().getSimpleName() + "!");
 		}

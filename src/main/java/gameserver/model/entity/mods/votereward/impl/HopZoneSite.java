@@ -63,7 +63,7 @@ public class HopZoneSite extends VoteRewardSite
 	@Override
 	public boolean tryGiveRewards(Player player)
 	{
-		final String serverResponse = getApiResponse(String.format("https://api.hopzone.net/lineage2/vote?token=%s&ip_address=%s", _apiKey, player.getIPAddress()), false);
+		final String serverResponse = getApiResponse("https://api.hopzone.net/lineage2/vote?token=%s&ip_address=%s".formatted(_apiKey, player.getIPAddress()), false);
 		if (serverResponse == null)
 		{
 			return false;

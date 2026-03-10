@@ -111,7 +111,7 @@ public class Effects implements IAdminCommandHandler
 				final EarthQuake eq = new EarthQuake(activeChar.getX(), activeChar.getY(), activeChar.getZ(), intensity, duration);
 				activeChar.broadcastPacket(eq);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //earthquake <intensity> <duration>");
 			}
@@ -125,7 +125,7 @@ public class Effects implements IAdminCommandHandler
 				final int duration = Integer.parseInt(st.nextToken());
 				adminAtmosphere(type, state, duration, activeChar);
 			}
-			catch (final Exception ex)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //atmosphere <signsky dawn|dusk>|<sky day|night|red> <duration>");
 			}
@@ -142,7 +142,7 @@ public class Effects implements IAdminCommandHandler
 				adminhtm.setFile(activeChar, activeChar.getLang(), "data/html/admin/songs/songs" + command.substring(18) + ".htm");
 				activeChar.sendPacket(adminhtm);
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				activeChar.sendMessage("Usage: //play_sounds <pagenumber>");
 			}
@@ -153,7 +153,7 @@ public class Effects implements IAdminCommandHandler
 			{
 				playAdminSound(activeChar, command.substring(17));
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				activeChar.sendMessage("Usage: //play_sound <soundname>");
 			}
@@ -172,7 +172,7 @@ public class Effects implements IAdminCommandHandler
 					}
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 		else if (command.equals("admin_unpara_all"))
@@ -185,7 +185,7 @@ public class Effects implements IAdminCommandHandler
 					player.setIsParalyzed(false);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 		else if (command.startsWith("admin_para"))
@@ -195,15 +195,15 @@ public class Effects implements IAdminCommandHandler
 			{
 				type = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			try
 			{
 				final GameObject target = activeChar.getTarget();
 				Creature player = null;
-				if (target instanceof Creature)
+				if (target instanceof Creature creature)
 				{
-					player = (Creature) target;
+					player = creature;
 					if (type.equals("1"))
 					{
 						player.startAbnormalEffect(AbnormalEffect.HOLD_1);
@@ -216,7 +216,7 @@ public class Effects implements IAdminCommandHandler
 					player.startParalyze();
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 		else if (command.startsWith("admin_unpara"))
@@ -226,15 +226,15 @@ public class Effects implements IAdminCommandHandler
 			{
 				type = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			try
 			{
 				final GameObject target = activeChar.getTarget();
 				Creature player = null;
-				if (target instanceof Creature)
+				if (target instanceof Creature creature)
 				{
-					player = (Creature) target;
+					player = creature;
 					if (type.equals("1"))
 					{
 						player.stopAbnormalEffect(AbnormalEffect.HOLD_1);
@@ -246,7 +246,7 @@ public class Effects implements IAdminCommandHandler
 					player.setIsParalyzed(false);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 		else if (command.startsWith("admin_bighead"))
@@ -255,13 +255,13 @@ public class Effects implements IAdminCommandHandler
 			{
 				final GameObject target = activeChar.getTarget();
 				Creature player = null;
-				if (target instanceof Creature)
+				if (target instanceof Creature creature)
 				{
-					player = (Creature) target;
+					player = creature;
 					player.startAbnormalEffect(AbnormalEffect.BIG_HEAD);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 		else if (command.startsWith("admin_shrinkhead"))
@@ -270,13 +270,13 @@ public class Effects implements IAdminCommandHandler
 			{
 				final GameObject target = activeChar.getTarget();
 				Creature player = null;
-				if (target instanceof Creature)
+				if (target instanceof Creature creature)
 				{
-					player = (Creature) target;
+					player = creature;
 					player.stopAbnormalEffect(AbnormalEffect.BIG_HEAD);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 		else if (command.startsWith("admin_gmspeed"))
@@ -295,7 +295,7 @@ public class Effects implements IAdminCommandHandler
 					activeChar.doSimultaneousCast(gmSpeedSkill);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //gmspeed <value> (0=off...4=max)");
 			}
@@ -315,7 +315,7 @@ public class Effects implements IAdminCommandHandler
 				activeChar.teleToLocation(activeChar.getX(), activeChar.getY(), activeChar.getZ(), false, activeChar.getReflection());
 				activeChar.broadcastCharInfo();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //polyself <npcId>");
 			}
@@ -337,7 +337,7 @@ public class Effects implements IAdminCommandHandler
 					player.broadcastUserInfo(true);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 		else if (command.startsWith("admin_setteam_close"))
@@ -356,7 +356,7 @@ public class Effects implements IAdminCommandHandler
 					player.setTeam(teamVal);
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //setteam_close <teamId>");
 			}
@@ -378,7 +378,7 @@ public class Effects implements IAdminCommandHandler
 				}
 				target.setTeam(teamVal);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //setteam <teamId>");
 			}
@@ -417,7 +417,7 @@ public class Effects implements IAdminCommandHandler
 								}
 								activeChar.sendMessage(radius + " units radius affected by your request.");
 							}
-							catch (final NumberFormatException nbe)
+							catch (final NumberFormatException _)
 							{
 								activeChar.sendMessage("Incorrect parameter");
 							}
@@ -493,7 +493,7 @@ public class Effects implements IAdminCommandHandler
 								}
 								activeChar.sendMessage(radius + " units radius affected by your request.");
 							}
-							catch (final NumberFormatException nbe)
+							catch (final NumberFormatException _)
 							{
 								activeChar.sendMessage("Usage: //abnormal <hex_abnormal_mask> [player|radius]");
 							}
@@ -569,7 +569,7 @@ public class Effects implements IAdminCommandHandler
 								}
 								activeChar.sendMessage(radius + " units radius affected by your request.");
 							}
-							catch (final NumberFormatException nbe)
+							catch (final NumberFormatException _)
 							{
 								activeChar.sendMessage("Usage: //special <hex_special_mask> [player|radius]");
 							}
@@ -637,7 +637,7 @@ public class Effects implements IAdminCommandHandler
 				}
 
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //effect skill [level | level hittime]");
 			}
@@ -657,7 +657,7 @@ public class Effects implements IAdminCommandHandler
 				final int diplayeffect = Integer.parseInt(type);
 				npc.setDisplayEffect(diplayeffect);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //set_displayeffect <id>");
 			}
@@ -671,9 +671,8 @@ public class Effects implements IAdminCommandHandler
 
 	private boolean performAbnormal(int action, GameObject target)
 	{
-		if (target instanceof Creature)
+		if (target instanceof Creature character)
 		{
-			final Creature character = (Creature) target;
 			final AbnormalEffect eff = AbnormalEffect.getById(action);
 			if (eff != null)
 			{
@@ -719,7 +718,7 @@ public class Effects implements IAdminCommandHandler
 	{
 		try
 		{
-			if (target instanceof Creature)
+			if (target instanceof Creature character)
 			{
 				if (target instanceof ChestInstance)
 				{
@@ -736,7 +735,6 @@ public class Effects implements IAdminCommandHandler
 					activeChar.sendPacket(SystemMessageId.NOTHING_HAPPENED);
 					return false;
 				}
-				final Creature character = (Creature) target;
 				character.broadcastPacket(new SocialAction(character.getObjectId(), action));
 			}
 			else
@@ -744,7 +742,7 @@ public class Effects implements IAdminCommandHandler
 				return false;
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 		return true;
 	}

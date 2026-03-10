@@ -79,7 +79,7 @@ public class L2VotesSite extends VoteRewardSite
 	{
 		try
 		{
-			final var obj = new URL(String.format("https://l2votes.com/api.php?apiKey=%s&ip=%s", _apiKey, player.getIPAddress()));
+			final var obj = new URL("https://l2votes.com/api.php?apiKey=%s&ip=%s".formatted(_apiKey, player.getIPAddress()));
 			final var con = obj.openConnection();
 			con.addRequestProperty("Host", obj.getHost());
 			con.addRequestProperty("Accept", "*/*");
@@ -115,7 +115,7 @@ public class L2VotesSite extends VoteRewardSite
 					{
 						reader.close();
 					}
-					catch (final IOException e)
+					catch (final IOException _)
 					{
 					}
 				}
@@ -125,7 +125,7 @@ public class L2VotesSite extends VoteRewardSite
 					{
 						stream.close();
 					}
-					catch (final IOException e)
+					catch (final IOException _)
 					{
 					}
 				}

@@ -83,7 +83,7 @@ public class MainConfig
 					STRIX_PLATFORM_SECOND_KEY = Integer.parseInt(protectionSettings.getProperty("strixplatform.globalconfig.StrixPlatformSecondKey", "-1"));
 					STX_PF_XOR_KEY = "" + STRIX_PLATFORM_SECOND_KEY;
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					Log.error("Error on load key string from guard config. Please check StrixPlatformKey and StrixPlatformSecondKey in " + CONFIG_FILE);
 					STRIX_PLATFORM_ENABLED = false;
@@ -121,7 +121,7 @@ public class MainConfig
 				FAILED_CHECK_ACTIVE_WINDOW = FailedCheckResolve.valueOf(protectionSettings.getProperty("strixplatform.check.ActiveWindow", "NONE"));
 			}
 		}
-		catch (final IOException e)
+		catch (final IOException _)
 		{
 			Log.error("Config file not found or parser return error. Please check " + CONFIG_FILE + " file");
 		}
@@ -193,7 +193,7 @@ public class MainConfig
 				STRIX_PLATFORM_MANUAL_CLIENT_SIDE_VERSION = Integer.parseInt(protectionSettings.getProperty("strixplatform.globalconfig.ManualClientSideVersion", "0"));
 			}
 		}
-		catch (final IOException e)
+		catch (final IOException _)
 		{
 			Log.error("Config file not found or parser return error. Please check " + CONFIG_FILE + " file");
 		}

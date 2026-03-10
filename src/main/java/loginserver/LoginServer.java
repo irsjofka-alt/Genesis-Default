@@ -116,7 +116,7 @@ public class LoginServer
 				ss.close();
 				binded = true;
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				_log.warn("Port " + host.getPort() + " is already binded. Please free it and restart server!");
 				binded = false;
@@ -124,7 +124,7 @@ public class LoginServer
 				{
 					Thread.sleep(1000);
 				}
-				catch (final InterruptedException e2)
+				catch (final InterruptedException _)
 				{}
 			}
 		}
@@ -151,7 +151,7 @@ public class LoginServer
 				{
 					Thread.sleep(Config.LOGIN_SERVER_SCHEDULE_RESTART_TIME * 3600000);
 				}
-				catch (final InterruptedException e)
+				catch (final InterruptedException _)
 				{
 					return;
 				}
@@ -167,7 +167,7 @@ public class LoginServer
 		return _loginServer;
 	}
 
-	public static void main(String[] args) throws Exception
+	void main() throws Exception
 	{
 		_loginServer = new LoginServer();
 	}

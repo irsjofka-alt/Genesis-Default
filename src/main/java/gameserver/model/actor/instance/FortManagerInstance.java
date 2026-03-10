@@ -400,16 +400,11 @@ public class FortManagerInstance extends MerchantInstance
 								html.setFile(player, player.getLang(), "data/html/fortress/functions-apply.htm");
 								html.replace("%name%", "(HP Recovery Device)");
 								final int percent = Integer.parseInt(val);
-								int cost;
-								switch (percent)
+								int cost = switch (percent)
 								{
-									case 300 :
-										cost = Config.FS_HPREG1_FEE;
-										break;
-									default :
-										cost = Config.FS_HPREG2_FEE;
-										break;
-								}
+									case 300  -> Config.FS_HPREG1_FEE;
+									default  -> Config.FS_HPREG2_FEE;
+								};
 								
 								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(Config.FS_HPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day</font>)");
 								html.replace("%use%", "Provides additional HP recovery for clan members in the fortress.<font color=\"00FFFF\">" + String.valueOf(percent) + "%</font>");
@@ -424,16 +419,11 @@ public class FortManagerInstance extends MerchantInstance
 								html.setFile(player, player.getLang(), "data/html/fortress/functions-apply.htm");
 								html.replace("%name%", "(MP Recovery)");
 								final int percent = Integer.parseInt(val);
-								int cost;
-								switch (percent)
+								int cost = switch (percent)
 								{
-									case 40 :
-										cost = Config.FS_MPREG1_FEE;
-										break;
-									default :
-										cost = Config.FS_MPREG2_FEE;
-										break;
-								}
+									case 40  -> Config.FS_MPREG1_FEE;
+									default  -> Config.FS_MPREG2_FEE;
+								};
 								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(Config.FS_MPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day</font>)");
 								html.replace("%use%", "Provides additional MP recovery for clan members in the fortress.<font color=\"00FFFF\">" + String.valueOf(percent) + "%</font>");
 								html.replace("%apply%", "recovery mp " + String.valueOf(percent));
@@ -447,16 +437,11 @@ public class FortManagerInstance extends MerchantInstance
 								html.setFile(player, player.getLang(), "data/html/fortress/functions-apply.htm");
 								html.replace("%name%", "(EXP Recovery Device)");
 								final int percent = Integer.parseInt(val);
-								int cost;
-								switch (percent)
+								int cost = switch (percent)
 								{
-									case 45 :
-										cost = Config.FS_EXPREG1_FEE;
-										break;
-									default :
-										cost = Config.FS_EXPREG2_FEE;
-										break;
-								}
+									case 45  -> Config.FS_EXPREG1_FEE;
+									default  -> Config.FS_EXPREG2_FEE;
+								};
 								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(Config.FS_EXPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day</font>)");
 								html.replace("%use%", "Restores the Exp of any clan member who is resurrected in the fortress.<font color=\"00FFFF\">" + String.valueOf(percent) + "%</font>");
 								html.replace("%apply%", "recovery exp " + String.valueOf(percent));
@@ -675,16 +660,11 @@ public class FortManagerInstance extends MerchantInstance
 								html.setFile(player, player.getLang(), "data/html/fortress/functions-apply.htm");
 								html.replace("%name%", "Insignia (Supplementary Magic)");
 								final int stage = Integer.parseInt(val);
-								int cost;
-								switch (stage)
+								int cost = switch (stage)
 								{
-									case 1 :
-										cost = Config.FS_SUPPORT1_FEE;
-										break;
-									default :
-										cost = Config.FS_SUPPORT2_FEE;
-										break;
-								}
+									case 1  -> Config.FS_SUPPORT1_FEE;
+									default  -> Config.FS_SUPPORT2_FEE;
+								};
 								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(Config.FS_SUPPORT_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day</font>)");
 								html.replace("%use%", "Enables the use of supplementary magic.");
 								html.replace("%apply%", "other support " + String.valueOf(stage));
@@ -698,16 +678,11 @@ public class FortManagerInstance extends MerchantInstance
 								html.setFile(player, player.getLang(), "data/html/fortress/functions-apply.htm");
 								html.replace("%name%", "Mirror (Teleportation Device)");
 								final int stage = Integer.parseInt(val);
-								int cost;
-								switch (stage)
+								int cost = switch (stage)
 								{
-									case 1 :
-										cost = Config.FS_TELE1_FEE;
-										break;
-									default :
-										cost = Config.FS_TELE2_FEE;
-										break;
-								}
+									case 1  -> Config.FS_TELE1_FEE;
+									default  -> Config.FS_TELE2_FEE;
+								};
 								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(Config.FS_TELE_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day</font>)");
 								html.replace("%use%", "Teleports clan members in a fort to the target <font color=\"00FFFF\">Stage " + String.valueOf(stage) + "</font> staging area");
 								html.replace("%apply%", "other tele " + String.valueOf(stage));
@@ -908,12 +883,12 @@ public class FortManagerInstance extends MerchantInstance
 						html.replace("%mp%", String.valueOf((int) getCurrentMp()));
 						sendHtmlMessage(player, html);
 					}
-					catch (final Exception e)
+					catch (final Exception _)
 					{
 						player.sendMessage("Invalid skill level, contact your admin!");
 					}
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					player.sendMessage("Invalid skill level, contact your admin!");
 				}

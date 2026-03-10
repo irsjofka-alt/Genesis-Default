@@ -147,7 +147,7 @@ public final class FloodProtectorAction
 				address = _client.getConnection().getSocket().getInetAddress().getHostAddress();
 			}
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 		
 		switch (_client.getState())

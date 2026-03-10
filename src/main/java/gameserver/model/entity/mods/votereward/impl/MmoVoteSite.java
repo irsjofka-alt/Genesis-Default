@@ -69,7 +69,7 @@ public class MmoVoteSite extends AbstractAutoRewardSite
 	@Override
 	protected void parseVotes(Map<String, List<IntIntPair>> votesCache)
 	{
-		final String serverResponse = getApiResponse(String.format("http://stat.mmovote.ru/ru/stat/%s", serverVotesLink), false);
+		final String serverResponse = getApiResponse("http://stat.mmovote.ru/ru/stat/%s".formatted(serverVotesLink), false);
 		if (serverResponse != null)
 		{
 			final Matcher m = VOTES_PATTERN.matcher(serverResponse);
@@ -82,7 +82,7 @@ public class MmoVoteSite extends AbstractAutoRewardSite
 				}
 				catch (final Exception e)
 				{
-					error(String.format("Cannot parse voting date: %s", m.group(2)), e);
+					error("Cannot parse voting date: %s".formatted(m.group(2)), e);
 					continue;
 				}
 				
@@ -96,7 +96,7 @@ public class MmoVoteSite extends AbstractAutoRewardSite
 					identifier = m.group(6);
 				}
 				
-				final List<IntIntPair> votes = votesCache.computeIfAbsent(identifier.toLowerCase(), list -> new ArrayList<>());
+				final List<IntIntPair> votes = votesCache.computeIfAbsent(identifier.toLowerCase(), _ -> new ArrayList<>());
 				votes.add(new IntIntPairImpl((int) (voteDate.getTime() / 1000), Integer.parseInt(m.group(7))));
 			}
 		}

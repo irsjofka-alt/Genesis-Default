@@ -307,9 +307,8 @@ public class FakePlayerManager
 	public void despawnFakePlayer(int objectId)
 	{
 		final Player player = GameObjectsStorage.getPlayer(objectId);
-		if (player instanceof FakePlayer)
+		if (player instanceof FakePlayer fakePlayer)
 		{
-			final FakePlayer fakePlayer = (FakePlayer) player;
 			if (removeFakePlayers(fakePlayer))
 			{
 				fakePlayer.kick();

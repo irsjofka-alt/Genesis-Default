@@ -40,9 +40,9 @@ public class Pledge implements IAdminCommandHandler
 	{
 		final GameObject target = activeChar.getTarget();
 		Player player = null;
-		if (target instanceof Player)
+		if (target instanceof Player player1)
 		{
-			player = (Player) target;
+			player = player1;
 		}
 		else
 		{
@@ -67,7 +67,7 @@ public class Pledge implements IAdminCommandHandler
 				action = st.nextToken();
 				parameter = st.nextToken();
 			}
-			catch (final NoSuchElementException nse)
+			catch (final NoSuchElementException _)
 			{
 				return false;
 			}
@@ -143,7 +143,7 @@ public class Pledge implements IAdminCommandHandler
 					clan.addReputationScore(points, true);
 					activeChar.sendMessage("You " + (points > 0 ? "add " : "remove ") + Math.abs(points) + " points " + (points > 0 ? "to " : "from ") + clan.getName() + "'s reputation. Their current score is " + clan.getReputationScore());
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					activeChar.sendMessage("Usage: //pledge <rep> <number>");
 				}

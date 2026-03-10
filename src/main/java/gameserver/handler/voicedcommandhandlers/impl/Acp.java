@@ -112,7 +112,7 @@ public class Acp implements IVoicedCommandHandler
 				{
 					percent = params[2];
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				
 				if (percent != null)
@@ -132,7 +132,7 @@ public class Acp implements IVoicedCommandHandler
 							per = 0;
 						}
 					}
-					catch (final NumberFormatException nfe)
+					catch (final NumberFormatException _)
 					{
 						if (params[1].equalsIgnoreCase("set_hp"))
 						{
@@ -197,7 +197,7 @@ public class Acp implements IVoicedCommandHandler
 				{
 					item = params[2];
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				
 				if (item != null)
@@ -207,7 +207,7 @@ public class Acp implements IVoicedCommandHandler
 					{
 						itemId = Integer.parseInt(item);
 					}
-					catch (final NumberFormatException nfe)
+					catch (final NumberFormatException _)
 					{}
 					
 					if (itemId == 0)

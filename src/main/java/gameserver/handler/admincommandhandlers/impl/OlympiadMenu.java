@@ -52,7 +52,7 @@ public class OlympiadMenu implements IAdminCommandHandler
 			{
 				Olympiad.getInstance().manualSelectHeroes();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Problem while ending olympiad...");
 			}
@@ -65,7 +65,7 @@ public class OlympiadMenu implements IAdminCommandHandler
 			{
 				Olympiad.getInstance().manualStartNewOlympiad();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Problem while starting olympiad...");
 			}
@@ -74,9 +74,8 @@ public class OlympiadMenu implements IAdminCommandHandler
 		else if (command.startsWith("admin_sethero"))
 		{
 			final GameObject target = activeChar.getTarget();
-			if (target instanceof Player)
+			if (target instanceof Player targetPlayer)
 			{
-				final Player targetPlayer = (Player) target;
 				final boolean isHero = targetPlayer.isHero();
 				if (isHero)
 				{

@@ -112,7 +112,7 @@ public class Config
 					is.close();
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 	}
@@ -198,7 +198,7 @@ public class Config
 			{
 				scanner.close();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 		}
 	}

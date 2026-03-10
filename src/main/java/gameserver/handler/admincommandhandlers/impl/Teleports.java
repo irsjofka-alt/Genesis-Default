@@ -106,7 +106,7 @@ public class Teleports implements IAdminCommandHandler
 			{
 				npcId = Integer.parseInt(st.nextToken());
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (npcId != 0)
@@ -120,7 +120,7 @@ public class Teleports implements IAdminCommandHandler
 						return true;
 					}
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				activeChar.sendMessage("Npc with id: " + npcId + " not found!");
 			}
@@ -139,7 +139,7 @@ public class Teleports implements IAdminCommandHandler
 			{
 				bossId = Integer.parseInt(st.nextToken());
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (bossId != 0)
@@ -191,12 +191,12 @@ public class Teleports implements IAdminCommandHandler
 				final var val = command.substring(14);
 				teleportTo(activeChar, val);
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				adminhtm.setFile(activeChar, activeChar.getLang(), "data/html/admin/teleports.htm");
 				activeChar.sendPacket(adminhtm);
 			}
-			catch (final NumberFormatException nfe)
+			catch (final NumberFormatException _)
 			{
 				activeChar.sendMessage("Usage: //move_to <x> <y> <z>");
 				adminhtm.setFile(activeChar, activeChar.getLang(), "data/html/admin/teleports.htm");
@@ -211,7 +211,7 @@ public class Teleports implements IAdminCommandHandler
 
 				teleportCharacter(activeChar, val);
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{
 				activeChar.sendMessage("Wrong or no Coordinates given.");
 				showTeleportCharWindow(activeChar);
@@ -225,7 +225,7 @@ public class Teleports implements IAdminCommandHandler
 				final var player = GameObjectsStorage.getPlayer(targetName);
 				teleportToCharacter(activeChar, player);
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{}
 		}
 		else if (command.startsWith("admin_recall "))
@@ -249,7 +249,7 @@ public class Teleports implements IAdminCommandHandler
 					changeCharacterPosition(activeChar, targetName);
 				}
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{}
 		}
 		else if (command.startsWith("admin_recall_players"))
@@ -298,21 +298,21 @@ public class Teleports implements IAdminCommandHandler
 			{
 				x = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			try
 			{
 				y = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			try
 			{
 				z = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (x != null && y != null)
@@ -369,7 +369,7 @@ public class Teleports implements IAdminCommandHandler
 				activeChar.teleToLocation(x, y, z, false, ReflectionManager.DEFAULT);
 				showTeleportWindow(activeChar);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Usage: //go<north|south|east|west|up|down> [offset] (default 150)");
 			}
@@ -411,28 +411,16 @@ public class Teleports implements IAdminCommandHandler
 
 	private void teleportHome(Player player)
 	{
-		String regionName;
-		switch (player.getRace())
+		String regionName = switch (player.getRace())
 		{
-			case ELF :
-				regionName = "elf_town";
-				break;
-			case DARKELF :
-				regionName = "darkelf_town";
-				break;
-			case ORC :
-				regionName = "orc_town";
-				break;
-			case DWARF :
-				regionName = "dwarf_town";
-				break;
-			case KAMAEL :
-				regionName = "kamael_town";
-				break;
+			case ELF : yield "elf_town";
+			case DARKELF : yield "darkelf_town";
+			case ORC : yield "orc_town";
+			case DWARF : yield "dwarf_town";
+			case KAMAEL : yield "kamael_town";
 			case HUMAN :
-			default :
-				regionName = "talking_island_town";
-		}
+			default : yield "talking_island_town";
+		};
 
 		player.teleToLocation(MapRegionManager.getInstance().getMapRegionByName(regionName).getSpawnLoc(), true, ReflectionManager.DEFAULT);
 		player.setIsIn7sDungeon(false);
@@ -455,7 +443,7 @@ public class Teleports implements IAdminCommandHandler
 
 			activeChar.sendMessage("You have been teleported to " + Coords);
 		}
-		catch (final NoSuchElementException nsee)
+		catch (final NoSuchElementException _)
 		{
 			activeChar.sendMessage("Wrong or no Coordinates given.");
 		}
@@ -472,9 +460,9 @@ public class Teleports implements IAdminCommandHandler
 	{
 		final var target = activeChar.getTarget();
 		Player player = null;
-		if (target instanceof Player)
+		if (target instanceof Player player1)
 		{
-			player = (Player) target;
+			player = player1;
 		}
 		else
 		{
@@ -492,9 +480,9 @@ public class Teleports implements IAdminCommandHandler
 	{
 		final var target = activeChar.getTarget();
 		Player player = null;
-		if (target instanceof Player)
+		if (target instanceof Player player1)
 		{
-			player = (Player) target;
+			player = player1;
 		}
 		else
 		{
@@ -519,7 +507,7 @@ public class Teleports implements IAdminCommandHandler
 				final var z = Integer.parseInt(z1);
 				teleportCharacter(player, x, y, z, null);
 			}
-			catch (final NoSuchElementException nsee)
+			catch (final NoSuchElementException _)
 			{}
 		}
 	}
@@ -554,9 +542,9 @@ public class Teleports implements IAdminCommandHandler
 		}
 
 		Player player = null;
-		if (target instanceof Player)
+		if (target instanceof Player player1)
 		{
-			player = (Player) target;
+			player = player1;
 		}
 		else
 		{
@@ -626,7 +614,7 @@ public class Teleports implements IAdminCommandHandler
 				activeChar.sendMessage("Player's [" + name + "] position is now set to (" + x + "," + y + "," + z + ").");
 			}
 		}
-		catch (final SQLException se)
+		catch (final SQLException _)
 		{
 			activeChar.sendMessage("SQLException while changing offline character's position");
 		}
@@ -639,9 +627,8 @@ public class Teleports implements IAdminCommandHandler
 	private void recallNPC(Player activeChar)
 	{
 		final var obj = activeChar.getTarget();
-		if ((obj instanceof Npc) && !((Npc) obj).isMinion() && !(obj instanceof RaidBossInstance) && !(obj instanceof GrandBossInstance))
+		if ((obj instanceof Npc target) && !target.isMinion() && !(obj instanceof RaidBossInstance) && !(obj instanceof GrandBossInstance))
 		{
-			final var target = (Npc) obj;
 
 			final var monsterTemplate = target.getTemplate().getId();
 			final var template1 = NpcsParser.getInstance().getTemplate(monsterTemplate);
@@ -690,15 +677,14 @@ public class Teleports implements IAdminCommandHandler
 					_log.warn("GM: " + activeChar.getName(null) + "(" + activeChar.getObjectId() + ") moved NPC " + target.getObjectId());
 				}
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendMessage("Target is not in game.");
 			}
 
 		}
-		else if (obj instanceof RaidBossInstance)
+		else if (obj instanceof RaidBossInstance target)
 		{
-			final var target = (RaidBossInstance) obj;
 			final var spawn = target.getSpawn();
 			if (spawn == null)
 			{
@@ -726,7 +712,7 @@ public class Teleports implements IAdminCommandHandler
 
 				RaidBossSpawnManager.getInstance().addNewSpawn(spawnDat, true);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				activeChar.sendPacket(SystemMessageId.TARGET_CANT_FOUND);
 			}

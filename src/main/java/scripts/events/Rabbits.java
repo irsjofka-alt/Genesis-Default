@@ -287,9 +287,9 @@ public class Rabbits extends AbstractWorldEvent
 		}
 		else if (skill.getId() == _skill_magic_eye && npc.isInvisible() && npc.isInRange(caster, skill.getAffectRange()))
 		{
-			if (npc instanceof EventChestInstance)
+			if (npc instanceof EventChestInstance instance)
 			{
-				((EventChestInstance) npc).trigger(caster);
+				instance.trigger(caster);
 			}
 		}
 		return super.onSkillSee(npc, caster, skill, targets, isSummon);

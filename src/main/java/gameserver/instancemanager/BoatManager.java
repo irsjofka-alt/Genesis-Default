@@ -123,7 +123,7 @@ public class BoatManager extends LoggerObject
 		{
 			_docksBusy[h] = value;
 		}
-		catch (final ArrayIndexOutOfBoundsException e)
+		catch (final ArrayIndexOutOfBoundsException _)
 		{}
 	}
 
@@ -133,7 +133,7 @@ public class BoatManager extends LoggerObject
 		{
 			return _docksBusy[h];
 		}
-		catch (final ArrayIndexOutOfBoundsException e)
+		catch (final ArrayIndexOutOfBoundsException _)
 		{
 			return false;
 		}

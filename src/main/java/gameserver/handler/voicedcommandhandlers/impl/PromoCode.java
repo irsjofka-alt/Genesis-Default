@@ -97,60 +97,54 @@ public class PromoCode implements IVoicedCommandHandler
 						{
 							block = template;
 							block = block.replace("%icon%", reward.getIcon());
-							if (reward instanceof AddLevelCodeReward)
-							{
-								final ServerMessage msg = new ServerMessage("PromoCode.ADD_LEVEL", player.getLang());
-								msg.add(((AddLevelCodeReward) reward).getLevel());
-								block = block.replace("%data%", msg.toString());
-							}
-							else if (reward instanceof ExpCodeReward)
-							{
-								final ServerMessage msg = new ServerMessage("PromoCode.ADD_EXP", player.getLang());
-								msg.add(((ExpCodeReward) reward).getExp());
-								block = block.replace("%data%", msg.toString());
-							}
-							else if (reward instanceof ItemCodeReward)
-							{
-								final ServerMessage msg = new ServerMessage("PromoCode.ADD_ITEM", player.getLang());
-								msg.add(ItemsParser.getInstance().getTemplate(((ItemCodeReward) reward).getItemId()).getName(player.getLang()));
-								msg.add(((ItemCodeReward) reward).getCount());
-								block = block.replace("%data%", msg.toString());
-							}
-							else if (reward instanceof PremiumCodeReward)
-							{
-								final ServerMessage msg = new ServerMessage("PromoCode.ADD_PREMIUM", player.getLang());
-								msg.add(TimeUtils.formatTime(player, (int) PremiumAccountsParser.getInstance().getPremiumTemplate(((PremiumCodeReward) reward).getPremiumId()).getTime()));
-								block = block.replace("%data%", msg.toString());
-							}
-							else if (reward instanceof SetLevelCodeReward)
-							{
-								final ServerMessage msg = new ServerMessage("PromoCode.CHANGE_LEVEL", player.getLang());
-								msg.add(((SetLevelCodeReward) reward).getLevel());
-								block = block.replace("%data%", msg.toString());
-							}
-							else if (reward instanceof SpCodeReward)
-							{
-								final ServerMessage msg = new ServerMessage("PromoCode.ADD_SP", player.getLang());
-								msg.add(((SpCodeReward) reward).getSp());
-								block = block.replace("%data%", msg.toString());
-							}
-							else if (reward instanceof FameCodeReward)
-							{
-								final ServerMessage msg = new ServerMessage("PromoCode.ADD_FAME", player.getLang());
-								msg.add(((FameCodeReward) reward).getFame());
-								block = block.replace("%data%", msg.toString());
-							}
-							else if (reward instanceof PcPointCodeReward)
-							{
-								final ServerMessage msg = new ServerMessage("PromoCode.ADD_PC_POINTS", player.getLang());
-								msg.add(((PcPointCodeReward) reward).getPcPoints());
-								block = block.replace("%data%", msg.toString());
-							}
-							else if (reward instanceof ReputationCodeReward)
-							{
-								final ServerMessage msg = new ServerMessage("PromoCode.ADD_REPUTATION", player.getLang());
-								msg.add(((ReputationCodeReward) reward).getReputation());
-								block = block.replace("%data%", msg.toString());
+							switch (reward) {
+								case AddLevelCodeReward codeReward8 -> {
+									final ServerMessage msg = new ServerMessage("PromoCode.ADD_LEVEL", player.getLang());
+									msg.add(codeReward8.getLevel());
+									block = block.replace("%data%", msg.toString());
+								}
+								case ExpCodeReward codeReward7 -> {
+									final ServerMessage msg = new ServerMessage("PromoCode.ADD_EXP", player.getLang());
+									msg.add(codeReward7.getExp());
+									block = block.replace("%data%", msg.toString());
+								}
+								case ItemCodeReward codeReward6 -> {
+									final ServerMessage msg = new ServerMessage("PromoCode.ADD_ITEM", player.getLang());
+									msg.add(ItemsParser.getInstance().getTemplate(codeReward6.getItemId()).getName(player.getLang()));
+									msg.add(codeReward6.getCount());
+									block = block.replace("%data%", msg.toString());
+								}
+								case PremiumCodeReward codeReward5 -> {
+									final ServerMessage msg = new ServerMessage("PromoCode.ADD_PREMIUM", player.getLang());
+									msg.add(TimeUtils.formatTime(player, (int) PremiumAccountsParser.getInstance().getPremiumTemplate(codeReward5.getPremiumId()).getTime()));
+									block = block.replace("%data%", msg.toString());
+								}
+								case SetLevelCodeReward codeReward4 -> {
+									final ServerMessage msg = new ServerMessage("PromoCode.CHANGE_LEVEL", player.getLang());
+									msg.add(codeReward4.getLevel());
+									block = block.replace("%data%", msg.toString());
+								}
+								case SpCodeReward codeReward3 -> {
+									final ServerMessage msg = new ServerMessage("PromoCode.ADD_SP", player.getLang());
+									msg.add(codeReward3.getSp());
+									block = block.replace("%data%", msg.toString());
+								}
+								case FameCodeReward codeReward2 -> {
+									final ServerMessage msg = new ServerMessage("PromoCode.ADD_FAME", player.getLang());
+									msg.add(codeReward2.getFame());
+									block = block.replace("%data%", msg.toString());
+								}
+								case PcPointCodeReward codeReward1 -> {
+									final ServerMessage msg = new ServerMessage("PromoCode.ADD_PC_POINTS", player.getLang());
+									msg.add(codeReward1.getPcPoints());
+									block = block.replace("%data%", msg.toString());
+								}
+								case ReputationCodeReward codeReward -> {
+									final ServerMessage msg = new ServerMessage("PromoCode.ADD_REPUTATION", player.getLang());
+									msg.add(codeReward.getReputation());
+									block = block.replace("%data%", msg.toString());
+								}
+								default -> {}
 							}
 							list += block;
 						}

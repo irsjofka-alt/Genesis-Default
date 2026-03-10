@@ -245,7 +245,7 @@ public class SufferingHallAttack extends AbstractReflection
 		}
 	}
 	
-	public static void main(String[] args)
+	void main()
 	{
 		new SufferingHallAttack();
 	}

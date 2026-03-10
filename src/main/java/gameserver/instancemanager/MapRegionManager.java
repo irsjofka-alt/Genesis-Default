@@ -287,7 +287,7 @@ public final class MapRegionManager extends DocumentParser
 							final List<Npc> flags = castle.getSiege().getFlag(player.getClan());
 							if ((flags != null) && !flags.isEmpty())
 							{
-								final Npc flag = flags.get(0);
+								final Npc flag = flags.getFirst();
 								return new Location(flag.getX(), flag.getY(), flag.getZ());
 							}
 						}
@@ -300,7 +300,7 @@ public final class MapRegionManager extends DocumentParser
 							final List<Npc> flags = fort.getSiege().getFlag(player.getClan());
 							if ((flags != null) && !flags.isEmpty())
 							{
-								final Npc flag = flags.get(0);
+								final Npc flag = flags.getFirst();
 								return new Location(flag.getX(), flag.getY(), flag.getZ());
 							}
 						}
@@ -311,7 +311,7 @@ public final class MapRegionManager extends DocumentParser
 						final List<Npc> flags = sHall.getSiege().getFlag(player.getClan());
 						if ((flags != null) && !flags.isEmpty())
 						{
-							final Npc flag = flags.get(0);
+							final Npc flag = flags.getFirst();
 							return new Location(flag.getX(), flag.getY(), flag.getZ());
 						}
 					}
@@ -354,7 +354,7 @@ public final class MapRegionManager extends DocumentParser
 					}
 					return getMapRegion(activeChar).getChaoticSpawnLoc();
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					if (player.isFlyingMounted())
 					{
@@ -404,7 +404,7 @@ public final class MapRegionManager extends DocumentParser
 			}
 			return region.getSpawnLoc();
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			return _regions.get("talking_island_town").getSpawnLoc();
 		}
@@ -423,7 +423,7 @@ public final class MapRegionManager extends DocumentParser
 			}
 			return region;
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{
 			return _regions.get("talking_island_town");
 		}

@@ -149,35 +149,18 @@ public abstract class Item implements IIdentifiable
 	
 	public String getItemsGrade(int itemGrade)
 	{
-		String grade = "";
-		switch (itemGrade)
+		return switch (itemGrade)
 		{
-			case 0 :
-				grade = "NONE";
-				break;
-			case 1 :
-				grade = "D";
-				break;
-			case 2 :
-				grade = "C";
-				break;
-			case 3 :
-				grade = "B";
-				break;
-			case 4 :
-				grade = "A";
-				break;
-			case 5 :
-				grade = "S";
-				break;
-			case 6 :
-				grade = "S80";
-				break;
-			case 7 :
-				grade = "S84";
-				break;
-		}
-		return grade;
+			case 0  -> "NONE";
+			case 1  -> "D";
+			case 2  -> "C";
+			case 3  -> "B";
+			case 4  -> "A";
+			case 5  -> "S";
+			case 6  -> "S80";
+			case 7  -> "S84";
+			default -> "";
+		};
 	}
 
 	private static final int[] CRYSTAL_ITEM_ID =
@@ -384,7 +367,7 @@ public abstract class Item implements IIdentifiable
 					_SkillsHolder[used] = new SkillHolder(id, level);
 					++used;
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 					_log.warn(StringUtil.concat("Failed to parse item_skill(", element, ") for item ", toString(), "! Format: SkillId0-SkillLevel0[;SkillIdN-SkillLevelN]"));
 				}
@@ -411,7 +394,7 @@ public abstract class Item implements IIdentifiable
 					id = Integer.parseInt(info[0]);
 					level = Integer.parseInt(info[1]);
 				}
-				catch (final Exception nfe)
+				catch (final Exception _)
 				{
 					_log.info(StringUtil.concat("Couldnt parse ", skills, " in weapon unequip skills! item ", toString()));
 				}
@@ -566,7 +549,7 @@ public abstract class Item implements IIdentifiable
 		{
 			return _params.getString(lang != null ? "name" + lang.substring(0, 1).toUpperCase() + lang.substring(1) : "name" + Config.MULTILANG_DEFAULT.substring(0, 1).toUpperCase() + Config.MULTILANG_DEFAULT.substring(1));
 		}
-		catch (final IllegalArgumentException e)
+		catch (final IllegalArgumentException _)
 		{
 			return "";
 		}
@@ -900,9 +883,9 @@ public abstract class Item implements IIdentifiable
 		
 		final Env env = new Env();
 		env.setCharacter(activeChar);
-		if (target instanceof Creature)
+		if (target instanceof Creature creature)
 		{
-			env.setTarget((Creature) target);
+			env.setTarget(creature);
 		}
 		
 		for (final Condition preCondition : _preConditions)

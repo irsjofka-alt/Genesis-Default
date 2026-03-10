@@ -427,7 +427,7 @@ public class _335_TheSongOfTheHunter extends Quest
 			{
 				request_id = Integer.valueOf(event);
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{
 				return null;
 			}

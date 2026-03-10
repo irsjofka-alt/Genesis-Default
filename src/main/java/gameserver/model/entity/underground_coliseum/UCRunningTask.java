@@ -56,10 +56,10 @@ public class UCRunningTask implements Runnable
 			if (_arena.getWaitingList().size() >= 1)
 			{
 				final UCTeam other = winnerTeam.getOtherTeam();
-				final UCWaiting otherWaiting = _arena.getWaitingList().get(0);
+				final UCWaiting otherWaiting = _arena.getWaitingList().getFirst();
 				other.setParty(otherWaiting.getParty());
 				other.setRegisterTime(otherWaiting.getRegisterMillis());
-				_arena.getWaitingList().remove(0);
+				_arena.getWaitingList().removeFirst();
 				_arena.prepareStart();
 				return;
 			}

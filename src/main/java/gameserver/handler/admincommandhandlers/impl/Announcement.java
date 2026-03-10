@@ -75,7 +75,7 @@ public class Announcement implements IAdminCommandHandler
 				}
 				Announcements.getInstance().handleAnnounce(command, 0, true);
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{}
 			adminhtm.setFile(activeChar, activeChar.getLang(), "data/html/admin/gm_menu.htm");
 			activeChar.sendPacket(adminhtm);
@@ -98,7 +98,7 @@ public class Announcement implements IAdminCommandHandler
 					Announcements.getInstance().addAnnouncement(val);
 					Announcements.getInstance().listAnnouncements(activeChar);
 				}
-				catch (final StringIndexOutOfBoundsException e)
+				catch (final StringIndexOutOfBoundsException _)
 				{}
 			}
 		}
@@ -112,7 +112,7 @@ public class Announcement implements IAdminCommandHandler
 					Announcements.getInstance().addCritAnnouncement(val);
 					Announcements.getInstance().listCritAnnouncements(activeChar);
 				}
-				catch (final StringIndexOutOfBoundsException e)
+				catch (final StringIndexOutOfBoundsException _)
 				{}
 			}
 		}
@@ -124,7 +124,7 @@ public class Announcement implements IAdminCommandHandler
 				Announcements.getInstance().delAnnouncement(val);
 				Announcements.getInstance().listAnnouncements(activeChar);
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{}
 		}
 		else if (command.startsWith("admin_del_critannouncement"))
@@ -135,7 +135,7 @@ public class Announcement implements IAdminCommandHandler
 				Announcements.getInstance().delCritAnnouncement(val);
 				Announcements.getInstance().listCritAnnouncements(activeChar);
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{}
 		}
 		else if (command.startsWith("admin_announce"))
@@ -159,7 +159,7 @@ public class Announcement implements IAdminCommandHandler
 				}
 				Announcements.getInstance().handleAnnounce(command, 0, true);
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{}
 		}
 		else if (command.startsWith("admin_list_autoann"))
@@ -182,7 +182,7 @@ public class Announcement implements IAdminCommandHandler
 			{
 				initial = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			String delay = null;
@@ -190,7 +190,7 @@ public class Announcement implements IAdminCommandHandler
 			{
 				delay = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			String repeat = null;
@@ -198,7 +198,7 @@ public class Announcement implements IAdminCommandHandler
 			{
 				repeat = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			String isCritical = null;
@@ -206,7 +206,7 @@ public class Announcement implements IAdminCommandHandler
 			{
 				isCritical = st.nextToken();
 			}
-			catch (final Exception e)
+			catch (final Exception _)
 			{}
 			
 			if (initial != null && delay != null && repeat != null && isCritical != null)

@@ -114,7 +114,7 @@ public class Enchant implements IVoicedCommandHandler
 						player.getEnchantParams().isChangingMaxEnchant = false;
 					}
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 				}
 			}
@@ -147,7 +147,7 @@ public class Enchant implements IVoicedCommandHandler
 					player.getEnchantParams().upgradeItemLimit = userLimit;
 					player.getEnchantParams().isChangingUpgradeItemLimit = false;
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{
 				}
 			}

@@ -969,38 +969,18 @@ public final class SkillTreesParser extends DocumentParser
 	
 	public SkillLearn getSkillLearn(AcquireSkillType skillType, int id, int lvl, Player player)
 	{
-		SkillLearn sl = null;
-		switch (skillType)
+		return switch (skillType)
 		{
-			case CLASS :
-				sl = getClassSkill(id, lvl, player.getClassId());
-				break;
-			case TRANSFORM :
-				sl = getTransformSkill(id, lvl);
-				break;
-			case FISHING :
-				sl = getFishingSkill(id, lvl);
-				break;
-			case PLEDGE :
-				sl = getPledgeSkill(id, lvl);
-				break;
-			case SUBPLEDGE :
-				sl = getSubPledgeSkill(id, lvl);
-				break;
-			case TRANSFER :
-				sl = getTransferSkill(id, lvl, player.getClassId());
-				break;
-			case SUBCLASS :
-				sl = getSubClassSkill(id, lvl);
-				break;
-			case COLLECT :
-				sl = getCollectSkill(id, lvl);
-				break;
-			case CUSTOM :
-				sl = getCustomSkill(id, lvl, player.getLearningGroupId());
-				break;
-		}
-		return sl;
+			case CLASS  -> getClassSkill(id, lvl, player.getClassId());
+			case TRANSFORM  -> getTransformSkill(id, lvl);
+			case FISHING  -> getFishingSkill(id, lvl);
+			case PLEDGE  -> getPledgeSkill(id, lvl);
+			case SUBPLEDGE  -> getSubPledgeSkill(id, lvl);
+			case TRANSFER  -> getTransferSkill(id, lvl, player.getClassId());
+			case SUBCLASS  -> getSubClassSkill(id, lvl);
+			case COLLECT  -> getCollectSkill(id, lvl);
+			case CUSTOM  -> getCustomSkill(id, lvl, player.getLearningGroupId());
+		};
 	}
 	
 	public SkillLearn getTransformSkill(int id, int lvl)

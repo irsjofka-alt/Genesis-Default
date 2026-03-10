@@ -99,7 +99,7 @@ public class Menu implements IVoicedCommandHandler
 				{
 					percent = params[2];
 				}
-				catch (final Exception e)
+				catch (final Exception _)
 				{}
 				
 				if (percent != null)
@@ -119,7 +119,7 @@ public class Menu implements IVoicedCommandHandler
 							per = 0;
 						}
 					}
-					catch (final NumberFormatException nfe)
+					catch (final NumberFormatException _)
 					{
 						if (params[1].equalsIgnoreCase("set_logout"))
 						{

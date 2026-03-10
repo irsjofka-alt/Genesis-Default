@@ -280,7 +280,7 @@ public abstract class Vehicle extends Creature
 		{
 			_passengers.remove(player);
 		}
-		catch (final Exception e)
+		catch (final Exception _)
 		{}
 	}
 	

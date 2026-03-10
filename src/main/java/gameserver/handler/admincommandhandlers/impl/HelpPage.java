@@ -36,7 +36,7 @@ public class HelpPage implements IAdminCommandHandler
 				final String val = command.substring(11);
 				showHelpPage(activeChar, val);
 			}
-			catch (final StringIndexOutOfBoundsException e)
+			catch (final StringIndexOutOfBoundsException _)
 			{}
 		}
 

@@ -169,25 +169,13 @@ public final class WyvernManager extends AbstractNpcAI
 	
 	private String getResidenceName(Player player, Npc npc)
 	{
-		switch (MANAGERS.get(npc.getId()))
+		return switch (MANAGERS.get(npc.getId()))
 		{
-			case CASTLE :
-			{
-				return npc.getCastle().getName(player.getLang());
-			}
-			case CLAN_HALL :
-			{
-				return npc.getConquerableHall().getTemplate().getName(player.getLang());
-			}
-			case FORT :
-			{
-				return npc.getFort().getName();
-			}
-			default :
-			{
-				return null;
-			}
-		}
+			case CASTLE  -> npc.getCastle().getName(player.getLang());
+			case CLAN_HALL  -> npc.getConquerableHall().getTemplate().getName(player.getLang());
+			case FORT  -> npc.getFort().getName();
+			default  -> null;
+		};
 	}
 	
 	private String replaceAll(Player player, Npc npc, String lang)
