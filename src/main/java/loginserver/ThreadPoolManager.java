@@ -15,7 +15,10 @@
 package loginserver;
 
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -27,24 +30,32 @@ public class ThreadPoolManager
 {
 	private static final long MAX_DELAY = TimeUnit.NANOSECONDS.toMillis(Long.MAX_VALUE - System.nanoTime()) / 2;
 	
-	private final ScheduledThreadPoolExecutor _scheduledExecutor;
-	private final ThreadPoolExecutor _executor;
+	private final ScheduledExecutorService _scheduledExecutor;
+	private final ExecutorService _executor;
 	
 	private boolean _shutdown;
 
 	private ThreadPoolManager()
 	{
-		_scheduledExecutor = new ScheduledThreadPoolExecutor(1);
-		_scheduledExecutor.setRemoveOnCancelPolicy(true);
-		_executor = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(100000));
+		// Use Project Loom virtual threads for Java 25
+		_scheduledExecutor = Executors.newScheduledThreadPool(1, Thread.ofVirtual().factory());
+		if (_scheduledExecutor instanceof ScheduledThreadPoolExecutor stpe)
+		{
+			stpe.setRemoveOnCancelPolicy(true);
+		}
+		
+		// Create virtual thread executor
+		_executor = Executors.newThreadPerTaskExecutor(Thread.ofVirtual().factory());
 		
 		scheduleAtFixedRate(new Runnable()
 		{
 			@Override
 			public void run()
 			{
-			_scheduledExecutor.purge();
-			_executor.purge();
+				if (_scheduledExecutor instanceof ScheduledThreadPoolExecutor stpe)
+				{
+					stpe.purge();
+				}
 			}
 		}, 600000L, 600000L);
 	}
@@ -110,12 +121,18 @@ public class ThreadPoolManager
 		try
 		{
 			_scheduledExecutor.shutdown();
-			_scheduledExecutor.awaitTermination(10, TimeUnit.SECONDS);
+			if (_scheduledExecutor instanceof ScheduledThreadPoolExecutor stpe)
+			{
+				stpe.awaitTermination(10, TimeUnit.SECONDS);
+			}
 		}
 		finally
 		{
 			_executor.shutdown();
-			_executor.awaitTermination(1, TimeUnit.MINUTES);
+			if (_executor instanceof ThreadPoolExecutor tpe)
+			{
+				tpe.awaitTermination(1, TimeUnit.MINUTES);
+			}
 		}
 	}
 	

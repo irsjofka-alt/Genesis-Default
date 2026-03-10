@@ -15,11 +15,15 @@
 package gameserver;
 
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.ThreadFactory;
 
 import l2e.commons.log.LoggerObject;
 import l2e.commons.threading.RunnableWrapper;
@@ -30,39 +34,39 @@ public class ThreadPoolManager extends LoggerObject
 	
 	private static int _threadPoolRandomizer;
 	
-	protected ScheduledThreadPoolExecutor[] _scheduledExecutor;
-	protected ThreadPoolExecutor[] _executor;
+	protected ScheduledExecutorService[] _scheduledExecutor;
+	protected ExecutorService[] _executor;
 	
 	private boolean _shutdown;
 	
 	private ThreadPoolManager()
 	{
+		// Use Project Loom virtual threads for Java 25
 		int poolCount = Config.SCHEDULED_THREAD_POOL_SIZE;
-		_scheduledExecutor = new ScheduledThreadPoolExecutor[poolCount];
+		_scheduledExecutor = new ScheduledExecutorService[poolCount];
 		for (int i = 0; i < poolCount; i++)
 		{
-			_scheduledExecutor[i] = new ScheduledThreadPoolExecutor(4);
+			// Create virtual thread scheduler
+			_scheduledExecutor[i] = Executors.newScheduledThreadPool(4, Thread.ofVirtual().factory());
 		}
 		
 		poolCount = Config.EXECUTOR_THREAD_POOL_SIZE;
-		_executor = new ThreadPoolExecutor[poolCount];
+		_executor = new ExecutorService[poolCount];
 		for (int i = 0; i < poolCount; i++)
 		{
-			_executor[i] = new ThreadPoolExecutor(2, 2, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(100000));
+			// Create virtual thread executor
+			_executor[i] = Executors.newThreadPerTaskExecutor(Thread.ofVirtual().factory());
 		}
 		
 		for (final var threadPool : _scheduledExecutor)
 		{
-			threadPool.setRemoveOnCancelPolicy(true);
-			threadPool.prestartAllCoreThreads();
+			if (threadPool instanceof ScheduledThreadPoolExecutor stpe)
+			{
+				stpe.setRemoveOnCancelPolicy(true);
+				stpe.prestartAllCoreThreads();
+			}
 		}
 		
-		for (final var threadPool : _executor)
-		{
-			threadPool.prestartAllCoreThreads();
-		}
-		
-
 		scheduleAtFixedRate(new Runnable()
 		{
 			@Override
@@ -70,12 +74,10 @@ public class ThreadPoolManager extends LoggerObject
 			{
 				for (final var threadPool : _scheduledExecutor)
 				{
-					threadPool.purge();
-				}
-				
-				for (final var threadPool : _executor)
-				{
-					threadPool.purge();
+					if (threadPool instanceof ScheduledThreadPoolExecutor stpe)
+					{
+						stpe.purge();
+					}
 				}
 			}
 		}, 60000L, 60000L);
@@ -185,14 +187,21 @@ public class ThreadPoolManager extends LoggerObject
 			final var threadPool = _scheduledExecutor[i];
 			info("=================================================");
 			info("ScheduledPool #" + i + ":");
-			info("getActiveCount: ...... " + threadPool.getActiveCount());
-			info("getCorePoolSize: ..... " + threadPool.getCorePoolSize());
-			info("getPoolSize: ......... " + threadPool.getPoolSize());
-			info("getLargestPoolSize: .. " + threadPool.getLargestPoolSize());
-			info("getMaximumPoolSize: .. " + threadPool.getMaximumPoolSize());
-			info("getCompletedTaskCount: " + threadPool.getCompletedTaskCount());
-			info("getQueuedTaskCount: .. " + threadPool.getQueue().size());
-			info("getTaskCount: ........ " + threadPool.getTaskCount());
+			if (threadPool instanceof ScheduledThreadPoolExecutor stpe)
+			{
+				info("getActiveCount: ...... " + stpe.getActiveCount());
+				info("getCorePoolSize: ..... " + stpe.getCorePoolSize());
+				info("getPoolSize: ......... " + stpe.getPoolSize());
+				info("getLargestPoolSize: .. " + stpe.getLargestPoolSize());
+				info("getMaximumPoolSize: .. " + stpe.getMaximumPoolSize());
+				info("getCompletedTaskCount: " + stpe.getCompletedTaskCount());
+				info("getQueuedTaskCount: .. " + stpe.getQueue().size());
+				info("getTaskCount: ........ " + stpe.getTaskCount());
+			}
+			else
+			{
+				info("Virtual Thread Scheduler (Project Loom)");
+			}
 		}
 		
 		for (int i = 0; i < _executor.length; i++)
@@ -200,14 +209,21 @@ public class ThreadPoolManager extends LoggerObject
 			final var threadPool = _executor[i];
 			info("=================================================");
 			info("ExecutorPool #" + i + ":");
-			info("getActiveCount: ...... " + threadPool.getActiveCount());
-			info("getCorePoolSize: ..... " + threadPool.getCorePoolSize());
-			info("getPoolSize: ......... " + threadPool.getPoolSize());
-			info("getLargestPoolSize: .. " + threadPool.getLargestPoolSize());
-			info("getMaximumPoolSize: .. " + threadPool.getMaximumPoolSize());
-			info("getCompletedTaskCount: " + threadPool.getCompletedTaskCount());
-			info("getQueuedTaskCount: .. " + threadPool.getQueue().size());
-			info("getTaskCount: ........ " + threadPool.getTaskCount());
+			if (threadPool instanceof ThreadPoolExecutor tpe)
+			{
+				info("getActiveCount: ...... " + tpe.getActiveCount());
+				info("getCorePoolSize: ..... " + tpe.getCorePoolSize());
+				info("getPoolSize: ......... " + tpe.getPoolSize());
+				info("getLargestPoolSize: .. " + tpe.getLargestPoolSize());
+				info("getMaximumPoolSize: .. " + tpe.getMaximumPoolSize());
+				info("getCompletedTaskCount: " + tpe.getCompletedTaskCount());
+				info("getQueuedTaskCount: .. " + tpe.getQueue().size());
+				info("getTaskCount: ........ " + tpe.getTaskCount());
+			}
+			else
+			{
+				info("Virtual Thread Executor (Project Loom)");
+			}
 		}
 	}
 	
