@@ -3,8 +3,10 @@ import java.util.Date
 plugins {
     java
     idea
-    id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("org.openrewrite.rewrite") version "7.7.0"
+    // Gunakan ID dan versi baru untuk Shadow
+    id("com.gradleup.shadow") version "9.3.2"
+    // Update ke versi terbaru OpenRewrite
+    id("org.openrewrite.rewrite") version "7.28.0"
 }
 
 group = "com.genesis"
@@ -16,6 +18,9 @@ repositories {
 }
 
 java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(25))
+    }
     sourceCompatibility = JavaVersion.VERSION_25
     targetCompatibility = JavaVersion.VERSION_25
 }
@@ -51,8 +56,14 @@ dependencies {
     implementation(files("lib/l2e-fakes.jar"))
     
     // OpenRewrite for Java migration
-    rewrite("org.openrewrite.recipe:rewrite-migrate-java:3.4.0")
-    rewrite("org.openrewrite:rewrite-java:9.4.0")
+    // Pastikan ini ada agar OpenRewrite bisa memproses syntax Java 25
+    rewrite("org.openrewrite:rewrite-java-25:8.75.2")
+    rewrite("org.openrewrite.recipe:rewrite-migrate-java:3.29.0")
+    rewrite("org.openrewrite:rewrite-java:8.75.2")
+    
+    // Additional recipes for Java 8 to Java 25 migration
+    rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.29.0")
+    rewrite("org.openrewrite.recipe:rewrite-testing-frameworks:3.29.0")
     
     // Testing
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
@@ -116,4 +127,10 @@ tasks.register("cleanAll") {
     dependsOn("clean")
     group = "build"
     description = "Clean all build outputs"
+}
+
+rewrite {
+    activeRecipe("org.openrewrite.java.migrate.UpgradeToJava25")
+    activeRecipe("org.openrewrite.java.migrate.Java8toJava11")
+    activeRecipe("org.openrewrite.staticanalysis.CommonStaticAnalysis")
 }
